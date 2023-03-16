@@ -1,0 +1,99 @@
+name: MyPlugin
+main: testPack.Main
+version: 1.0
+depend: [NickAPI, TitleAPI, PlayerNPC]
+commands:
+  killMe:
+   description: Player kill command
+   usage: /killMe
+  ChangeAir:
+   description: ChangeAir command
+   usage: /ChangeAir
+  WallPaint:
+   description: WallPaint command
+   usage: /WallPaint
+  Where:
+   description: Where are you
+   usage: /Where
+  ServerChat:
+   description: ServerChat
+   usage: /ServerChat
+  Msg:
+   description: message
+   usage: /msg
+  C:
+   description: creative
+   usage: /c
+  Party:
+   description: party
+   usage: /party
+  SetBiome:
+   description: setBiome
+   usage: /setBiome
+  VilTp:
+   description: VilTp
+   usage: /VilTp
+  SpawnVil:
+   description: SpawnVil
+   usage: /SpawnVil
+  EmeraldToggle:
+   description: Emerald Change Toggle
+   usage: /EmeraldToggle
+  Chest:
+   description: Chest
+   usage: /chest
+  ItemLock:
+   description: ItemLock
+   usage: /ItemLock
+  skiptutorial:
+   description: skiptutorial
+   usage: /skiptutorial
+  class:
+   description: class
+   usage: /class
+  ExpToggle:
+   description: ExpToggle
+   usage: /ExpToggle
+  ItemToggle:
+   description: ItemToggle
+   usage: /ItemToggle
+  k:
+   description: k
+   usage: /k
+  LoveWood:
+   description: I love Wood
+   usage: /LoveWood
+  Trade:
+   description: trade system
+   usage: /trade
+  MysteryChest:
+   description: MysteryChest counter check
+   usage: /MysteryChest
+  CraftName:
+   description: rename to crafting item
+   usage: /CraftName
+  setSkin:
+   description: set player skin
+   usage: /setSkin
+  InheritanceToggle:
+   description: Inheritance Lock Toggle
+   usage: /InheritanceToggle
+  setLocalizedName:
+   description: set Localized Name
+   usage: /setLocalizedName
+  velocity:
+   description: <entity> <x> <y> <z>
+   usage: /velocity
+  target:
+   description: <entity(from)> <entity(to)>
+   usage: /target
+  surface:
+   description: <material>
+   usage: /surface
+  setNick:
+   description: set player nick
+   usage: /setNick
+  t:
+   description: teleport
+   usage: /t
+api-version: 1.18
