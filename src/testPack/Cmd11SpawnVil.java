@@ -1,25 +1,12 @@
 package testPack;
 
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
-
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
-import org.bukkit.block.Biome;
-import org.bukkit.block.Block;
-import org.bukkit.block.CreatureSpawner;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Chicken;
 import org.bukkit.entity.Cow;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.MushroomCow;
@@ -27,16 +14,9 @@ import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Sheep;
 import org.bukkit.entity.Villager;
-import org.bukkit.entity.Witch;
 import org.bukkit.entity.Wolf;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-
-import com.google.common.graph.ElementOrder.Type;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
 
 import dev.sergiferry.playernpc.api.NPC;
 import dev.sergiferry.playernpc.api.NPC.FollowLookType;

@@ -40,9 +40,6 @@ public class PlateEvent {
 		hamabeHidden232(player, block, world);
 		hamabeHidden233(player, block, world);
 		hamabeHidden234(player, block, world);
-		beiag1(player, block, world);
-		beiag2(player, block, world);
-		beiag3(player, block, world);
 		hardForest(player, block, world);
 	}
 	
@@ -320,7 +317,7 @@ public class PlateEvent {
 
 					}, 0, 1);
 					int qNum = cb.getNum(player);
-					cb.mq47(player, qNum + 1);
+					cb.q1(player, qNum + 1);
 				}
 			}
 		}
@@ -646,36 +643,6 @@ public class PlateEvent {
 		    			return;
 					}
 				}
-			}
-		}
-	}
-	
-	// 베아그 수련장1
-	public void beiag1(Player player, Block block, World world) {
-		if (block.getType() == Material.PLAYER_HEAD) {
-			if (block.getX() == 60 && block.getZ() == -312) {
-				new DamageCal().HashPut(player, 1);
-				player.sendMessage(ChatColor.GREEN + "인간형 몬스터를 공격하는 것과 같은 환경이 되었습니다.");
-			}
-		}
-	}
-	
-	// 베아그 수련장2
-	public void beiag2(Player player, Block block, World world) {
-		if (block.getType() == Material.PLAYER_HEAD) {
-			if (block.getX() == 66 && block.getZ() == -312) {
-				new DamageCal().HashPut(player, 2);
-				player.sendMessage(ChatColor.GREEN + "동물형 몬스터를 공격하는 것과 같은 환경이 되었습니다.");
-			}
-		}
-	}
-		
-	// 베아그 수련장3
-	public void beiag3(Player player, Block block, World world) {
-		if (block.getType() == Material.PLAYER_HEAD) {
-			if (block.getX() == 72 && block.getZ() == -312) {
-				new DamageCal().HashPut(player, 3);
-				player.sendMessage(ChatColor.GREEN + "기타 몬스터를 공격하는 것과 같은 환경이 되었습니다.");
 			}
 		}
 	}
