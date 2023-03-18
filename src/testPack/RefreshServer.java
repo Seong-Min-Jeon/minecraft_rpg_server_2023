@@ -174,6 +174,9 @@ public class RefreshServer {
 								if(ent.getType() == EntityType.SMALL_FIREBALL) {
 									ent.remove();
 								}
+								if(ent.getType() == EntityType.ARROW) {
+									ent.remove();
+								}
 							} catch(Exception e) {
 								
 							}

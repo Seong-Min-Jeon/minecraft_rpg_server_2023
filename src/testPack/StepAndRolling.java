@@ -7,11 +7,8 @@ import java.util.Map;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Pose;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
 public class StepAndRolling {
@@ -59,7 +56,7 @@ public class StepAndRolling {
 	
 	public void move(Player player) {
 		
-		player.setNoDamageTicks(100);
+		player.setNoDamageTicks(300);
 
 		taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 

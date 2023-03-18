@@ -1,0 +1,194 @@
+package testPack;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Random;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+
+import com.connorlinfoot.titleapi.TitleAPI;
+
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
+
+public class Start {
+	
+	private int sleep = 0;
+	
+	public Start(Player player, File folder) {
+		
+		try {
+			File dataFolder = folder;
+            if(!dataFolder.exists()) {
+                dataFolder.mkdir();
+            } else {
+            	File dir = new File(folder + "/" + player.getUniqueId().toString());
+            	if(!dir.exists()) {
+            		try{
+            		    dir.mkdir(); 
+            		} catch(Exception e) {
+            		    e.getStackTrace();
+            		}
+				}
+				//광기
+				File file = new File(dir, "lunacy.dat");
+				if (!file.exists()) {
+					try {
+						file.createNewFile();
+						BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+						fw.write(String.valueOf(player.getLevel()));
+		                fw.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		} catch (Exception e) {
+			
+		}
+		
+		player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 100, 1,false,false));
+		ItemStack item = player.getInventory().getItem(0);
+		player.getInventory().clear();
+		player.getInventory().setItem(7, item); //인격 7번칸에 두기
+		
+		//최대체력 설정
+		String name = player.getInventory().getItem(7).getItemMeta().getLocalizedName();
+		if(name.equals("평범한 해결사")) {
+			player.setMaxHealth(10);
+		}
+		
+		ItemStack lic = new ItemStack(Material.ACACIA_DOOR);
+		ItemMeta licIm = lic.getItemMeta();
+		licIm.setDisplayName(ChatColor.BOLD + player.getDisplayName() + "의 해결사 면허증");
+		ArrayList<String> licLore = new ArrayList<>();
+		licLore.add(ChatColor.GRAY + "이름: " + player.getDisplayName());
+		licLore.add(ChatColor.GRAY + "등급: 9급 해결사 [0/10]");
+		licLore.add(ChatColor.GRAY + "소속: 무소속");
+		licIm.setLore(licLore);
+		licIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		licIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		lic.setItemMeta(licIm);
+		player.getInventory().setItem(8, lic);
+		
+		//로비에서 이동하기 위한 사전 준비
+		//======================================
+		//이동
+		
+		player.teleport(new Location(player.getWorld(),-1143,181,1461)); //임시로 둥지 내부에 이동
+		
+		TitleAPI.sendSubtitle(player, 20, 40, 20, "정신을 차려보니 어딘가의 뒷골목이다..");
+		TitleAPI.sendSubtitle(player, 80, 40, 20, "가방안에 무언가가 들어있는 것 같다.");
+		
+		/*
+		sendPacket(player, "정신을 차려보니 어딘가의 뒷골목이다..");
+		
+		ThreadActionBar t = new ThreadActionBar(player.getUniqueId());
+		sleep = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
+			int time = 0;
+			@Override
+			public void run() {
+				if (!t.hasID()) {t.setID(sleep);}
+			
+				if(time>=40) {
+					sendPacket(player, "가방안에 무언가가 들어있는 것 같다.");
+					t.endTask(); 
+					t.removeID();
+				} 
+				time++;
+			}						
+		}, 0, 1);
+		*/
+		
+	}
+	
+	public void equip(Player player, String name) {
+		ItemStack weapon = null; 
+		ItemStack helmet = null; 
+		ItemStack chestplate = null; 
+		ItemStack leggings = null; 
+		ItemStack boots = null; 
+		
+		if(name.equals("평범한 해결사")) {
+			weapon = new ItemStack(Material.OAK_LEAVES);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "평범한 칼");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "초보 해결사도 지니고 다닐 수 있는 저가형 무기");
+			weaponLore.add(ChatColor.GRAY + "내구성은 보기보다 좋다고 한다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weapon.setItemMeta(weaponIm);
+		}
+		
+		if(weapon != null) {player.getInventory().setItem(0, weapon);}
+		if(helmet != null) {player.getInventory().setHelmet(helmet);;}
+		if(chestplate != null) {player.getInventory().setChestplate(chestplate);}
+		if(leggings != null) {player.getInventory().setLeggings(leggings);}
+		if(boots != null) {player.getInventory().setBoots(boots);}
+	}
+	
+	public void reception(Player player) {
+		ArrayList<ItemStack> ary = new ArrayList<>();
+		
+		ItemStack recep = new ItemStack(Material.PAPER);
+		ItemMeta recepIm = recep.getItemMeta();
+		recepIm.setDisplayName(ChatColor.BOLD + "윤 사무소 초대장");
+		ArrayList<String> recepLore = new ArrayList<>();
+		recepLore.add(ChatColor.GRAY + "윤 사무소 소속 해결사가");
+		recepLore.add(ChatColor.GRAY + "될 수 있는 초대장");
+		recepIm.setLore(recepLore);
+		recep.setItemMeta(recepIm);
+		
+		ary.add(recep);
+		
+		recepIm.setDisplayName(ChatColor.BOLD + "갈고리 사무소 초대장");
+		recepLore.clear();
+		recepLore.add(ChatColor.GRAY + "갈고리 사무소 소속 해결사가");
+		recepLore.add(ChatColor.GRAY + "될 수 있는 초대장");
+		recepIm.setLore(recepLore);
+		recep.setItemMeta(recepIm);
+		
+		ary.add(recep);
+		
+		recepIm.setDisplayName(ChatColor.BOLD + "가로등 사무소 초대장");
+		recepLore.clear();
+		recepLore.add(ChatColor.GRAY + "가로등 사무소 소속 해결사가");
+		recepLore.add(ChatColor.GRAY + "될 수 있는 초대장");
+		recepIm.setLore(recepLore);
+		recep.setItemMeta(recepIm);
+		
+		ary.add(recep);
+		
+		Random rnd = new Random();
+        int idx = rnd.nextInt(ary.size());
+        player.getInventory().addItem(ary.get(idx));
+        ary.remove(idx);
+        idx = rnd.nextInt(ary.size());
+        player.getInventory().addItem(ary.get(idx));
+       
+	}
+	
+	public void sendPacket(Player player, String message) {
+		try {
+			TextComponent tc = new TextComponent(message);
+			player.spigot().sendMessage(ChatMessageType.ACTION_BAR, tc);
+		} catch (Exception e) {
+
+		}
+	}
+}
