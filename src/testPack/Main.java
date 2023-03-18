@@ -78,6 +78,7 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerAnimationEvent;
@@ -101,16 +102,18 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
-import com.connorlinfoot.titleapi.TitleAPI;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import de.Herbystar.TTA.TTA_Methods;
 import dev.sergiferry.playernpc.api.NPC;
-import dev.sergiferry.playernpc.api.events.NPCInteractEvent;
+import dev.sergiferry.playernpc.api.NPCLib;
 
 import java.util.Random;
 
@@ -127,6 +130,7 @@ public class Main extends JavaPlugin implements Listener{
 	//유물 효과: 회피, 위더/독/불 피해 %감소, 공격으로 받는 피해 %감소, 공격으로 주는 피해 %증가 등등
 	//유물은 인벤 맨 아래 9칸 사용 / 숲유적, 요정왕국, 아덴, 카루, 아라크네, 사막, 슬라임, 하드바다, 하드요정
 	
+	private int sleep = 0;
 	Random rnd = new Random();
 	World world;
 
@@ -134,6 +138,7 @@ public class Main extends JavaPlugin implements Listener{
 	
 	@Override
 	public void onEnable() {
+		NPCLib.getInstance().registerPlugin(this);
 		this.getServer().getPluginManager().registerEvents(this, this);
 		//custom command
 		getCommand("killMe").setExecutor(new Cmd1killme());
@@ -148,10 +153,8 @@ public class Main extends JavaPlugin implements Listener{
 		getCommand("SpawnVil").setExecutor(new Cmd11SpawnVil());
 		getCommand("k").setExecutor(new Cmd19Kick());
 		getCommand("LoveWood").setExecutor(new Cmd20LoveWood());
-		getCommand("setSkin").setExecutor(new Cmd24setSkin());
 		getCommand("velocity").setExecutor(new Cmd27velocity());
 		getCommand("target").setExecutor(new Cmd28target());
-		getCommand("setNick").setExecutor(new Cmd30setNick());
 		getCommand("t").setExecutor(new Cmd31tp());
 		
 		new RefreshServer();
@@ -177,7 +180,7 @@ public class Main extends JavaPlugin implements Listener{
 		}
 		
 		//리소스팩 적용
-		player.setResourcePack("https://cdn.discordapp.com/attachments/557875773617340416/923835992559976458/aile_texture_pack_46.zip");
+		//player.setResourcePack("https://cdn.discordapp.com/attachments/557875773617340416/923835992559976458/aile_texture_pack_46.zip");
 		
 		//입장 메세지
 		if(player.getDisplayName().equalsIgnoreCase("yumehama")) {
@@ -292,25 +295,25 @@ public class Main extends JavaPlugin implements Listener{
 			scrollIm.setUnbreakable(true);
 			scroll.setItemMeta(scrollIm);		
 			
-			player.getInventory().setItem(10, scroll); //보급		
+			player.getInventory().setItem(9, scroll); //보급		
 			
 			scrollIm = scroll.getItemMeta();
 			scrollIm.setDisplayName(ChatColor.AQUA + "고급 등급의 인격");
 			scroll.setItemMeta(scrollIm);
 			
-			player.getInventory().setItem(11, scroll); //고급
+			player.getInventory().setItem(10, scroll); //고급
 			
 			scrollIm = scroll.getItemMeta();
 			scrollIm.setDisplayName(ChatColor.LIGHT_PURPLE + "한정 등급의 인격");
 			scroll.setItemMeta(scrollIm);
 			
-			player.getInventory().setItem(12, scroll); //한정
+			player.getInventory().setItem(11, scroll); //한정
 			
 			scrollIm = scroll.getItemMeta();
 			scrollIm.setDisplayName(ChatColor.GOLD + "예술 등급의 인격");
 			scroll.setItemMeta(scrollIm);
 			
-			player.getInventory().setItem(13, scroll); //예술
+			player.getInventory().setItem(12, scroll); //예술
 			
 			ItemStack start = new ItemStack(Material.SLIME_BALL);
 			ItemMeta startIm = start.getItemMeta();
@@ -324,7 +327,7 @@ public class Main extends JavaPlugin implements Listener{
 			startIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
 			startIm.setUnbreakable(true);
 			start.setItemMeta(startIm);	
-			player.getInventory().setItem(8, scroll); //시작버튼
+			player.getInventory().setItem(8, start); //시작버튼
 		}
 
 		// npc 생성
@@ -361,7 +364,7 @@ public class Main extends JavaPlugin implements Listener{
 		
 		try {
 			Player player = (Player)event.getEntity();
-			TitleAPI.sendTitle(player, 20, 60, 20, ChatColor.RED + "Game Over");
+			TTA_Methods.sendTitle(player, "Game Over", 20, 60, 20, "", 0, 0, 0);
 		} catch(Exception e) {
 			
 		}
@@ -510,6 +513,20 @@ public class Main extends JavaPlugin implements Listener{
 	
 	@EventHandler
 	public void onHit(EntityDamageByEntityEvent event){
+		//절대검
+		try {
+			if(event.getDamager() instanceof Player) {
+				Player player = (Player) event.getDamager();
+				if(!(event.getEntity() instanceof Player)) {
+					if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.DARK_RED + "신의 검")) {
+						event.getEntity().remove();				
+					}
+				}
+			}
+		} catch(Exception e) {
+			
+		}
+		
 		//화살 제거
 		try {
 			if(event.getEntity() instanceof LivingEntity) {
@@ -1504,21 +1521,40 @@ public class Main extends JavaPlugin implements Listener{
 		            return;
 		        }
 		        if(clicked != null && clicked.getType() == Material.FLOWER_BANNER_PATTERN) {
-		        	if(clicked.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "보급 등급의 인격")) {
-		        		new SelectPersonality(player, 0, getDataFolder());
-		        	} else if(clicked.getItemMeta().getDisplayName().equals(ChatColor.AQUA + "고급 등급의 인격")) {
-		        		new SelectPersonality(player, 1, getDataFolder());
-		        	} else if(clicked.getItemMeta().getDisplayName().equals(ChatColor.LIGHT_PURPLE + "한정 등급의 인격")) {
-		        		new SelectPersonality(player, 2, getDataFolder());
-		        	} else if(clicked.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "예술 등급의 인격")) {
-		        		new SelectPersonality(player, 3, getDataFolder());
-		        	}   
+		        	ThreadInv t = new ThreadInv(player.getUniqueId());
+		    		sleep = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
+		    			int time = 0;
+		    			
+		    			@Override
+		    			public void run() {
+		    				if (!t.hasID()) {
+		    					t.setID(sleep);
+		    				}
+		    			
+		    				if(time>=5) {
+		    					if(clicked.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "보급 등급의 인격")) {
+		    		        		new SelectPersonality(player, 0, getDataFolder());
+		    		        	} else if(clicked.getItemMeta().getDisplayName().equals(ChatColor.AQUA + "고급 등급의 인격")) {
+		    		        		new SelectPersonality(player, 1, getDataFolder());
+		    		        	} else if(clicked.getItemMeta().getDisplayName().equals(ChatColor.LIGHT_PURPLE + "한정 등급의 인격")) {
+		    		        		new SelectPersonality(player, 2, getDataFolder());
+		    		        	} else if(clicked.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "예술 등급의 인격")) {
+		    		        		new SelectPersonality(player, 3, getDataFolder());
+		    		        	}  
+		    					t.endTask(); 
+		    					t.removeID();
+		    				} 
+		    				
+		    				time++;
+		    			}						
+		    			
+		    		}, 0, 1);
 		            event.setCancelled(true);
 		            return;
 		        }
 		        if(clicked != null && clicked.getType() == Material.NETHER_STAR) {
 		        	if(event.getClickedInventory().getSize() == 54 || event.getClickedInventory().getType() == InventoryType.CHEST) {
-		        		player.getInventory().setItem(0, event.getCursor());
+		        		player.getInventory().setItem(0, clicked);
 		        		player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL, 0.3f, 1.0f);
 		        		player.closeInventory();
 		        	}
@@ -2199,7 +2235,7 @@ public class Main extends JavaPlugin implements Listener{
 	}
 	
 	@EventHandler
-	public void onNPCInteract(NPCInteractEvent event){
+	public void onNPCInteract(NPC.Events.Interact event){
 	    Player player = event.getPlayer();
 	    try {
 	    	int i = 0;
@@ -2219,9 +2255,9 @@ public class Main extends JavaPlugin implements Listener{
 	    
 	    try {
 	    	QuestBoard cb = new QuestBoard();
-	    	NPC npc = event.getNpc();
-	    	NPCInteractEvent.ClickType clickType = event.getClickType();
-	 	    if(npc.isShown() && clickType == NPCInteractEvent.ClickType.RIGHT_CLICK) {
+	    	NPC npc = event.getNPC();
+	    	NPC.Interact.ClickType clickType = event.getClickType();
+	 	    if(clickType == NPC.Interact.ClickType.RIGHT_CLICK) {
 	 	    	if(npc.getText().get(0).equals("의문의 소녀")) {
 	 	    		if(cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===설원의 가희3===")) {
 	 	    			player.sendMessage("의문의 소녀: ...");
@@ -2235,7 +2271,7 @@ public class Main extends JavaPlugin implements Listener{
 						}
 	 	    		}
 	 	    	}
-	 	    } else if(npc.isShown() && clickType == NPCInteractEvent.ClickType.LEFT_CLICK) {
+	 	    } else if(clickType == NPC.Interact.ClickType.LEFT_CLICK) {
 	 	    	if(npc.getText().get(0).equals("의장")) {
 	 	    		
 	 	    	}

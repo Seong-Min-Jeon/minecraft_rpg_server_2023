@@ -1,7 +1,7 @@
 name: MyPlugin
 main: testPack.Main
 version: 1.0
-depend: [NickAPI, TitleAPI, PlayerNPC]
+depend: [TTA, PlayerNPC]
 commands:
   killMe:
    description: Player kill command
@@ -96,4 +96,4 @@ commands:
   t:
    description: teleport
    usage: /t
-api-version: 1.18
+api-version: 1.19

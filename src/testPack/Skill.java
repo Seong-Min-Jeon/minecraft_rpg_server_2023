@@ -92,6 +92,8 @@ public class Skill {
 					t.endTask(); 
 					t.removeID();
 				} 
+				
+				time++;
 			}						
 			
 		}, 0, 1);

@@ -19,8 +19,8 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import dev.sergiferry.playernpc.api.NPC;
-import dev.sergiferry.playernpc.api.NPC.FollowLookType;
 import dev.sergiferry.playernpc.api.NPCLib;
+import dev.sergiferry.playernpc.api.NPC.GazeTrackingType;
 
 public class Cmd11SpawnVil implements CommandExecutor {
 	
@@ -60,13 +60,11 @@ public class Cmd11SpawnVil implements CommandExecutor {
 					}
 				} else if(args[0].equalsIgnoreCase("Player")) {
 					try { 
-						NPC npc = NPCLib.getInstance().generateNPC(player, "test", player.getLocation());
+						NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "player", loc);
 						npc.setSkin(player); 
 						npc.setCollidable(false);
-						npc.setFollowLookType(FollowLookType.PLAYER);
-						npc.setCustomTabListName(" ");
+						npc.setGazeTrackingType(GazeTrackingType.PLAYER);
 						npc.setShowOnTabList(false);
-						npc.create();
 						npc.show();
 						npc.update();
 					} catch(Exception e) {

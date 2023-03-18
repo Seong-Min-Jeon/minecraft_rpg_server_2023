@@ -8,7 +8,6 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -19,8 +18,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.connorlinfoot.titleapi.TitleAPI;
-
+import de.Herbystar.TTA.TTA_Methods;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 
@@ -90,8 +88,8 @@ public class Start {
 		
 		player.teleport(new Location(player.getWorld(),-1143,181,1461)); //임시로 둥지 내부에 이동
 		
-		TitleAPI.sendSubtitle(player, 20, 40, 20, "정신을 차려보니 어딘가의 뒷골목이다..");
-		TitleAPI.sendSubtitle(player, 80, 40, 20, "가방안에 무언가가 들어있는 것 같다.");
+		TTA_Methods.sendTitle(player, "", 0, 0, 0, "정신을 차려보니 어딘가의 뒷골목이다..", 20, 40, 20);
+		TTA_Methods.sendTitle(player, "", 0, 0, 0, "가방안에 무언가가 들어있는 것 같다.", 80, 40, 20);
 		
 		/*
 		sendPacket(player, "정신을 차려보니 어딘가의 뒷골목이다..");

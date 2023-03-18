@@ -94,7 +94,11 @@ public class SelectPersonality {
 			} else if(grade == 3) {
 				tmp = grade3.split("/");
 			}
-			best = (ArrayList<String>) Arrays.asList(tmp);
+			
+			for(String b : tmp) {
+				best.add(b);
+			}
+			
 			bufReader.close();
     	} catch(Exception e) {
     		
@@ -135,10 +139,8 @@ public class SelectPersonality {
 				perIm.setDisplayName(color + tmpAry.get(idx) + perLvl);
 				perIm.setLocalizedName(tmpAry.get(idx));
 				ArrayList<String> perLore = new ArrayList<>();
-				perLore.add(ChatColor.GRAY + "최대 기록: " + best.get(idx));
+				perLore.add(ChatColor.GRAY + "최대 기록: " + best.get(idx) + "급 해결사");
 				perIm.setLore(perLore);
-				perIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-				perIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 				per.setItemMeta(perIm);
 				inv.setItem(idx, per);
 				
