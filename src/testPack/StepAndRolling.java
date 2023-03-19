@@ -56,7 +56,7 @@ public class StepAndRolling {
 	
 	public void move(Player player) {
 		
-		player.setNoDamageTicks(300);
+		player.setNoDamageTicks(10);
 
 		taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 

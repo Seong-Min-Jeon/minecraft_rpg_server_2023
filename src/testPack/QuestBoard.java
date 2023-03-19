@@ -28,6 +28,28 @@ import org.bukkit.scoreboard.ScoreboardManager;
 public class QuestBoard {
 	
 	private Message msg = new Message();
+	
+	public void q0001(Player player, int num) {
+		if(num>=10) {
+			player.setScoreboard (Bukkit.getScoreboardManager().getNewScoreboard ());
+			ItemStack item = new ItemStack(Material.EMERALD,20);
+			player.getInventory().addItem(item);
+			player.sendMessage(ChatColor.WHITE + "에메랄드" + ChatColor.WHITE + " 20개를 획득했다.");
+			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			return;
+		}
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("HubScoreboard-1", "dummy", ChatColor.GRAY + "C급 퀘스트");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
+		Score score = obj.getScore(ChatColor.LIGHT_PURPLE + "===해안의 위협===");
+		score.setScore(2);
+		Score score2 = obj.getScore("해안가 좀비 10마리 사냥");
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/10)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+	}
 
 	public void q1(Player player, int num) {
 		//상점

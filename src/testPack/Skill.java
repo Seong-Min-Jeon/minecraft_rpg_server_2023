@@ -19,6 +19,7 @@ import org.bukkit.entity.Item;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Pose;
+import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
@@ -42,7 +43,7 @@ public class Skill {
 				String name = player.getInventory().getItem(7).getItemMeta().getLocalizedName();
 				world = player.getWorld();
 				
-				if(name.equals("평범한 해결사")) {
+				if(name.equals("평범한 해결사의 인격")) {
 					if(rot.equals("L")) {
 						bool = reload(player, 500);
 						if (bool) {
@@ -65,11 +66,9 @@ public class Skill {
 	}
 	
 	public void skill1(Player player) {
-		Arrow arrow = player.launchProjectile(Arrow.class);
+		Snowball arrow = player.launchProjectile(Snowball.class);
 		arrow.setShooter(player);
 		arrow.setVelocity(player.getLocation().getDirection().multiply(0.3f));		
-		world.spawnParticle(Particle.SWEEP_ATTACK, arrow.getLocation(), 1);
-		world.playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
 		
 		ThreadSkill t = new ThreadSkill(player.getUniqueId());
 		sleep = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
@@ -82,9 +81,12 @@ public class Skill {
 				}
 			
 				if(time>=5) {
+					world.spawnParticle(Particle.SWEEP_ATTACK, arrow.getLocation(), 1);
+					world.playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
+					
 					List<Entity> entitylist = arrow.getNearbyEntities(1,1,1);
 					for (Entity nearEntity : entitylist) {
-						if (nearEntity instanceof LivingEntity) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
 							LivingEntity nearMob = (LivingEntity) nearEntity;
 							nearMob.damage(2);
 						}
@@ -100,7 +102,7 @@ public class Skill {
 	}
 	
 	public void skill2(Player player) {
-		player.setNoDamageTicks(500);
+		player.setNoDamageTicks(20);
 		world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 	}
 	

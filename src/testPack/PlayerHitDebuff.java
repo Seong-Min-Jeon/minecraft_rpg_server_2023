@@ -53,9 +53,32 @@ public class PlayerHitDebuff {
 	static boolean pat4 = false;
 
 	public void playerHitDebuff(Player player, Entity mob) {
-		mob2(player, mob);
+		ratNormal(player, mob);
+		ratBoss(player, mob);
 	}
 
+	//쥐
+	public void ratNormal(Player player, Entity mob) {
+		if(mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐")) {
+			int num = rnd.nextInt(10);
+			if(num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			}
+		}
+	}
+	
+	//쥐 두목
+	public void ratBoss(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐 두목")) {
+			int num = rnd.nextInt(8);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} else if(num < 3) {
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0));
+			}
+		}
+	}
+	
 	// 요정왕
 	public void mob2(Player player, Entity mob) {
 		if(mob.getCustomName().substring(2).equalsIgnoreCase("요정왕 오베론" + ChatColor.YELLOW + " [Lv.??]")) {

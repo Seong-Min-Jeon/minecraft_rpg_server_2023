@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -65,7 +66,7 @@ public class Start {
 		
 		//최대체력 설정
 		String name = player.getInventory().getItem(7).getItemMeta().getLocalizedName();
-		if(name.equals("평범한 해결사")) {
+		if(name.equals("평범한 해결사의 인격")) {
 			player.setMaxHealth(10);
 		}
 		
@@ -88,11 +89,7 @@ public class Start {
 		
 		player.teleport(new Location(player.getWorld(),-1143,181,1461)); //임시로 둥지 내부에 이동
 		
-		TTA_Methods.sendTitle(player, "", 0, 0, 0, "정신을 차려보니 어딘가의 뒷골목이다..", 20, 40, 20);
-		TTA_Methods.sendTitle(player, "", 0, 0, 0, "가방안에 무언가가 들어있는 것 같다.", 80, 40, 20);
-		
-		/*
-		sendPacket(player, "정신을 차려보니 어딘가의 뒷골목이다..");
+		TTA_Methods.sendTitle(player, null, 20, 40, 20, "정신을 차려보니 어딘가의 뒷골목이다..", 20, 40, 20);
 		
 		ThreadActionBar t = new ThreadActionBar(player.getUniqueId());
 		sleep = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
@@ -101,15 +98,20 @@ public class Start {
 			public void run() {
 				if (!t.hasID()) {t.setID(sleep);}
 			
-				if(time>=40) {
-					sendPacket(player, "가방안에 무언가가 들어있는 것 같다.");
+				if(time>=50) {
+					TTA_Methods.sendTitle(player, null, 20, 40, 20, "가방안에 무언가가 들어있는 것 같다.", 20, 40, 20);
 					t.endTask(); 
 					t.removeID();
 				} 
 				time++;
 			}						
 		}, 0, 1);
-		*/
+		
+		
+		
+		equip(player, name);
+		startReception(player);
+		
 		
 	}
 	
@@ -120,7 +122,7 @@ public class Start {
 		ItemStack leggings = null; 
 		ItemStack boots = null; 
 		
-		if(name.equals("평범한 해결사")) {
+		if(name.equals("평범한 해결사의 인격")) {
 			weapon = new ItemStack(Material.OAK_LEAVES);
 			ItemMeta weaponIm = weapon.getItemMeta();
 			weaponIm.setDisplayName(ChatColor.BOLD + "평범한 칼");
@@ -140,37 +142,42 @@ public class Start {
 		if(boots != null) {player.getInventory().setBoots(boots);}
 	}
 	
-	public void reception(Player player) {
+	public void startReception(Player player) {
 		ArrayList<ItemStack> ary = new ArrayList<>();
 		
-		ItemStack recep = new ItemStack(Material.PAPER);
-		ItemMeta recepIm = recep.getItemMeta();
-		recepIm.setDisplayName(ChatColor.BOLD + "윤 사무소 초대장");
-		ArrayList<String> recepLore = new ArrayList<>();
-		recepLore.add(ChatColor.GRAY + "윤 사무소 소속 해결사가");
-		recepLore.add(ChatColor.GRAY + "될 수 있는 초대장");
-		recepIm.setLore(recepLore);
-		recep.setItemMeta(recepIm);
+		ItemStack recep1 = new ItemStack(Material.PAPER);
+		ItemMeta recep1Im = recep1.getItemMeta();
+		recep1Im.setDisplayName(ChatColor.BOLD + "윤 사무소 초대장");
+		ArrayList<String> recep1Lore = new ArrayList<>();
+		recep1Lore.add(ChatColor.GRAY + "윤 사무소 소속 해결사가");
+		recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+		recep1Im.setLore(recep1Lore);
+		recep1.setItemMeta(recep1Im);
 		
-		ary.add(recep);
+		ary.add(recep1);
 		
-		recepIm.setDisplayName(ChatColor.BOLD + "갈고리 사무소 초대장");
-		recepLore.clear();
-		recepLore.add(ChatColor.GRAY + "갈고리 사무소 소속 해결사가");
-		recepLore.add(ChatColor.GRAY + "될 수 있는 초대장");
-		recepIm.setLore(recepLore);
-		recep.setItemMeta(recepIm);
+		ItemStack recep2 = new ItemStack(Material.PAPER);
+		ItemMeta recep2Im = recep1.getItemMeta();
+		recep2Im.setDisplayName(ChatColor.BOLD + "갈고리 사무소 초대장");
+		ArrayList<String> recep2Lore = new ArrayList<>();
+		recep2Lore.add(ChatColor.GRAY + "갈고리 사무소 소속 해결사가");
+		recep2Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+		recep2Im.setLore(recep2Lore);
+		recep2.setItemMeta(recep2Im);
 		
-		ary.add(recep);
+		ary.add(recep2);
 		
-		recepIm.setDisplayName(ChatColor.BOLD + "가로등 사무소 초대장");
-		recepLore.clear();
-		recepLore.add(ChatColor.GRAY + "가로등 사무소 소속 해결사가");
-		recepLore.add(ChatColor.GRAY + "될 수 있는 초대장");
-		recepIm.setLore(recepLore);
-		recep.setItemMeta(recepIm);
 		
-		ary.add(recep);
+		ItemStack recep3 = new ItemStack(Material.PAPER);
+		ItemMeta recep3Im = recep1.getItemMeta();
+		recep3Im.setDisplayName(ChatColor.BOLD + "가로등 사무소 초대장");
+		ArrayList<String> recep3Lore = new ArrayList<>();
+		recep3Lore.add(ChatColor.GRAY + "가로등 사무소 소속 해결사가");
+		recep3Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+		recep3Im.setLore(recep3Lore);
+		recep3.setItemMeta(recep3Im);
+		
+		ary.add(recep3);
 		
 		Random rnd = new Random();
         int idx = rnd.nextInt(ary.size());

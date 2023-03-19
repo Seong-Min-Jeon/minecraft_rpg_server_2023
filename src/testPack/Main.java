@@ -35,6 +35,7 @@ import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.entity.Slime;
+import org.bukkit.entity.Snowball;
 import org.bukkit.entity.SpectralArrow;
 import org.bukkit.entity.WitherSkeleton;
 import org.bukkit.entity.Zoglin;
@@ -141,7 +142,6 @@ public class Main extends JavaPlugin implements Listener{
 		NPCLib.getInstance().registerPlugin(this);
 		this.getServer().getPluginManager().registerEvents(this, this);
 		//custom command
-		getCommand("killMe").setExecutor(new Cmd1killme());
 		getCommand("ChangeAir").setExecutor(new Cmd2ChangeAir());
 		getCommand("WallPaint").setExecutor(new Cmd3WallPaint());
 		getCommand("Where").setExecutor(new Cmd4Where());
@@ -158,6 +158,7 @@ public class Main extends JavaPlugin implements Listener{
 		getCommand("t").setExecutor(new Cmd31tp());
 		
 		new RefreshServer();
+		new NPCManager();
 	}
 	
 	@Override
@@ -250,13 +251,13 @@ public class Main extends JavaPlugin implements Listener{
 					try {
 						file2.createNewFile();
 						BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file2), "UTF-8"));
-						fw.write("-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1"); //보급
+						fw.write("9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9"); //보급
 		                fw.write("\n");
-		                fw.write("-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1"); //고급
+		                fw.write("9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9"); //고급
 		                fw.write("\n");
-		                fw.write("-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1"); //한정
+		                fw.write("9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9"); //한정
 		                fw.write("\n");
-		                fw.write("-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-1"); //예술
+		                fw.write("9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9/9"); //예술
 		                fw.close();
 					} catch (IOException e) {
 						e.printStackTrace();
@@ -281,7 +282,7 @@ public class Main extends JavaPlugin implements Listener{
 		
 		//플레이어 접속 시 플레이 중이 아니라면 로비로 이동
 		world = player.getWorld();
-		if(player.getInventory().getItem(8).getType() != Material.ACACIA_DOOR) { //플레이 중에만 가지고 있는 무언가를 판별, ACACIA_DOOR이 해결사 면허증
+		if(player.getInventory().getItem(8) == null || player.getInventory().getItem(8).getType() != Material.ACACIA_DOOR) { //플레이 중에만 가지고 있는 무언가를 판별, ACACIA_DOOR이 해결사 면허증
 			player.teleport(new Location(world,-1844,70,3012)); //로비로 이동
 			player.getInventory().clear();
 			
@@ -329,9 +330,9 @@ public class Main extends JavaPlugin implements Listener{
 			start.setItemMeta(startIm);	
 			player.getInventory().setItem(8, start); //시작버튼
 		}
-
-		// npc 생성
-		new NPCManager(player, 0);
+		
+		//몹 스폰 생성
+		this.getServer().getPluginManager().registerEvents(new MobThread(player), this);
 
 	}
 	
@@ -343,9 +344,60 @@ public class Main extends JavaPlugin implements Listener{
 			
 			player.getInventory().clear();
 			player.setLevel(0); //그냥 초기화
-			//퀘스트 초기화
+			
+			player.setMaxHealth(20);
+			
+			
+			//퀘스트 초기화 하기
+			//광기 복구 하기
+			
+			
 			
 			event.setRespawnLocation(new Location(world,-1844,70,3012));
+			
+			ItemStack scroll = new ItemStack(Material.FLOWER_BANNER_PATTERN);
+			ItemMeta scrollIm = scroll.getItemMeta();
+			scrollIm.setDisplayName(ChatColor.GREEN + "보급 등급의 인격");
+			scrollIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			scrollIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			scrollIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			scrollIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+			scrollIm.setUnbreakable(true);
+			scroll.setItemMeta(scrollIm);		
+			
+			player.getInventory().setItem(9, scroll); //보급		
+			
+			scrollIm = scroll.getItemMeta();
+			scrollIm.setDisplayName(ChatColor.AQUA + "고급 등급의 인격");
+			scroll.setItemMeta(scrollIm);
+			
+			player.getInventory().setItem(10, scroll); //고급
+			
+			scrollIm = scroll.getItemMeta();
+			scrollIm.setDisplayName(ChatColor.LIGHT_PURPLE + "한정 등급의 인격");
+			scroll.setItemMeta(scrollIm);
+			
+			player.getInventory().setItem(11, scroll); //한정
+			
+			scrollIm = scroll.getItemMeta();
+			scrollIm.setDisplayName(ChatColor.GOLD + "예술 등급의 인격");
+			scroll.setItemMeta(scrollIm);
+			
+			player.getInventory().setItem(12, scroll); //예술
+			
+			ItemStack start = new ItemStack(Material.SLIME_BALL);
+			ItemMeta startIm = start.getItemMeta();
+			startIm.setDisplayName(ChatColor.GREEN + "GAME START");
+			ArrayList<String> startLore = new ArrayList<>();
+			startLore.add(ChatColor.GRAY + "선택한 인격으로 시작합니다.");
+			startIm.setLore(startLore);
+			startIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			startIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			startIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			startIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+			startIm.setUnbreakable(true);
+			start.setItemMeta(startIm);	
+			player.getInventory().setItem(8, start); //시작버튼
 		} catch(Exception e11) {
 
 		}
@@ -364,7 +416,7 @@ public class Main extends JavaPlugin implements Listener{
 		
 		try {
 			Player player = (Player)event.getEntity();
-			TTA_Methods.sendTitle(player, "Game Over", 20, 60, 20, "", 0, 0, 0);
+			TTA_Methods.sendTitle(player, ChatColor.RED + "Game Over", 20, 60, 20, "", 20, 60, 20);
 		} catch(Exception e) {
 			
 		}
@@ -568,6 +620,16 @@ public class Main extends JavaPlugin implements Listener{
 		} catch (Exception e) {
 
 		}
+		
+		//눈 히트 불가
+		try {
+			if (event.getDamager() instanceof Snowball) {
+				event.setCancelled(true);
+				return;
+			}
+		} catch (Exception e) {
+
+		}
 
 		//파이어볼 히트 불가
 		try {
@@ -609,6 +671,18 @@ public class Main extends JavaPlugin implements Listener{
 	
 	@EventHandler
 	public void skillDamage(EntityDamageEvent event) {
+		
+		//로비는 무적
+		if(event.getEntity() instanceof Player) {
+			//-1820 100 2996  -1885 30 3069
+			Location loc = event.getEntity().getLocation();
+			if (loc.getX() <= -1820 && loc.getY() <= 100 && loc.getZ() <= 3069 
+					&& loc.getX() >= -1885 && loc.getY() >= 0 && loc.getZ() >= 2996) {
+				event.setCancelled(true);
+				return;
+			}
+			
+		}
 		
 		//데미지 0이하면 패스
 		if(event.getDamage() <= 0) {
@@ -789,75 +863,75 @@ public class Main extends JavaPlugin implements Listener{
 					damageSign.setSmall(true);
 					
 					if(damage < 100) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#808080") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#808080") + Integer.toString(damage*10));
 					} else if(damage < 200) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#B4B4B4") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#B4B4B4") + Integer.toString(damage*10));
 					} else if(damage < 300) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#E5E5E5") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#E5E5E5") + Integer.toString(damage*10));
 					} else if(damage < 400) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#EFEFEF") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#EFEFEF") + Integer.toString(damage*10));
 					} else if(damage < 500) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#FFFFFF") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#FFFFFF") + Integer.toString(damage*10));
 					} else if(damage < 600) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#f2ffeb") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#f2ffeb") + Integer.toString(damage*10));
 					} else if(damage < 700) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#e0ffcf") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#e0ffcf") + Integer.toString(damage*10));
 					} else if(damage < 800) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ccffb0") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ccffb0") + Integer.toString(damage*10));
 					} else if(damage < 900) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#b3ff8a") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#b3ff8a") + Integer.toString(damage*10));
 					} else if(damage < 1000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#9dff69") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#9dff69") + Integer.toString(damage*10));
 					} else if(damage < 2000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#7fff3b") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#7fff3b") + Integer.toString(damage*10));
 					} else if(damage < 3000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#1aff00") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#1aff00") + Integer.toString(damage*10));
 					} else if(damage < 4000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00ff77") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00ff77") + Integer.toString(damage*10));
 					} else if(damage < 5000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00ffc3") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00ffc3") + Integer.toString(damage*10));
 					} else if(damage < 6000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00fff7") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00fff7") + Integer.toString(damage*10));
 					} else if(damage < 7000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00d0ff") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00d0ff") + Integer.toString(damage*10));
 					} else if(damage < 8000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00aeff") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00aeff") + Integer.toString(damage*10));
 					} else if(damage < 9000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#008cff") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#008cff") + Integer.toString(damage*10));
 					} else if(damage < 10000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#0062ff") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#0062ff") + Integer.toString(damage*10));
 					} else if(damage < 20000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#002aff") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#002aff") + Integer.toString(damage*10));
 					} else if(damage < 30000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#3c00ff") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#3c00ff") + Integer.toString(damage*10));
 					} else if(damage < 40000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#8c00ff") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#8c00ff") + Integer.toString(damage*10));
 					} else if(damage < 50000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#c300ff") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#c300ff") + Integer.toString(damage*10));
 					} else if(damage < 60000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff00f7") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff00f7") + Integer.toString(damage*10));
 					} else if(damage < 70000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff00b3") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff00b3") + Integer.toString(damage*10));
 					} else if(damage < 80000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff0080") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff0080") + Integer.toString(damage*10));
 					} else if(damage < 90000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff0048") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff0048") + Integer.toString(damage*10));
 					} else if(damage < 100000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff0000") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff0000") + Integer.toString(damage*10));
 					} else if(damage < 200000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ab0000") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ab0000") + Integer.toString(damage*10));
 					} else if(damage < 300000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#630000") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#630000") + Integer.toString(damage*10));
 					} else if(damage < 400000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#8f0062") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#8f0062") + Integer.toString(damage*10));
 					} else if(damage < 500000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#70008f") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#70008f") + Integer.toString(damage*10));
 					} else if(damage < 600000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#420054") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#420054") + Integer.toString(damage*10));
 					} else if(damage < 10000000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + ChatColor.MAGIC + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + ChatColor.MAGIC + Integer.toString(damage*10));
 					} else {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ffffff") + Integer.toString(damage));
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ffffff") + Integer.toString(damage*10));
 					}
 					damageSign.setCustomNameVisible(true);
 					damageSign.setGravity(false);
@@ -896,17 +970,20 @@ public class Main extends JavaPlugin implements Listener{
 					ItemStack item = player.getInventory().getItemInMainHand();
 					Material type = item.getType();
 					if((type == Material.CREEPER_BANNER_PATTERN) || (type == Material.FLOWER_BANNER_PATTERN) || (type == Material.GLOBE_BANNER_PATTERN)
-							|| (type == Material.MOJANG_BANNER_PATTERN) || (type == Material.PIGLIN_BANNER_PATTERN) || (type == Material.SKULL_BANNER_PATTERN)
-							|| (type == Material.PAINTING) || (type == Material.ACACIA_DOOR) || (type == Material.PAPER)  || (type == Material.IRON_HELMET)) {
+							|| (type == Material.MOJANG_BANNER_PATTERN) || (type == Material.PIGLIN_BANNER_PATTERN) || (type == Material.SKULL_BANNER_PATTERN)) {
 						new ScrollUseEvent(player, item);
 					} else if(type == Material.SLIME_BALL) {
 						if(item.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "GAME START")) {
-							new Start(player, getDataFolder());
+							if(player.getInventory().getItem(0) != null) {
+			        			if(player.getInventory().getItem(0).getItemMeta() != null) {
+			        				new Start(player, getDataFolder());
+				        		}
+			        		}
 						}
 					} else if(type == Material.PAPER) {
 						String name = item.getItemMeta().getDisplayName();
 						if(name.substring(name.length()-3, name.length()).equals("초대장")) {
-							new ChangeOffice(player, item.getItemMeta().getDisplayName());
+							new ChangeOffice(player, item.getItemMeta().getDisplayName().substring(0, name.length()-3));
 						}
 					}
 				}
@@ -1515,7 +1592,11 @@ public class Main extends JavaPlugin implements Listener{
 		        }  
 		        if(clicked != null && clicked.getType() == Material.SLIME_BALL) {
 		        	if(clicked.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "GAME START")) {
-		        		new Start(player, getDataFolder());
+		        		if(player.getInventory().getItem(0) != null) {
+		        			if(player.getInventory().getItem(0).getItemMeta() != null) {
+		        				new Start(player, getDataFolder());
+			        		}
+		        		}
 		        	}
 		            event.setCancelled(true);
 		            return;
@@ -1555,7 +1636,7 @@ public class Main extends JavaPlugin implements Listener{
 		        if(clicked != null && clicked.getType() == Material.NETHER_STAR) {
 		        	if(event.getClickedInventory().getSize() == 54 || event.getClickedInventory().getType() == InventoryType.CHEST) {
 		        		player.getInventory().setItem(0, clicked);
-		        		player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL, 0.3f, 1.0f);
+		        		player.playSound(player, Sound.BLOCK_NOTE_BLOCK_PLING, 4.0f, 1.89f);
 		        		player.closeInventory();
 		        	}
 		            event.setCancelled(true);
@@ -1858,6 +1939,15 @@ public class Main extends JavaPlugin implements Listener{
 	
 	@EventHandler
 	public void arrowRemove(ProjectileHitEvent event) {
+		try {
+			if(event.getEntity().getShooter() instanceof Player) {
+				event.setCancelled(true);
+				event.getEntity().remove();
+				return;
+			}
+		} catch(Exception e) {
+			
+		}
 		try {
 			event.getEntity().getPassenger().remove(); 
 			Entity ent = event.getEntity().getPassenger();
@@ -2237,21 +2327,6 @@ public class Main extends JavaPlugin implements Listener{
 	@EventHandler
 	public void onNPCInteract(NPC.Events.Interact event){
 	    Player player = event.getPlayer();
-	    try {
-	    	int i = 0;
-			Inventory inv = player.getInventory();
-			for (int j = 0 ; j < 36 ; j++) {
-				if(inv.getItem(j) == null) {
-					i++;
-				}
-			}
-			if(i == 0) {
-				player.sendMessage(ChatColor.RED + "인벤토리에 빈칸이 없습니다.");
-				return;
-			}
-	    } catch(Exception e) {
-	    	
-	    }
 	    
 	    try {
 	    	QuestBoard cb = new QuestBoard();
@@ -2269,6 +2344,14 @@ public class Main extends JavaPlugin implements Listener{
 						} else {
 							player.sendMessage("의문의 소녀: ...");
 						}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("핀")) {
+	 	    		player.sendMessage("안녕하세요! 핀이에요.%대표님은 위층에 있어요!");
+	 	    	} else if(npc.getText().get(0).equals("윤")) {
+	 	    		if(player.getInventory().getItem(8).getItemMeta().getLore().get(2).split(" ")[1].equals("윤 사무소")) {
+	 	    			player.sendMessage("오늘도 여러가지 의뢰가 들어왔다.%지금 너에게 맞는 의뢰는 이것이군.%q0001");
+	 	    		} else {
+	 	    			player.sendMessage("무슨 일로 오신거죠?");
 	 	    		}
 	 	    	}
 	 	    } else if(clickType == NPC.Interact.ClickType.LEFT_CLICK) {

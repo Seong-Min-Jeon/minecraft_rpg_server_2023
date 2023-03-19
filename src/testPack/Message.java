@@ -39,6 +39,9 @@ public class Message {
 						player.teleport(new Location(player.getWorld(), x, y, z));
 					} else if(ary[cnt].substring(0, 5).equals("bl120")) {
 						player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 120, 0,true,false,false));
+					} else if(ary[cnt].substring(0, 5).equals("q0001")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0001(player, 0);
 					} else {
 						player.sendMessage(ary[cnt]);
 					}
