@@ -96,4 +96,7 @@ commands:
   t:
    description: teleport
    usage: /t
+  dropQuest:
+   description: drop quest
+   usage: /dropQuest
 api-version: 1.19

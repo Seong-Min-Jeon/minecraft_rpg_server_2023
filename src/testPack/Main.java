@@ -131,10 +131,11 @@ public class Main extends JavaPlugin implements Listener{
 	//유물 효과: 회피, 위더/독/불 피해 %감소, 공격으로 받는 피해 %감소, 공격으로 주는 피해 %증가 등등
 	//유물은 인벤 맨 아래 9칸 사용 / 숲유적, 요정왕국, 아덴, 카루, 아라크네, 사막, 슬라임, 하드바다, 하드요정
 	
+	private Message msg = new Message();
 	private int sleep = 0;
 	Random rnd = new Random();
 	World world;
-
+	
 	Scoreboard board;
 	
 	@Override
@@ -156,6 +157,7 @@ public class Main extends JavaPlugin implements Listener{
 		getCommand("velocity").setExecutor(new Cmd27velocity());
 		getCommand("target").setExecutor(new Cmd28target());
 		getCommand("t").setExecutor(new Cmd31tp());
+		getCommand("dropQuest").setExecutor(new Cmd32dropQuest());
 		
 		new RefreshServer();
 		new NPCManager();
@@ -333,7 +335,6 @@ public class Main extends JavaPlugin implements Listener{
 		
 		//몹 스폰 생성
 		this.getServer().getPluginManager().registerEvents(new MobThread(player), this);
-
 	}
 	
 	@EventHandler
@@ -1694,7 +1695,25 @@ public class Main extends JavaPlugin implements Listener{
 	
 	@EventHandler
 	public void offPlayer(PlayerQuitEvent event) {
-		Player player = event.getPlayer();	
+		Player player = event.getPlayer();
+		
+		//퀘스트 제거
+		try {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			ItemStack item = player.getInventory().getItem(8);
+			ItemMeta itemIM = item.getItemMeta();
+			ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
+			String exp = ary.get(1).split("[")[1].split("/")[0];
+			String maxExp = ary.get(1).split("]")[0].split("/")[1];
+			int newExp = Integer.parseInt(exp) - (Integer.parseInt(maxExp) / 10);
+			if (newExp < 0) {newExp = 0;}
+			ary.set(1, String.valueOf(newExp));
+			itemIM.setLore(ary);
+			item.setItemMeta(itemIM);
+			player.getInventory().setItem(8, item);
+		} catch(Exception e) {
+			
+		}
 		
 		//adventure
 		player.setGameMode(GameMode.ADVENTURE);
@@ -2329,29 +2348,21 @@ public class Main extends JavaPlugin implements Listener{
 	    Player player = event.getPlayer();
 	    
 	    try {
-	    	QuestBoard cb = new QuestBoard();
+	    	QuestBoard qb = new QuestBoard();
 	    	NPC npc = event.getNPC();
 	    	NPC.Interact.ClickType clickType = event.getClickType();
+	    	String officeTmp = player.getInventory().getItem(8).getItemMeta().getLore().get(2);
+	    	String office = officeTmp.substring(4, officeTmp.length());
 	 	    if(clickType == NPC.Interact.ClickType.RIGHT_CLICK) {
-	 	    	if(npc.getText().get(0).equals("의문의 소녀")) {
-	 	    		if(cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===설원의 가희3===")) {
-	 	    			player.sendMessage("의문의 소녀: ...");
-	 	    		}
-	 	    		if(cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===설원의 가희2===")) {
-	 	    			if(player.getWorld().getTime() >= 13000 && player.getWorld().getTime() <= 23000) {
-							int qNum = cb.getNum(player);
-							cb.q1(player, qNum+1);
-						} else {
-							player.sendMessage("의문의 소녀: ...");
-						}
-	 	    		}
-	 	    	} else if(npc.getText().get(0).equals("핀")) {
-	 	    		player.sendMessage("안녕하세요! 핀이에요.%대표님은 위층에 있어요!");
+	 	    	if(npc.getText().get(0).equals("핀")) {
+	 	    		msg.msg(player, "핀: 안녕하세요! 핀이에요.%핀: 대표님은 위층에 있어요!");
 	 	    	} else if(npc.getText().get(0).equals("윤")) {
-	 	    		if(player.getInventory().getItem(8).getItemMeta().getLore().get(2).split(" ")[1].equals("윤 사무소")) {
-	 	    			player.sendMessage("오늘도 여러가지 의뢰가 들어왔다.%지금 너에게 맞는 의뢰는 이것이군.%q0001");
+	 	    		if(office.equals("윤 사무소")) {
+	 	    			msg.msg(player, "윤: 오늘도 여러가지 의뢰가 들어왔다.%윤: 지금 너에게 맞는 의뢰는 이것이군.%q0001%윤: 중간에 포기를 하고 싶다면 /dropQuest 커맨드를 이용해라.%윤: 물론 평판은 깎이겠지만 말이야.");
+	 	    		} else if(office.equals("무소속")) {
+	 	    			msg.msg(player, "윤: 의뢰를 구하러 오신겁니까.%q0001%윤: 보수는 알아서 잘 분배해드리겠습니다.");
 	 	    		} else {
-	 	    			player.sendMessage("무슨 일로 오신거죠?");
+	 	    			msg.msg(player, "윤: 볼 일이 없다면 나가주시죠.");
 	 	    		}
 	 	    	}
 	 	    } else if(clickType == NPC.Interact.ClickType.LEFT_CLICK) {
@@ -2362,6 +2373,22 @@ public class Main extends JavaPlugin implements Listener{
 	    } catch(Exception e) {
 	    	
 	    }
+	}
+	
+	public String getQuestName(Player player) {
+		try {
+			ArrayList<String> list = new ArrayList<String>(player.getScoreboard().getEntries());
+			String name = null;
+			for(String line : list) {
+				if(line.charAt(2) == '[') {
+					name = line;
+					break;
+				}
+			}			
+			return name;
+		} catch(Exception e) {
+			return null;
+		}
 	}
 	
 	private String[] getSkin(String name) {

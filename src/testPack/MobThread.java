@@ -68,7 +68,7 @@ public class MobThread implements Listener{
 						
 						Boolean edge = true;
 						
-						if(edge && less) {
+						if(edge && less && !player.isFlying()) {
 							if (loc.getX() <= -884 && loc.getY() <= 179 && loc.getZ() <= 1599 && 
 									loc.getX() >= -1309 && loc.getY() >= 0 && loc.getZ() >= 1074) {
 								slum(player, loc);

@@ -2,32 +2,18 @@ package testPack;
 
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Particle;
-import org.bukkit.entity.Creeper;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.SkeletonHorse;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.scheduler.BukkitRunnable;
-
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
-import com.mojang.datafixers.util.Pair;
 
 import dev.sergiferry.playernpc.api.NPC;
-import dev.sergiferry.playernpc.api.NPCLib;
 import dev.sergiferry.playernpc.api.NPC.GazeTrackingType;
 import dev.sergiferry.playernpc.api.NPC.Slot;
+import dev.sergiferry.playernpc.api.NPCLib;
 
 public class NPCManager {
 
@@ -39,7 +25,7 @@ public class NPCManager {
 	}
 	
 	public NPC yoon() {
-		Location loc = new Location(Bukkit.getWorld("world"), -1177.5, 67, 1178.5, 0, 0);
+		Location loc = new Location(Bukkit.getWorld("world"), -1176.5, 67, 1177.5, 0, 0);
 		
 		NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "yoon", loc);
 		npc.setText("윤");
@@ -55,7 +41,7 @@ public class NPCManager {
 	}
 	
 	public NPC pin() {
-		Location loc = new Location(Bukkit.getWorld("world"), -1176.5, 62, 1181.5, 0, 0);
+		Location loc = new Location(Bukkit.getWorld("world"), -1175.5, 62, 1181.5, 0, 0);
 		
 		NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "pin", loc);
 		npc.setText("핀");

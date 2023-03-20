@@ -1,12 +1,14 @@
 package testPack;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.enchantments.Enchantment;
@@ -28,25 +30,29 @@ import org.bukkit.scoreboard.ScoreboardManager;
 public class QuestBoard {
 	
 	private Message msg = new Message();
+	Random rnd = new Random();
 	
 	public void q0001(Player player, int num) {
-		if(num>=10) {
+		if(num>=1) {
 			player.setScoreboard (Bukkit.getScoreboardManager().getNewScoreboard ());
-			ItemStack item = new ItemStack(Material.EMERALD,20);
-			player.getInventory().addItem(item);
-			player.sendMessage(ChatColor.WHITE + "에메랄드" + ChatColor.WHITE + " 20개를 획득했다.");
+			//ItemStack item = new ItemStack(Material.EMERALD,20);
+			//player.getInventory().addItem(item);
+			//player.sendMessage(ChatColor.WHITE + "에메랄드" + ChatColor.WHITE + " 20개를 획득했다.");
 			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
 			return;
 		}
+		//-1190 62 1134  -1142 62 1301
+		String[] loc = getLocation(player, -1142, 62, 1301, -1190, 62, 1134).split("/");
+		
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
-		Objective obj = board.registerNewObjective("HubScoreboard-1", "dummy", ChatColor.GRAY + "C급 퀘스트");
+		Objective obj = board.registerNewObjective("HubScoreboard-1", "dummy", ChatColor.GOLD + "[윤 사무소의 의뢰]");
 		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
-		Score score = obj.getScore(ChatColor.LIGHT_PURPLE + "===해안의 위협===");
+		Score score = obj.getScore("사라진 고양이를 찾아줘");
 		score.setScore(2);
-		Score score2 = obj.getScore("해안가 좀비 10마리 사냥");
+		Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 		score2.setScore(1);
-		Score score3 = obj.getScore("(" + num + "/10)");
+		Score score3 = obj.getScore("(" + num + "/1)");
 		score3.setScore(0);
 		player.setScoreboard(board);
 	}
@@ -208,4 +214,32 @@ public class QuestBoard {
 		}
 	}
 	
+	public String getLocation(Player player, int Mx, int My, int Mz, int mx, int my, int mz) {
+		int distX = Mx - mx;
+		int distY = My - my;
+		int distZ = Mz - mz;
+		
+		int x = 0;
+		int y = 0;
+		int z = 0;
+		
+		while(true) {
+			x = rnd.nextInt(distX) + mx;
+			y = rnd.nextInt(distY) + my;
+			z = rnd.nextInt(distZ) + mz;
+			
+			World world = player.getWorld();
+			Location loc = new Location(world, x, y, z);
+			
+			if((loc.getBlock().getType() == Material.AIR) && (loc.clone().add(0,1,0).getBlock().getType() == Material.AIR) && (loc.clone().add(0,2,0).getBlock().getType() == Material.AIR)
+					&& (loc.clone().add(1,0,0).getBlock().getType() == Material.AIR) && (loc.clone().add(-1,0,0).getBlock().getType() == Material.AIR)
+					&& (loc.clone().add(0,0,1).getBlock().getType() == Material.AIR) && (loc.clone().add(0,0,-1).getBlock().getType() == Material.AIR)
+					&& (loc.clone().add(0,-1,0).getBlock().getType() != Material.AIR)) {
+				break;
+			}
+		}
+		
+		return x + "/" + y + "/" + z;
+		
+	}
 }
