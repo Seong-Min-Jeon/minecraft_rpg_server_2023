@@ -2351,8 +2351,7 @@ public class Main extends JavaPlugin implements Listener{
 	    	QuestBoard qb = new QuestBoard();
 	    	NPC npc = event.getNPC();
 	    	NPC.Interact.ClickType clickType = event.getClickType();
-	    	String officeTmp = player.getInventory().getItem(8).getItemMeta().getLore().get(2);
-	    	String office = officeTmp.substring(4, officeTmp.length());
+	    	String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
 	 	    if(clickType == NPC.Interact.ClickType.RIGHT_CLICK) {
 	 	    	if(npc.getText().get(0).equals("핀")) {
 	 	    		msg.msg(player, "핀: 안녕하세요! 핀이에요.%핀: 대표님은 위층에 있어요!");

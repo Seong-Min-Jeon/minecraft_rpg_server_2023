@@ -29,7 +29,7 @@ public class Message {
 					t.setID(sleep);
 				}
 			
-				if(time % 60 == 0) {	
+				if(time % 60 == 0) {
 					if(ary[cnt].substring(0, 2).equals("tp")) {
 						String str = ary[cnt].substring(2);
 						String[] array = str.split(" ");
@@ -49,6 +49,7 @@ public class Message {
 				} 
 				
 				if(len == cnt) {
+					cnt = 0;
 					t.endTask();
 					t.removeID();
 				}
