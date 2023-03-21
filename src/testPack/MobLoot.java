@@ -24,6 +24,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.scoreboard.Objective;
 
 public class MobLoot {
 
@@ -33,6 +34,22 @@ public class MobLoot {
 
 	// 메세지
 	public void sendMessage(Player player, String msg) {player.sendMessage(msg);}
+	
+	//쥐
+	public void rat(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(10) + 10));
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0004")) {
+			int qNum = qb.getNum(player);
+			qb.q0004(player, qNum + 1);
+		}
+	}
+	
+	//쥐 두목
+	public void ratBoss(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(100) + 10));
+	}
 
 	// 보스 스켈이
 	public void mob2(Player player) {
@@ -107,6 +124,22 @@ public class MobLoot {
 		} else if (cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===움직이지 않는 자===")) {
 			int qNum = cb.getNum(player);
 			cb.q1(player, qNum + 1);
+		}
+	}
+	
+	public String getQuestName(Player player) {
+		try {
+			ArrayList<Objective> list = new ArrayList<Objective>(player.getScoreboard().getObjectives());
+			String name = null;
+			for(Objective obj : list) {
+				if(obj.getDisplayName().charAt(2) == '[') {
+					name = obj.getName();
+					break;
+				}
+			}			
+			return name;
+		} catch(Exception e) {
+			return null;
 		}
 	}
 }

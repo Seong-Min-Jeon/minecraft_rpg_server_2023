@@ -108,6 +108,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -131,7 +132,6 @@ public class Main extends JavaPlugin implements Listener{
 	//유물 효과: 회피, 위더/독/불 피해 %감소, 공격으로 받는 피해 %감소, 공격으로 주는 피해 %증가 등등
 	//유물은 인벤 맨 아래 9칸 사용 / 숲유적, 요정왕국, 아덴, 카루, 아라크네, 사막, 슬라임, 하드바다, 하드요정
 	
-	private Message msg = new Message();
 	private int sleep = 0;
 	Random rnd = new Random();
 	World world;
@@ -213,6 +213,18 @@ public class Main extends JavaPlugin implements Listener{
 		player.setOp(false);
 		if(player.getDisplayName().equalsIgnoreCase("yumehama")) {
 			player.setOp(true);
+			
+			ItemStack weapon = new ItemStack(Material.DIAMOND_SWORD);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.DARK_RED + "신의 검");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "초보 해결사도 지니고 다닐 수 있는 저가형 무기");
+			weaponLore.add(ChatColor.GRAY + "내구성은 보기보다 좋다고 한다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weapon.setItemMeta(weaponIm);
+			player.getInventory().addItem(weapon);
 		}		
 		
 		//각종 파일 생성
@@ -594,7 +606,7 @@ public class Main extends JavaPlugin implements Listener{
 				|| event.getEntity().getType() == EntityType.CHICKEN || event.getEntity().getType() == EntityType.COW
 				|| event.getEntity().getType() == EntityType.SHEEP || event.getEntity().getType() == EntityType.WOLF
 				|| event.getEntity().getType() == EntityType.HORSE || event.getEntity().getType() == EntityType.SKELETON_HORSE
-				|| event.getEntity().getType() == EntityType.DONKEY
+				|| event.getEntity().getType() == EntityType.DONKEY || event.getEntity().getType() == EntityType.RABBIT
 				|| event.getEntity().getType() == EntityType.CAT || event.getEntity().getType() == EntityType.ARMOR_STAND) {
 			event.setCancelled(true);
 			return;
@@ -692,7 +704,7 @@ public class Main extends JavaPlugin implements Listener{
 		}
 		
 		//무적인 엔티티
-		if(event.getEntity().getType() == EntityType.PIG || event.getEntity().getType() == EntityType.COW 
+		if(event.getEntity().getType() == EntityType.PIG || event.getEntity().getType() == EntityType.COW || event.getEntity().getType() == EntityType.RABBIT
 				|| event.getEntity().getType() == EntityType.CHICKEN || event.getEntity().getType() == EntityType.SHEEP || event.getEntity().getType() == EntityType.VILLAGER
 				|| event.getEntity().getType() == EntityType.HORSE || event.getEntity().getType() == EntityType.SKELETON_HORSE || event.getEntity().getType() == EntityType.ZOMBIE_HORSE
 				|| event.getEntity().getType() == EntityType.WOLF || event.getEntity().getType() == EntityType.CAT || event.getEntity().getType() == EntityType.DONKEY
@@ -984,7 +996,7 @@ public class Main extends JavaPlugin implements Listener{
 					} else if(type == Material.PAPER) {
 						String name = item.getItemMeta().getDisplayName();
 						if(name.substring(name.length()-3, name.length()).equals("초대장")) {
-							new ChangeOffice(player, item.getItemMeta().getDisplayName().substring(0, name.length()-3));
+							new ChangeOffice(player, item.getItemMeta().getDisplayName().substring(0, name.length()-4));
 						}
 					}
 				}
@@ -1533,7 +1545,7 @@ public class Main extends JavaPlugin implements Listener{
 				event.setCancelled(true);
 				return;
 			}
-			// 말 타기
+			// 말 못타
 			if(event.getRightClicked().getType() == EntityType.HORSE) {
 				event.setCancelled(true);
 			}
@@ -1547,6 +1559,27 @@ public class Main extends JavaPlugin implements Listener{
 				if(iv.interactVillager(player, event.getRightClicked()) == true) {
 					event.setCancelled(true);
 				}
+			}
+			
+			try {
+				//퀘스트 엔티티 접촉
+				QuestOwner qo = new QuestOwner();
+				if (event.getRightClicked() == qo.returnEntity(player)) {
+					QuestBoard qb = new QuestBoard();
+					
+					if (getQuestName(player).equals("q0001")) {
+						int qNum = qb.getNum(player);
+						qb.q0001(player, qNum + 1);
+					} else if (getQuestName(player).equals("q0002")) {
+						int qNum = qb.getNum(player);
+						qb.q0002(player, qNum + 1);
+					} else if (getQuestName(player).equals("q0003")) {
+						int qNum = qb.getNum(player);
+						qb.q0003(player, qNum + 1);
+					}
+				}
+			} catch(Exception ex) {
+				
 			}
 		}
 	}
@@ -1703,14 +1736,25 @@ public class Main extends JavaPlugin implements Listener{
 			ItemStack item = player.getInventory().getItem(8);
 			ItemMeta itemIM = item.getItemMeta();
 			ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
-			String exp = ary.get(1).split("[")[1].split("/")[0];
-			String maxExp = ary.get(1).split("]")[0].split("/")[1];
+			String exp = ary.get(1).split("\\[")[1].split("/")[0];
+			String maxExp = ary.get(1).split("\\]")[0].split("/")[1];
 			int newExp = Integer.parseInt(exp) - (Integer.parseInt(maxExp) / 10);
-			if (newExp < 0) {newExp = 0;}
-			ary.set(1, String.valueOf(newExp));
+			//if (newExp < 0) {newExp = 0;}
+			ary.set(1, ChatColor.GRAY + "등급: " + String.valueOf(newExp) + "/" + maxExp + "]");
 			itemIM.setLore(ary);
 			item.setItemMeta(itemIM);
 			player.getInventory().setItem(8, item);
+		} catch(Exception e) {
+			
+		}
+		
+		//퀘스트 엔티티 제거
+		try {
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
 		} catch(Exception e) {
 			
 		}
@@ -2348,20 +2392,28 @@ public class Main extends JavaPlugin implements Listener{
 	    Player player = event.getPlayer();
 	    
 	    try {
-	    	QuestBoard qb = new QuestBoard();
 	    	NPC npc = event.getNPC();
 	    	NPC.Interact.ClickType clickType = event.getClickType();
 	    	String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
 	 	    if(clickType == NPC.Interact.ClickType.RIGHT_CLICK) {
 	 	    	if(npc.getText().get(0).equals("핀")) {
-	 	    		msg.msg(player, "핀: 안녕하세요! 핀이에요.%핀: 대표님은 위층에 있어요!");
+	 	    		new Message().msg(player, "핀: 안녕하세요! 핀이에요.%핀: 대표님은 위층에 있어요!");
 	 	    	} else if(npc.getText().get(0).equals("윤")) {
-	 	    		if(office.equals("윤 사무소")) {
-	 	    			msg.msg(player, "윤: 오늘도 여러가지 의뢰가 들어왔다.%윤: 지금 너에게 맞는 의뢰는 이것이군.%q0001%윤: 중간에 포기를 하고 싶다면 /dropQuest 커맨드를 이용해라.%윤: 물론 평판은 깎이겠지만 말이야.");
-	 	    		} else if(office.equals("무소속")) {
-	 	    			msg.msg(player, "윤: 의뢰를 구하러 오신겁니까.%q0001%윤: 보수는 알아서 잘 분배해드리겠습니다.");
+	 	    		if(getQuestName(player) == null) {
+	 	    			if(office.equals("윤 사무소")) {
+		 	    			new Message().msg(player, "윤: 오늘도 여러가지 의뢰가 들어왔다.%윤: 지금 너에게 맞는 의뢰는 이것이군.%q0001%윤: 중간에 포기를 하고 싶다면 /dropQuest 커맨드를 이용해라.%윤: 물론 평판은 깎이겠지만 말이야.");
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 8)) {
+		 	    			new Message().msg(player, "윤: 의뢰를 구하러 오신겁니까.%q0001%윤: 보수는 알아서 잘 분배해드리겠습니다.");
+		 	    		} else {
+		 	    			new Message().msg(player, "윤: 볼 일이 없다면 나가주시죠.");
+		 	    		}
 	 	    		} else {
-	 	    			msg.msg(player, "윤: 볼 일이 없다면 나가주시죠.");
+	 	    			if(office.equals("윤 사무소")) {
+		 	    			new Message().msg(player, "윤: 빨리 나가서 의뢰나 해결하고 와.");
+		 	    		} else {
+		 	    			new Message().msg(player, "윤: 볼 일이 없다면 나가주시죠.");
+		 	    		}
+
 	 	    		}
 	 	    	}
 	 	    } else if(clickType == NPC.Interact.ClickType.LEFT_CLICK) {
@@ -2376,11 +2428,11 @@ public class Main extends JavaPlugin implements Listener{
 	
 	public String getQuestName(Player player) {
 		try {
-			ArrayList<String> list = new ArrayList<String>(player.getScoreboard().getEntries());
+			ArrayList<Objective> list = new ArrayList<Objective>(player.getScoreboard().getObjectives());
 			String name = null;
-			for(String line : list) {
-				if(line.charAt(2) == '[') {
-					name = line;
+			for(Objective obj : list) {
+				if(obj.getDisplayName().charAt(2) == '[') {
+					name = obj.getName();
 					break;
 				}
 			}			

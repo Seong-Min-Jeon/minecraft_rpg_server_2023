@@ -47,11 +47,12 @@ public class MobDeath {
 		if (((LivingEntity) mob).getHealth() - damage <= 0) {
 			
 			try {
-				String name = mob.getCustomName().substring(2);
+				String name = mob.getCustomName();
 
-				// 공격을 모르는 스켈이
-				if (name.equalsIgnoreCase("공격을 모르는 스켈이" + ChatColor.YELLOW + " [Lv.0]")) {
-					mobloot.mob2(lootPlayer);
+				if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐")) {
+					mobloot.rat(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
+					mobloot.rat(lootPlayer);
 				}
 				
 			} catch (Exception e) {

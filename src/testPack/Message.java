@@ -2,13 +2,14 @@ package testPack;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class Message {
 	
-	int sleep;
+	int sleep = 0;
     private int len;
     private int cnt = 0;
 	
@@ -27,9 +28,14 @@ public class Message {
 				
 				if (!t.hasID()) {
 					t.setID(sleep);
+				} else {
+					if(cnt == 0) {
+						t.endTask();
+						t.removeID();
+					}
 				}
 			
-				if(time % 60 == 0) {
+				if(time % 30 == 0) {
 					if(ary[cnt].substring(0, 2).equals("tp")) {
 						String str = ary[cnt].substring(2);
 						String[] array = str.split(" ");
@@ -42,6 +48,7 @@ public class Message {
 					} else if(ary[cnt].substring(0, 5).equals("q0001")) {
 						QuestBoard qb = new QuestBoard();
 						qb.q0001(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else {
 						player.sendMessage(ary[cnt]);
 					}
@@ -49,7 +56,6 @@ public class Message {
 				} 
 				
 				if(len == cnt) {
-					cnt = 0;
 					t.endTask();
 					t.removeID();
 				}

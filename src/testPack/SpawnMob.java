@@ -119,8 +119,8 @@ public class SpawnMob {
 					bootsmeta.setColor(Color.fromRGB(rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
 					bootsItem.setItemMeta(bootsmeta);
 					boots.setBoots(bootsItem);
-					entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1));
-					entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0));
+					entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+					entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
 				}
 				return true;
 			} else if (entity.getType() == (EntityType) EntityType.IRON_GOLEM) {
@@ -128,7 +128,7 @@ public class SpawnMob {
 				entity.setCustomNameVisible(true);
 				entity.setMaxHealth(300);
 				entity.setHealth(300);
-				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 5));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 5, false, false));
 			} else if (entity.getType() == (EntityType) EntityType.ITEM_FRAME
 					|| entity.getType() == (EntityType) EntityType.DROPPED_ITEM
 					|| entity.getType() == (EntityType) EntityType.ARMOR_STAND
