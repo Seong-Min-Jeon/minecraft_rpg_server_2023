@@ -82,7 +82,7 @@ public class QuestBoard {
 		Scoreboard board = manager.getNewScoreboard();
 		Objective obj = board.registerNewObjective("q0001", Criteria.DUMMY, ChatColor.GOLD + "[윤 사무소의 의뢰]");
 		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
-		Score score = obj.getScore("사라진 고양이를 찾아줘");
+		Score score = obj.getScore("사라진 고양이를 찾기");
 		score.setScore(2);
 		Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 		score2.setScore(1);
@@ -137,7 +137,7 @@ public class QuestBoard {
 		Scoreboard board = manager.getNewScoreboard();
 		Objective obj = board.registerNewObjective("q0002", Criteria.DUMMY, ChatColor.GOLD + "[윤 사무소의 의뢰]");
 		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
-		Score score = obj.getScore("사라진 토끼를 찾아줘");
+		Score score = obj.getScore("사라진 토끼를 찾기");
 		score.setScore(2);
 		Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 		score2.setScore(1);
@@ -192,7 +192,7 @@ public class QuestBoard {
 		Scoreboard board = manager.getNewScoreboard();
 		Objective obj = board.registerNewObjective("q0003", Criteria.DUMMY, ChatColor.GOLD + "[윤 사무소의 의뢰]");
 		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
-		Score score = obj.getScore("사라진 강아지를 찾아줘");
+		Score score = obj.getScore("사라진 강아지를 찾기");
 		score.setScore(2);
 		Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 		score2.setScore(1);
@@ -231,104 +231,93 @@ public class QuestBoard {
 		score2.setScore(0);
 		player.setScoreboard(board);
 	}
-
-	public void q1(Player player, int num) {
-		//상점
-		if(num>=10) {
-			player.setScoreboard (Bukkit.getScoreboardManager().getNewScoreboard ());
-			ItemStack item = new ItemStack(Material.EMERALD,20);
-			player.getInventory().addItem(item);
-			player.sendMessage(ChatColor.WHITE + "에메랄드" + ChatColor.WHITE + " 20개를 획득했다.");
-			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
-			return;
-		}
-		ScoreboardManager manager = Bukkit.getScoreboardManager();
-		Scoreboard board = manager.getNewScoreboard();
-		Objective obj = board.registerNewObjective("HubScoreboard-1", "dummy", ChatColor.GRAY + "C급 퀘스트");
-		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
-		Score score = obj.getScore(ChatColor.LIGHT_PURPLE + "===해안의 위협===");
-		score.setScore(2);
-		Score score2 = obj.getScore("해안가 좀비 10마리 사냥");
-		score2.setScore(1);
-		Score score3 = obj.getScore("(" + num + "/10)");
-		score3.setScore(0);
-		player.setScoreboard(board);
-	}
 	
-	public void q2(Player player, int num) {
-		//잊혀진 해안 던전 보상
+	public void q0005(Player player, int num) {
 		if(num>=1) {
-			player.setScoreboard (Bukkit.getScoreboardManager().getNewScoreboard ());
-			Location chestLoc = new Location(player.getWorld(), -1833, 92, 3036);
-			Block block = chestLoc.getBlock();
-			Chest chest = (Chest) block.getState();
-			ItemStack weapon = chest.getInventory().getItem(1);
-			player.getInventory().addItem(weapon);
-			player.sendMessage(ChatColor.LIGHT_PURPLE + "검은 해적단의 보물" + ChatColor.WHITE + "을 획득했다.");
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("윤 사무소")) {
+				player.setLevel(player.getLevel() + 3000);
+				giveExp(player, 2);
+				player.sendMessage(ChatColor.GOLD + "[System] 3000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 2만큼 증가했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1000);
+				giveExp(player, 1);
+				player.sendMessage(ChatColor.GOLD + "[System] 1000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+			}
 			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
 			return;
 		}
+		//음식 아이템 주기
+		ItemStack food = new ItemStack(Material.MUSHROOM_STEW);
+		ItemMeta foodIm = food.getItemMeta();
+		foodIm.setDisplayName(ChatColor.WHITE + "윤이 만든 음식");
+		ArrayList<String> foodLore = new ArrayList<>();
+		foodLore.add(ChatColor.GRAY + "윤이 에리와 함께 만든 음식");
+		foodLore.add(ChatColor.GRAY + "하급 사무소는 제대로 된 의뢰를 받는 일이");
+		foodLore.add(ChatColor.GRAY + "드물기 때문에 별의별 일을 다 맡는다고 한다.");
+		foodIm.setLore(foodLore);
+		food.setItemMeta(foodIm);
+		player.getInventory().addItem(food);
+		
+		//퀘스트 스코어보드에 적용
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
-		Objective obj = board.registerNewObjective("HubScoreboard-1", "dummy", ChatColor.LIGHT_PURPLE + "S급 퀘스트");
-		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
-		Score score = obj.getScore(ChatColor.LIGHT_PURPLE + "===해적선의 보물===");
-		score.setScore(3);
-		Score score2 = obj.getScore("워그닐 바다의 해적선에서");
-		score2.setScore(2);
-		Score score3 = obj.getScore("보물 상자를 찾아보자");
-		score3.setScore(1);
-		Score score4 = obj.getScore("(" + num + "/1)");
-		score4.setScore(0);
-		player.setScoreboard(board);
-	}
-	
-	public void q3(Player player, int num) {
-		//상점
-		if(num>=10) {
-			player.setScoreboard (Bukkit.getScoreboardManager().getNewScoreboard ());
-			ItemStack item = new ItemStack(Material.EMERALD,50);
-			player.getInventory().addItem(item);
-			player.sendMessage(ChatColor.WHITE + "에메랄드" + ChatColor.WHITE + " 50개를 획득했다.");
-			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
-			return;
-		}
-		ScoreboardManager manager = Bukkit.getScoreboardManager();
-		Scoreboard board = manager.getNewScoreboard();
-		Objective obj = board.registerNewObjective("HubScoreboard-1", "dummy", ChatColor.GRAY + "C급 퀘스트");
-		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
-		Score score = obj.getScore(ChatColor.LIGHT_PURPLE + "===포보르의 말단===");
+		Objective obj = board.registerNewObjective("q0005", Criteria.DUMMY, ChatColor.GOLD + "[윤 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("음식을 배달하기");
 		score.setScore(2);
-		Score score2 = obj.getScore("크리스탈 워리어 10마리 사냥");
+		Score score2 = obj.getScore("-1033, 67, 1219"); //올가
 		score2.setScore(1);
-		Score score3 = obj.getScore("(" + num + "/10)");
+		Score score3 = obj.getScore("(" + num + "/1)");
 		score3.setScore(0);
 		player.setScoreboard(board);
 	}
 	
-	public void q4(Player player, int num) {
-		//포레스트 고스트 드랍
-		if(num>=10) {
-			player.setScoreboard (Bukkit.getScoreboardManager().getNewScoreboard ());
-			ItemStack var1 = new ItemStack(Material.WHEAT, 64);
-			ItemMeta var1Im = var1.getItemMeta();
-			var1Im.setDisplayName(ChatColor.GRAY + "상처가 많은 밀");
-			var1.setItemMeta(var1Im);
-			player.getInventory().addItem(var1);
-			player.getInventory().addItem(var1);
-			player.sendMessage(ChatColor.GRAY + "상처가 많은 밀" + ChatColor.WHITE + " 64개를 획득했다.");
+	public void q0006(Player player, int num) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("윤 사무소")) {
+				player.setLevel(player.getLevel() + 3000);
+				giveExp(player, 2);
+				player.sendMessage(ChatColor.GOLD + "[System] 3000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 2만큼 증가했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1000);
+				giveExp(player, 1);
+				player.sendMessage(ChatColor.GOLD + "[System] 1000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+			}
 			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
 			return;
 		}
+		//음식 아이템 주기
+		ItemStack food = new ItemStack(Material.MUSHROOM_STEW);
+		ItemMeta foodIm = food.getItemMeta();
+		foodIm.setDisplayName(ChatColor.WHITE + "윤이 만든 음식");
+		ArrayList<String> foodLore = new ArrayList<>();
+		foodLore.add(ChatColor.GRAY + "윤이 에리와 함께 만든 음식");
+		foodLore.add(ChatColor.GRAY + "하급 사무소는 제대로 된 의뢰를 받는 일이");
+		foodLore.add(ChatColor.GRAY + "드물기 때문에 별의별 일을 다 맡는다고 한다.");
+		foodIm.setLore(foodLore);
+		food.setItemMeta(foodIm);
+		player.getInventory().addItem(food);
+		
+		//퀘스트 스코어보드에 적용
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
-		Objective obj = board.registerNewObjective("HubScoreboard-1", "dummy", ChatColor.WHITE + "B급 퀘스트");
-		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
-		Score score = obj.getScore(ChatColor.LIGHT_PURPLE + "===밀 사냥꾼===");
+		Objective obj = board.registerNewObjective("q0006", Criteria.DUMMY, ChatColor.GOLD + "[윤 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("음식을 배달하기");
 		score.setScore(2);
-		Score score2 = obj.getScore("포레스트 고스트 10마리 사냥");
+		Score score2 = obj.getScore("-1105, 85, 1277"); //월터
 		score2.setScore(1);
-		Score score3 = obj.getScore("(" + num + "/10)");
+		Score score3 = obj.getScore("(" + num + "/1)");
 		score3.setScore(0);
 		player.setScoreboard(board);
 	}

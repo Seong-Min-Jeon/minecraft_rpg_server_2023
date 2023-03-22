@@ -19,6 +19,11 @@ public class Message {
 		len = ary.length;
 		
 		ThreadMessage t = new ThreadMessage(player.getUniqueId());
+		
+		if(t.hasID()) {
+			return;
+		}
+		
 		sleep = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 
 			int time = 0;
@@ -48,6 +53,26 @@ public class Message {
 					} else if(ary[cnt].substring(0, 5).equals("q0001")) {
 						QuestBoard qb = new QuestBoard();
 						qb.q0001(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0002")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0002(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0003")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0003(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0004")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0004(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0005")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0005(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0006")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0006(player, 0);
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else {
 						player.sendMessage(ary[cnt]);

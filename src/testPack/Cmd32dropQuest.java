@@ -3,6 +3,7 @@ package testPack;
 import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -35,7 +36,8 @@ public class Cmd32dropQuest implements CommandExecutor {
 				item.setItemMeta(itemIM);
 				player.getInventory().setItem(8, item);
 				
-				player.sendMessage(ChatColor.WHITE + "해결사 평판이 감소했다.");
+				player.sendMessage(ChatColor.RED + "해결사 평판이 감소했다.");
+				player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
 			} catch(Exception e) {
 				
 			}

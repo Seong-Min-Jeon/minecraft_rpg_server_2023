@@ -1,8 +1,10 @@
 package testPack;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -18,6 +20,7 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.Chest;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Creeper;
@@ -277,6 +280,18 @@ public class Main extends JavaPlugin implements Listener{
 						e.printStackTrace();
 					}
 				}
+				//퀘스트
+				File file3 = new File(dir, "quest.dat");
+				if (!file3.exists()) {
+					try {
+						file3.createNewFile();
+						BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file3), "UTF-8"));
+						fw.write("null");
+		                fw.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
 				//광기
 				File file4 = new File(dir, "lunacy.dat");
 				if (!file4.exists()) {
@@ -343,6 +358,49 @@ public class Main extends JavaPlugin implements Listener{
 			startIm.setUnbreakable(true);
 			start.setItemMeta(startIm);	
 			player.getInventory().setItem(8, start); //시작버튼
+		} else {
+			//퀘스트 복구
+			File dir = new File(getDataFolder() + "/" + player.getUniqueId().toString());
+	    	if(!dir.exists()) {
+	    		try{
+	    		    dir.mkdir(); 
+	    		} catch(Exception e) {
+	    		    e.getStackTrace();
+	    		}
+	    	}
+			try {
+	    		File file = new File(dir, "quest.dat");
+				if (!file.exists()) {
+					try {
+						file.createNewFile();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				FileReader filereader = new FileReader(file);
+				BufferedReader bufReader = new BufferedReader(filereader);
+				String name = bufReader.readLine();
+				if(!name.equals("null")) {
+					String num = bufReader.readLine();
+					QuestBoard qb = new QuestBoard();
+					if (name.equals("q0001")) {
+						qb.q0001(player, Integer.parseInt(num));
+					} else if (name.equals("q0002")) {
+						qb.q0002(player, Integer.parseInt(num));
+					} else if (name.equals("q0003")) {
+						qb.q0003(player, Integer.parseInt(num));
+					} else if (name.equals("q0004")) {
+						qb.q0004(player, Integer.parseInt(num));
+					} else if (name.equals("q0005")) {
+						qb.q0005(player, Integer.parseInt(num));
+					} else if (name.equals("q0006")) {
+						qb.q0006(player, Integer.parseInt(num));
+					}
+				}
+				bufReader.close();
+	    	} catch(Exception e) {
+	    		
+	    	}
 		}
 		
 		//몹 스폰 생성
@@ -360,8 +418,9 @@ public class Main extends JavaPlugin implements Listener{
 			
 			player.setMaxHealth(20);
 			
+			//퀘스트 초기화
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 			
-			//퀘스트 초기화 하기
 			//광기 복구 하기
 			
 			
@@ -444,6 +503,14 @@ public class Main extends JavaPlugin implements Listener{
 				
 			}
 			
+			
+			//음식
+			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "윤이 만든 음식")) {
+				player.removePotionEffect(PotionEffectType.ABSORPTION);
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 0,true,true));
+			}
+			
+			
 			//특이 포션
 			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.YELLOW + "엘릭서")) {
 				for(PotionEffect effect : player.getActivePotionEffects ()){
@@ -461,9 +528,6 @@ public class Main extends JavaPlugin implements Listener{
 			}
 			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "근육의 포션 I")) {
 				player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE,1800,10,true,true));
-			}
-			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "도약의 포션 I")) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP,1200,0,true,true));
 			}
 			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.YELLOW + "코코넛 음료")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
@@ -553,12 +617,12 @@ public class Main extends JavaPlugin implements Listener{
 							|| item.getType() == Material.GOLDEN_BOOTS || item.getType() == Material.DIAMOND_HELMET || item.getType() == Material.DIAMOND_CHESTPLATE 
 							|| item.getType() == Material.DIAMOND_LEGGINGS || item.getType() == Material.DIAMOND_BOOTS || item.getType() == Material.NETHERITE_HELMET
 							|| item.getType() == Material.NETHERITE_CHESTPLATE || item.getType() == Material.NETHERITE_LEGGINGS || item.getType() == Material.NETHERITE_BOOTS
-							|| item.getType() == Material.CARVED_PUMPKIN)
+							|| item.getType() == Material.CARVED_PUMPKIN
 					
 							|| item.getType() == Material.CREEPER_BANNER_PATTERN || item.getType() == Material.FLOWER_BANNER_PATTERN || item.getType() == Material.GLOBE_BANNER_PATTERN 
 							|| item.getType() == Material.MOJANG_BANNER_PATTERN || item.getType() == Material.PIGLIN_BANNER_PATTERN || item.getType() == Material.SKULL_BANNER_PATTERN 
 							
-							|| item.getType() == Material.SLIME_BALL || item.getType() == Material.MAGMA_CREAM || item.getType() == Material.SHULKER_SHELL) {
+							|| item.getType() == Material.SLIME_BALL || item.getType() == Material.MAGMA_CREAM || item.getType() == Material.SHULKER_SHELL)) {
 				event.setCancelled(true);
 				return;
 			}
@@ -1096,7 +1160,7 @@ public class Main extends JavaPlugin implements Listener{
 	    				if(qb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===해적선의 보물===")) {
 	    					if (i != 0) {
 	    						int qNum = qb.getNum(player);
-		    					qb.q2(player, qNum+1);	
+		    					//qb.q2(player, qNum+1);	
 							} else {
 								player.sendMessage(ChatColor.RED + "인벤토리에 빈칸이 없습니다.");
 							}
@@ -1452,7 +1516,7 @@ public class Main extends JavaPlugin implements Listener{
 					if (qb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===전설의 시작===")) {
 						if (i != 0) {
 							int qNum = qb.getNum(player);
-							qb.q1(player, qNum + 1);
+							//qb.q1(player, qNum + 1);
 						} else {
 							player.sendMessage(ChatColor.RED + "인벤토리에 빈칸이 없습니다.");
 						}
@@ -1702,7 +1766,17 @@ public class Main extends JavaPlugin implements Listener{
 							|| clicked.getType() == Material.MUSIC_DISC_CAT || clicked.getType() == Material.MUSIC_DISC_CHIRP || clicked.getType() == Material.MUSIC_DISC_FAR 
 							|| clicked.getType() == Material.MUSIC_DISC_MALL || clicked.getType() == Material.MUSIC_DISC_MELLOHI || clicked.getType() == Material.MUSIC_DISC_PIGSTEP 
 							|| clicked.getType() == Material.MUSIC_DISC_STAL || clicked.getType() == Material.MUSIC_DISC_STRAD || clicked.getType() == Material.MUSIC_DISC_WAIT 
-							|| clicked.getType() == Material.MUSIC_DISC_WARD)) {
+							|| clicked.getType() == Material.MUSIC_DISC_WARD
+							
+							|| clicked.getType() == Material.LEATHER_HELMET || clicked.getType() == Material.LEATHER_CHESTPLATE || clicked.getType() == Material.LEATHER_LEGGINGS 
+							|| clicked.getType() == Material.LEATHER_BOOTS || clicked.getType() == Material.CHAINMAIL_HELMET || clicked.getType() == Material.CHAINMAIL_CHESTPLATE 
+							|| clicked.getType() == Material.CHAINMAIL_LEGGINGS || clicked.getType() == Material.CHAINMAIL_BOOTS || clicked.getType() == Material.IRON_HELMET 
+							|| clicked.getType() == Material.IRON_CHESTPLATE || clicked.getType() == Material.IRON_LEGGINGS || clicked.getType() == Material.IRON_BOOTS 
+							|| clicked.getType() == Material.GOLDEN_HELMET || clicked.getType() == Material.GOLDEN_CHESTPLATE || clicked.getType() == Material.GOLDEN_LEGGINGS 
+							|| clicked.getType() == Material.GOLDEN_BOOTS || clicked.getType() == Material.DIAMOND_HELMET || clicked.getType() == Material.DIAMOND_CHESTPLATE 
+							|| clicked.getType() == Material.DIAMOND_LEGGINGS || clicked.getType() == Material.DIAMOND_BOOTS || clicked.getType() == Material.NETHERITE_HELMET
+							|| clicked.getType() == Material.NETHERITE_CHESTPLATE || clicked.getType() == Material.NETHERITE_LEGGINGS || clicked.getType() == Material.NETHERITE_BOOTS
+							|| clicked.getType() == Material.CARVED_PUMPKIN)) {
 		        		event.setCancelled(true);
 			            return;
     				}
@@ -1730,21 +1804,41 @@ public class Main extends JavaPlugin implements Listener{
 	public void offPlayer(PlayerQuitEvent event) {
 		Player player = event.getPlayer();
 		
-		//퀘스트 제거
+		//퀘스트 저장
 		try {
-			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
-			ItemStack item = player.getInventory().getItem(8);
-			ItemMeta itemIM = item.getItemMeta();
-			ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
-			String exp = ary.get(1).split("\\[")[1].split("/")[0];
-			String maxExp = ary.get(1).split("\\]")[0].split("/")[1];
-			int newExp = Integer.parseInt(exp) - (Integer.parseInt(maxExp) / 10);
-			//if (newExp < 0) {newExp = 0;}
-			ary.set(1, ChatColor.GRAY + "등급: " + String.valueOf(newExp) + "/" + maxExp + "]");
-			itemIM.setLore(ary);
-			item.setItemMeta(itemIM);
-			player.getInventory().setItem(8, item);
-		} catch(Exception e) {
+			File dataFolder = getDataFolder();
+            if(!dataFolder.exists()) {
+                dataFolder.mkdir();
+            } else {
+            	File dir = new File(dataFolder + "/" + player.getUniqueId().toString());
+            	if(!dir.exists()) {
+            		try{
+            		    dir.mkdir(); 
+            		} catch(Exception e) {
+            		    e.getStackTrace();
+            		}
+				}
+				//퀘스트
+				File file = new File(dir, "quest.dat");
+				if (file.exists()) {
+					try {
+						BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+						if(getQuestName(player) != null) {
+							QuestBoard qb = new QuestBoard();
+							int number = qb.getNum(player);
+							fw.write(getQuestName(player));
+							fw.write("\n");
+							fw.write(Integer.toString(number));
+						} else {
+							fw.write("null");
+						}
+		                fw.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		} catch (Exception e) {
 			
 		}
 		
@@ -2132,7 +2226,7 @@ public class Main extends JavaPlugin implements Listener{
 	public void worldChange(PlayerChangedWorldEvent event) {
 		Player player = event.getPlayer();
 		if(!player.getWorld().getName().equalsIgnoreCase("world")) {
-			player.damage(999);
+			player.damage(99999);
 		}
 	}
 	
@@ -2400,10 +2494,32 @@ public class Main extends JavaPlugin implements Listener{
 	 	    		new Message().msg(player, "핀: 안녕하세요! 핀이에요.%핀: 대표님은 위층에 있어요!");
 	 	    	} else if(npc.getText().get(0).equals("윤")) {
 	 	    		if(getQuestName(player) == null) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			int num = rnd.nextInt(6);
 	 	    			if(office.equals("윤 사무소")) {
-		 	    			new Message().msg(player, "윤: 오늘도 여러가지 의뢰가 들어왔다.%윤: 지금 너에게 맞는 의뢰는 이것이군.%q0001%윤: 중간에 포기를 하고 싶다면 /dropQuest 커맨드를 이용해라.%윤: 물론 평판은 깎이겠지만 말이야.");
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "윤: 오늘도 여러가지 의뢰가 들어왔다.%윤: 고양이가 가출했다고 한다.%q0001%윤: 중간에 포기를 하고 싶다면 /dropQuest 커맨드를 이용해라.%윤: 물론 평판은 깎이겠지만 말이야.");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "윤: 오늘도 여러가지 의뢰가 들어왔다.%윤: 토끼를 잃어버렸다고 한다.%윤: 뒷골목에서 토끼를 키우는 사람은 거의 없으니 찾기 쉬울거다.%q0002%윤: 중간에 포기를 하고 싶다면 /dropQuest 커맨드를 이용해라.%윤: 물론 평판은 깎이겠지만 말이야.");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "윤: 오늘도 여러가지 의뢰가 들어왔다.%윤: 강아지를 찾아달라는군.%q0003%윤: 중간에 포기를 하고 싶다면 /dropQuest 커맨드를 이용해라.%윤: 물론 평판은 깎이겠지만 말이야.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "윤: 오늘도 여러가지 의뢰가 들어왔다.%윤: 목숨이 위험할 수도 있지만 보수는 클거야.%q0004%윤: 중간에 포기를 하고 싶다면 /dropQuest 커맨드를 이용해라.%윤: 물론 평판은 깎이겠지만 말이야.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "윤: 음식 배달이다.%윤: 식기 전에 빨리 가져다 드리도록.%q0005%윤: 중간에 포기를 하고 싶다면 /dropQuest 커맨드를 이용해라.%윤: 물론 평판은 깎이겠지만 말이야.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "윤: 음식 배달이다.%윤: 둥지에서 들어온 의뢰니 신경쓰도록.%q0006%윤: 중간에 포기를 하고 싶다면 /dropQuest 커맨드를 이용해라.%윤: 물론 평판은 깎이겠지만 말이야.");
+	 	    				}
 		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 8)) {
-		 	    			new Message().msg(player, "윤: 의뢰를 구하러 오신겁니까.%q0001%윤: 보수는 알아서 잘 분배해드리겠습니다.");
+		 	    			if(num == 0) {
+		 	    				new Message().msg(player, "윤: 의뢰를 구하러 오신겁니까.%q0001%윤: 보수는 알아서 잘 분배해드리겠습니다.");
+		 	    			} else if(num == 1) {
+		 	    				new Message().msg(player, "윤: 의뢰를 구하러 오신겁니까.%q0002%윤: 보수는 알아서 잘 분배해드리겠습니다.");
+		 	    			} else if(num == 2) {
+		 	    				new Message().msg(player, "윤: 의뢰를 구하러 오신겁니까.%q0003%윤: 보수는 알아서 잘 분배해드리겠습니다.");
+		 	    			} else if(num == 3) {
+		 	    				new Message().msg(player, "윤: 의뢰를 구하러 오신겁니까.%q0004%윤: 보수는 알아서 잘 분배해드리겠습니다.%윤: 살아서 봤으면 좋겠군요.");
+		 	    			}
 		 	    		} else {
 		 	    			new Message().msg(player, "윤: 볼 일이 없다면 나가주시죠.");
 		 	    		}
@@ -2414,6 +2530,41 @@ public class Main extends JavaPlugin implements Listener{
 		 	    			new Message().msg(player, "윤: 볼 일이 없다면 나가주시죠.");
 		 	    		}
 
+	 	    		}
+	 	    	}
+	 	    	
+	 	    	//퀘스트 완료
+	 	    	if(npc.getText().get(0).equals("올가")) {
+	 	    		QuestBoard qb = new QuestBoard();
+	 	    		if (getQuestName(player).equals("q0005")) {
+	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						ItemStack food = chest.getInventory().getItem(0);
+						if(player.getInventory().contains(food)) {
+							player.getInventory().remove(food);
+							new Message().msg(player, "올가: 윤 사무소에서 왔구나?%올가: 고마워. 잘 먹을게.");
+							int qNum = qb.getNum(player);
+	        				qb.q0005(player, qNum + 1);
+						} else {
+							new Message().msg(player, "올가: 해장해야되니까 빨리 가져다줘.");
+						}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("월터")) {
+	 	    		QuestBoard qb = new QuestBoard();
+	 	    		if (getQuestName(player).equals("q0006")) {
+	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						ItemStack food = chest.getInventory().getItem(0);
+						if(player.getInventory().contains(food)) {
+							player.getInventory().remove(food);
+							new Message().msg(player, "월터: 자네는 윤 사무소 배달원인가?%월터: 잘 먹도록 하지.");
+							int qNum = qb.getNum(player);
+	        				qb.q0006(player, qNum + 1);
+						} else {
+							new Message().msg(player, "월터: 자네 지금 장난하자는건가?%월터: 빨리 음식을 내오게나.");
+						}
 	 	    		}
 	 	    	}
 	 	    } else if(clickType == NPC.Interact.ClickType.LEFT_CLICK) {

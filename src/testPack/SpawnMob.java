@@ -52,8 +52,8 @@ public class SpawnMob {
 	}
 
 	public boolean rat(LivingEntity entity, Location loc) {
-		// 뒷골목 -1309 179 1599  -884 0 1074
-		if (loc.getX() <= -884 && loc.getY() <= 179 && loc.getZ() <= 1599 && 
+		// 뒷골목 -1309 79 1599  -884 0 1074
+		if (loc.getX() <= -884 && loc.getY() <= 79 && loc.getZ() <= 1599 && 
 				loc.getX() >= -1309 && loc.getY() >= 0 && loc.getZ() >= 1074) {
 			Location chestLoc = new Location(entity.getWorld(), -1144, 166, 1467);
 			Block block = chestLoc.getBlock();

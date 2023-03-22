@@ -12,9 +12,11 @@ import org.bukkit.entity.IronGolem;
 import org.bukkit.entity.Monster;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
+import org.bukkit.util.Vector;
 
 public class MobThread implements Listener{
 
+	private int taskID;
 	private Player player = null;
 	int sleep;
 	Random rnd = new Random();
@@ -38,7 +40,8 @@ public class MobThread implements Listener{
 				
 				if(loc.getBlock().getType() != Material.WATER) {
 					
-					if (time % 1200 == 10) {
+					// 1분
+					if (time % 1200 == 1190) {
 						
 						// 주변에 몹이 많은가
 						Boolean less = true;
@@ -69,7 +72,7 @@ public class MobThread implements Listener{
 						Boolean edge = true;
 						
 						if(edge && less && !player.isFlying()) {
-							if (loc.getX() <= -884 && loc.getY() <= 179 && loc.getZ() <= 1599 && 
+							if (loc.getX() <= -884 && loc.getY() <= 79 && loc.getZ() <= 1599 && 
 									loc.getX() >= -1309 && loc.getY() >= 0 && loc.getZ() >= 1074) {
 								slum(player, loc);
 								slum(player, loc);
@@ -93,7 +96,7 @@ public class MobThread implements Listener{
 
 	public void slum(Player player, Location loc) {
 		loc = location(loc);
-		if (!(loc.getX() <= -884 && loc.getY() <= 179 && loc.getZ() <= 1599 && 
+		if (!(loc.getX() <= -884 && loc.getY() <= 79 && loc.getZ() <= 1599 && 
 				loc.getX() >= -1309 && loc.getY() >= 0 && loc.getZ() >= 1074)) {
 			return;
 		}
@@ -101,6 +104,34 @@ public class MobThread implements Listener{
 			IronGolem golem = (IronGolem) loc.getWorld().spawnEntity(loc, EntityType.IRON_GOLEM);
 			golem.setTarget(player);
 			player.setNoDamageTicks(20);
+			
+			int t = (int) player.getWorld().getTime();
+			final int removeTime = 23000 - t;
+			
+			taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
+
+				int time = 0;
+				ThreadSweeper td = new ThreadSweeper(player.getUniqueId());
+
+				@Override
+				public void run() {
+					if (!td.hasID()) {
+						td.setID(taskID);
+					}
+
+					if (time >= removeTime && golem.getTarget() == null) {
+						golem.remove();
+						
+						td.endTask();
+						td.removeID();
+						return;
+					}
+
+					time++;
+				}
+
+			}, 0, 1);
+			
 		} else {
 			loc.getWorld().spawnEntity(loc, EntityType.SKELETON);
 		}

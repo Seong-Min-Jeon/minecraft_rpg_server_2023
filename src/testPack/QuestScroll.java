@@ -21,10 +21,6 @@ public class QuestScroll {
 		QuestBoard qb = new QuestBoard();
 		if(itemArg.getType() == Material.GLOBE_BANNER_PATTERN) {
 			if(qb.getQuestName(player)==null) {
-				q1(player, itemArg, world);
-				q2(player, itemArg, world);
-				q3(player, itemArg, world);
-				q4(player, itemArg, world);
 				mq_last(player, itemArg, world);
 				itemArg.setAmount(itemArg.getAmount()-1);
 			} else {
@@ -33,38 +29,6 @@ public class QuestScroll {
 			}
 		}
 		
-	}
-	
-	public void q1(Player player, ItemStack itemArg, World world) {	
-		if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GRAY + "퀘스트: 해안의 위협")) {
-			msg.msg(player, "§7§e해안가 좀비§7를 소탕해 배를 지키자.");
-			QuestBoard qb = new QuestBoard();
-			qb.q1(player, 0);
-		}	
-	}
-	
-	public void q2(Player player, ItemStack itemArg, World world) {	
-		if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.LIGHT_PURPLE + "퀘스트: 해적선의 보물")) {
-			msg.msg(player, "§7워그닐 앞바다에 §e해적선§7이 출몰한다는 정보다 들어왔다.%§7해적들을 피해 §e보물상자§7를 찾아보자.");
-			QuestBoard qb = new QuestBoard();
-			qb.q2(player, 0);
-		}	
-	}
-	
-	public void q3(Player player, ItemStack itemArg, World world) {	
-		if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GRAY + "퀘스트: 포보르의 말단")) {
-			msg.msg(player, "§7포보르와의 전투를 유리하게 이끌 수 있도록 실전 경험을 쌓아보자.%§7마침 이 근방에 포보르 중 가장 약한 §e크리스탈 워리어§7가 존재한다고 한다.");
-			QuestBoard qb = new QuestBoard();
-			qb.q3(player, 0);
-		}	
-	}
-	
-	public void q4(Player player, ItemStack itemArg, World world) {	
-		if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.WHITE + "퀘스트: 밀 사냥꾼")) {
-			msg.msg(player, "§7포르간의 밀 밭을 망치는 주범을 발견했다.%§7그들을 신속히 처리하자.");
-			QuestBoard qb = new QuestBoard();
-			qb.q4(player, 0);
-		}	
 	}
 	
 	public void mq_last(Player player, ItemStack itemArg, World world) {	

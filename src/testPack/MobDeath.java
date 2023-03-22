@@ -52,7 +52,7 @@ public class MobDeath {
 				if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐")) {
 					mobloot.rat(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
-					mobloot.rat(lootPlayer);
+					mobloot.ratBoss(lootPlayer);
 				}
 				
 			} catch (Exception e) {

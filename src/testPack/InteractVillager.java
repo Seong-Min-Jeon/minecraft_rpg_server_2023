@@ -56,7 +56,7 @@ public class InteractVillager {
 			try {
 				if(cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===전설의 시작===")) {
 					int qNum = cb.getNum(player);
-					cb.q1(player, qNum+1);		
+					//cb.q1(player, qNum+1);		
 				} else {
 					player.sendMessage(ChatColor.GRAY + "빛나는 검이 있다.");
 				}
@@ -86,7 +86,7 @@ public class InteractVillager {
 			try {
 				if(cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===에일 땅으로===")) {
 					int qNum = cb.getNum(player);
-					cb.q1(player, qNum+1);		
+					//cb.q1(player, qNum+1);		
 				} else {
 					player.sendMessage("포르간 촌장: 허허.. 어서오시게.");
 				}
@@ -106,7 +106,7 @@ public class InteractVillager {
 			try {
 				if(cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===시드 광산===")) {
     				int qNum = cb.getNum(player);
-    				cb.q1(player, qNum + 1);
+    				//cb.q1(player, qNum + 1);
     			} else if(cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===포보르의 무기2===")) {
 					Location chestLoc = new Location(player.getWorld(), -1833, 92, 3036);
 					Block block = chestLoc.getBlock();
@@ -114,16 +114,16 @@ public class InteractVillager {
 					ItemStack weapon1 = chest.getInventory().getItem(6);
 					if(player.getInventory().contains(weapon1)) {
 						int qNum = cb.getNum(player);
-        				cb.q1(player, qNum + 1);
+        				//cb.q1(player, qNum + 1);
 					} else {
 						player.sendMessage("광부: 물건은 어디에 있는가?");
 					}
     			} else if(cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===진실을 아는 자3===")) {
     				int qNum = cb.getNum(player);
-    				cb.q1(player, qNum + 1);
+    				//cb.q1(player, qNum + 1);
     			} else if(cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===진실을 아는 자5===")) {
     				int qNum = cb.getNum(player);
-    				cb.q1(player, qNum + 1);
+    				//cb.q1(player, qNum + 1);
     			} else {
     				player.sendMessage("광부: 이곳에는 이제 남은게 없다만 필요하다면 둘러보시게.");
     			}
@@ -143,7 +143,7 @@ public class InteractVillager {
 			try {
 				if(cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===미푀르유 성===")) {
 					int qNum = cb.getNum(player);
-					cb.q1(player, qNum+1);		
+					//cb.q1(player, qNum+1);		
 				} else {
 					player.sendMessage("불안한 주민: 날 좀 살려줘");
 				}

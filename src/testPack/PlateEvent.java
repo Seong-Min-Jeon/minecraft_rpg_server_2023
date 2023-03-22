@@ -30,7 +30,6 @@ public class PlateEvent {
 		hamabeHidden2(player, block, world);
 		laphanui1(player, block, world);
 		laphanui2(player, block, world);
-		hamabe1(player, block, world);
 		hamabeHidden21(player, block, world);
 		hamabeHidden221(player, block, world);
 		hamabeHidden222(player, block, world);
@@ -285,40 +284,6 @@ public class PlateEvent {
 
 				}, 0, 1);
 
-			}
-		}
-	}
-		
-	// 하마베 데히트라
-	public void hamabe1(Player player, Block block, World world) {
-		if (block.getType() == Material.STONE_BUTTON) {
-			if (block.getX() == 887 && block.getZ() == -24) {
-				QuestBoard cb = new QuestBoard();
-				if (cb.getQuestName(player).equals(ChatColor.LIGHT_PURPLE + "===3개의 종===")) {
-					taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
-
-						int time = 0;
-						ThreadData td = new ThreadData(player.getUniqueId());
-
-						@Override
-						public void run() {
-							if (!td.hasID()) {
-								td.setID(taskID);
-							}
-
-							if (time >= 10) {
-								player.teleport(new Location(world, 3796, 19, 3799.5));
-								td.endTask();
-								td.removeID();
-							}
-
-							time++;
-						}
-
-					}, 0, 1);
-					int qNum = cb.getNum(player);
-					cb.q1(player, qNum + 1);
-				}
 			}
 		}
 	}
