@@ -186,7 +186,7 @@ public class Main extends JavaPlugin implements Listener{
 		}
 		
 		//리소스팩 적용
-		//player.setResourcePack("https://cdn.discordapp.com/attachments/557875773617340416/923835992559976458/aile_texture_pack_46.zip");
+		player.setResourcePack("https://cdn.discordapp.com/attachments/929453279925121084/1089149515791073320/LOR.zip");
 		
 		//입장 메세지
 		if(player.getDisplayName().equalsIgnoreCase("yumehama")) {
