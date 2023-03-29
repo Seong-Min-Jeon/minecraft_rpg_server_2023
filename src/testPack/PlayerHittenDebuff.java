@@ -42,7 +42,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.EulerAngle;
 import org.bukkit.util.Vector;
 
-public class PlayerHitDebuff {
+public class PlayerHittenDebuff {
 	
 	Random rnd = new Random();
 	private int taskID;
@@ -52,9 +52,24 @@ public class PlayerHitDebuff {
 	static boolean pat3 = false;
 	static boolean pat4 = false;
 
-	public void playerHitDebuff(Player player, Entity mob) {
+	public void playerHittenDebuff(Player player, Entity mob) {
 		ratNormal(player, mob);
 		ratBoss(player, mob);
+		spider(player, mob);
+		guardian(player, mob);
+		vindicator(player, mob);
+		slime(player, mob);
+		silverfish(player, mob);
+		witch(player, mob);
+		caveSpider(player, mob);
+		enderman(player, mob);
+		elderGuardian(player, mob);
+		magmacube(player, mob);
+		blaze(player, mob);
+		endermite(player, mob);
+		ravager(player, mob);
+		ghast(player, mob);
+		warden(player, mob);
 	}
 
 	//쥐
@@ -69,13 +84,184 @@ public class PlayerHitDebuff {
 	
 	//쥐 두목
 	public void ratBoss(Player player, Entity mob) {
-		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐 두목")) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
 			int num = rnd.nextInt(8);
 			if (num == 0) {
 				player.setMaxHealth(player.getMaxHealth() - 1);
 			} else if(num < 3) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
 			}
+		}
+	}
+	
+	//다리가 많아! 몇개야?
+	public void spider(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "다리가 많아! 몇개야?")) {
+			int num = rnd.nextInt(10);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} else if(num == 1) {
+				player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 0, true, true));
+			}
+			player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
+		}
+	}
+	
+	//외눈 물고기
+	public void guardian(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "외눈 물고기")) {
+			int num = rnd.nextInt(10);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+		}
+	}
+	
+	//회색 인간
+	public void vindicator(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "회색 인간")) {
+			int num = rnd.nextInt(10);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+		}
+	}
+	
+	//작아지는 죽음
+	public void slime(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음")) {
+			int num = rnd.nextInt(8);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+		}
+	}
+	
+	//작은 조각
+	public void silverfish(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작은 조각")) {
+			int num = rnd.nextInt(8);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+		}
+	}
+	
+	//약쟁이 소녀
+	public void witch(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "약쟁이 소녀")) {
+			int num = rnd.nextInt(8);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+		}
+	}
+	
+	//날아오르는 다리
+	public void caveSpider(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "날아오르는 다리")) {
+			int num = rnd.nextInt(8);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+		}
+	}
+	
+	//검은 인격
+	public void enderman(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "검은 인격")) {
+			int num = rnd.nextInt(5);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+			player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100, 0, true, true));
+		}
+	}
+	
+	//외눈 물고기 성체
+	public void elderGuardian(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
+			int num = rnd.nextInt(5);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+		}
+	}
+	
+	//녹아내리는 마음
+	public void magmacube(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음")) {
+			int num = rnd.nextInt(5);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+			player.setFireTicks(5);
+		}
+	}
+	
+	//쏘아올리는 불꽃
+	public void blaze(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃")) {
+			int num = rnd.nextInt(5);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+			player.setFireTicks(5);
+		}
+	}
+	
+	//부패의 조각
+	public void endermite(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각")) {
+			int num = rnd.nextInt(5);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+			player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100, 0, true, true));
+		}
+	}
+	
+	//폭주하는 황소
+	public void ravager(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
+			int num = rnd.nextInt(3);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+
+			int num2 = rnd.nextInt(10);
+			if (num2 == 0) {
+				player.setVelocity(new Vector(0, 1, 0));
+			} else if (num2 < 3) {
+				player.setVelocity(player.getEyeLocation().getDirection().multiply(-2.0f));
+			}
+		}
+	}
+	
+	//우는 영혼들의 산
+	public void ghast(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
+			int num = rnd.nextInt(3);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+		}
+	}
+	
+	//도망쳐
+	public void warden(Player player, Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
+			int num = rnd.nextInt(3);
+			if (num == 0) {
+				player.setMaxHealth(player.getMaxHealth() - 1);
+			} 
+			
+			if(player.getHealth() - player.getMaxHealth()/8 > 0) {
+				player.setHealth(player.getHealth() - player.getMaxHealth()/8);
+			} else {
+				player.setHealth(0);
+			}
+			
 		}
 	}
 	

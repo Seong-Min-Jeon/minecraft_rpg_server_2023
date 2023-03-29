@@ -64,6 +64,7 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.EntityRegainHealthEvent;
 import org.bukkit.event.entity.EntityRegainHealthEvent.RegainReason;
@@ -495,6 +496,28 @@ public class Main extends JavaPlugin implements Listener{
 	}
 	
 	@EventHandler
+	public void distortedDeath(EntityDeathEvent event) {
+		Entity ent = event.getEntity();
+		//슬라임 분열 기믹
+		try {
+			if(ent.getCustomName().equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음") && ((Slime) ent).getSize() > 2) {
+				Entity newEnt = world.spawnEntity(ent.getLocation(), EntityType.SLIME);
+				((Slime) newEnt).setSize(((Slime) ent).getSize() - 1);
+				return;
+			}
+		} catch(Exception e) {
+			
+		}
+		
+		//보상 수여하기
+		try {
+			
+		} catch(Exception e) {
+			
+		}
+	}
+	
+	@EventHandler
 	public void consumeItem(PlayerItemConsumeEvent event) {
 		Player player = event.getPlayer();
 		try {
@@ -738,8 +761,8 @@ public class Main extends JavaPlugin implements Listener{
 					entity = (Entity) ((Arrow) entity).getShooter();
 				}
 				
-				PlayerHitDebuff debuff = new PlayerHitDebuff();
-				debuff.playerHitDebuff(player, entity);
+				PlayerHittenDebuff debuff = new PlayerHittenDebuff();
+				debuff.playerHittenDebuff(player, entity);
 			}
 		} catch (Exception e) {
 
@@ -832,10 +855,12 @@ public class Main extends JavaPlugin implements Listener{
 			
 		}
 		
-		// 데미지 처리
+		// 특수 데미지 처리(뎀지 경감 이후 처리)
 		try {
 			if (event.getCause() == DamageCause.FIRE_TICK || event.getCause() == DamageCause.FIRE || event.getCause() == DamageCause.HOT_FLOOR) {
-				
+				if (event.getEntity() instanceof Player) {
+					event.setDamage(1);
+				}
 			} else if (event.getCause() == DamageCause.VOID) {
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
@@ -853,22 +878,45 @@ public class Main extends JavaPlugin implements Listener{
 				}
 			} else if (event.getCause() == DamageCause.POISON) {
 				if (event.getEntity() instanceof Player) {
-					
+					event.setDamage(1);
 				}
 			} else if (event.getCause() == DamageCause.WITHER) {
 				if (event.getEntity() instanceof Player) {
-					
+					Player player = (Player) event.getEntity();
+					int num = rnd.nextInt(10);
+					if (num == 0) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+					event.setDamage(1);
 				}
 			} else if (event.getCause() == DamageCause.BLOCK_EXPLOSION) {
-				
+				if (event.getEntity() instanceof Player) {
+					Player player = (Player) event.getEntity();
+					event.setDamage(player.getMaxHealth()/4);
+				}
 			} else if (event.getCause() == DamageCause.ENTITY_EXPLOSION) {
-				
+				if (event.getEntity() instanceof Player) {
+					Player player = (Player) event.getEntity();
+					event.setDamage(player.getMaxHealth()/4);
+				}
 			} else if(event.getCause() == DamageCause.STARVATION) {
 				Player player = (Player) event.getEntity();
 				event.setDamage(player.getMaxHealth());
 			}
 		} catch(Exception e){
 			
+		}
+		
+		//몹을 공격한 경우 기믹 발생
+		try {
+			if (event.getEntity() instanceof Entity) {
+				Entity entity = (Entity) event.getEntity();
+
+				PlayerHitGimmick debuff = new PlayerHitGimmick();
+				debuff.playerHitGimmick(entity);
+			}
+		} catch (Exception e) {
+
 		}
 		
 		//몹 루트

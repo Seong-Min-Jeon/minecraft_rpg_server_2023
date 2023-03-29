@@ -45,7 +45,7 @@ public class SpawnMob {
 	public boolean spawn(Entity mob) {
 		LivingEntity entity = (LivingEntity) mob;
 		Location loc = entity.getLocation();
-		if (rat(entity, loc) && rat(entity, loc)) {
+		if (rat(entity, loc) && distorted(entity, loc)) {
 			return true;
 		}
 		return false;
@@ -93,8 +93,8 @@ public class SpawnMob {
 				} else {
 					entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목");
 					entity.setCustomNameVisible(true);
-					entity.setMaxHealth(40);
-					entity.setHealth(40);
+					entity.setMaxHealth(50);
+					entity.setHealth(50);
 					EntityEquipment weapon = entity.getEquipment();
 					ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
 					weapon.setItemInMainHand(weaponItem);
@@ -129,22 +129,131 @@ public class SpawnMob {
 				entity.setMaxHealth(300);
 				entity.setHealth(300);
 				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 5, false, false));
-			} else if (entity.getType() == (EntityType) EntityType.ITEM_FRAME
-					|| entity.getType() == (EntityType) EntityType.DROPPED_ITEM
-					|| entity.getType() == (EntityType) EntityType.ARMOR_STAND
-					|| entity.getType() == (EntityType) EntityType.VILLAGER
-					|| entity.getType() == (EntityType) EntityType.CAT
-					|| entity.getType() == (EntityType) EntityType.RABBIT
-					|| entity.getType() == (EntityType) EntityType.WOLF) {
-				return true;
-			} else {
-				return false;
 			}
 		}
 		return true;
 	}
 	
-	
+	public boolean distorted(LivingEntity entity, Location loc) {
+		// 도시 -1309 255 1599  -884 0 1074
+		if (loc.getX() <= -884 && loc.getY() <= 255 && loc.getZ() <= 1599 && 
+				loc.getX() >= -1309 && loc.getY() >= 0 && loc.getZ() >= 1074) {
+
+			if (entity.getType() == (EntityType) EntityType.SPIDER) {
+				entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "다리가 많아! 몇개야?");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(45);
+				entity.setHealth(45);
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 2, false, false));
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.GUARDIAN) {
+				entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "외눈 물고기");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(40);
+				entity.setHealth(40);
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.VINDICATOR) {
+				entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "회색 인간");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(60);
+				entity.setHealth(60);
+				EntityEquipment head = entity.getEquipment();
+				ItemStack headItem = new ItemStack(Material.AIR);
+				head.setHelmet(headItem);
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.SLIME) {
+				entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(40);
+				entity.setHealth(40);
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 2, false, false));
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.SILVERFISH) {
+				entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "작은 조각");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(100);
+				entity.setHealth(100);
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.WITCH) {
+				entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "약쟁이 소녀");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(120);
+				entity.setHealth(120);
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.CAVE_SPIDER) {
+				entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "날아오르는 다리");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(90);
+				entity.setHealth(90);
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.ENDERMAN) {
+				entity.setCustomName(ChatColor.RED + "" + ChatColor.BOLD + "검은 인격");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(200);
+				entity.setHealth(200);
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 3, false, false));
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.ELDER_GUARDIAN) {
+				entity.setCustomName(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(300);
+				entity.setHealth(300);
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.MAGMA_CUBE) {
+				entity.setCustomName(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(250);
+				entity.setHealth(250);
+				MagmaCube magma = (MagmaCube) entity;
+				magma.setSize(2);
+				entity.setMaxHealth(250);
+				entity.setHealth(250);
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 4, false, false));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.BLAZE) {
+				entity.setCustomName(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(400);
+				entity.setHealth(400);
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 5, false, false));
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.ENDERMITE) {
+				entity.setCustomName(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(250);
+				entity.setHealth(250);
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 3, false, false));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.RAVAGER) {
+				entity.setCustomName(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(800);
+				entity.setHealth(800);
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 8, false, false));
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.GHAST) {
+				entity.setCustomName(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(500);
+				entity.setHealth(500);
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 4, false, false));
+				return true;
+			} else if (entity.getType() == (EntityType) EntityType.WARDEN) {
+				entity.setCustomName(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐");
+				entity.setCustomNameVisible(true);
+				entity.setMaxHealth(999);
+				entity.setHealth(999);
+				return true;
+			}
+		}
+		return true;
+	}
 	
 	
 	
