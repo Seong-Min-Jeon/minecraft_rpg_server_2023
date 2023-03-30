@@ -43,6 +43,9 @@ public class MobLoot {
 		if (getQuestName(player).equals("q0004")) {
 			int qNum = qb.getNum(player);
 			qb.q0004(player, qNum + 1);
+		} else if (getQuestName(player).equals("uq9")) {
+			int qNum = qb.getNum(player);
+			qb.uq9(player, qNum + 1);
 		}
 	}
 	

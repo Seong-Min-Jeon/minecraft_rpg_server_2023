@@ -396,6 +396,24 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0005(player, Integer.parseInt(num));
 					} else if (name.equals("q0006")) {
 						qb.q0006(player, Integer.parseInt(num));
+					} else if (name.equals("uq9")) {
+						qb.uq9(player, Integer.parseInt(num));
+					} else if (name.equals("uq8")) {
+						qb.uq8(player, Integer.parseInt(num));
+					} else if (name.equals("uq7")) {
+						qb.uq7(player, Integer.parseInt(num));
+					} else if (name.equals("uq6")) {
+						qb.uq6(player, Integer.parseInt(num));
+					} else if (name.equals("uq5")) {
+						qb.uq5(player, Integer.parseInt(num));
+					} else if (name.equals("uq4")) {
+						qb.uq4(player, Integer.parseInt(num));
+					} else if (name.equals("uq3")) {
+						qb.uq3(player, Integer.parseInt(num));
+					} else if (name.equals("uq2")) {
+						qb.uq2(player, Integer.parseInt(num));
+					} else if (name.equals("uq1")) {
+						qb.uq1(player, Integer.parseInt(num));
 					}
 				}
 				bufReader.close();
@@ -511,7 +529,88 @@ public class Main extends JavaPlugin implements Listener{
 		
 		//보상 수여하기
 		try {
-			
+			List<Entity> nearPlayer = ent.getNearbyEntities(8, 8, 8);
+			for(Entity p : nearPlayer) {
+				if(p instanceof Player) {
+					Player player = (Player) p;
+					if(ent.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "다리가 많아! 몇개야?")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DISTORTED FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "외눈 물고기")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DISTORTED FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "회색 인간")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DISTORTED FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작은 조각")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "약쟁이 소녀")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "날아오르는 다리")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "검은 인격")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DEMIGOD FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 신화의 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DEMIGOD FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 신화의 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DEMIGOD FELLED", 20, 40, 20);
+						player.sendMessage(ChatColor.GOLD + "[System] 신화의 뒤틀림이 소멸했다.");
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+						giveExp(player, 1);
+					}
+				}
+			}
 		} catch(Exception e) {
 			
 		}
@@ -2538,11 +2637,12 @@ public class Main extends JavaPlugin implements Listener{
 	    	NPC.Interact.ClickType clickType = event.getClickType();
 	    	String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
 	 	    if(clickType == NPC.Interact.ClickType.RIGHT_CLICK) {
+	 	    	
 	 	    	if(npc.getText().get(0).equals("핀")) {
 	 	    		new Message().msg(player, "핀: 안녕하세요! 핀이에요.%핀: 대표님은 위층에 있어요!");
 	 	    	} else if(npc.getText().get(0).equals("윤")) {
 	 	    		if(getQuestName(player) == null) {
-	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getInventory().remove(Material.PAPER); //윤 사무소로 의뢰 수주하고 소속 바꾸는거 방지, 앞으로도 퀘 주는 npc한테는 써야됨
 	 	    			int num = rnd.nextInt(6);
 	 	    			if(office.equals("윤 사무소")) {
 	 	    				if(num == 0) {
@@ -2579,12 +2679,11 @@ public class Main extends JavaPlugin implements Listener{
 		 	    		}
 
 	 	    		}
-	 	    	}
-	 	    	
-	 	    	//퀘스트 완료
-	 	    	if(npc.getText().get(0).equals("올가")) {
-	 	    		QuestBoard qb = new QuestBoard();
-	 	    		if (getQuestName(player).equals("q0005")) {
+	 	    	} else if(npc.getText().get(0).equals("올가")) {
+	 	    		if(getQuestName(player) == null) {
+	 	    			
+	 	    		} else if (getQuestName(player).equals("q0005")) {
+	 	    			QuestBoard qb = new QuestBoard();
 	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
 						Block block = chestLoc.getBlock();
 						Chest chest = (Chest) block.getState();
@@ -2597,10 +2696,14 @@ public class Main extends JavaPlugin implements Listener{
 						} else {
 							new Message().msg(player, "올가: 해장해야되니까 빨리 가져다줘.");
 						}
+	 	    		} else {
+	 	    			
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("월터")) {
-	 	    		QuestBoard qb = new QuestBoard();
-	 	    		if (getQuestName(player).equals("q0006")) {
+	 	    		if(getQuestName(player) == null) {
+	 	    			
+	 	    		} else if (getQuestName(player).equals("q0006")) {
+	 	    			QuestBoard qb = new QuestBoard();
 	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
 						Block block = chestLoc.getBlock();
 						Chest chest = (Chest) block.getState();
@@ -2613,8 +2716,42 @@ public class Main extends JavaPlugin implements Listener{
 						} else {
 							new Message().msg(player, "월터: 자네 지금 장난하자는건가?%월터: 빨리 음식을 내오게나.");
 						}
+	 	    		} else {
+	 	    			
 	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("승급 관리인")) {
+	 	    		ItemStack item = player.getInventory().getItem(8);
+	 				ItemMeta itemIM = item.getItemMeta();
+	 				ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
+	 				String exp = ary.get(1).split("\\[")[1].split("/")[0];
+	 				String maxExp = ary.get(1).split("\\]")[0].split("/")[1];
+	 				if(exp.equals(maxExp)) {
+	 					if(new PlayerGrade().returnGrade(player) == 9) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq9");
+	 					} else if(new PlayerGrade().returnGrade(player) == 8) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq8");
+	 					} else if(new PlayerGrade().returnGrade(player) == 7) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq7");
+	 					} else if(new PlayerGrade().returnGrade(player) == 6) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq6");
+	 					} else if(new PlayerGrade().returnGrade(player) == 5) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq5");
+	 					} else if(new PlayerGrade().returnGrade(player) == 4) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq4");
+	 					} else if(new PlayerGrade().returnGrade(player) == 3) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq3");
+	 					} else if(new PlayerGrade().returnGrade(player) == 2) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq2");
+	 					} else if(new PlayerGrade().returnGrade(player) == 1) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq1");
+	 					} else if(new PlayerGrade().returnGrade(player) == 0) {
+	 						new Message().msg(player, "승급 관리원: 특색 해결사이시군요!%승급 관리원: 실물로 영접하다니, 감동이에요.");
+	 					}
+	 				} else {
+	 					new Message().msg(player, "승급 관리원: 아직 승급하실 수 없어보이시네요.%승급 관리원: 충분히 평판을 쌓고 와주세요.");
+	 				}
 	 	    	}
+	 	    	
 	 	    } else if(clickType == NPC.Interact.ClickType.LEFT_CLICK) {
 	 	    	if(npc.getText().get(0).equals("의장")) {
 	 	    		
@@ -2638,6 +2775,39 @@ public class Main extends JavaPlugin implements Listener{
 			return name;
 		} catch(Exception e) {
 			return null;
+		}
+	}
+	
+	public void giveExp(Player player, int num) {
+		try {
+			ItemStack item = player.getInventory().getItem(8);
+			ItemMeta itemIM = item.getItemMeta();
+			ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
+			String grade = ary.get(1).split("\\[")[0];
+			String exp = ary.get(1).split("\\[")[1].split("/")[0];
+			String maxExp = ary.get(1).split("\\]")[0].split("/")[1];
+			int newExp = Integer.parseInt(exp) + num;
+			if (newExp > Integer.parseInt(maxExp)) {newExp = Integer.parseInt(maxExp);}
+			ary.set(1, ChatColor.GRAY + grade + "[" + String.valueOf(newExp) + "/" + maxExp + "]");
+			itemIM.setLore(ary);
+			item.setItemMeta(itemIM);
+			player.getInventory().setItem(8, item);
+		} catch(Exception e) {
+			
+		}
+	}
+	
+	public void levelup(Player player, String grade, String maxexp) {
+		try {
+			ItemStack item = player.getInventory().getItem(8);
+			ItemMeta itemIM = item.getItemMeta();
+			ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
+			ary.set(1, ChatColor.GRAY + "등급: " + grade + " 해결사 [0/" + maxexp +"]");
+			itemIM.setLore(ary);
+			item.setItemMeta(itemIM);
+			player.getInventory().setItem(8, item);
+		} catch(Exception e) {
+			
 		}
 	}
 	

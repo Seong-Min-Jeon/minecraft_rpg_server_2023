@@ -31,6 +31,8 @@ import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
+import de.Herbystar.TTA.TTA_Methods;
+
 public class QuestBoard {
 	
 	private Message msg = new Message();
@@ -322,26 +324,123 @@ public class QuestBoard {
 		player.setScoreboard(board);
 	}
 	
-	public void mq_last(Player player, int num) {
-		if(num>=1) {
-			player.setScoreboard (Bukkit.getScoreboardManager().getNewScoreboard());
-			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
-			msg.msg(player, "데히트라: 크어억..%데히트라: 기다리다가 쓰러진다..%데히트라: 늦게 다니지 좀 마.%데히트라: 하나부터 열까지 다 널 위한 소리.%데히트라: 내 말 듣지 않는 너에게는 뻔한 잔소리.%데히트라: 크어억.%§7데히트라의 숨이 멎었다.%"
-					+ "§7이제 이 세상에 평화가 돌아올까..%§7아.. 아직도 포보르가 나오는 걸 보니..%§7데히트라가 거짓말을 한 거구나..%§7마왕이라더니..%§7그냥 평범하게 다시 살아가야겠네.");
+	public void uq9(Player player, int num) {
+		if(num>=5) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			player.sendMessage(ChatColor.GOLD + "[System] 8급 해결사가 되었습니다.");
+			
+			levelup(player, "8급", "35");
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("윤 사무소")) {
+				ItemStack recep1 = new ItemStack(Material.PAPER);
+				ItemMeta recep1Im = recep1.getItemMeta();
+				recep1Im.setDisplayName(ChatColor.BOLD + "어금니 사무소 초대장");
+				ArrayList<String> recep1Lore = new ArrayList<>();
+				recep1Lore.add(ChatColor.GRAY + "어금니 사무소 소속 해결사가");
+				recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+				recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+				recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+				recep1Im.setLore(recep1Lore);
+				recep1.setItemMeta(recep1Im);
+				player.getInventory().addItem(recep1);
+				
+				ItemStack recep2 = new ItemStack(Material.PAPER);
+				ItemMeta recep2Im = recep1.getItemMeta();
+				recep2Im.setDisplayName(ChatColor.BOLD + "사직서");
+				ArrayList<String> recep2Lore = new ArrayList<>();
+				recep2Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+				recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+				recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+				recep2Im.setLore(recep2Lore);
+				recep2.setItemMeta(recep2Im);
+				player.getInventory().addItem(recep2);
+			} else if(office.equals("갈고리 사무소")) {
+				ItemStack recep2 = new ItemStack(Material.PAPER);
+				ItemMeta recep2Im = recep2.getItemMeta();
+				recep2Im.setDisplayName(ChatColor.BOLD + "사직서");
+				ArrayList<String> recep2Lore = new ArrayList<>();
+				recep2Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+				recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+				recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+				recep2Im.setLore(recep2Lore);
+				recep2.setItemMeta(recep2Im);
+				player.getInventory().addItem(recep2);
+			} else if(office.equals("가로등 사무소")) {
+				ItemStack recep1 = new ItemStack(Material.PAPER);
+				ItemMeta recep1Im = recep1.getItemMeta();
+				recep1Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 6과 초대장");
+				ArrayList<String> recep1Lore = new ArrayList<>();
+				recep1Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 6과 소속");
+				recep1Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+				recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+				recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+				recep1Im.setLore(recep1Lore);
+				recep1.setItemMeta(recep1Im);
+				player.getInventory().addItem(recep1);
+				
+				ItemStack recep2 = new ItemStack(Material.PAPER);
+				ItemMeta recep2Im = recep1.getItemMeta();
+				recep2Im.setDisplayName(ChatColor.BOLD + "사직서");
+				ArrayList<String> recep2Lore = new ArrayList<>();
+				recep2Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+				recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+				recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+				recep2Im.setLore(recep2Lore);
+				recep2.setItemMeta(recep2Im);
+				player.getInventory().addItem(recep2);
+			} else if(office.equals("무소속")) {
+				ItemStack recep1 = new ItemStack(Material.PAPER);
+				ItemMeta recep1Im = recep1.getItemMeta();
+				recep1Im.setDisplayName(ChatColor.BOLD + "어금니 사무소 초대장");
+				ArrayList<String> recep1Lore = new ArrayList<>();
+				recep1Lore.add(ChatColor.GRAY + "어금니 사무소 소속 해결사가");
+				recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+				recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+				recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+				recep1Im.setLore(recep1Lore);
+				recep1.setItemMeta(recep1Im);
+				player.getInventory().addItem(recep1);
+				
+				ItemStack recep2 = new ItemStack(Material.PAPER);
+				ItemMeta recep2Im = recep2.getItemMeta();
+				recep2Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 6과 초대장");
+				ArrayList<String> recep2Lore = new ArrayList<>();
+				recep2Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 6과 소속");
+				recep2Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+				recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+				recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+				recep2Im.setLore(recep2Lore);
+				recep2.setItemMeta(recep2Im);
+				player.getInventory().addItem(recep2);
+			} else {
+				ItemStack recep1 = new ItemStack(Material.PAPER);
+				ItemMeta recep1Im = recep1.getItemMeta();
+				recep1Im.setDisplayName(ChatColor.BOLD + "어금니 사무소 초대장");
+				ArrayList<String> recep1Lore = new ArrayList<>();
+				recep1Lore.add(ChatColor.GRAY + "어금니 사무소 소속 해결사가");
+				recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+				recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+				recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+				recep1Im.setLore(recep1Lore);
+				recep1.setItemMeta(recep1Im);
+				player.getInventory().addItem(recep1);
+			}
+			
+			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
+			
+			//승급 완료 사운드 따로 넣기
 			return;
 		}
+		//퀘스트 스코어보드에 적용
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
-		Objective obj = board.registerNewObjective("HubScoreboard-1", "dummy", ChatColor.GOLD + "메인퀘스트 마지막장");
+		Objective obj = board.registerNewObjective("uq9", Criteria.DUMMY, ChatColor.GOLD + "9급 해결사의 승급");
 		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-		Score score = obj.getScore(ChatColor.LIGHT_PURPLE + "===최후의 전투===");
-		score.setScore(3);
-		Score score2 = obj.getScore("데히트라를 해치우기");
-		score2.setScore(2);
-		Score score3 = obj.getScore("위치: ??,??,??");
-		score3.setScore(1);
-		Score score4 = obj.getScore("(" + num + "/1)");
-		score4.setScore(0);
+		Score score = obj.getScore("쥐 5마리 사냥");
+		score.setScore(1);
+		Score score2 = obj.getScore("(" + num + "/5)");
+		score2.setScore(0);
 		player.setScoreboard(board);
 	}
 	
@@ -350,11 +449,26 @@ public class QuestBoard {
 			ItemStack item = player.getInventory().getItem(8);
 			ItemMeta itemIM = item.getItemMeta();
 			ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
+			String grade = ary.get(1).split("\\[")[0];
 			String exp = ary.get(1).split("\\[")[1].split("/")[0];
 			String maxExp = ary.get(1).split("\\]")[0].split("/")[1];
 			int newExp = Integer.parseInt(exp) + num;
 			if (newExp > Integer.parseInt(maxExp)) {newExp = Integer.parseInt(maxExp);}
-			ary.set(1, ChatColor.GRAY + "등급: [" + String.valueOf(newExp) + "/" + maxExp + "]");
+			ary.set(1, ChatColor.GRAY + grade + "[" + String.valueOf(newExp) + "/" + maxExp + "]");
+			itemIM.setLore(ary);
+			item.setItemMeta(itemIM);
+			player.getInventory().setItem(8, item);
+		} catch(Exception e) {
+			
+		}
+	}
+	
+	public void levelup(Player player, String grade, String maxexp) {
+		try {
+			ItemStack item = player.getInventory().getItem(8);
+			ItemMeta itemIM = item.getItemMeta();
+			ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
+			ary.set(1, ChatColor.GRAY + "등급: " + grade + " 해결사 [0/" + maxexp +"]");
 			itemIM.setLore(ary);
 			item.setItemMeta(itemIM);
 			player.getInventory().setItem(8, item);

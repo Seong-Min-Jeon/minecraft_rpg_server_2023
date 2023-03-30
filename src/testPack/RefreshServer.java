@@ -71,7 +71,6 @@ public class RefreshServer {
 		loc = new Location(world, -1025, 63, 1252);
 		ary.add(loc);
 		loc = new Location(world, -1081, 63, 1136);
-		System.out.println(ary);
 		
 		sleep = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 		

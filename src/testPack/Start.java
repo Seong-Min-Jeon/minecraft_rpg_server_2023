@@ -151,29 +151,34 @@ public class Start {
 		ArrayList<String> recep1Lore = new ArrayList<>();
 		recep1Lore.add(ChatColor.GRAY + "윤 사무소 소속 해결사가");
 		recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+		recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+		recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
 		recep1Im.setLore(recep1Lore);
 		recep1.setItemMeta(recep1Im);
 		
 		ary.add(recep1);
 		
 		ItemStack recep2 = new ItemStack(Material.PAPER);
-		ItemMeta recep2Im = recep1.getItemMeta();
+		ItemMeta recep2Im = recep2.getItemMeta();
 		recep2Im.setDisplayName(ChatColor.BOLD + "갈고리 사무소 초대장");
 		ArrayList<String> recep2Lore = new ArrayList<>();
 		recep2Lore.add(ChatColor.GRAY + "갈고리 사무소 소속 해결사가");
 		recep2Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+		recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+		recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
 		recep2Im.setLore(recep2Lore);
 		recep2.setItemMeta(recep2Im);
 		
 		ary.add(recep2);
 		
-		
 		ItemStack recep3 = new ItemStack(Material.PAPER);
-		ItemMeta recep3Im = recep1.getItemMeta();
+		ItemMeta recep3Im = recep3.getItemMeta();
 		recep3Im.setDisplayName(ChatColor.BOLD + "가로등 사무소 초대장");
 		ArrayList<String> recep3Lore = new ArrayList<>();
 		recep3Lore.add(ChatColor.GRAY + "가로등 사무소 소속 해결사가");
 		recep3Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+		recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+		recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
 		recep3Im.setLore(recep3Lore);
 		recep3.setItemMeta(recep3Im);
 		
