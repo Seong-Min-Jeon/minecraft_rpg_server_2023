@@ -536,78 +536,213 @@ public class Main extends JavaPlugin implements Listener{
 					if(ent.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "다리가 많아! 몇개야?")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DISTORTED FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 10만큼 증가했다.");
+						giveExp(player, 10);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq8")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq7")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "외눈 물고기")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DISTORTED FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 10만큼 증가했다.");
+						giveExp(player, 10);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq8")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq7")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "회색 인간")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DISTORTED FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 10만큼 증가했다.");
+						giveExp(player, 10);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq8")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq7")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 40만큼 증가했다.");
+						giveExp(player, 40);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq6")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq5")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작은 조각")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 40만큼 증가했다.");
+						giveExp(player, 40);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq6")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq5")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "약쟁이 소녀")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 40만큼 증가했다.");
+						giveExp(player, 40);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq6")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq5")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "날아오르는 다리")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 40만큼 증가했다.");
+						giveExp(player, 40);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq6")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq5")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "검은 인격")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 100만큼 증가했다.");
+						giveExp(player, 100);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq4")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq3")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 100만큼 증가했다.");
+						giveExp(player, 100);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq4")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq3")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 100만큼 증가했다.");
+						giveExp(player, 100);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq4")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq3")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 100만큼 증가했다.");
+						giveExp(player, 100);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq4")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq3")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 100만큼 증가했다.");
+						giveExp(player, 100);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq4")) {
+							int qNum = qb.getNum(player);
+							qb.uq8(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq3")) {
+							int qNum = qb.getNum(player);
+							qb.uq7(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DEMIGOD FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 신화의 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 400만큼 증가했다.");
+						giveExp(player, 400);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq2")) {
+							int qNum = qb.getNum(player);
+							qb.uq2(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq1")) {
+							int qNum = qb.getNum(player);
+							qb.uq1(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DEMIGOD FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 신화의 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 400만큼 증가했다.");
+						giveExp(player, 400);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq2")) {
+							int qNum = qb.getNum(player);
+							qb.uq2(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq1")) {
+							int qNum = qb.getNum(player);
+							qb.uq1(player, qNum + 1);
+						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DEMIGOD FELLED", 20, 40, 20);
 						player.sendMessage(ChatColor.GOLD + "[System] 신화의 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
-						giveExp(player, 1);
+						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 400만큼 증가했다.");
+						giveExp(player, 400);
+						
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("uq2")) {
+							int qNum = qb.getNum(player);
+							qb.uq2(player, qNum + 1);
+						} else if (getQuestName(player).equals("uq1")) {
+							int qNum = qb.getNum(player);
+							qb.uq1(player, qNum + 1);
+						}
 					}
 				}
 			}
@@ -1208,6 +1343,8 @@ public class Main extends JavaPlugin implements Listener{
 						String name = item.getItemMeta().getDisplayName();
 						if(name.substring(name.length()-3, name.length()).equals("초대장")) {
 							new ChangeOffice(player, item.getItemMeta().getDisplayName().substring(0, name.length()-4));
+						} else if(name.equals(ChatColor.BOLD + "사직서")) {
+							new ChangeOffice(player, "12무소속");
 						}
 					}
 				}
@@ -2643,6 +2780,7 @@ public class Main extends JavaPlugin implements Listener{
 	 	    	} else if(npc.getText().get(0).equals("윤")) {
 	 	    		if(getQuestName(player) == null) {
 	 	    			player.getInventory().remove(Material.PAPER); //윤 사무소로 의뢰 수주하고 소속 바꾸는거 방지, 앞으로도 퀘 주는 npc한테는 써야됨
+	 	    			player.getEnderChest().remove(Material.PAPER);
 	 	    			int num = rnd.nextInt(6);
 	 	    			if(office.equals("윤 사무소")) {
 	 	    				if(num == 0) {

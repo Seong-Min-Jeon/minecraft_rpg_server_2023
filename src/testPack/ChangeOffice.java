@@ -15,6 +15,7 @@ public class ChangeOffice {
 	public ChangeOffice(Player player, String officeName) {
 		player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
 		player.getInventory().remove(Material.PAPER);
+		player.getEnderChest().remove(Material.PAPER);
 		
 		ItemStack license = player.getInventory().getItem(8);
 		ItemMeta licenseMeta = license.getItemMeta();

@@ -193,12 +193,4 @@ public class Start {
        
 	}
 	
-	public void sendPacket(Player player, String message) {
-		try {
-			TextComponent tc = new TextComponent(message);
-			player.spigot().sendMessage(ChatMessageType.ACTION_BAR, tc);
-		} catch (Exception e) {
-
-		}
-	}
 }
