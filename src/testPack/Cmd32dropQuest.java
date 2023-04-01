@@ -27,11 +27,12 @@ public class Cmd32dropQuest implements CommandExecutor {
 				ItemStack item = player.getInventory().getItem(8);
 				ItemMeta itemIM = item.getItemMeta();
 				ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
+				String grade = ary.get(1).split("\\[")[0];
 				String exp = ary.get(1).split("\\[")[1].split("/")[0];
 				String maxExp = ary.get(1).split("\\]")[0].split("/")[1];
 				int newExp = Integer.parseInt(exp) - (Integer.parseInt(maxExp) / 10);
 				//if (newExp < 0) {newExp = 0;}
-				ary.set(1, ChatColor.GRAY + "등급: [" + String.valueOf(newExp) + "/" + maxExp + "]");
+				ary.set(1, ChatColor.GRAY + grade + "[" + String.valueOf(newExp) + "/" + maxExp + "]");
 				itemIM.setLore(ary);
 				item.setItemMeta(itemIM);
 				player.getInventory().setItem(8, item);

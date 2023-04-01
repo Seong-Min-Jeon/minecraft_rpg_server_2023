@@ -165,6 +165,7 @@ public class Main extends JavaPlugin implements Listener{
 		
 		new RefreshServer();
 		new NPCManager();
+		new QuestBoard().setFolder(getDataFolder());
 	}
 	
 	@Override
@@ -2607,6 +2608,15 @@ public class Main extends JavaPlugin implements Listener{
 			} catch(Exception e) {
 				System.out.println(ChatColor.DARK_PURPLE + "콘솔 이벤트 오류");
 			}
+		} else if(event.getCommand().split(" ")[0].equalsIgnoreCase("consoleExp")) {
+			try {
+				String[] ary = event.getCommand().split(" ");
+				Player player = Bukkit.getPlayer(ary[1]);
+				giveExp(player, Integer.parseInt(ary[2]));
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 " + ary[2] + "만큼 증가했다.");
+			} catch(Exception e) {
+				System.out.println(ChatColor.DARK_PURPLE + "콘솔 이벤트 오류");
+			}
 		}
 	}
 	
@@ -2857,7 +2867,7 @@ public class Main extends JavaPlugin implements Listener{
 	 	    		} else {
 	 	    			
 	 	    		}
-	 	    	} else if(npc.getText().get(0).equals("승급 관리인")) {
+	 	    	} else if(npc.getText().get(0).equals("승급 관리원")) {
 	 	    		ItemStack item = player.getInventory().getItem(8);
 	 				ItemMeta itemIM = item.getItemMeta();
 	 				ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
@@ -2865,23 +2875,23 @@ public class Main extends JavaPlugin implements Listener{
 	 				String maxExp = ary.get(1).split("\\]")[0].split("/")[1];
 	 				if(exp.equals(maxExp)) {
 	 					if(new PlayerGrade().returnGrade(player) == 9) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq9");
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq900");
 	 					} else if(new PlayerGrade().returnGrade(player) == 8) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq8");
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq800");
 	 					} else if(new PlayerGrade().returnGrade(player) == 7) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq7");
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq700");
 	 					} else if(new PlayerGrade().returnGrade(player) == 6) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq6");
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq600");
 	 					} else if(new PlayerGrade().returnGrade(player) == 5) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq5");
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq500");
 	 					} else if(new PlayerGrade().returnGrade(player) == 4) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq4");
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq400");
 	 					} else if(new PlayerGrade().returnGrade(player) == 3) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq3");
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq300");
 	 					} else if(new PlayerGrade().returnGrade(player) == 2) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq2");
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq200");
 	 					} else if(new PlayerGrade().returnGrade(player) == 1) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq1");
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq100");
 	 					} else if(new PlayerGrade().returnGrade(player) == 0) {
 	 						new Message().msg(player, "승급 관리원: 특색 해결사이시군요!%승급 관리원: 실물로 영접하다니, 감동이에요.");
 	 					}

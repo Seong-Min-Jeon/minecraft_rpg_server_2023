@@ -117,10 +117,6 @@ public class Start {
 	
 	public void equip(Player player, String name) {
 		ItemStack weapon = null; 
-		ItemStack helmet = null; 
-		ItemStack chestplate = null; 
-		ItemStack leggings = null; 
-		ItemStack boots = null; 
 		
 		if(name.equals("평범한 해결사의 인격")) {
 			weapon = new ItemStack(Material.OAK_LEAVES);
@@ -136,10 +132,6 @@ public class Start {
 		}
 		
 		if(weapon != null) {player.getInventory().setItem(0, weapon);}
-		if(helmet != null) {player.getInventory().setHelmet(helmet);;}
-		if(chestplate != null) {player.getInventory().setChestplate(chestplate);}
-		if(leggings != null) {player.getInventory().setLeggings(leggings);}
-		if(boots != null) {player.getInventory().setBoots(boots);}
 	}
 	
 	public void startReception(Player player) {

@@ -1,5 +1,12 @@
 package testPack;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -36,6 +43,11 @@ import de.Herbystar.TTA.TTA_Methods;
 public class QuestBoard {
 	
 	Random rnd = new Random();
+	static File folder = null; 
+	
+	public void setFolder(File f) {
+		folder = f;
+	}
 	
 	public void q0001(Player player, int num) {
 		if(num>=1) {
@@ -439,6 +451,7 @@ public class QuestBoard {
 			
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
+			newPersonality(player, 8);
 			//승급 완료 사운드 따로 넣기
 			return;
 		}
@@ -533,6 +546,7 @@ public class QuestBoard {
 			
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
+			newPersonality(player, 7);
 			//승급 완료 사운드 따로 넣기
 			return;
 		}
@@ -1108,6 +1122,7 @@ public class QuestBoard {
 			
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
+			newPersonality(player, 6);
 			//승급 완료 사운드 따로 넣기
 			return;
 		}
@@ -1394,6 +1409,7 @@ public class QuestBoard {
 			
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
+			newPersonality(player, 5);
 			//승급 완료 사운드 따로 넣기
 			return;
 		}
@@ -1645,6 +1661,7 @@ public class QuestBoard {
 			
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
+			newPersonality(player, 4);
 			//승급 완료 사운드 따로 넣기
 			return;
 		}
@@ -2002,6 +2019,7 @@ public class QuestBoard {
 			
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
+			newPersonality(player, 3);
 			//승급 완료 사운드 따로 넣기
 			return;
 		}
@@ -2466,9 +2484,9 @@ public class QuestBoard {
 			if(rnd.nextInt(3) == 0) {
 				ItemStack recep0 = new ItemStack(Material.PAPER);
 				ItemMeta recep0Im = recep0.getItemMeta();
-				recep0Im.setDisplayName(ChatColor.BOLD + "베이야드 사무소 초대장");
+				recep0Im.setDisplayName(ChatColor.BOLD + "베이야드 초대장");
 				ArrayList<String> recep0Lore = new ArrayList<>();
-				recep0Lore.add(ChatColor.GRAY + "베이야드 사무소 소속 해결사가");
+				recep0Lore.add(ChatColor.GRAY + "베이야드 소속 해결사가");
 				recep0Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
 				recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
 				recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
@@ -2494,9 +2512,9 @@ public class QuestBoard {
 			if(rnd.nextInt(3) == 0) {
 				ItemStack recep0 = new ItemStack(Material.PAPER);
 				ItemMeta recep0Im = recep0.getItemMeta();
-				recep0Im.setDisplayName(ChatColor.BOLD + "우제트 사무소 초대장");
+				recep0Im.setDisplayName(ChatColor.BOLD + "우제트 초대장");
 				ArrayList<String> recep0Lore = new ArrayList<>();
-				recep0Lore.add(ChatColor.GRAY + "우제트 사무소 소속 해결사가");
+				recep0Lore.add(ChatColor.GRAY + "우제트 소속 해결사가");
 				recep0Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
 				recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
 				recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
@@ -2507,6 +2525,7 @@ public class QuestBoard {
 			
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
+			newPersonality(player, 2);
 			//승급 완료 사운드 따로 넣기
 			return;
 		}
@@ -2823,9 +2842,9 @@ public class QuestBoard {
 			if(rnd.nextInt(3) == 0) {
 				ItemStack recep0 = new ItemStack(Material.PAPER);
 				ItemMeta recep0Im = recep0.getItemMeta();
-				recep0Im.setDisplayName(ChatColor.BOLD + "베이야드 사무소 초대장");
+				recep0Im.setDisplayName(ChatColor.BOLD + "베이야드 초대장");
 				ArrayList<String> recep0Lore = new ArrayList<>();
-				recep0Lore.add(ChatColor.GRAY + "베이야드 사무소 소속 해결사가");
+				recep0Lore.add(ChatColor.GRAY + "베이야드 소속 해결사가");
 				recep0Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
 				recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
 				recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
@@ -2851,9 +2870,9 @@ public class QuestBoard {
 			if(rnd.nextInt(3) == 0) {
 				ItemStack recep0 = new ItemStack(Material.PAPER);
 				ItemMeta recep0Im = recep0.getItemMeta();
-				recep0Im.setDisplayName(ChatColor.BOLD + "우제트 사무소 초대장");
+				recep0Im.setDisplayName(ChatColor.BOLD + "우제트 초대장");
 				ArrayList<String> recep0Lore = new ArrayList<>();
-				recep0Lore.add(ChatColor.GRAY + "우제트 사무소 소속 해결사가");
+				recep0Lore.add(ChatColor.GRAY + "우제트 소속 해결사가");
 				recep0Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
 				recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
 				recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
@@ -2864,6 +2883,7 @@ public class QuestBoard {
 			
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
+			newPersonality(player, 1);
 			//승급 완료 사운드 따로 넣기
 			return;
 		}
@@ -2892,6 +2912,7 @@ public class QuestBoard {
 				}
 			}
 			
+			newPersonality(player, 0);
 			//승급 완료 사운드 따로 넣기
 			return;
 		}
@@ -2936,6 +2957,325 @@ public class QuestBoard {
 			item.setItemMeta(itemIM);
 			player.getInventory().setItem(8, item);
 		} catch(Exception e) {
+			
+		}
+	}
+	
+	public void newPersonality(Player player, int grade) {
+		String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+		
+		if(office.equals("윤 사무소")) {
+			if(grade == 8) {
+				fixFile(player, 1, 1);
+			} else if(grade == 7) {
+				fixFile(player, 2, 0);
+			}
+		} else if(office.equals("갈고리 사무소")) {
+			if(grade == 8) {
+				fixFile(player, 1, 2);
+			} else if(grade == 7) {
+				fixFile(player, 2, 1);
+			} else if(grade == 6) {
+				fixFile(player, 2, 3);
+			}
+		} else if(office.equals("가로등 사무소")) {
+			if(grade == 8) {
+				fixFile(player, 1, 3);
+			} else if(grade == 7) {
+				fixFile(player, 2, 2);
+			}
+		} else if(office.equals("어금니 사무소")) {
+			if(grade == 7) {
+				fixFile(player, 1, 4);
+			} else if(grade == 6) {
+				fixFile(player, 2, 4);
+			} else if(grade == 5) {
+				fixFile(player, 2, 5);
+			}
+		} else if(office.equals("마침표 사무소")) {
+			if(grade == 5) {
+				fixFile(player, 1, 5);
+			} else if(grade == 4) {
+				fixFile(player, 2, 11);
+			} else if(grade == 3) {
+				fixFile(player, 3, 2);
+			}
+		} else if(office.equals("새벽 사무소")) {
+			if(grade == 5) {
+				fixFile(player, 1, 6);
+			} else if(grade == 4) {
+				fixFile(player, 2, 12);
+			} else if(grade == 3) {
+				fixFile(player, 3, 3);
+			}
+		} else if(office.equals("쐐기 사무소")) {
+			if(grade == 5) {
+				fixFile(player, 1, 7);
+			} else if(grade == 4) {
+				fixFile(player, 2, 13);
+			} else if(grade == 3) {
+				fixFile(player, 3, 4);
+			}
+		} else if(office.equals("시선 사무소")) {
+			if(grade == 5) {
+				fixFile(player, 1, 8);
+			} else if(grade == 4) {
+				fixFile(player, 2, 14);
+			} else if(grade == 3) {
+				fixFile(player, 3, 5);
+			}
+		} else if(office.equals("츠바이 협회 6과")) {
+			if(grade == 7) {
+				fixFile(player, 2, 6);
+			} else if(grade == 6) {
+				fixFile(player, 3, 0);
+			} else if(grade == 5) {
+				fixFile(player, 3, 1);
+			}
+		} else if(office.equals("츠바이 협회 5과")) {
+			if(grade == 5) {
+				fixFile(player, 2, 7);
+			} else if(grade == 4) {
+				fixFile(player, 3, 6);
+			}
+		} else if(office.equals("시 협회 5과")) {
+			if(grade == 5) {
+				fixFile(player, 2, 8);
+			} else if(grade == 4) {
+				fixFile(player, 3, 7);
+			}
+		} else if(office.equals("리우 협회 5과")) {
+			if(grade == 5) {
+				fixFile(player, 2, 9);
+			} else if(grade == 4) {
+				fixFile(player, 3, 8);
+			}
+		} else if(office.equals("세븐 협회 5과")) {
+			if(grade == 5) {
+				fixFile(player, 2, 10);
+			} else if(grade == 4) {
+				fixFile(player, 3, 9);
+			}
+		} else if(office.equals("츠바이 협회 3과")) {
+			if(grade == 3) {
+				fixFile(player, 2, 15);
+			} else if(grade == 2) {
+				fixFile(player, 3, 10);
+			}
+		} else if(office.equals("시 협회 3과")) {
+			if(grade == 3) {
+				fixFile(player, 2, 16);
+			} else if(grade == 2) {
+				fixFile(player, 3, 11);
+			}
+		} else if(office.equals("리우 협회 3과")) {
+			if(grade == 3) {
+				fixFile(player, 2, 17);
+			} else if(grade == 2) {
+				fixFile(player, 3, 12);
+			}
+		} else if(office.equals("세븐 협회 3과")) {
+			if(grade == 3) {
+				fixFile(player, 2, 18);
+			} else if(grade == 2) {
+				fixFile(player, 3, 13);
+			}
+		} else if(office.equals("츠바이 협회 2과")) {
+			if(grade == 2) {
+				fixFile(player, 3, 14);
+			} else if(grade == 1) {
+				fixFile(player, 4, 0);
+			}
+		} else if(office.equals("시 협회 2과")) {
+			if(grade == 2) {
+				fixFile(player, 3, 15);
+			} else if(grade == 1) {
+				fixFile(player, 4, 1);
+			}
+		} else if(office.equals("리우 협회 2과")) {
+			if(grade == 2) {
+				fixFile(player, 3, 16);
+			} else if(grade == 1) {
+				fixFile(player, 4, 2);
+			}
+		} else if(office.equals("세븐 협회 2과")) {
+			if(grade == 2) {
+				fixFile(player, 3, 17);
+			} else if(grade == 1) {
+				fixFile(player, 4, 3);
+			}
+		} else if(office.equals("베이야드")) {
+			if(grade == 1) {
+				fixFile(player, 3, 18);
+			} else if(grade == 0) {
+				fixFile(player, 4, 5);
+			}
+		} else if(office.equals("지팡이 사무소")) {
+			if(grade == 1) {
+				fixFile(player, 3, 19);
+			} else if(grade == 0) {
+				fixFile(player, 4, 6);
+			}
+		} else if(office.equals("우제트")) {
+			if(grade == 1) {
+				fixFile(player, 3, 20);
+			} else if(grade == 0) {
+				fixFile(player, 4, 7);
+			}
+		} else if(office.equals("하나 협회 3과")) {
+			if(grade == 1) {
+				fixFile(player, 3, 21);
+			} else if(grade == 0) {
+				fixFile(player, 4, 8);
+			}
+		} else if(office.equals("츠바이 협회 1과")) {
+			if(grade == 1) {
+				fixFile(player, 3, 22);
+			} else if(grade == 0) {
+				fixFile(player, 4, 9);
+			}
+		} else if(office.equals("시 협회 1과")) {
+			if(grade == 1) {
+				fixFile(player, 3, 23);
+			} else if(grade == 0) {
+				fixFile(player, 4, 10);
+			}
+		} else if(office.equals("리우 협회 1과")) {
+			if(grade == 1) {
+				fixFile(player, 3, 24);
+			} else if(grade == 0) {
+				fixFile(player, 4, 11);
+			}
+		} else if(office.equals("세븐 협회 1과")) {
+			if(grade == 1) {
+				fixFile(player, 3, 25);
+			} else if(grade == 0) {
+				fixFile(player, 4, 12);
+			}
+		} else if(office.equals("무소속")) {
+			if(grade == 1) {
+				fixFile(player, 4, 4);
+			} else if(grade == 0) {
+				fixFile(player, 4, 13);
+			}
+		}
+	}
+	
+	public void fixFile(Player player, int rare, int order) {
+		try {
+			File dataFolder = folder;
+            if(!dataFolder.exists()) {
+                dataFolder.mkdir();
+            } else {
+            	File dir = new File(folder + "/" + player.getUniqueId().toString());
+            	if(!dir.exists()) {
+            		try{
+            		    dir.mkdir(); 
+            		} catch(Exception e2) {
+            		    e2.getStackTrace();
+            		}
+				}
+				File file = new File(dir, "personality_grade.dat");
+				try {
+					FileReader filereader = new FileReader(file);
+    				BufferedReader bufReader = new BufferedReader(filereader);
+    				String first = bufReader.readLine();
+    				String second = bufReader.readLine();
+    				String third = bufReader.readLine();
+    				String fourth = bufReader.readLine();
+    				
+    				if(rare == 1) {
+    					String[] num = first.split("/");
+    					if(num[order].equals("-1")) {
+    						num[order] = "0";
+            				String str = "";
+            				for(int i = 0 ; i < 53 ; i++) {
+            					str += num[i] + "/";
+            				}
+            				str += num[53];
+        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(str);
+        	                fw.write("\n");
+        	                fw.write(second);
+        	                fw.write("\n");
+        	                fw.write(third);
+        	                fw.write("\n");
+        	                fw.write(fourth);
+        	                fw.close();
+        	                
+        	                player.sendMessage(ChatColor.GOLD + "[System] 새로운 인격이 개방되었습니다.");
+    					}
+    				} else if(rare == 2) {
+    					String[] num = first.split("/");
+    					if(num[order].equals("-1")) {
+    						num[order] = "0";
+            				String str = "";
+            				for(int i = 0 ; i < 53 ; i++) {
+            					str += num[i] + "/";
+            				}
+            				str += num[53];
+        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(first);
+        	                fw.write("\n");
+        	                fw.write(str);
+        	                fw.write("\n");
+        	                fw.write(third);
+        	                fw.write("\n");
+        	                fw.write(fourth);
+        	                fw.close();
+        	                
+        	                player.sendMessage(ChatColor.GOLD + "[System] 새로운 인격이 개방되었습니다.");
+    					}
+    				} else if(rare == 3) {
+    					String[] num = first.split("/");
+    					if(num[order].equals("-1")) {
+    						num[order] = "0";
+            				String str = "";
+            				for(int i = 0 ; i < 53 ; i++) {
+            					str += num[i] + "/";
+            				}
+            				str += num[53];
+        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(first);
+        	                fw.write("\n");
+        	                fw.write(second);
+        	                fw.write("\n");
+        	                fw.write(str);
+        	                fw.write("\n");
+        	                fw.write(fourth);
+        	                fw.close();
+        	                
+        	                player.sendMessage(ChatColor.GOLD + "[System] 새로운 인격이 개방되었습니다.");
+    					}
+    				} else if(rare == 4) {
+    					String[] num = first.split("/");
+    					if(num[order].equals("-1")) {
+    						num[order] = "0";
+            				String str = "";
+            				for(int i = 0 ; i < 53 ; i++) {
+            					str += num[i] + "/";
+            				}
+            				str += num[53];
+        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(first);
+        	                fw.write("\n");
+        	                fw.write(second);
+        	                fw.write("\n");
+        	                fw.write(third);
+        	                fw.write("\n");
+        	                fw.write(str);
+        	                fw.close();
+        	                
+        	                player.sendMessage(ChatColor.GOLD + "[System] 새로운 인격이 개방되었습니다.");
+    					}
+    				}
+    				
+	                bufReader.close();
+				} catch (IOException e2) {
+					e2.printStackTrace();
+				}
+			}
+		} catch (Exception e2) {
 			
 		}
 	}
