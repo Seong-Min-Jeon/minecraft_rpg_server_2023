@@ -70,7 +70,7 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 3000안을 획득했다.");
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
-			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
 			return;
 		}
 		//-1190 62 1134  -1142 62 1301
@@ -125,7 +125,7 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 3000안을 획득했다.");
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
-			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
 			return;
 		}
 		//-1190 62 1134  -1142 62 1301
@@ -180,7 +180,7 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 3000안을 획득했다.");
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
-			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
 			return;
 		}
 		//-1190 62 1134  -1142 62 1301
@@ -230,7 +230,7 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 5000안을 획득했다.");
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
-			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -261,7 +261,7 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 1000안을 획득했다.");
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
-			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
 			return;
 		}
 		//음식 아이템 주기
@@ -306,7 +306,7 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 1000안을 획득했다.");
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
-			player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
 			return;
 		}
 		//음식 아이템 주기
@@ -3206,7 +3206,7 @@ public class QuestBoard {
         	                player.sendMessage(ChatColor.GOLD + "[System] 새로운 인격이 개방되었습니다.");
     					}
     				} else if(rare == 2) {
-    					String[] num = first.split("/");
+    					String[] num = second.split("/");
     					if(num[order].equals("-1")) {
     						num[order] = "0";
             				String str = "";
@@ -3227,7 +3227,7 @@ public class QuestBoard {
         	                player.sendMessage(ChatColor.GOLD + "[System] 새로운 인격이 개방되었습니다.");
     					}
     				} else if(rare == 3) {
-    					String[] num = first.split("/");
+    					String[] num = third.split("/");
     					if(num[order].equals("-1")) {
     						num[order] = "0";
             				String str = "";
@@ -3248,7 +3248,7 @@ public class QuestBoard {
         	                player.sendMessage(ChatColor.GOLD + "[System] 새로운 인격이 개방되었습니다.");
     					}
     				} else if(rare == 4) {
-    					String[] num = first.split("/");
+    					String[] num = fourth.split("/");
     					if(num[order].equals("-1")) {
     						num[order] = "0";
             				String str = "";

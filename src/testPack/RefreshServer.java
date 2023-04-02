@@ -10,6 +10,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
@@ -258,6 +259,7 @@ public class RefreshServer {
 			 			
 			 			for(Player player : Bukkit.getOnlinePlayers()) {
 			 				player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "각지에서 뒤틀림이 출현했다.");
+			 				player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_GALLOP_WATER, 1.0f, 1.0f);
 			 			}
 			 		}
 			 		

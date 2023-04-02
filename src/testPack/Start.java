@@ -44,15 +44,13 @@ public class Start {
 				}
 				//광기
 				File file = new File(dir, "lunacy.dat");
-				if (!file.exists()) {
-					try {
-						file.createNewFile();
-						BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
-						fw.write(String.valueOf(player.getLevel()));
-		                fw.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+				try {
+					file.createNewFile();
+					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+					fw.write(Integer.toString(player.getLevel()));
+	                fw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 			}
 		} catch (Exception e) {
@@ -62,6 +60,7 @@ public class Start {
 		player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 100, 1,false,false));
 		ItemStack item = player.getInventory().getItem(0);
 		player.getInventory().clear();
+		player.setLevel(0);
 		player.getInventory().setItem(7, item); //인격 7번칸에 두기
 		
 		//최대체력 설정

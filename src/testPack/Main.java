@@ -133,9 +133,6 @@ public class Main extends JavaPlugin implements Listener{
 	// gamerule mobGriefing false
 	// gamerule doWeatherCycle false
 	
-	//유물 효과: 회피, 위더/독/불 피해 %감소, 공격으로 받는 피해 %감소, 공격으로 주는 피해 %증가 등등
-	//유물은 인벤 맨 아래 9칸 사용 / 숲유적, 요정왕국, 아덴, 카루, 아라크네, 사막, 슬라임, 하드바다, 하드요정
-	
 	private int sleep = 0;
 	Random rnd = new Random();
 	World world;
@@ -179,16 +176,16 @@ public class Main extends JavaPlugin implements Listener{
 
 		// 접속가능한 플레이어
 		try {
-//			if (!(player.getDisplayName().equalsIgnoreCase("yumehama"))) {
-//				player.kickPlayer("서버 점검 중 입니다.");
-//				return;
-//			}
+			if (!(player.getDisplayName().equalsIgnoreCase("yumehama"))) {
+				player.kickPlayer("서버 점검 중 입니다.");
+				return;
+			}
 		} catch (Exception e) {
 			System.err.println(player.getDisplayName() + "이 접속을 시도하였습니다.");
 		}
 		
 		//리소스팩 적용
-		player.setResourcePack("https://cdn.discordapp.com/attachments/929453279925121084/1089149515791073320/LOR.zip");
+		//player.setResourcePack("https://cdn.discordapp.com/attachments/929453279925121084/1089149515791073320/LOR.zip");
 		
 		//입장 메세지
 		if(player.getDisplayName().equalsIgnoreCase("yumehama")) {
@@ -431,21 +428,77 @@ public class Main extends JavaPlugin implements Listener{
 	public void reSpawn(PlayerRespawnEvent event) {
 		try {
 			Player player = event.getPlayer();
-			//해결사 레벨+경치량에 비례해서 광기 지급 (+사념파 메세지)
 			
-			player.getInventory().clear();
 			player.setLevel(0); //그냥 초기화
-			
-			player.setMaxHealth(20);
+			player.setMaxHealth(20); //최대체력 디폴트로
 			
 			//퀘스트 초기화
 			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 			
+			//해결사 레벨+경치량에 비례해서 광기 지급 (+사념파 메세지)
+			int lunacy = 0;
+			try {
+				ItemStack item = player.getInventory().getItem(8);
+				ItemMeta itemIM = item.getItemMeta();
+				ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
+				int exp = Integer.parseInt(ary.get(1).split("\\[")[1].split("/")[0]);
+				
+				if(new PlayerGrade().returnGrade(player) == 9) {
+					lunacy += exp;
+				} else if(new PlayerGrade().returnGrade(player) == 8) {
+					lunacy += 10 + exp;
+				} else if(new PlayerGrade().returnGrade(player) == 7) {
+					lunacy += 35 + exp;
+				} else if(new PlayerGrade().returnGrade(player) == 6) {
+					lunacy += 90 + exp;
+				} else if(new PlayerGrade().returnGrade(player) == 5) {
+					lunacy += 300 + exp;
+				} else if(new PlayerGrade().returnGrade(player) == 4) {
+					lunacy += 720 + exp;
+				} else if(new PlayerGrade().returnGrade(player) == 3) {
+					lunacy += 1730 + exp;
+				} else if(new PlayerGrade().returnGrade(player) == 2) {
+					lunacy += 4030 + exp;
+				} else if(new PlayerGrade().returnGrade(player) == 1) {
+					lunacy += 9220 + exp;
+				} else if(new PlayerGrade().returnGrade(player) == 0) {
+					lunacy += 20700 + exp;
+				}
+			} catch(Exception e) {
+				
+			}
+			
 			//광기 복구 하기
+			File dir = new File(getDataFolder() + "/" + player.getUniqueId().toString());
+	    	if(!dir.exists()) {
+	    		try{
+	    		    dir.mkdir(); 
+	    		} catch(Exception e) {
+	    		    e.getStackTrace();
+	    		}
+	    	}
+			try {
+	    		File file = new File(dir, "lunacy.dat");
+				if (!file.exists()) {
+					try {
+						file.createNewFile();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				FileReader filereader = new FileReader(file);
+				BufferedReader bufReader = new BufferedReader(filereader);
+				lunacy += Integer.parseInt(bufReader.readLine());
+				bufReader.close();
+	    	} catch(Exception e) {
+	    		
+	    	}
 			
-			
+			player.setLevel(lunacy); 
 			
 			event.setRespawnLocation(new Location(world,-1844,70,3012));
+			
+			player.getInventory().clear(); //인벤 초기화
 			
 			ItemStack scroll = new ItemStack(Material.FLOWER_BANNER_PATTERN);
 			ItemMeta scrollIm = scroll.getItemMeta();
@@ -498,7 +551,7 @@ public class Main extends JavaPlugin implements Listener{
 	@EventHandler
 	public void die(PlayerDeathEvent event) {
 		event.setDeathMessage(null);
-		// 서버에 사망 메세지 출력
+		//서버에 사망 메세지 출력
 		try {
 			Player player = (Player) event.getEntity();
 			System.out.println(ChatColor.RED + "" + player.getDisplayName() + " 사망");
@@ -506,9 +559,147 @@ public class Main extends JavaPlugin implements Listener{
 
 		}
 		
+		//사망 메세지 출력
 		try {
 			Player player = (Player)event.getEntity();
 			TTA_Methods.sendTitle(player, ChatColor.RED + "Game Over", 20, 60, 20, "", 20, 60, 20);
+		} catch(Exception e) {
+			
+		}
+		
+		//최고기록갱신
+		try {
+			Player player = (Player)event.getEntity();
+			String personality = player.getInventory().getItem(7).getItemMeta().getLocalizedName();
+			
+			SelectPersonality sp = new SelectPersonality();
+			int idx = -1;
+			int rare = 0;
+			if(sp.grade0Ary.contains(personality)) {
+				idx = sp.grade0Ary.indexOf(personality);
+				rare = 1;
+			} else if(sp.grade1Ary.contains(personality)) {
+				idx = sp.grade1Ary.indexOf(personality);
+				rare = 2;
+			} else if(sp.grade2Ary.contains(personality)) {
+				idx = sp.grade2Ary.indexOf(personality);
+				rare = 3;
+			} else if(sp.grade3Ary.contains(personality)) {
+				idx = sp.grade3Ary.indexOf(personality);
+				rare = 4;
+			}
+			
+			if(idx != -1) {
+				try {
+					File dataFolder = getDataFolder();
+		            if(!dataFolder.exists()) {
+		                dataFolder.mkdir();
+		            } else {
+		            	File dir = new File(dataFolder + "/" + player.getUniqueId().toString());
+		            	if(!dir.exists()) {
+		            		try{
+		            		    dir.mkdir(); 
+		            		} catch(Exception e2) {
+		            		    e2.getStackTrace();
+		            		}
+						}
+						File file = new File(dir, "personality_best.dat");
+						try {
+							FileReader filereader = new FileReader(file);
+		    				BufferedReader bufReader = new BufferedReader(filereader);
+		    				String first = bufReader.readLine();
+		    				String second = bufReader.readLine();
+		    				String third = bufReader.readLine();
+		    				String fourth = bufReader.readLine();
+		    				int grade = new PlayerGrade().returnGrade(player);
+		    				
+		    				if(rare == 1) {
+		    					String[] num = first.split("/");
+		    					if(Integer.parseInt(num[idx]) > grade) {
+		    						num[idx] = Integer.toString(grade);
+		            				String str = "";
+		            				for(int i = 0 ; i < 53 ; i++) {
+		            					str += num[i] + "/";
+		            				}
+		            				str += num[53];
+		        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+		        	                fw.write(str);
+		        	                fw.write("\n");
+		        	                fw.write(second);
+		        	                fw.write("\n");
+		        	                fw.write(third);
+		        	                fw.write("\n");
+		        	                fw.write(fourth);
+		        	                fw.close();
+		    					}
+		    				} else if(rare == 2) {
+		    					String[] num = second.split("/");
+		    					if(Integer.parseInt(num[idx]) > grade) {
+		    						num[idx] = Integer.toString(grade);
+		            				String str = "";
+		            				for(int i = 0 ; i < 53 ; i++) {
+		            					str += num[i] + "/";
+		            				}
+		            				str += num[53];
+		        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+		        	                fw.write(first);
+		        	                fw.write("\n");
+		        	                fw.write(str);
+		        	                fw.write("\n");
+		        	                fw.write(third);
+		        	                fw.write("\n");
+		        	                fw.write(fourth);
+		        	                fw.close();
+		    					}
+		    				} else if(rare == 3) {
+		    					String[] num = third.split("/");
+		    					if(Integer.parseInt(num[idx]) > grade) {
+		    						num[idx] = Integer.toString(grade);
+		            				String str = "";
+		            				for(int i = 0 ; i < 53 ; i++) {
+		            					str += num[i] + "/";
+		            				}
+		            				str += num[53];
+		        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+		        	                fw.write(first);
+		        	                fw.write("\n");
+		        	                fw.write(second);
+		        	                fw.write("\n");
+		        	                fw.write(str);
+		        	                fw.write("\n");
+		        	                fw.write(fourth);
+		        	                fw.close();
+		    					}
+		    				} else if(rare == 4) {
+		    					String[] num = fourth.split("/");
+		    					if(Integer.parseInt(num[idx]) > grade) {
+		    						num[idx] = Integer.toString(grade);
+		            				String str = "";
+		            				for(int i = 0 ; i < 53 ; i++) {
+		            					str += num[i] + "/";
+		            				}
+		            				str += num[53];
+		        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+		        	                fw.write(first);
+		        	                fw.write("\n");
+		        	                fw.write(second);
+		        	                fw.write("\n");
+		        	                fw.write(third);
+		        	                fw.write("\n");
+		        	                fw.write(str);
+		        	                fw.close();
+		    					}
+		    				}
+		    				
+			                bufReader.close();
+						} catch (IOException e2) {
+							e2.printStackTrace();
+						}
+					}
+				} catch (Exception e2) {
+					
+				}
+			}
 		} catch(Exception e) {
 			
 		}
@@ -535,7 +726,9 @@ public class Main extends JavaPlugin implements Listener{
 				if(p instanceof Player) {
 					Player player = (Player) p;
 					if(ent.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "다리가 많아! 몇개야?")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DISTORTED FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "DISTORTED FELLED", 40, 40, 20, "다리가 많아! 몇개야?", 20, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 10만큼 증가했다.");
 						giveExp(player, 10);
@@ -549,7 +742,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "외눈 물고기")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DISTORTED FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "DISTORTED FELLED", 40, 40, 20, "외눈 물고기", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 10만큼 증가했다.");
 						giveExp(player, 10);
@@ -563,7 +758,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "회색 인간")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DISTORTED FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "DISTORTED FELLED", 40, 40, 20, "회색 인간", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 10만큼 증가했다.");
 						giveExp(player, 10);
@@ -577,7 +774,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "GREAT DISTORTED FELLED", 40, 40, 20, "작아지는 죽음", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 40만큼 증가했다.");
 						giveExp(player, 40);
@@ -591,7 +790,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작은 조각")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "GREAT DISTORTED FELLED", 40, 40, 20, "작은 조각", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 40만큼 증가했다.");
 						giveExp(player, 40);
@@ -605,7 +806,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "약쟁이 소녀")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "GREAT DISTORTED FELLED", 40, 40, 20, "약쟁이 소녀", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 40만큼 증가했다.");
 						giveExp(player, 40);
@@ -619,7 +822,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "날아오르는 다리")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "GREAT DISTORTED FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "GREAT DISTORTED FELLED", 40, 40, 20, "날아오르는 다리", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 40만큼 증가했다.");
 						giveExp(player, 40);
@@ -633,7 +838,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "검은 인격")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "검은 인격", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 100만큼 증가했다.");
 						giveExp(player, 100);
@@ -647,7 +854,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "외눈 물고기 성체", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 100만큼 증가했다.");
 						giveExp(player, 100);
@@ -661,7 +870,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "녹아내리는 마음", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 100만큼 증가했다.");
 						giveExp(player, 100);
@@ -675,7 +886,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "쏘아올리는 불꽃", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 100만큼 증가했다.");
 						giveExp(player, 100);
@@ -689,7 +902,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "LEGEND FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "부패의 조각", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 전설의 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 100만큼 증가했다.");
 						giveExp(player, 100);
@@ -703,7 +918,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DEMIGOD FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "폭주하는 황소", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 신화의 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 400만큼 증가했다.");
 						giveExp(player, 400);
@@ -717,7 +934,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq1(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DEMIGOD FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "우는 영혼들의 산", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 신화의 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 400만큼 증가했다.");
 						giveExp(player, 400);
@@ -731,7 +950,9 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq1(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
-						TTA_Methods.sendTitle(player, null, 20, 40, 20, "DEMIGOD FELLED", 20, 40, 20);
+						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "도망쳐", 40, 40, 20);
+						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+						
 						player.sendMessage(ChatColor.GOLD + "[System] 신화의 뒤틀림이 소멸했다.");
 						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 400만큼 증가했다.");
 						giveExp(player, 400);
@@ -907,6 +1128,10 @@ public class Main extends JavaPlugin implements Listener{
 				if(!(event.getEntity() instanceof Player)) {
 					if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.DARK_RED + "신의 검")) {
 						event.getEntity().remove();				
+					} else if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.DARK_RED + "신의 검+")) {
+						event.setDamage(10000);			
+					} else {
+						event.setCancelled(true);
 					}
 				}
 			}
@@ -1957,6 +2182,58 @@ public class Main extends JavaPlugin implements Listener{
 			} catch(Exception e) {
 				
 			}
+			
+			//상점
+			try {
+				if(event.getClickedInventory().getSize() == 36 && event.getClickedInventory().getType() == InventoryType.CHEST) {
+					Location loc = player.getLocation();
+					
+					//로비-광기 상인
+					if (loc.getX() <= -1820 && loc.getY() <= 100 && loc.getZ() <= 3069 
+							&& loc.getX() >= -1885 && loc.getY() >= 0 && loc.getZ() >= 2996) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop1().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop1().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop1().item3());
+		        			} else if(event.getSlot() == 3) {
+		        				player.getInventory().addItem(new Shop1().item4());
+		        			} else if(event.getSlot() == 4) {
+		        				player.getInventory().addItem(new Shop1().item5());
+		        			} else if(event.getSlot() == 5) {
+		        				player.getInventory().addItem(new Shop1().item6());
+		        			} else if(event.getSlot() == 6) {
+		        				player.getInventory().addItem(new Shop1().item7());
+		        			} else if(event.getSlot() == 7) {
+		        				player.getInventory().addItem(new Shop1().item8());
+		        			} else if(event.getSlot() == 8) {
+		        				player.getInventory().addItem(new Shop1().item9());
+		        			} else if(event.getSlot() == 9) {
+		        				player.getInventory().addItem(new Shop1().item10());
+		        			} else if(event.getSlot() == 10) {
+		        				player.getInventory().addItem(new Shop1().item11());
+		        			} else if(event.getSlot() == 11) {
+		        				player.getInventory().addItem(new Shop1().item12());
+		        			} else if(event.getSlot() == 12) {
+		        				player.getInventory().addItem(new Shop1().item13());
+		        			}
+		        		} else {
+		        			new Message().msg(player, "나오: 광기가.. 부족하시네요..");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					event.setCancelled(true);
+			        return;
+	        	}
+			} catch(Exception e) {
+				
+			}
 
 			// 못건드리는 템
 			try {
@@ -2017,7 +2294,7 @@ public class Main extends JavaPlugin implements Listener{
 		            return;
 		        }
 		        if(clicked != null && clicked.getType() == Material.NETHER_STAR) {
-		        	if(event.getClickedInventory().getSize() == 54 || event.getClickedInventory().getType() == InventoryType.CHEST) {
+		        	if(event.getClickedInventory().getSize() == 54 && event.getClickedInventory().getType() == InventoryType.CHEST) {
 		        		player.getInventory().setItem(0, clicked);
 		        		player.playSound(player, Sound.BLOCK_NOTE_BLOCK_PLING, 4.0f, 1.89f);
 		        		player.closeInventory();
@@ -2782,7 +3059,14 @@ public class Main extends JavaPlugin implements Listener{
 	    try {
 	    	NPC npc = event.getNPC();
 	    	NPC.Interact.ClickType clickType = event.getClickType();
-	    	String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+	    	
+	    	String office = null;
+	    	try {
+	    		office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+	    	} catch(Exception e2) {
+	    		
+	    	}
+	    	
 	 	    if(clickType == NPC.Interact.ClickType.RIGHT_CLICK) {
 	 	    	
 	 	    	if(npc.getText().get(0).equals("핀")) {
@@ -2898,6 +3182,10 @@ public class Main extends JavaPlugin implements Listener{
 	 				} else {
 	 					new Message().msg(player, "승급 관리원: 아직 승급하실 수 없어보이시네요.%승급 관리원: 충분히 평판을 쌓고 와주세요.");
 	 				}
+	 	    	} else if(npc.getText().get(0).equals("나오")) {
+	 	    		//광기 상인
+	 	    		new Shop1(player);
+	 	    		new Message().msg(player, "나오: 어서오세요.%나오: 나오의 광기 상점이랍니다.");
 	 	    	}
 	 	    	
 	 	    } else if(clickType == NPC.Interact.ClickType.LEFT_CLICK) {

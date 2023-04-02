@@ -41,6 +41,15 @@ public class Skill {
 		try {
 			if(!player.isSwimming()) {
 				String name = player.getInventory().getItem(7).getItemMeta().getLocalizedName();
+				String displayName = player.getInventory().getItem(7).getItemMeta().getDisplayName();
+				String upgrade = displayName.substring(displayName.length()-1, displayName.length());
+				int num = 0;
+				try {
+					num = Integer.parseInt(upgrade);
+				} catch(Exception e2) {
+					num = 0;
+				}
+				
 				world = player.getWorld();
 				
 				if(name.equals("평범한 해결사의 인격")) {
@@ -48,13 +57,13 @@ public class Skill {
 						bool = reload(player, 500);
 						if (bool) {
 							sendPacket(player, "가벼운 공격");
-							skill1(player);
+							skill1(player, num);
 						}
 					} else if(rot.equals("R")) {
 						bool = reload2(player, 1000);
 						if (bool) {
 							sendPacket(player, "가벼운 방어");
-							skill2(player);
+							skill2(player, num);
 						}
 					}
 				}
@@ -65,7 +74,7 @@ public class Skill {
 		}
 	}
 	
-	public void skill1(Player player) {
+	public void skill1(Player player, int up) {
 		Snowball arrow = player.launchProjectile(Snowball.class);
 		arrow.setShooter(player);
 		arrow.setVelocity(player.getLocation().getDirection().multiply(0.3f));		
@@ -80,7 +89,7 @@ public class Skill {
 					t.setID(sleep);
 				}
 			
-				if(time>=5) {
+				if(time>=3) {
 					world.spawnParticle(Particle.SWEEP_ATTACK, arrow.getLocation(), 1);
 					world.playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
 					
@@ -101,7 +110,7 @@ public class Skill {
 		}, 0, 1);
 	}
 	
-	public void skill2(Player player) {
+	public void skill2(Player player, int up) {
 		player.setNoDamageTicks(20);
 		world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 	}
