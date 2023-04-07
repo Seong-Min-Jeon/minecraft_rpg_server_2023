@@ -12,16 +12,11 @@ public class ScrollUseEvent {
 	
 	static ArrayList<Player> lock = new ArrayList<>();
 
-	public ScrollUseEvent(Player player, ItemStack item) {
+	public ScrollUseEvent(Player player, ItemStack item, File folder) {
 		
 		if(lock.contains(player)) {
 			return;
 		}
-		
-//		for(Player all : Bukkit.getOnlinePlayers()) {
-//			PlayerConnection connection = ((CraftPlayer) all).getHandle().playerConnection;
-//			connection.sendPacket(new PacketPlayOutAnimation(((CraftPlayer) player).getHandle(), 0));
-//		}
 		
 		TPScroll tp = new TPScroll();
 		AnotherScroll as = new AnotherScroll();
@@ -30,7 +25,7 @@ public class ScrollUseEvent {
 			//이동
 			tp.teleport(player, item);
 			//기타 스크롤
-			as.effect(player, item);
+			as.effect(player, item, folder);
 		} catch(Exception e) {
 			
 		}

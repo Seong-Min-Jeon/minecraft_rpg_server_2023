@@ -66,7 +66,7 @@ public class Start {
 		//최대체력 설정
 		String name = player.getInventory().getItem(7).getItemMeta().getLocalizedName();
 		if(name.equals("평범한 해결사의 인격")) {
-			player.setMaxHealth(10);
+			player.setMaxHealth(10); //인격 강화에 따라서 증가시켜줘야됨
 		}
 		
 		ItemStack lic = new ItemStack(Material.ACACIA_DOOR);

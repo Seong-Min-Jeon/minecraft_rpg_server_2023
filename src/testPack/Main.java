@@ -312,7 +312,7 @@ public class Main extends JavaPlugin implements Listener{
 		world = player.getWorld();
 		if(player.getInventory().getItem(8) == null || player.getInventory().getItem(8).getType() != Material.ACACIA_DOOR) { //플레이 중에만 가지고 있는 무언가를 판별, ACACIA_DOOR이 해결사 면허증
 			player.teleport(new Location(world,-1844,70,3012)); //로비로 이동
-			player.getInventory().clear();
+			//player.getInventory().clear();
 			
 			ItemStack scroll = new ItemStack(Material.FLOWER_BANNER_PATTERN);
 			ItemMeta scrollIm = scroll.getItemMeta();
@@ -1556,7 +1556,7 @@ public class Main extends JavaPlugin implements Listener{
 					Material type = item.getType();
 					if((type == Material.CREEPER_BANNER_PATTERN) || (type == Material.FLOWER_BANNER_PATTERN) || (type == Material.GLOBE_BANNER_PATTERN)
 							|| (type == Material.MOJANG_BANNER_PATTERN) || (type == Material.PIGLIN_BANNER_PATTERN) || (type == Material.SKULL_BANNER_PATTERN)) {
-						new ScrollUseEvent(player, item);
+						new ScrollUseEvent(player, item, getDataFolder());
 					} else if(type == Material.SLIME_BALL) {
 						if(item.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "GAME START")) {
 							if(player.getInventory().getItem(0) != null) {
@@ -2295,7 +2295,13 @@ public class Main extends JavaPlugin implements Listener{
 		        }
 		        if(clicked != null && clicked.getType() == Material.NETHER_STAR) {
 		        	if(event.getClickedInventory().getSize() == 54 && event.getClickedInventory().getType() == InventoryType.CHEST) {
-		        		player.getInventory().setItem(0, clicked);
+		        		if(player.getInventory().getItem(0) != null && player.getInventory().getItem(0).getType() != Material.NETHER_STAR) {
+		        			ItemStack item = player.getInventory().getItem(0);
+		        			player.getInventory().setItem(0, clicked);
+		        			player.getInventory().addItem(item);
+		        		} else {
+		        			player.getInventory().setItem(0, clicked);
+		        		}
 		        		player.playSound(player, Sound.BLOCK_NOTE_BLOCK_PLING, 4.0f, 1.89f);
 		        		player.closeInventory();
 		        	}
