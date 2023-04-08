@@ -1087,16 +1087,6 @@ public class Main extends JavaPlugin implements Listener{
 							|| item.getType() == Material.MUSIC_DISC_MALL || item.getType() == Material.MUSIC_DISC_MELLOHI || item.getType() == Material.MUSIC_DISC_PIGSTEP 
 							|| item.getType() == Material.MUSIC_DISC_STAL || item.getType() == Material.MUSIC_DISC_STRAD || item.getType() == Material.MUSIC_DISC_WAIT 
 							|| item.getType() == Material.MUSIC_DISC_WARD
-							
-							|| item.getType() == Material.LEATHER_HELMET || item.getType() == Material.LEATHER_CHESTPLATE || item.getType() == Material.LEATHER_LEGGINGS 
-							|| item.getType() == Material.LEATHER_BOOTS || item.getType() == Material.CHAINMAIL_HELMET || item.getType() == Material.CHAINMAIL_CHESTPLATE 
-							|| item.getType() == Material.CHAINMAIL_LEGGINGS || item.getType() == Material.CHAINMAIL_BOOTS || item.getType() == Material.IRON_HELMET 
-							|| item.getType() == Material.IRON_CHESTPLATE || item.getType() == Material.IRON_LEGGINGS || item.getType() == Material.IRON_BOOTS 
-							|| item.getType() == Material.GOLDEN_HELMET || item.getType() == Material.GOLDEN_CHESTPLATE || item.getType() == Material.GOLDEN_LEGGINGS 
-							|| item.getType() == Material.GOLDEN_BOOTS || item.getType() == Material.DIAMOND_HELMET || item.getType() == Material.DIAMOND_CHESTPLATE 
-							|| item.getType() == Material.DIAMOND_LEGGINGS || item.getType() == Material.DIAMOND_BOOTS || item.getType() == Material.NETHERITE_HELMET
-							|| item.getType() == Material.NETHERITE_CHESTPLATE || item.getType() == Material.NETHERITE_LEGGINGS || item.getType() == Material.NETHERITE_BOOTS
-							|| item.getType() == Material.CARVED_PUMPKIN
 					
 							|| item.getType() == Material.CREEPER_BANNER_PATTERN || item.getType() == Material.FLOWER_BANNER_PATTERN || item.getType() == Material.GLOBE_BANNER_PATTERN 
 							|| item.getType() == Material.MOJANG_BANNER_PATTERN || item.getType() == Material.PIGLIN_BANNER_PATTERN || item.getType() == Material.SKULL_BANNER_PATTERN 
@@ -2334,17 +2324,7 @@ public class Main extends JavaPlugin implements Listener{
 							|| clicked.getType() == Material.MUSIC_DISC_CAT || clicked.getType() == Material.MUSIC_DISC_CHIRP || clicked.getType() == Material.MUSIC_DISC_FAR 
 							|| clicked.getType() == Material.MUSIC_DISC_MALL || clicked.getType() == Material.MUSIC_DISC_MELLOHI || clicked.getType() == Material.MUSIC_DISC_PIGSTEP 
 							|| clicked.getType() == Material.MUSIC_DISC_STAL || clicked.getType() == Material.MUSIC_DISC_STRAD || clicked.getType() == Material.MUSIC_DISC_WAIT 
-							|| clicked.getType() == Material.MUSIC_DISC_WARD
-							
-							|| clicked.getType() == Material.LEATHER_HELMET || clicked.getType() == Material.LEATHER_CHESTPLATE || clicked.getType() == Material.LEATHER_LEGGINGS 
-							|| clicked.getType() == Material.LEATHER_BOOTS || clicked.getType() == Material.CHAINMAIL_HELMET || clicked.getType() == Material.CHAINMAIL_CHESTPLATE 
-							|| clicked.getType() == Material.CHAINMAIL_LEGGINGS || clicked.getType() == Material.CHAINMAIL_BOOTS || clicked.getType() == Material.IRON_HELMET 
-							|| clicked.getType() == Material.IRON_CHESTPLATE || clicked.getType() == Material.IRON_LEGGINGS || clicked.getType() == Material.IRON_BOOTS 
-							|| clicked.getType() == Material.GOLDEN_HELMET || clicked.getType() == Material.GOLDEN_CHESTPLATE || clicked.getType() == Material.GOLDEN_LEGGINGS 
-							|| clicked.getType() == Material.GOLDEN_BOOTS || clicked.getType() == Material.DIAMOND_HELMET || clicked.getType() == Material.DIAMOND_CHESTPLATE 
-							|| clicked.getType() == Material.DIAMOND_LEGGINGS || clicked.getType() == Material.DIAMOND_BOOTS || clicked.getType() == Material.NETHERITE_HELMET
-							|| clicked.getType() == Material.NETHERITE_CHESTPLATE || clicked.getType() == Material.NETHERITE_LEGGINGS || clicked.getType() == Material.NETHERITE_BOOTS
-							|| clicked.getType() == Material.CARVED_PUMPKIN)) {
+							|| clicked.getType() == Material.MUSIC_DISC_WARD)) {
 		        		event.setCancelled(true);
 			            return;
     				}
