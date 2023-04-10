@@ -69,7 +69,7 @@ public class Shop9 {
 	public ItemStack item2() {
 		ItemStack item = new ItemStack(Material.COOKIE);
 		ItemMeta itemIm = item.getItemMeta();
-		itemIm.setDisplayName(net.md_5.bungee.api.ChatColor.of("#000066") + "마탄의 쿠키");
+		itemIm.setDisplayName(net.md_5.bungee.api.ChatColor.of("#333399") + "마탄의 쿠키");
 		ArrayList<String> itemLore = new ArrayList<>();
 		itemLore.add(ChatColor.GRAY + "죽기 전에 꼭 먹어봐야 할 뉴욕 3대");
 		itemLore.add(ChatColor.GRAY + "쿠키 중 하나인 르뱅블랙쿠키이다.");
@@ -88,7 +88,7 @@ public class Shop9 {
 	public ItemStack item2D() {
 		ItemStack item = new ItemStack(Material.COOKIE);
 		ItemMeta itemIm = item.getItemMeta();
-		itemIm.setDisplayName(net.md_5.bungee.api.ChatColor.of("#000066") + "마탄의 쿠키");
+		itemIm.setDisplayName(net.md_5.bungee.api.ChatColor.of("#333399") + "마탄의 쿠키");
 		itemIm.setLocalizedName("450000");
 		ArrayList<String> itemLore = new ArrayList<>();
 		itemLore.add(ChatColor.GRAY + "죽기 전에 꼭 먹어봐야 할 뉴욕 3대");

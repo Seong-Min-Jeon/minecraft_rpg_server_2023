@@ -129,7 +129,7 @@ public class Main extends JavaPlugin implements Listener{
 	// gamerule doMobSpawning false
 	// gamerule keepInventory true
 	// gamerule doImmediateRespawn true
-	// gamerule doLimitedCrafting true
+	// gamerule doLimitedCrafting true	
 	// gamerule mobGriefing false
 	// gamerule doWeatherCycle false
 	
@@ -977,16 +977,120 @@ public class Main extends JavaPlugin implements Listener{
 	public void consumeItem(PlayerItemConsumeEvent event) {
 		Player player = event.getPlayer();
 		try {
-			//K사 혈청 - 매우 비싸다고 묘사가 되어있음
-			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "힐링 포션 I")) {
+			//포션류
+			if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "알록달록 " + ChatColor.GREEN + "칵" + ChatColor.YELLOW + "테" + ChatColor.RED + "일")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 2.5;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#CC9933") + "올가의 홍차칵테일")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 2;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#993333") + "단테주")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 2.2;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#FFCCCC") + "눈물의 병")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 20;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#0033CC") + "진실의 삼키는 거짓말")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 18;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#FFCC99") + "베스파의 계피차")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 10;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#6699FF") + "눈의 여왕의 입맞춤")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 22;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+				player.setFreezeTicks(100);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#99FFFF") + "마법의 손키스")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 19;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#999999") + "호크앤쿠")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 100;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#333333") + "추출팀의 우물에서 떠온 ■■")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 120;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#33CC33") + "예술")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 999;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 600, 0, true, true));
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "혈청K")) {
+				player.setMaxHealth(player.getMaxHealth() + 4);
 				
+				double tmp = 0;
+				tmp = player.getHealth() + 999;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
 			}
+			
 			
 			
 			//음식
 			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "윤이 만든 음식")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
 				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 0,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 5);
 			}
 			
 			
@@ -1012,6 +1116,36 @@ public class Main extends JavaPlugin implements Listener{
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
 				player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 6, 0,true,true));
 				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 100, 0,true,true));
+			}
+		} catch(Exception e) {
+			
+		}
+		
+		try {
+			if(player.getInventory().getItemInMainHand().getType() == Material.POTION) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.MUSHROOM_STEW) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.RABBIT_STEW) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.BEETROOT_SOUP) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.SUSPICIOUS_STEW) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.HONEY_BOTTLE) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.ROTTEN_FLESH) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.GOLDEN_APPLE) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			}
 		} catch(Exception e) {
 			
@@ -2213,8 +2347,76 @@ public class Main extends JavaPlugin implements Listener{
 		        			} else if(event.getSlot() == 12) {
 		        				player.getInventory().addItem(new Shop1().item13());
 		        			}
+		        			new Message().msg(player, "나오: 당신에게 도움이 되기를..");
 		        		} else {
 		        			new Message().msg(player, "나오: 광기가.. 부족하시네요..");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					} 
+					// 단테
+					else if (loc.getX() <= -1087 && loc.getY() <= 80 && loc.getZ() <= 1193 
+							&& loc.getX() >= -1095 && loc.getY() >= 60 && loc.getZ() >= 1185) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop2().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop2().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop2().item3());
+		        			}
+		        			new Message().msg(player, "단테: 째깍째깍!");
+		        		} else {
+		        			new Message().msg(player, "단테: 째깍..");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					// 돈키호테
+					else if (loc.getX() <= -1049 && loc.getY() <= 80 && loc.getZ() <= 1194 
+							&& loc.getX() >= -1057 && loc.getY() >= 60 && loc.getZ() >= 1186) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop3().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop3().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop3().item3());
+		        			} else if(event.getSlot() == 3) {
+		        				player.getInventory().addItem(new Shop3().item4());
+		        			}
+		        			new Message().msg(player, "돈키호테: 정말 고맙소!");
+		        		} else {
+		        			new Message().msg(player, "돈키호테: 도둑질은 정의롭지 못하오!%돈키호테: 돈이 없다면 벌어서 오시게!");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					// 료슈
+					else if (loc.getX() <= -1051 && loc.getY() <= 80 && loc.getZ() <= 1217 
+							&& loc.getX() >= -1059 && loc.getY() >= 60 && loc.getZ() >= 1209) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop4().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop4().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop4().item3());
+		        			} else if(event.getSlot() == 3) {
+		        				player.getInventory().addItem(new Shop4().item4());
+		        			}
+		        			new Message().msg(player, "료슈: 분.도.죽.말."); //분명히 도움이 될거야 죽지 말라고.
+		        		} else {
+		        			new Message().msg(player, "료슈: 모.분.거.새.");
 		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
 		        		}
 					}
@@ -3172,6 +3374,51 @@ public class Main extends JavaPlugin implements Listener{
 	 	    		//광기 상인
 	 	    		new Shop1(player);
 	 	    		new Message().msg(player, "나오: 어서오세요.%나오: 나오의 광기 상점이랍니다.");
+	 	    	} else if(npc.getText().get(0).equals("단테")) {
+	 	    		//포션1 상인
+	 	    		new Shop2(player);
+	 	    		new Message().msg(player, "단테: 째깍째깍.");
+	 	    	} else if(npc.getText().get(0).equals("돈키호테")) {
+	 	    		//음식1 상인
+	 	    		new Shop3(player);
+	 	    		new Message().msg(player, "돈키호테: 어서오시게! 지나가는 모험가여!%돈키호테: 해결사 일은 적성에 맞으시오?%돈키호테: 나도 소싯적에는 잘나가는 해결사가 꿈이었다오.%돈키호테: 지금까지도 이 가슴에 유명 해결사의 한정판 배지를 달고 있지.%"
+	 	    									+ "돈키호테: 그대도 명성을 떨칠 날이 얼마 남지 않았구려!%돈키호테: 유명해진다면 다시 날 찾아와주시게!");
+	 	    	} else if(npc.getText().get(0).equals("료슈")) {
+	 	    		//장비1 상인
+	 	    		new Shop4(player);
+	 	    		new Message().msg(player, "료슈: 강.놈.템.빨."); //강한 놈은 템빨
+	 	    	} else if(npc.getText().get(0).equals("비나")) {
+	 	    		//포션2 상인
+	 	    		new Shop5(player);
+	 	    		new Message().msg(player, "비나: 오늘도 헤아릴 수 없을 정도로 많은 별이 떠 있구나.");
+	 	    	} else if(npc.getText().get(0).equals("티페리트")) {
+	 	    		//음식2 상인
+	 	    		new Shop6(player);
+	 	    		new Message().msg(player, "티페리트: 맛있는걸 많이 먹어놔야 힘이 난다고!");
+	 	    	} else if(npc.getText().get(0).equals("호드")) {
+	 	    		//장비2 상인
+	 	    		new Shop7(player);
+	 	    		new Message().msg(player, "호드: 좋은 장비를 입어야 더 나은 존재가 될 수 있어요.."); 
+	 	    	} else if(npc.getText().get(0).equals("벤자민")) {
+	 	    		//포션3 상인
+	 	    		new Shop8(player);
+	 	    		new Message().msg(player, "벤자민: 흔들리지 말고, 끝까지 마셔봅시다.");
+	 	    	} else if(npc.getText().get(0).equals("카르멘")) {
+	 	    		//음식3 상인
+	 	    		new Shop9(player);
+	 	    		new Message().msg(player, "카르멘: 세상의 모든 아픔을 음식으로 해방하리라.");
+	 	    	} else if(npc.getText().get(0).equals("아인")) {
+	 	    		//장비3 상인
+	 	    		new Shop10(player);
+	 	    		new Message().msg(player, "아인: 차원 상자를 사용해봐.%아인: 너와 내가 빛으로 흩어지더라도 잊혀지진 않을 거야."); 
+	 	    	} else if(npc.getText().get(0).equals("암거래상")) {
+	 	    		//혈청 상인
+	 	    		new Shop11(player);
+	 	    		new Message().msg(player, "암거래상: 미행을 대려오진 않았겠지?"); 
+	 	    	} else if(npc.getText().get(0).equals("W사 영업사원")) {
+	 	    		//워프 열차 티켓 상인
+	 	    		new Shop12(player);
+	 	    		new Message().msg(player, "W사 영업사원: 신속하고 정확하게 목적지로 이동하는 워프 열차입니다.%W사 영업사원: 1등석 티켓의 판매는 종료되었습니다."); 
 	 	    	}
 	 	    	
 	 	    } else if(clickType == NPC.Interact.ClickType.LEFT_CLICK) {

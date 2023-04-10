@@ -37,7 +37,7 @@ public class MobLoot {
 	
 	//쥐
 	public void rat(Player player) {
-		player.setLevel(player.getLevel() + (rnd.nextInt(10) + 10));
+		player.setLevel(player.getLevel() + (rnd.nextInt(500) + 100));
 		
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0004")) {
@@ -51,7 +51,7 @@ public class MobLoot {
 	
 	//쥐 두목
 	public void ratBoss(Player player) {
-		player.setLevel(player.getLevel() + (rnd.nextInt(100) + 10));
+		player.setLevel(player.getLevel() + (rnd.nextInt(2000) + 100));
 	}
 
 	// 보스 스켈이
