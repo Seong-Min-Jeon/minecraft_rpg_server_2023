@@ -125,8 +125,10 @@ public class Start {
 			weaponLore.add(ChatColor.GRAY + "초보 해결사도 지니고 다닐 수 있는 저가형 무기");
 			weaponLore.add(ChatColor.GRAY + "내구성은 보기보다 좋다고 한다.");
 			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
 		}
 		

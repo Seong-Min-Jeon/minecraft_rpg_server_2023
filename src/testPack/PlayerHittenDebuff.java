@@ -77,7 +77,33 @@ public class PlayerHittenDebuff {
 		if(mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐")) {
 			int num = rnd.nextInt(10);
 			if(num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			}
 		}
 	}
@@ -87,7 +113,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
 			int num = rnd.nextInt(8);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} else if(num < 3) {
 				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
 			}
@@ -99,7 +151,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "다리가 많아! 몇개야?")) {
 			int num = rnd.nextInt(10);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} else if(num == 1) {
 				player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 0, true, true));
 			}
@@ -112,7 +190,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "외눈 물고기")) {
 			int num = rnd.nextInt(10);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 		}
 	}
@@ -122,7 +226,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "회색 인간")) {
 			int num = rnd.nextInt(10);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 		}
 	}
@@ -132,7 +262,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음")) {
 			int num = rnd.nextInt(8);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 		}
 	}
@@ -142,7 +298,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작은 조각")) {
 			int num = rnd.nextInt(8);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 		}
 	}
@@ -152,7 +334,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "약쟁이 소녀")) {
 			int num = rnd.nextInt(8);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 		}
 	}
@@ -162,7 +370,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "날아오르는 다리")) {
 			int num = rnd.nextInt(8);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 		}
 	}
@@ -172,7 +406,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "검은 인격")) {
 			int num = rnd.nextInt(5);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 			player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100, 0, true, true));
 		}
@@ -183,7 +443,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
 			int num = rnd.nextInt(5);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 		}
 	}
@@ -193,7 +479,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음")) {
 			int num = rnd.nextInt(5);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 			player.setFireTicks(5);
 		}
@@ -204,7 +516,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃")) {
 			int num = rnd.nextInt(5);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 			player.setFireTicks(5);
 		}
@@ -215,7 +553,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각")) {
 			int num = rnd.nextInt(5);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 			player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100, 0, true, true));
 		}
@@ -226,7 +590,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
 			int num = rnd.nextInt(3);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 
 			int num2 = rnd.nextInt(10);
@@ -243,7 +633,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 			int num = rnd.nextInt(3);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 		}
 	}
@@ -253,7 +669,33 @@ public class PlayerHittenDebuff {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 			int num = rnd.nextInt(3);
 			if (num == 0) {
-				player.setMaxHealth(player.getMaxHealth() - 1);
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					player.setMaxHealth(player.getMaxHealth() - 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						player.setMaxHealth(player.getMaxHealth() - 1);
+					}
+				}
 			} 
 			
 			if(player.getHealth() - player.getMaxHealth()/8 > 0) {

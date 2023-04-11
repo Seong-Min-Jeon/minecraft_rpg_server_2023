@@ -191,6 +191,9 @@ public class RefreshServer {
 								if(ent.getType() == EntityType.ZOGLIN) {
 									ent.remove();
 								}
+								if(ent.getType() == EntityType.WARDEN) {
+									ent.remove();
+								}
 								if(ent.getType() == EntityType.ARMOR_STAND) {
 									ArmorStand as = (ArmorStand) ent;
 									if(as.getHelmet().getType() == Material.ANDESITE_STAIRS) {

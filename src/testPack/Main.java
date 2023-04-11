@@ -1084,38 +1084,76 @@ public class Main extends JavaPlugin implements Listener{
 				}
 			}
 			
-			
-			
 			//음식
-			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "윤이 만든 음식")) {
+			if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "윤이 만든 음식")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
 				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 0,true,true));
 				player.setFoodLevel(player.getFoodLevel() + 5);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "보노 삼색" + ChatColor.GREEN + "비" + ChatColor.YELLOW + "빔" + ChatColor.RED + "밥")) {
+				player.removePotionEffect(PotionEffectType.ABSORPTION);
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1800, 0,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 8);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#663333") + "사랑마을의 토머리조또")) {
+				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 1200, 0,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 10);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#996633") + "피에르 찰떡손파이")) {
+				player.removePotionEffect(PotionEffectType.ABSORPTION);
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 0,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 4);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#993333") + "단테 에그타르트")) {
+				player.removePotionEffect(PotionEffectType.ABSORPTION);
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 600, 1,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 4);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#FF9933") + "네모네모 짜장쫄면")) {
+				player.removePotionEffect(PotionEffectType.ABSORPTION);
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 3,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 8);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#FF66CC") + "인어스테이크")) {
+				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 1200, 1,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 6);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#99FF66") + "꽃밭 위의 티타니아")) {
+				player.removePotionEffect(PotionEffectType.ABSORPTION);
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 6,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 1);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#33CC00") + "분노의 푸딩")) {
+				player.removePotionEffect(PotionEffectType.ABSORPTION);
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 3600, 1,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 4,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 4);
+				
+				if(rnd.nextInt(10) == 0) {
+					player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 0,true,true));
+				}
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#CC0000") + "소녀의 잿더미 케이크")) {
+				player.removePotionEffect(PotionEffectType.ABSORPTION);
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 9,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 8);
+				
+				if(rnd.nextInt(10) == 0) {
+					player.setFireTicks(100);
+				}
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#FFFFFF") + "침묵 교향곡 op.19")) {
+				player.removePotionEffect(PotionEffectType.ABSORPTION);
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 9,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1200, 0,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 1200, 0,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 10);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#333399") + "마탄의 쿠키")) {
+				player.removePotionEffect(PotionEffectType.ABSORPTION);
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 14,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 8);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#990000") + "파고드는 포테이토")) {
+				player.removePotionEffect(PotionEffectType.ABSORPTION);
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 9,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 12000, 0,true,true));
+				player.setFoodLevel(player.getFoodLevel() + 8);
 			}
-			
 			
 			//특이 포션
 			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.YELLOW + "엘릭서")) {
 				for(PotionEffect effect : player.getActivePotionEffects ()){
 			        player.removePotionEffect(effect.getType());
 			    }
-			}
-			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.YELLOW + "냉기의 포션")) {
-				player.setFireTicks(0);
-			}
-			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "바람의 포션 I")) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED,2400,0,true,true));
-			}
-			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "바위의 포션 I")) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE,1800,0,true,true));
-			}
-			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "근육의 포션 I")) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE,1800,10,true,true));
-			}
-			if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.YELLOW + "코코넛 음료")) {
-				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 6, 0,true,true));
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 100, 0,true,true));
 			}
 		} catch(Exception e) {
 			
@@ -1315,21 +1353,19 @@ public class Main extends JavaPlugin implements Listener{
 
 		}
 
-		//파이어볼 히트 불가
-		try {
-			if(event.getEntity() instanceof Fireball) {
-				event.setCancelled(true);
-			}
-		} catch (Exception e) {
-
-		}
-		
-		//인격에 따른 버프
+		//장비버프
 		try {
 			if (event.getDamager() instanceof Player) {
 				Player player = (Player) event.getDamager();
-				PlayerJobBuff buff = new PlayerJobBuff();
-				buff.playerBuff(player);
+				if (player.getInventory().getBoots() != null) {
+					if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 부츠")) {
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 0, true, true));
+					} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 고급 부츠")) {
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, true, true));
+					} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 프리미엄 부츠")) {
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 2, true, true));
+					}
+				}
 			}
 		} catch (Exception e) {
 
@@ -1386,18 +1422,43 @@ public class Main extends JavaPlugin implements Listener{
 		
 		//플레이어 피격 데미지 계산식
 		try {
-			if(!(event.getEntity() instanceof Player)) {
+			if(event.getEntity() instanceof Player) {
+				Player player = (Player) event.getEntity();
 				double damage = event.getDamage();
 				
-				int personality = 0;
-				int enforce = 0; //10이면 10% 경감
+				int personality = 0; //10이면 10% 경감
+				int chestplate = 0; 
 				
-				damage = (damage - personality) * (100 - enforce) * 0.01;
+				try {
+					ItemStack item = player.getInventory().getItem(7);
+					String name = item.getItemMeta().getDisplayName();
+					personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+				} catch(Exception e2) {
+					
+				}
+				
+				if (player.getInventory().getChestplate() != null) {
+					if (player.getInventory().getChestplate().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "유니온 공방제 슈트")) {
+						chestplate = 2;
+					} else if (player.getInventory().getChestplate().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "유니온 공방제 고급 슈트")) {
+						chestplate = 5;
+					} else if (player.getInventory().getChestplate().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "유니온 공방제 프리미엄 슈트")) {
+						chestplate = 10;
+					}
+				}
+				
+				damage = (damage - chestplate) * (100 - (personality*5)) * 0.01;
 				
 				event.setDamage(damage);
 			}
 		} catch(Exception e) {
 			
+		}
+		
+		//다시 데미지 0이하면 패스
+		if (event.getDamage() <= 0) {
+			event.setCancelled(true);
+			return;
 		}
 		
 		// 인식변경
@@ -1443,6 +1504,37 @@ public class Main extends JavaPlugin implements Listener{
 		try {
 			if (event.getCause() == DamageCause.FIRE_TICK || event.getCause() == DamageCause.FIRE || event.getCause() == DamageCause.HOT_FLOOR) {
 				if (event.getEntity() instanceof Player) {
+					Player player = (Player) event.getEntity();
+					int num = rnd.nextInt(10);
+					if (num == 0) {
+						int item = 0;
+						if (player.getInventory().getHelmet() != null) {
+							if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+								item = 1;
+							} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+								item = 2;
+							} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+								item = 3;
+							}
+						}
+						
+						int num2 = rnd.nextInt(10);
+						if(item == 0) {
+							player.setMaxHealth(player.getMaxHealth() - 1);
+						} else if(item == 1) {
+							if(num2 >= 1) {
+								player.setMaxHealth(player.getMaxHealth() - 1);
+							}
+						} else if(item == 2) {
+							if(num2 >= 3) {
+								player.setMaxHealth(player.getMaxHealth() - 1);
+							}
+						} else if(item == 3) {
+							if(num2 >= 5) {
+								player.setMaxHealth(player.getMaxHealth() - 1);
+							}
+						}
+					}
 					event.setDamage(1);
 				}
 			} else if (event.getCause() == DamageCause.VOID) {
@@ -1467,9 +1559,35 @@ public class Main extends JavaPlugin implements Listener{
 			} else if (event.getCause() == DamageCause.WITHER) {
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
-					int num = rnd.nextInt(10);
+					int num = rnd.nextInt(7);
 					if (num == 0) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						int item = 0;
+						if (player.getInventory().getHelmet() != null) {
+							if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+								item = 1;
+							} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+								item = 2;
+							} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+								item = 3;
+							}
+						}
+						
+						int num2 = rnd.nextInt(10);
+						if(item == 0) {
+							player.setMaxHealth(player.getMaxHealth() - 1);
+						} else if(item == 1) {
+							if(num2 >= 1) {
+								player.setMaxHealth(player.getMaxHealth() - 1);
+							}
+						} else if(item == 2) {
+							if(num2 >= 3) {
+								player.setMaxHealth(player.getMaxHealth() - 1);
+							}
+						} else if(item == 3) {
+							if(num2 >= 5) {
+								player.setMaxHealth(player.getMaxHealth() - 1);
+							}
+						}
 					}
 					event.setDamage(1);
 				}
@@ -2417,6 +2535,144 @@ public class Main extends JavaPlugin implements Listener{
 		        			new Message().msg(player, "료슈: 분.도.죽.말."); //분명히 도움이 될거야 죽지 말라고.
 		        		} else {
 		        			new Message().msg(player, "료슈: 모.분.거.새.");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					// 비나
+					else if (loc.getX() <= -1059 && loc.getY() <= 100 && loc.getZ() <= 1334 
+							&& loc.getX() >= -1067 && loc.getY() >= 80 && loc.getZ() >= 1326) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop5().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop5().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop5().item3());
+		        			} else if(event.getSlot() == 3) {
+		        				player.getInventory().addItem(new Shop5().item4());
+		        			} else if(event.getSlot() == 4) {
+		        				player.getInventory().addItem(new Shop5().item5());
+		        			}
+		        			new Message().msg(player, "비나: 피할 수 없는 힘듦이 와도 무너짐은 없어야지.");
+		        		} else {
+		        			new Message().msg(player, "비나: 네가 돈이 없다면 그런 것이겠지.");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					// 티페리트
+					else if (loc.getX() <= -1067 && loc.getY() <= 100 && loc.getZ() <= 1300 
+							&& loc.getX() >= -1075 && loc.getY() >= 80 && loc.getZ() >= 1292) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop6().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop6().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop6().item3());
+		        			} else if(event.getSlot() == 3) {
+		        				player.getInventory().addItem(new Shop6().item4());
+		        			} else if(event.getSlot() == 4) {
+		        				player.getInventory().addItem(new Shop6().item5());
+		        			}
+		        			new Message().msg(player, "티페리트: 본격적으로 시작해야 하니까 마음 굳게 먹도록 해.");
+		        		} else {
+		        			new Message().msg(player, "티페리트: 미안. 큰 도움을 주지는 못했네.");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					// 호드
+					else if (loc.getX() <= -1087 && loc.getY() <= 110 && loc.getZ() <= 1336
+							&& loc.getX() >= -1095 && loc.getY() >= 90 && loc.getZ() >= 1328) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop7().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop7().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop7().item3());
+		        			} else if(event.getSlot() == 3) {
+		        				player.getInventory().addItem(new Shop7().item4());
+		        			}
+		        			new Message().msg(player, "호드: 우리 가게를 이용해줘서 고마워요!");
+		        		} else {
+		        			new Message().msg(player, "호드: 끝까지 민폐였네. 당신은, 그저…");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					// 벤자민
+					else if (loc.getX() <= -1147 && loc.getY() <= 190 && loc.getZ() <= 1488
+							&& loc.getX() >= -1155 && loc.getY() >= 170 && loc.getZ() >= 1480) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop8().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop8().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop8().item3());
+		        			}
+		        			new Message().msg(player, "벤자민: 삶에 묶여있는 이상… 살아야죠.");
+		        		} else {
+		        			new Message().msg(player, "벤자민: 이 행위에 명확한 이익이 있다고 믿습니까.");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					// 카르멘
+					else if (loc.getX() <= -1129 && loc.getY() <= 190 && loc.getZ() <= 1487
+							&& loc.getX() >= -1137 && loc.getY() >= 170 && loc.getZ() >= 1479) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop9().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop9().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop9().item3());
+		        			}
+		        			new Message().msg(player, "카르멘: 마음의 병에서 구원받을 수 있기를.");
+		        		} else {
+		        			new Message().msg(player, "카르멘: 돈이 없다면 연구 실험체라도 해보지 그래?");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					// 아인
+					else if (loc.getX() <= -1148 && loc.getY() <= 190 && loc.getZ() <= 1471
+							&& loc.getX() >= -1156 && loc.getY() >= 170 && loc.getZ() >= 1463) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop10().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop10().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop10().item3());
+		        			} else if(event.getSlot() == 3) {
+		        				player.getInventory().addItem(new Shop10().item4());
+		        			}
+		        			new Message().msg(player, "아인: 이 순간까지 도달한 너라면 이겨낼 수 있을 거야.");
+		        		} else {
+		        			new Message().msg(player, "아인: 충분한 가치는 있으니 도둑질은 잠시 참아줘.");
 		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
 		        		}
 					}
@@ -3398,7 +3654,7 @@ public class Main extends JavaPlugin implements Listener{
 	 	    	} else if(npc.getText().get(0).equals("호드")) {
 	 	    		//장비2 상인
 	 	    		new Shop7(player);
-	 	    		new Message().msg(player, "호드: 좋은 장비를 입어야 더 나은 존재가 될 수 있어요.."); 
+	 	    		new Message().msg(player, "호드: 좋은 장비를 입어야 더 나은 존재가 될 수 있어요…"); 
 	 	    	} else if(npc.getText().get(0).equals("벤자민")) {
 	 	    		//포션3 상인
 	 	    		new Shop8(player);

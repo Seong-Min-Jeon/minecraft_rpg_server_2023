@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -22,7 +23,18 @@ public class StepAndRolling {
 		boolean bool = false;
 		
 		if(player.isOnGround() && !player.isSwimming()) {
-			bool = reload(player, 1500);
+			int cool = 1500;
+			if (player.getInventory().getLeggings() != null) {
+				if (player.getInventory().getLeggings().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "알라스 공방제 팬츠")) {
+					cool = 1300;
+				} else if (player.getInventory().getLeggings().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "알라스 공방제 고급 팬츠")) {
+					cool = 1100;
+				} else if (player.getInventory().getLeggings().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "알라스 공방제 프리미엄 팬츠")) {
+					cool = 900;
+				}
+			}
+			
+			bool = reload(player, cool);
 			if (bool) {
 				move(player);
 			}

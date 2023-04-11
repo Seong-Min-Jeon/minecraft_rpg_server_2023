@@ -43,6 +43,8 @@ public class Shop7 {
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+		itemIm.setUnbreakable(true);
 		item.setItemMeta(itemIm);
 		return item;
 	}
@@ -65,6 +67,8 @@ public class Shop7 {
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+		itemIm.setUnbreakable(true);
 		item.setItemMeta(itemIm);
 		return item;
 	}
@@ -87,6 +91,8 @@ public class Shop7 {
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+		itemIm.setUnbreakable(true);
 		item.setItemMeta(itemIm);
 		return item;
 	}
@@ -112,6 +118,8 @@ public class Shop7 {
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+		itemIm.setUnbreakable(true);
 		item.setItemMeta(itemIm);
 		return item;
 	}
@@ -132,6 +140,8 @@ public class Shop7 {
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+		itemIm.setUnbreakable(true);
 		item.setItemMeta(itemIm);
 		return item;
 	}
@@ -155,6 +165,8 @@ public class Shop7 {
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+		itemIm.setUnbreakable(true);
 		item.setItemMeta(itemIm);
 		return item;
 	}
@@ -175,6 +187,8 @@ public class Shop7 {
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+		itemIm.setUnbreakable(true);
 		item.setItemMeta(itemIm);
 		return item;
 	}
@@ -198,6 +212,8 @@ public class Shop7 {
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+		itemIm.setUnbreakable(true);
 		item.setItemMeta(itemIm);
 		return item;
 	}
