@@ -507,7 +507,7 @@ public class PlayerHittenDebuff {
 					}
 				}
 			} 
-			player.setFireTicks(5);
+			player.setFireTicks(100);
 		}
 	}
 	
@@ -544,7 +544,7 @@ public class PlayerHittenDebuff {
 					}
 				}
 			} 
-			player.setFireTicks(5);
+			player.setFireTicks(100);
 		}
 	}
 	

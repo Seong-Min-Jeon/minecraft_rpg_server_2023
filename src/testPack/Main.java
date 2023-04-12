@@ -774,20 +774,22 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음")) {
-						TTA_Methods.sendTitle(player, "GREAT DISTORTED FELLED", 40, 40, 20, "작아지는 죽음", 40, 40, 20);
-						player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
-						
-						player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
-						player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 40만큼 증가했다.");
-						giveExp(player, 40);
-						
-						QuestBoard qb = new QuestBoard();
-						if (getQuestName(player).equals("uq6")) {
-							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1);
-						} else if (getQuestName(player).equals("uq5")) {
-							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1);
+						if(((Slime) ent).getSize() <= 2) {
+							TTA_Methods.sendTitle(player, "GREAT DISTORTED FELLED", 40, 40, 20, "작아지는 죽음", 40, 40, 20);
+							player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_JUMP_WATER, 1.0f, 1.0f);
+							
+							player.sendMessage(ChatColor.GOLD + "[System] 거대한 뒤틀림이 소멸했다.");
+							player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 40만큼 증가했다.");
+							giveExp(player, 40);
+							
+							QuestBoard qb = new QuestBoard();
+							if (getQuestName(player).equals("uq6")) {
+								int qNum = qb.getNum(player);
+								qb.uq8(player, qNum + 1);
+							} else if (getQuestName(player).equals("uq5")) {
+								int qNum = qb.getNum(player);
+								qb.uq7(player, qNum + 1);
+							}
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작은 조각")) {
 						TTA_Methods.sendTitle(player, "GREAT DISTORTED FELLED", 40, 40, 20, "작은 조각", 40, 40, 20);
@@ -1595,11 +1597,13 @@ public class Main extends JavaPlugin implements Listener{
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
 					event.setDamage(player.getMaxHealth()/4);
+					player.setFireTicks(100);
 				}
 			} else if (event.getCause() == DamageCause.ENTITY_EXPLOSION) {
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
 					event.setDamage(player.getMaxHealth()/4);
+					player.setFireTicks(100);
 				}
 			} else if(event.getCause() == DamageCause.STARVATION) {
 				Player player = (Player) event.getEntity();
@@ -2339,13 +2343,8 @@ public class Main extends JavaPlugin implements Listener{
 		}
 		
 		Location loc = player.getLocation();
-		if (loc.getX() <= 3785 && loc.getY() <= 28 && loc.getZ() <= 3746 && 
-				loc.getX() >= 3725 && loc.getY() >= 0 && loc.getZ() >= 3700) {
-			event.setCancelled(true);
-		} else if (loc.getX() <= -1819 && loc.getY() <= 101 && loc.getZ() <= 3061 && 
-				loc.getX() >= -1854 && loc.getY() >= 84 && loc.getZ() >= 3031) {
-			event.setCancelled(true);
-		} else if (loc.getX() >= 10000) {
+		if (loc.getX() <= -1131 && loc.getY() <= 175 && loc.getZ() <= 1479 && 
+				loc.getX() >= -1154 && loc.getY() >= 160 && loc.getZ() >= 1460) {
 			event.setCancelled(true);
 		}
 			
