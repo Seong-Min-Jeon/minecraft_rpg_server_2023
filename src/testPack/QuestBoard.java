@@ -21,6 +21,7 @@ import org.bukkit.block.Chest;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Cat;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Illusioner;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Rabbit;
 import org.bukkit.entity.Stray;
@@ -329,6 +330,323 @@ public class QuestBoard {
 		Score score = obj.getScore("음식을 배달하기");
 		score.setScore(2);
 		Score score2 = obj.getScore("-1105, 85, 1277"); //월터
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+	}
+	
+	public void q0007(Player player, int num) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			QuestOwner qo = new QuestOwner();
+			qo.returnEntity(player).remove();
+			qo.remove(player);
+			
+			player.sendMessage(ChatColor.WHITE + "태인: 수고했다. 복귀하도록.");
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("갈고리 사무소")) {
+				player.setLevel(player.getLevel() + 8000);
+				giveExp(player, 4);
+				player.sendMessage(ChatColor.GOLD + "[System] 8000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 4만큼 증가했다.");
+			} else {
+				player.setLevel(player.getLevel() + 2000);
+				giveExp(player, 1);
+				player.sendMessage(ChatColor.GOLD + "[System] 2000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			return;
+		}
+		//-1190 62 1134  -1142 62 1301
+		String[] loc = getLocation(player, -1001, 62, 1182, -1119, 62, 1092).split("/");
+		
+		//퀘스트 엔티티 소환
+		Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+		illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+		illusioner.setCustomNameVisible(true);
+		illusioner.setAI(false);
+		illusioner.setInvulnerable(true);
+		illusioner.setCollidable(false);
+		QuestOwner qo = new QuestOwner();
+		if(qo.returnEntity(player) != null) {
+			qo.returnEntity(player).remove();
+			qo.remove(player);
+		}
+		qo.put(player, illusioner);
+		
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0007", Criteria.DUMMY, ChatColor.GOLD + "[갈고리 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
+		Score score = obj.getScore("9급 해결사 처리");
+		score.setScore(2);
+		Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+	}
+	
+	public void q0008(Player player, int num) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			QuestOwner qo = new QuestOwner();
+			qo.returnEntity(player).remove();
+			qo.remove(player);
+			
+			player.sendMessage(ChatColor.WHITE + "태인: 수고했다. 복귀하도록.");
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("갈고리 사무소")) {
+				player.setLevel(player.getLevel() + 15000);
+				giveExp(player, 8);
+				player.sendMessage(ChatColor.GOLD + "[System] 15000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 8만큼 증가했다.");
+			} else {
+				player.setLevel(player.getLevel() + 5000);
+				giveExp(player, 2);
+				player.sendMessage(ChatColor.GOLD + "[System] 5000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 2만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			return;
+		}
+		//-1190 62 1134  -1142 62 1301
+		String[] loc = getLocation(player, -1001, 62, 1182, -1119, 62, 1092).split("/");
+		
+		//퀘스트 엔티티 소환
+		Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+		illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+		illusioner.setCustomNameVisible(true);
+		illusioner.setAI(false);
+		illusioner.setInvulnerable(true);
+		illusioner.setCollidable(false);
+		QuestOwner qo = new QuestOwner();
+		if(qo.returnEntity(player) != null) {
+			qo.returnEntity(player).remove();
+			qo.remove(player);
+		}
+		qo.put(player, illusioner);
+		
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0008", Criteria.DUMMY, ChatColor.GOLD + "[갈고리 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
+		Score score = obj.getScore("8급 해결사 처리");
+		score.setScore(2);
+		Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+	}
+	
+	public void q0009(Player player, int num) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			QuestOwner qo = new QuestOwner();
+			qo.returnEntity(player).remove();
+			qo.remove(player);
+			
+			player.sendMessage(ChatColor.WHITE + "태인: 수고했다. 복귀하도록.");
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("갈고리 사무소")) {
+				player.setLevel(player.getLevel() + 50000);
+				giveExp(player, 13);
+				player.sendMessage(ChatColor.GOLD + "[System] 50000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 13만큼 증가했다.");
+			} else {
+				player.setLevel(player.getLevel() + 16000);
+				giveExp(player, 4);
+				player.sendMessage(ChatColor.GOLD + "[System] 16000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 4만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			return;
+		}
+		//-1190 62 1134  -1142 62 1301
+		String[] loc = getLocation(player, -1001, 62, 1182, -1119, 62, 1092).split("/");
+		
+		//퀘스트 엔티티 소환
+		Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+		illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+		illusioner.setCustomNameVisible(true);
+		illusioner.setAI(false);
+		illusioner.setInvulnerable(true);
+		illusioner.setCollidable(false);
+		QuestOwner qo = new QuestOwner();
+		if(qo.returnEntity(player) != null) {
+			qo.returnEntity(player).remove();
+			qo.remove(player);
+		}
+		qo.put(player, illusioner);
+		
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0009", Criteria.DUMMY, ChatColor.GOLD + "[갈고리 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
+		Score score = obj.getScore("7급 해결사 처리");
+		score.setScore(2);
+		Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+	}
+	
+	public void q0010(Player player, int num) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			QuestOwner qo = new QuestOwner();
+			qo.returnEntity(player).remove();
+			qo.remove(player);
+			
+			player.sendMessage(ChatColor.WHITE + "태인: 정보는 대표님께 전송해두지.");
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("갈고리 사무소")) {
+				player.setLevel(player.getLevel() + 6000);
+				giveExp(player, 2);
+				player.sendMessage(ChatColor.GOLD + "[System] 6000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 2만큼 증가했다.");
+			} else {
+				player.setLevel(player.getLevel() + 2000);
+				giveExp(player, 1);
+				player.sendMessage(ChatColor.GOLD + "[System] 2000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0010", Criteria.DUMMY, ChatColor.GOLD + "[갈고리 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
+		Score score = obj.getScore("윤 사무소 털기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1175, 67, 1182");
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+	}
+	
+	public void q0011(Player player, int num) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			QuestOwner qo = new QuestOwner();
+			qo.returnEntity(player).remove();
+			qo.remove(player);
+			
+			player.sendMessage(ChatColor.WHITE + "태인: 정보는 대표님께 전송해두지.");
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("갈고리 사무소")) {
+				player.setLevel(player.getLevel() + 8000);
+				giveExp(player, 5);
+				player.sendMessage(ChatColor.GOLD + "[System] 8000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 5만큼 증가했다.");
+			} else {
+				player.setLevel(player.getLevel() + 2500);
+				giveExp(player, 1);
+				player.sendMessage(ChatColor.GOLD + "[System] 2500안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0011", Criteria.DUMMY, ChatColor.GOLD + "[갈고리 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
+		Score score = obj.getScore("가로등 사무소 털기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1216, 67, 1298");
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+	}
+	
+	public void q0012(Player player, int num) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			QuestOwner qo = new QuestOwner();
+			qo.returnEntity(player).remove();
+			qo.remove(player);
+			
+			player.sendMessage(ChatColor.WHITE + "태인: 정보는 대표님께 전송해두지.");
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("갈고리 사무소")) {
+				player.setLevel(player.getLevel() + 30000);
+				giveExp(player, 10);
+				player.sendMessage(ChatColor.GOLD + "[System] 30000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 10만큼 증가했다.");
+			} else {
+				player.setLevel(player.getLevel() + 10000);
+				giveExp(player, 3);
+				player.sendMessage(ChatColor.GOLD + "[System] 10000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 3만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0012", Criteria.DUMMY, ChatColor.GOLD + "[갈고리 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
+		Score score = obj.getScore("어금니 사무소 털기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1032, 67, 1223");
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+	}
+	
+	public void q0013(Player player, int num) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			QuestOwner qo = new QuestOwner();
+			qo.returnEntity(player).remove();
+			qo.remove(player);
+			
+			player.sendMessage(ChatColor.WHITE + "태인: 대단한걸? 고생했어.");
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("갈고리 사무소")) {
+				player.setLevel(player.getLevel() + 100000);
+				giveExp(player, 16);
+				player.sendMessage(ChatColor.GOLD + "[System] 100000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 16만큼 증가했다.");
+			} else {
+				player.setLevel(player.getLevel() + 30000);
+				giveExp(player, 5);
+				player.sendMessage(ChatColor.GOLD + "[System] 30000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 5만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0013", Criteria.DUMMY, ChatColor.GOLD + "[갈고리 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
+		Score score = obj.getScore("하나 협회 3과 털기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1105, 186, 1467");
 		score2.setScore(1);
 		Score score3 = obj.getScore("(" + num + "/1)");
 		score3.setScore(0);

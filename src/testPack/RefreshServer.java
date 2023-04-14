@@ -95,12 +95,6 @@ public class RefreshServer {
 						}
 						if(cnt == 0) {
 							try {
-								if(ent.getType() == EntityType.ZOMBIE) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.SKELETON) {
-									ent.remove();
-								}
 								if(ent.getType() == EntityType.DROWNED) {
 									ent.remove();
 								}
@@ -110,34 +104,10 @@ public class RefreshServer {
 								if(ent.getType() == EntityType.ZOMBIE_VILLAGER) {
 									ent.remove();
 								}
-								if(ent.getType() == EntityType.ENDERMAN) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.SILVERFISH) {
-									ent.remove();
-								}
 								if(ent.getType() == EntityType.STRAY) {
 									ent.remove();
 								}
-								if(ent.getType() == EntityType.RAVAGER) {
-									ent.remove();
-								}
 								if(ent.getType() == EntityType.WITHER_SKELETON) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.WITCH) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.CAVE_SPIDER) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.SPIDER) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.MAGMA_CUBE) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.SLIME) {
 									ent.remove();
 								}
 								if(ent.getType() == EntityType.HUSK) {
@@ -146,28 +116,7 @@ public class RefreshServer {
 								if(ent.getType() == EntityType.EVOKER) {
 									ent.remove();
 								}
-								if(ent.getType() == EntityType.ENDERMITE) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.GUARDIAN) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.ELDER_GUARDIAN) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.GHAST) {
-									ent.remove();
-								}
 								if(ent.getType() == EntityType.PHANTOM) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.VINDICATOR) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.IRON_GOLEM) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.BLAZE) {
 									ent.remove();
 								}
 								if(ent.getType() == EntityType.WITHER) {
@@ -189,9 +138,6 @@ public class RefreshServer {
 									ent.remove();
 								}
 								if(ent.getType() == EntityType.ZOGLIN) {
-									ent.remove();
-								}
-								if(ent.getType() == EntityType.WARDEN) {
 									ent.remove();
 								}
 								if(ent.getType() == EntityType.ARMOR_STAND) {
@@ -226,6 +172,16 @@ public class RefreshServer {
 								}
 							} catch(Exception e) {
 								
+							}
+						}
+						
+						if(ent.getType() == EntityType.SKELETON || ent.getType() == EntityType.ZOMBIE
+								 || ent.getType() == EntityType.SPIDER || ent.getType() == EntityType.GUARDIAN || ent.getType() == EntityType.VINDICATOR || ent.getType() == EntityType.SLIME
+								 || ent.getType() == EntityType.SILVERFISH || ent.getType() == EntityType.WITCH || ent.getType() == EntityType.CAVE_SPIDER || ent.getType() == EntityType.ENDERMAN
+								 || ent.getType() == EntityType.ELDER_GUARDIAN || ent.getType() == EntityType.MAGMA_CUBE || ent.getType() == EntityType.BLAZE || ent.getType() == EntityType.ENDERMITE
+								 || ent.getType() == EntityType.RAVAGER || ent.getType() == EntityType.GHAST || ent.getType() == EntityType.WARDEN) {
+							if(ent.getTicksLived() > 6000) {
+								ent.remove();
 							}
 						}
 					}

@@ -82,11 +82,22 @@ public class Skill {
 		ThreadSkill t = new ThreadSkill(player.getUniqueId());
 		sleep = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 			int time = 0;
+			int personality = 0;
 			
 			@Override
 			public void run() {
 				if (!t.hasID()) {
 					t.setID(sleep);
+				}
+				
+				if(time==0) {
+					try {
+						ItemStack item = player.getInventory().getItem(7);
+						String name = item.getItemMeta().getDisplayName();
+						personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+					} catch(Exception e2) {
+						
+					}
 				}
 			
 				if(time>=3) {
@@ -97,7 +108,7 @@ public class Skill {
 					for (Entity nearEntity : entitylist) {
 						if (nearEntity instanceof LivingEntity && nearEntity != player) {
 							LivingEntity nearMob = (LivingEntity) nearEntity;
-							nearMob.damage(2);
+							nearMob.damage(2 + personality*0.2);
 						}
 					}
 					t.endTask(); 

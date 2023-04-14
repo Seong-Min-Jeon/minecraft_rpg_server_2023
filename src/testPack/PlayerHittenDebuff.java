@@ -90,18 +90,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			}
@@ -126,18 +126,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} else if(num < 3) {
@@ -164,18 +164,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} else if(num == 1) {
@@ -203,18 +203,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -239,18 +239,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -275,18 +275,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -311,18 +311,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -347,18 +347,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -383,18 +383,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -419,18 +419,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -456,18 +456,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -492,18 +492,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -529,18 +529,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -566,18 +566,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -603,18 +603,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -646,18 +646,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -682,18 +682,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					player.setMaxHealth(player.getMaxHealth() - 1);
+					damageMaxHealth(player, 1);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						player.setMaxHealth(player.getMaxHealth() - 1);
+						damageMaxHealth(player, 1);
 					}
 				}
 			} 
@@ -5169,6 +5169,15 @@ public class PlayerHittenDebuff {
 		}
 		
 		mob.setHealth(mob.getHealth() + num);
+	}
+	
+	public void damageMaxHealth(Player player, int num) {
+		if(player.getMaxHealth() <= num) {
+			player.setMaxHealth(1);
+			player.setHealth(0);
+		} else {
+			player.setMaxHealth(player.getMaxHealth() - num);
+		}
 	}
 	
 	public void sendMessage(Player player, String msg) {

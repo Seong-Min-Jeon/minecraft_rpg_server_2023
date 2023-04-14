@@ -53,6 +53,36 @@ public class MobLoot {
 	public void ratBoss(Player player) {
 		player.setLevel(player.getLevel() + (rnd.nextInt(2000) + 100));
 	}
+	
+	//이름없는 9급 해결사
+	public void fixer9(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(1000) + 1000));
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0007")) {
+			int qNum = qb.getNum(player);
+			qb.q0007(player, qNum + 1);
+		}
+	}
+	
+	//이름없는 8급 해결사
+	public void fixer8(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(1000) + 5000));
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0008")) {
+			int qNum = qb.getNum(player);
+			qb.q0008(player, qNum + 1);
+		}
+	}
+	
+	//이름없는 7급 해결사
+	public void fixer7(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(10000) + 10000));
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0009")) {
+			int qNum = qb.getNum(player);
+			qb.q0009(player, qNum + 1);
+		}
+	}
 
 	// 보스 스켈이
 	public void mob2(Player player) {

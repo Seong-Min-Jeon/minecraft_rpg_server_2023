@@ -17,12 +17,24 @@ public class ChangeOffice {
 		player.getInventory().remove(Material.PAPER);
 		player.getEnderChest().remove(Material.PAPER);
 		
+		String office = officeName.substring(2, officeName.length());
+		
 		ItemStack license = player.getInventory().getItem(8);
 		ItemMeta licenseMeta = license.getItemMeta();
 		ArrayList<String> lore = (ArrayList<String>) licenseMeta.getLore();
-		lore.set(2, ChatColor.GRAY + "소속: " + officeName.substring(2, officeName.length()));
+		lore.set(2, ChatColor.GRAY + "소속: " + office);
 		licenseMeta.setLore(lore);
 		license.setItemMeta(licenseMeta);
+		
+		player.sendMessage(ChatColor.GOLD + "[System] " + office + "에 가입되었습니다.");
+		
+		if(office.equals("윤 사무소")) {
+			player.sendMessage(ChatColor.GOLD + "[System] -1177, 67, 1177 좌표로 향해봅시다.");
+		} else if(office.equals("갈고리 사무소")) {
+			player.sendMessage(ChatColor.GOLD + "[System] -1049, 62, 1130 좌표로 향해봅시다.");
+		} else if(office.equals("가로등 사무소")) {
+			player.sendMessage(ChatColor.GOLD + "[System] -1223, 67, 1299 좌표로 향해봅시다.");
+		}
 	}
 	
 }
