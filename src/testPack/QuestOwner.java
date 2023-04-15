@@ -14,11 +14,12 @@ public class QuestOwner {
 	}
 	
 	public void remove(Player player) {
-		questOwner.remove(player);
+		if(questOwner.containsKey(player)) {questOwner.remove(player);}
 	}
 	
 	public Entity returnEntity(Player player) {
-		return questOwner.get(player);
+		if(questOwner.containsKey(player)) {return questOwner.get(player);}
+		else {return null;}
 	}
 	
 }

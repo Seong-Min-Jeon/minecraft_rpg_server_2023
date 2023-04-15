@@ -102,6 +102,30 @@ public class Message {
 						QuestBoard qb = new QuestBoard();
 						qb.q0013(player, 0);
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0014")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0014(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0015")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0015(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0016")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0016(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0017")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0017(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0018")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0018(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0019")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0019(player, 0);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 3).equals("uq9")) {
 						QuestBoard qb = new QuestBoard();
 						qb.uq9(player, 0);

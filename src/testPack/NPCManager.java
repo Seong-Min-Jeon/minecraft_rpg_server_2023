@@ -591,7 +591,7 @@ public class NPCManager {
 	}
 	
 	public NPC kuteno() {
-		Location loc = new Location(Bukkit.getWorld("world"), -1082.5, 94, 1215.5, 180, 0);
+		Location loc = new Location(Bukkit.getWorld("world"), -1081.5, 94, 1215.5, 180, 0);
 		
 		NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "kuteno", loc);
 		npc.setText("크테노카스마");

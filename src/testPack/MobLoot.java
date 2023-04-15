@@ -43,6 +43,9 @@ public class MobLoot {
 		if (getQuestName(player).equals("q0004")) {
 			int qNum = qb.getNum(player);
 			qb.q0004(player, qNum + 1);
+		} else if (getQuestName(player).equals("q0014")) {
+			int qNum = qb.getNum(player);
+			qb.q0014(player, qNum + 1);
 		} else if (getQuestName(player).equals("uq9")) {
 			int qNum = qb.getNum(player);
 			qb.uq9(player, qNum + 1);
@@ -52,6 +55,18 @@ public class MobLoot {
 	//쥐 두목
 	public void ratBoss(Player player) {
 		player.setLevel(player.getLevel() + (rnd.nextInt(2000) + 100));
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0004")) {
+			int qNum = qb.getNum(player);
+			qb.q0004(player, qNum + 1);
+		} else if (getQuestName(player).equals("q0014")) {
+			int qNum = qb.getNum(player);
+			qb.q0014(player, qNum + 1);
+		} else if (getQuestName(player).equals("uq9")) {
+			int qNum = qb.getNum(player);
+			qb.uq9(player, qNum + 1);
+		}
 	}
 	
 	//이름없는 9급 해결사
@@ -81,6 +96,26 @@ public class MobLoot {
 		if (getQuestName(player).equals("q0009")) {
 			int qNum = qb.getNum(player);
 			qb.q0009(player, qNum + 1);
+		}
+	}
+	
+	//갈고리 사무소 해결사
+	public void galgori(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(1000) + 1000));
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0015")) {
+			int qNum = qb.getNum(player);
+			qb.q0015(player, qNum + 1);
+		}
+	}
+	
+	//철의 형제 조직원
+	public void ironman(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(1000) + 500));
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0019")) {
+			int qNum = qb.getNum(player);
+			qb.q0019(player, qNum + 1);
 		}
 	}
 

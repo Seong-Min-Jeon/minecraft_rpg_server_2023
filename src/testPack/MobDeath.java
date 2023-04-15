@@ -59,6 +59,10 @@ public class MobDeath {
 					mobloot.fixer8(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 7급 해결사")) {
 					mobloot.fixer7(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "갈고리 사무소 해결사")) {
+					mobloot.galgori(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "철의 형제 조직원")) {
+					mobloot.ironman(lootPlayer);
 				}
 				
 			} catch (Exception e) {

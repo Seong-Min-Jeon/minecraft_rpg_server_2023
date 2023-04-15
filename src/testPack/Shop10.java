@@ -40,6 +40,7 @@ public class Shop10 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.GRAY + "-치명적인 공격을 받을 확률 -50%");
 		itemIm.setLore(itemLore);
+		itemIm.setCustomModelData(2);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
@@ -64,6 +65,7 @@ public class Shop10 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.BLUE + "가격: 9000000안");
 		itemIm.setLore(itemLore);
+		itemIm.setCustomModelData(2);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
@@ -88,6 +90,7 @@ public class Shop10 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.GRAY + "-데미지 경감 10");
 		itemIm.setLore(itemLore);
+		itemIm.setCustomModelData(2);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
@@ -115,6 +118,7 @@ public class Shop10 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.BLUE + "가격: 12000000안");
 		itemIm.setLore(itemLore);
+		itemIm.setCustomModelData(2);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
@@ -137,6 +141,7 @@ public class Shop10 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.GRAY + "-회피 쿨타임 0.6초 감소");
 		itemIm.setLore(itemLore);
+		itemIm.setCustomModelData(2);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
@@ -162,6 +167,7 @@ public class Shop10 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.BLUE + "가격: 8000000안");
 		itemIm.setLore(itemLore);
+		itemIm.setCustomModelData(2);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
@@ -184,6 +190,7 @@ public class Shop10 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.GRAY + "-전투 중 속도 3");
 		itemIm.setLore(itemLore);
+		itemIm.setCustomModelData(2);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
@@ -209,6 +216,7 @@ public class Shop10 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.BLUE + "가격: 10000000안");
 		itemIm.setLore(itemLore);
+		itemIm.setCustomModelData(2);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);

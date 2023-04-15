@@ -15,6 +15,7 @@ import org.bukkit.World;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Slime;
 
@@ -185,6 +186,12 @@ public class RefreshServer {
 							}
 						}
 					}
+					
+					for(Player player : Bukkit.getOnlinePlayers()) {
+						if(player.getTicksLived() > 600 && new BGM().inBattle(player)) {
+							new BGM(player, "메인");
+						}
+					}
 				}
 				
 				//뒤틀림
@@ -214,6 +221,8 @@ public class RefreshServer {
 			 				else if(tmp == 12) {ent = world.spawnEntity(loc, EntityType.RAVAGER);}
 			 				else if(tmp == 13) {ent = world.spawnEntity(loc, EntityType.GHAST);}
 			 				else if(tmp == 14) {ent = world.spawnEntity(loc, EntityType.WARDEN);}
+			 				
+			 				distorted.add(ent);
 			 			}
 			 			
 			 			for(Player player : Bukkit.getOnlinePlayers()) {

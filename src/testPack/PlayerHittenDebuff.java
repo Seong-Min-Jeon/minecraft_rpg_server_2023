@@ -55,6 +55,12 @@ public class PlayerHittenDebuff {
 	public void playerHittenDebuff(Player player, Entity mob) {
 		ratNormal(player, mob);
 		ratBoss(player, mob);
+		fixer9(player, mob);
+		fixer8(player, mob);
+		fixer7(player, mob);
+		galgori(player, mob);
+		ironman(player, mob);
+		
 		spider(player, mob);
 		guardian(player, mob);
 		vindicator(player, mob);
@@ -142,6 +148,186 @@ public class PlayerHittenDebuff {
 				}
 			} else if(num < 3) {
 				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
+			}
+		}
+	}
+	
+	//이름없는 9급 해결사
+	public void fixer9(Player player, Entity mob) {
+		if(mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 9급 해결사")) {
+			int num = rnd.nextInt(10);
+			if(num == 0) {
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					damageMaxHealth(player, 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						damageMaxHealth(player, 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						damageMaxHealth(player, 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						damageMaxHealth(player, 1);
+					}
+				}
+			}
+		}
+	}
+	
+	//이름없는 8급 해결사
+	public void fixer8(Player player, Entity mob) {
+		if(mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 8급 해결사")) {
+			int num = rnd.nextInt(10);
+			if(num == 0) {
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					damageMaxHealth(player, 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						damageMaxHealth(player, 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						damageMaxHealth(player, 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						damageMaxHealth(player, 1);
+					}
+				}
+			}
+		}
+	}
+	
+	//이름없는 7급 해결사
+	public void fixer7(Player player, Entity mob) {
+		if(mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 7급 해결사")) {
+			int num = rnd.nextInt(10);
+			if(num == 0) {
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					damageMaxHealth(player, 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						damageMaxHealth(player, 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						damageMaxHealth(player, 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						damageMaxHealth(player, 1);
+					}
+				}
+			}
+		}
+	}
+	
+	//갈고리 사무소 해결사
+	public void galgori(Player player, Entity mob) {
+		if(mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "갈고리 사무소 해결사")) {
+			int num = rnd.nextInt(10);
+			if(num == 0) {
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					damageMaxHealth(player, 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						damageMaxHealth(player, 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						damageMaxHealth(player, 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						damageMaxHealth(player, 1);
+					}
+				}
+			}
+		}
+	}
+	
+	//철의 형제 조직원
+	public void ironman(Player player, Entity mob) {
+		if(mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "철의 형제 조직원")) {
+			int num = rnd.nextInt(10);
+			if(num == 0) {
+				int item = 0;
+				if (player.getInventory().getHelmet() != null) {
+					if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+						item = 1;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+						item = 2;
+					} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+						item = 3;
+					}
+				}
+				
+				int num2 = rnd.nextInt(10);
+				if(item == 0) {
+					damageMaxHealth(player, 1);
+				} else if(item == 1) {
+					if(num2 >= 1) {
+						damageMaxHealth(player, 1);
+					}
+				} else if(item == 2) {
+					if(num2 >= 3) {
+						damageMaxHealth(player, 1);
+					}
+				} else if(item == 3) {
+					if(num2 >= 5) {
+						damageMaxHealth(player, 1);
+					}
+				}
 			}
 		}
 	}

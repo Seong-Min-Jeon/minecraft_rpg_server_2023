@@ -33,7 +33,7 @@ public class ChangeOffice {
 		} else if(office.equals("갈고리 사무소")) {
 			player.sendMessage(ChatColor.GOLD + "[System] -1049, 62, 1130 좌표로 향해봅시다.");
 		} else if(office.equals("가로등 사무소")) {
-			player.sendMessage(ChatColor.GOLD + "[System] -1223, 67, 1299 좌표로 향해봅시다.");
+			player.sendMessage(ChatColor.GOLD + "[System] -1214, 67, 1304 좌표로 향해봅시다.");
 		}
 	}
 	
