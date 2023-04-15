@@ -1219,7 +1219,7 @@ public class QuestBoard {
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
 			newPersonality(player, 8);
-			//승급 완료 사운드 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -1314,7 +1314,7 @@ public class QuestBoard {
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
 			newPersonality(player, 7);
-			//승급 완료 사운드 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -1890,7 +1890,7 @@ public class QuestBoard {
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
 			newPersonality(player, 6);
-			//승급 완료 사운드 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -2177,7 +2177,7 @@ public class QuestBoard {
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
 			newPersonality(player, 5);
-			//승급 완료 사운드 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -2429,7 +2429,7 @@ public class QuestBoard {
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
 			newPersonality(player, 4);
-			//승급 완료 사운드 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -2787,7 +2787,7 @@ public class QuestBoard {
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
 			newPersonality(player, 3);
-			//승급 완료 사운드 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -3293,7 +3293,7 @@ public class QuestBoard {
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
 			newPersonality(player, 2);
-			//승급 완료 사운드 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -3651,7 +3651,7 @@ public class QuestBoard {
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
 			
 			newPersonality(player, 1);
-			//승급 완료 사운드 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -3680,7 +3680,7 @@ public class QuestBoard {
 			}
 			
 			newPersonality(player, 0);
-			//승급 완료 사운드 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 			return;
 		}
 		//퀘스트 스코어보드에 적용

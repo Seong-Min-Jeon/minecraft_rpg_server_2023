@@ -1262,16 +1262,9 @@ public class Main extends JavaPlugin implements Listener{
 					event.setCancelled(true);
 				}			
 			}
-//			try {
-//				if(entity.getType() == EntityType.ZOMBIE || entity.getType() == EntityType.SKELETON || entity.getType() == EntityType.WITHER_SKELETON
-//						|| entity.getType() == EntityType.WITCH || entity.getType() == EntityType.VEX || entity.getType() == EntityType.HUSK) {
-//					if(entity.getCustomName() == null) {
-//						entity.remove();
-//					}
-//				}
-//			} catch(Exception e) {
-//				
-//			}
+			if(entity.getType() == EntityType.ZOMBIE) {
+				//entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "갈고리 사무소 해결사");
+			}
 		} catch(Exception e3) {
 			
 		}
@@ -1703,7 +1696,7 @@ public class Main extends JavaPlugin implements Listener{
 		
 		//몹을 공격한 경우 기믹 발생
 		try {
-			if (event.getEntity() instanceof Entity) {
+			if (event.getEntity() instanceof Entity && event.getDamage() > 0 && !event.isCancelled()) {
 				Entity entity = (Entity) event.getEntity();
 
 				PlayerHitGimmick debuff = new PlayerHitGimmick();

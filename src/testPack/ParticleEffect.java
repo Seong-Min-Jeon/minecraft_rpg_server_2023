@@ -40,6 +40,11 @@ public class ParticleEffect {
 		this.player = player;
 	}
 	
+	public ParticleEffect(Entity ent) {
+		this.player = null;
+		this.ent = ent;
+	}
+	
 	public ParticleEffect(Player player, int damNum) {
 		this.player = player;
 		this.damNum = damNum;
@@ -171,6 +176,45 @@ public class ParticleEffect {
 			}
 		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 	}
+	
+	
+	public void mobS001() {
+		
+		Location normal = ent.getLocation();
+		World world = ent.getWorld(); 
+		Location e1;
+        
+        Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(120, 120, 120), 1);
+        
+        double var = 0;
+		
+		for(int i = 0 ; i < 8 ; i++) {
+			e1 = normal.clone().add(Math.cos(var), 0, Math.sin(var));
+			world.spawnParticle(Particle.REDSTONE, e1, 2, dustOptions1);
+			
+			var += Math.PI / 8;
+		}
+		
+		double arrowAngle1 = 30;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*2, 0.2, dirZ1*2);
+		world.spawnParticle(Particle.SWEEP_ATTACK, e1, 2);
+		e1 = normal.clone().add(dirX1*(-2), 0.2, dirZ1*(-2));
+		world.spawnParticle(Particle.SWEEP_ATTACK, e1, 2);
+		
+		world.playSound(normal, Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 0.5f);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	// 토템
 	public void newEffect0() {

@@ -13,7 +13,9 @@ public class BGM {
 	HashMap<Player, Integer> battle = new HashMap<>();
 	
 	ArrayList<String> bgm = new ArrayList<>(Arrays.asList("ENTITY_SKELETON_HORSE_AMBIENT", "ENTITY_PARROT_DEATH", "ENTITY_PARROT_EAT", "ENTITY_PARROT_FLY",
-															"ENTITY_PARROT_HURT", "ENTITY_PARROT_AMBIENT", "ENTITY_PARROT_STEP"));
+															"ENTITY_PARROT_HURT", "ENTITY_PARROT_AMBIENT", "ENTITY_PARROT_STEP", "ENTITY_CAMEL_AMBIENT",
+															"ENTITY_CAMEL_DASH", "ENTITY_CAMEL_DASH_READY", "ENTITY_CAMEL_DEATH", "ENTITY_CAMEL_EAT",
+															"ENTITY_CAMEL_HURT"));
 	
 	public BGM() {}
 	
@@ -24,20 +26,20 @@ public class BGM {
 			for(int i = 0 ; i < bgm.size() ; i++) {
 				player.stopSound(Sound.valueOf(bgm.get(i)));
 			}
-			player.playSound(player.getLocation(), Sound.AMBIENT_BASALT_DELTAS_ADDITIONS, 1.0f, 1.0f);
+			player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_AMBIENT, 1.0f, 1.0f);
 		} else if(b.equals("메인")) {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
 				player.stopSound(Sound.valueOf(bgm.get(i)));
 			}
-			player.playSound(player.getLocation(), Sound.AMBIENT_BASALT_DELTAS_ADDITIONS, 1.0f, 1.0f);
+			player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DASH, 1.0f, 1.0f);
 		} else if(b.equals("전투")) {
 			if(!battle.containsKey(player)) {
 				for(int i = 0 ; i < bgm.size() ; i++) {
 					player.stopSound(Sound.valueOf(bgm.get(i)));
 				}
-				player.playSound(player.getLocation(), Sound.AMBIENT_BASALT_DELTAS_ADDITIONS, 1.0f, 1.0f);
+				player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DASH_READY, 1.0f, 1.0f);
 				
 				battle.put(player, 0);
 				player.setTicksLived(1);
@@ -57,7 +59,7 @@ public class BGM {
 				for(int i = 0 ; i < bgm.size() ; i++) {
 					player.stopSound(Sound.valueOf(bgm.get(i)));
 				}
-				player.playSound(player.getLocation(), Sound.AMBIENT_BASALT_DELTAS_ADDITIONS, 1.0f, 1.0f);
+				player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DEATH, 1.0f, 1.0f);
 				
 				battle.put(player, 10);
 				player.setTicksLived(1);
@@ -67,7 +69,7 @@ public class BGM {
 				for(int i = 0 ; i < bgm.size() ; i++) {
 					player.stopSound(Sound.valueOf(bgm.get(i)));
 				}
-				player.playSound(player.getLocation(), Sound.AMBIENT_BASALT_DELTAS_ADDITIONS, 1.0f, 1.0f);
+				player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_EAT, 1.0f, 1.0f);
 				
 				battle.put(player, 11);
 				player.setTicksLived(1);
@@ -92,7 +94,7 @@ public class BGM {
 			for(int i = 0 ; i < bgm.size() ; i++) {
 				player.stopSound(Sound.valueOf(bgm.get(i)));
 			}
-			player.playSound(player.getLocation(), Sound.ENTITY_PARROT_EAT, 1.0f, 1.0f);
+			player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_HURT, 1.0f, 1.0f);
 		} else if(b.equals("유적4")) {
 			battle.remove(player);
 			

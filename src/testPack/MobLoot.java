@@ -39,6 +39,24 @@ public class MobLoot {
 	public void rat(Player player) {
 		player.setLevel(player.getLevel() + (rnd.nextInt(500) + 100));
 		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0004")) {
+					int qNum = qb.getNum(p);
+					qb.q0004(p, qNum + 1);
+				} else if (getQuestName(p).equals("q0014")) {
+					int qNum = qb.getNum(p);
+					qb.q0014(p, qNum + 1);
+				} else if (getQuestName(p).equals("uq9")) {
+					int qNum = qb.getNum(p);
+					qb.uq9(p, qNum + 1);
+				}
+			}
+		}
+		
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0004")) {
 			int qNum = qb.getNum(player);
@@ -56,6 +74,24 @@ public class MobLoot {
 	public void ratBoss(Player player) {
 		player.setLevel(player.getLevel() + (rnd.nextInt(2000) + 100));
 		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0004")) {
+					int qNum = qb.getNum(p);
+					qb.q0004(p, qNum + 1);
+				} else if (getQuestName(p).equals("q0014")) {
+					int qNum = qb.getNum(p);
+					qb.q0014(p, qNum + 1);
+				} else if (getQuestName(p).equals("uq9")) {
+					int qNum = qb.getNum(p);
+					qb.uq9(p, qNum + 1);
+				}
+			}
+		}
+		
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0004")) {
 			int qNum = qb.getNum(player);
@@ -72,6 +108,19 @@ public class MobLoot {
 	//이름없는 9급 해결사
 	public void fixer9(Player player) {
 		player.setLevel(player.getLevel() + (rnd.nextInt(1000) + 1000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0007")) {
+					int qNum = qb.getNum(p);
+					qb.q0007(p, qNum + 1);
+				}
+			}
+		}
+		
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0007")) {
 			int qNum = qb.getNum(player);
@@ -82,6 +131,19 @@ public class MobLoot {
 	//이름없는 8급 해결사
 	public void fixer8(Player player) {
 		player.setLevel(player.getLevel() + (rnd.nextInt(1000) + 5000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0008")) {
+					int qNum = qb.getNum(p);
+					qb.q0008(p, qNum + 1);
+				}
+			}
+		}
+		
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0008")) {
 			int qNum = qb.getNum(player);
@@ -92,6 +154,19 @@ public class MobLoot {
 	//이름없는 7급 해결사
 	public void fixer7(Player player) {
 		player.setLevel(player.getLevel() + (rnd.nextInt(10000) + 10000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0009")) {
+					int qNum = qb.getNum(p);
+					qb.q0009(p, qNum + 1);
+				}
+			}
+		}
+		
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0009")) {
 			int qNum = qb.getNum(player);
@@ -102,6 +177,19 @@ public class MobLoot {
 	//갈고리 사무소 해결사
 	public void galgori(Player player) {
 		player.setLevel(player.getLevel() + (rnd.nextInt(1000) + 1000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0015")) {
+					int qNum = qb.getNum(p);
+					qb.q0015(p, qNum + 1);
+				}
+			}
+		}
+		
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0015")) {
 			int qNum = qb.getNum(player);
@@ -112,6 +200,19 @@ public class MobLoot {
 	//철의 형제 조직원
 	public void ironman(Player player) {
 		player.setLevel(player.getLevel() + (rnd.nextInt(1000) + 500));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0019")) {
+					int qNum = qb.getNum(p);
+					qb.q0019(p, qNum + 1);
+				}
+			}
+		}
+		
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0019")) {
 			int qNum = qb.getNum(player);

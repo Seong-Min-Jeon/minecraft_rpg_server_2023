@@ -558,19 +558,19 @@ public class AnotherScroll {
 		if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "W사 정리요원 인격 개방서")) {
 			fixFile(player, 2, 19, folder);
 			itemArg.setAmount(itemArg.getAmount()-1);
-			//개방 소리 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 		} else if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "K사 진압요원 인격 개방서")) {
 			fixFile(player, 2, 20, folder);
 			itemArg.setAmount(itemArg.getAmount()-1);
-			//개방 소리 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 		} else if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.LIGHT_PURPLE + "R사 토끼팀 인격 개방서")) {
 			fixFile(player, 3, 26, folder);
 			itemArg.setAmount(itemArg.getAmount()-1);
-			//개방 소리 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 		} else if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.LIGHT_PURPLE + "N사 쥐는 자 인격 개방서")) {
 			fixFile(player, 3, 27, folder);
 			itemArg.setAmount(itemArg.getAmount()-1);
-			//개방 소리 따로 넣기
+			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
 		}
 	}
 	
