@@ -86,6 +86,8 @@ public class Start {
 		//======================================
 		//이동
 		
+		new BGM(player, "메인");
+		
 		player.teleport(new Location(player.getWorld(),-1143,181,1461)); //임시로 둥지 내부에 이동
 		
 		TTA_Methods.sendTitle(player, null, 20, 40, 20, "정신을 차려보니 어딘가의 뒷골목이다..", 20, 40, 20);

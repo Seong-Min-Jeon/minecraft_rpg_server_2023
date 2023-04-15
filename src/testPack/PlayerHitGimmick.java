@@ -49,6 +49,7 @@ public class PlayerHitGimmick {
 	public void playerHitGimmick(Entity mob) {
 		caveSpider(mob);
 		galgori(mob);
+		ironman(mob);
 	}
 
 	//날아오르는 다리
@@ -65,6 +66,8 @@ public class PlayerHitGimmick {
 	public void galgori(Entity mob) {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "갈고리 사무소 해결사")) {
 			int num = rnd.nextInt(6);
+			
+			//받아내보시지
 			if (num == 0) {
 				mob.setVelocity(mob.getFacing().getDirection().multiply(-0.3f));
 				((LivingEntity) mob).addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 40, 0,true,true));
@@ -74,12 +77,16 @@ public class PlayerHitGimmick {
 
 				    @Override
 					public void run() {
+				    	
+				    	if(time == 0) {
+				    		mob.setGlowing(true);
+				    	}
 						
-						if (time == 40) {
+						if(time == 40) {
 							mob.setVelocity(mob.getFacing().getDirection().add(new Vector(0,-0.5,0)).multiply(2.0f));
 						}
 						
-						if (time >= 40 && mob.isOnGround()) {
+						if(time >= 40 && mob.isOnGround()) {
 							// ===============================================================
 							ParticleData pd = new ParticleData(mob.getUniqueId());
 							if (pd.hasID()) {
@@ -127,6 +134,7 @@ public class PlayerHitGimmick {
 									}
 								}
 							}
+							mob.setGlowing(false);
 							this.cancel();
 						}
 						
@@ -136,6 +144,118 @@ public class PlayerHitGimmick {
 				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 			}
 		}
+	}
+	
+	//철의 형제 
+	public void ironman(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "철의 형제 조직원")) {
+			int num = rnd.nextInt(6);
+			
+			//저절단
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+
+				    @Override
+					public void run() {
+						
+						if (time == 0) {
+							mob.setGlowing(true);
+						}
+						
+						if (time >= 40) {
+							// ===============================================================
+							ParticleData pd = new ParticleData(mob.getUniqueId());
+							if (pd.hasID()) {
+								pd.endTask();
+								pd.removeID();
+							}
+							ParticleEffect pe = new ParticleEffect(mob);
+							pe.mobS002();
+							// ================================================================
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 2, 1, 1, 1);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(3);
+									
+									int num = rnd.nextInt(5);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 1);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 1);
+											}
+										}
+									}
+								}
+							}
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
+	public List<Entity> nearFrontEntities(Entity mob, int dist, int x, int y, int z) {
+		Location normal = mob.getLocation();
+		Location e1;
+		
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*dist, 1, dirZ1*dist);
+		
+		ArmorStand as = (ArmorStand) mob.getWorld().spawnEntity(e1, EntityType.ARMOR_STAND);
+		as.setVisible(false);
+		as.setSmall(true);
+		as.setGravity(false);
+		as.setRemoveWhenFarAway(true);
+		new BukkitRunnable() {
+			int time = 0;
+			
+			@Override
+			public void run() {
+				time++;
+				
+				if(time >= 3) {
+					as.remove();
+					this.cancel();
+				}
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+		return as.getNearbyEntities(x, y, z);
 	}
 	
 	public void damageMaxHealth(Player player, int num) {

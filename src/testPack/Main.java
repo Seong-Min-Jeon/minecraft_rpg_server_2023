@@ -1263,7 +1263,7 @@ public class Main extends JavaPlugin implements Listener{
 				}			
 			}
 			if(entity.getType() == EntityType.ZOMBIE) {
-				//entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "갈고리 사무소 해결사");
+				//entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "철의 형제 조직원");
 			}
 		} catch(Exception e3) {
 			
@@ -1335,7 +1335,10 @@ public class Main extends JavaPlugin implements Listener{
 					if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.DARK_RED + "신의 검")) {
 						event.getEntity().remove();				
 					} else if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.DARK_RED + "신의 검+")) {
-						event.setDamage(10000);			
+						if(event.getEntity() instanceof LivingEntity) {
+							event.setCancelled(true);
+							((LivingEntity) (event.getEntity())).damage(10000);
+						}
 					} else {
 						event.setCancelled(true);
 					}

@@ -75,6 +75,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//-1190 62 1134  -1142 62 1301
@@ -133,6 +138,11 @@ public class QuestBoard {
 				giveExp(player, 1);
 				player.sendMessage(ChatColor.GOLD + "[System] 3000안을 획득했다.");
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
+			}
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
 			return;
@@ -195,6 +205,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//-1190 62 1134  -1142 62 1301
@@ -250,6 +265,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -286,6 +306,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//음식 아이템 주기
@@ -336,6 +361,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//음식 아이템 주기
@@ -388,6 +418,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//-1190 62 1134  -1142 62 1301
@@ -448,6 +483,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 2만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//-1190 62 1134  -1142 62 1301
@@ -508,6 +548,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 4만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//-1190 62 1134  -1142 62 1301
@@ -568,6 +613,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -608,6 +658,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -648,6 +703,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 3만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -688,6 +748,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 5만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -726,6 +791,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -764,6 +834,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//-1190 62 1134  -1142 62 1301
@@ -823,6 +898,11 @@ public class QuestBoard {
 			q0016_1(player, 0);
 
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -863,6 +943,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -902,6 +987,11 @@ public class QuestBoard {
 			q0017_1(player, 0);
 
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -942,6 +1032,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -981,6 +1076,11 @@ public class QuestBoard {
 			q0018_1(player, 0);
 
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -1021,6 +1121,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 1만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -1061,6 +1166,11 @@ public class QuestBoard {
 				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 2만큼 증가했다.");
 			}
 			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//-1190 62 1134  -1142 62 1301
@@ -1220,6 +1330,11 @@ public class QuestBoard {
 			
 			newPersonality(player, 8);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -1232,6 +1347,11 @@ public class QuestBoard {
 		Score score2 = obj.getScore("(" + num + "/5)");
 		score2.setScore(0);
 		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
 	}
 	
 	public void uq8(Player player, int num) {
@@ -1315,6 +1435,11 @@ public class QuestBoard {
 			
 			newPersonality(player, 7);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -1327,6 +1452,11 @@ public class QuestBoard {
 		Score score2 = obj.getScore("(" + num + "/1)");
 		score2.setScore(0);
 		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
 	}
 	
 	public void uq7(Player player, int num) {
@@ -1891,6 +2021,11 @@ public class QuestBoard {
 			
 			newPersonality(player, 6);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -1903,6 +2038,11 @@ public class QuestBoard {
 		Score score2 = obj.getScore("(" + num + "/2)");
 		score2.setScore(0);
 		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
 	}
 	
 	public void uq6(Player player, int num) {
@@ -2178,6 +2318,11 @@ public class QuestBoard {
 			
 			newPersonality(player, 5);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -2190,6 +2335,11 @@ public class QuestBoard {
 		Score score2 = obj.getScore("(" + num + "/1)");
 		score2.setScore(0);
 		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
 	}
 	
 	public void uq5(Player player, int num) {
@@ -2430,6 +2580,11 @@ public class QuestBoard {
 			
 			newPersonality(player, 4);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -2442,6 +2597,11 @@ public class QuestBoard {
 		Score score2 = obj.getScore("(" + num + "/2)");
 		score2.setScore(0);
 		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
 	}
 	
 	public void uq4(Player player, int num) {
@@ -2788,6 +2948,11 @@ public class QuestBoard {
 			
 			newPersonality(player, 3);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -2800,6 +2965,11 @@ public class QuestBoard {
 		Score score2 = obj.getScore("(" + num + "/1)");
 		score2.setScore(0);
 		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
 	}
 	
 	public void uq3(Player player, int num) {
@@ -3294,6 +3464,11 @@ public class QuestBoard {
 			
 			newPersonality(player, 2);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -3306,6 +3481,11 @@ public class QuestBoard {
 		Score score2 = obj.getScore("(" + num + "/3)");
 		score2.setScore(0);
 		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
 	}
 	
 	public void uq2(Player player, int num) {
@@ -3652,6 +3832,11 @@ public class QuestBoard {
 			
 			newPersonality(player, 1);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -3664,6 +3849,11 @@ public class QuestBoard {
 		Score score2 = obj.getScore("(" + num + "/1)");
 		score2.setScore(0);
 		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
 	}
 	
 	public void uq1(Player player, int num) {
@@ -3681,6 +3871,11 @@ public class QuestBoard {
 			
 			newPersonality(player, 0);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
 			return;
 		}
 		//퀘스트 스코어보드에 적용
@@ -3693,6 +3888,11 @@ public class QuestBoard {
 		Score score2 = obj.getScore("(" + num + "/5)");
 		score2.setScore(0);
 		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
 	}
 	
 	public void giveExp(Player player, int num) {
