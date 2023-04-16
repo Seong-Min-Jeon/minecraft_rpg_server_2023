@@ -4637,7 +4637,9 @@ public class Main extends JavaPlugin implements Listener{
 		 	    		}
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("줄리아")) {
-	 	    		if (getQuestName(player).equals("q0016")) {
+	 	    		if(getQuestName(player) == null) {
+	 	    			
+	 	    		} else if (getQuestName(player).equals("q0016")) {
 	 	    			QuestBoard qb = new QuestBoard();
 	 	    			new Message().msg(player, "줄리아: 가로등 사무소에서 왔지?%줄리아: 이걸 전달해주면 돼.");
 						int qNum = qb.getNum(player);
@@ -4666,7 +4668,9 @@ public class Main extends JavaPlugin implements Listener{
 	 	    			
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("디모르포돈")) {
-	 	    		if (getQuestName(player).equals("q0017")) {
+	 	    		if(getQuestName(player) == null) {
+	 	    			
+	 	    		} else if (getQuestName(player).equals("q0017")) {
 	 	    			QuestBoard qb = new QuestBoard();
 	 	    			new Message().msg(player, "디모르포돈: 가로등 사무소로 전하는 물건이오.");
 						int qNum = qb.getNum(player);
@@ -4675,7 +4679,9 @@ public class Main extends JavaPlugin implements Listener{
 	 	    			
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("크테노카스마")) {
-	 	    		if (getQuestName(player).equals("q0018")) {
+	 	    		if(getQuestName(player) == null) {
+	 	    			
+	 	    		} else if (getQuestName(player).equals("q0018")) {
 	 	    			QuestBoard qb = new QuestBoard();
 	 	    			new Message().msg(player, "크테노카스마: 이걸 산에게 전해주면 될거야.");
 						int qNum = qb.getNum(player);
@@ -4764,7 +4770,9 @@ public class Main extends JavaPlugin implements Listener{
 	 	    		new Shop12(player);
 	 	    		new Message().msg(player, "W사 영업사원: 신속하고 정확하게 목적지로 이동하는 워프 열차입니다.%W사 영업사원: 1등석 티켓의 판매는 종료되었습니다."); 
 	 	    	} else if(npc.getText().get(0).equals("묘")) {
-	 	    		if (getQuestName(player).equals("q0020")) {
+	 	    		if(getQuestName(player) == null) {
+	 	    			new Message().msg(player, "묘: 뒤틀림의 정보를 보고 있는 중이야.%묘: 너도 죽기 싫으면 봐두는게 좋을걸?");
+	 	    		} else if (getQuestName(player).equals("q0020")) {
 	 	    			QuestBoard qb = new QuestBoard();
 	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
 						Block block = chestLoc.getBlock();

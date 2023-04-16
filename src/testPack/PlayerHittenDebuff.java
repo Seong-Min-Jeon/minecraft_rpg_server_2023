@@ -804,13 +804,26 @@ public class PlayerHittenDebuff {
 					}
 				}
 			} 
+			
+			new BukkitRunnable() {
+				int time = 0;
 
-			int num2 = rnd.nextInt(10);
-			if (num2 == 0) {
-				player.setVelocity(new Vector(0, 1, 0));
-			} else if (num2 < 3) {
-				player.setVelocity(player.getEyeLocation().getDirection().multiply(-2.0f));
-			}
+			    @Override
+				public void run() {
+			    	
+			    	if(time == 1) {
+			    		int num2 = rnd.nextInt(8);
+						if (num2 == 0) {
+							player.setVelocity(new Vector(0,2,0));
+						} else if (num2 < 3) {
+							player.setVelocity(player.getEyeLocation().getDirection().multiply(-1.5f));
+						}
+			    		this.cancel();
+			    	}
+			    	
+					time++;
+				}
+			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 		}
 	}
 	

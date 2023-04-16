@@ -18,7 +18,7 @@ public class BGM {
 	
 	static ArrayList<String> bgm = new ArrayList<>(Arrays.asList("ENTITY_SKELETON_HORSE_AMBIENT", "ENTITY_PARROT_DEATH", "ENTITY_PARROT_EAT", "ENTITY_PARROT_FLY",
 															"ENTITY_PARROT_HURT", "ENTITY_PARROT_AMBIENT", "ENTITY_PARROT_STEP", "ENTITY_CAMEL_AMBIENT",
-															"ENTITY_CAMEL_DASH", "ENTITY_CAMEL_DASH_READY", "ENTITY_CAMEL_DEATH", "ENTITY_CAMEL_EAT",
+															"ENTITY_CAMEL_DASH", "ENTITY_CAMEL_DASH_READY", "ENTITY_CAMEL_DEATH", "ENTITY_CAMEL_SIT",
 															"ENTITY_CAMEL_HURT"));
 	
 	static HashMap<Player, String> now = new HashMap<>();
@@ -149,7 +149,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_EAT, 1.0f, 1.0f);
+				    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_FLY, 1.0f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -221,7 +221,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_EAT, 1.0f, 1.0f);
+				    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_SIT, 1.2f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -237,7 +237,7 @@ public class BGM {
 				battle.put(player, 11);
 				player.setTicksLived(1);
 			}
-		} else if(b.equals("유적1")) {
+		} else if(b.equals("유적1")) { //구 숲유적
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
@@ -270,7 +270,7 @@ public class BGM {
 					time++;
 				}
 			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
-		} else if(b.equals("유적2")) {
+		} else if(b.equals("유적2")) { //구 아덴
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
@@ -291,7 +291,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_DEATH, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_EAT, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -303,7 +303,7 @@ public class BGM {
 					time++;
 				}
 			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
-		} else if(b.equals("유적3")) {
+		} else if(b.equals("유적3")) { //구 아라크네
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
@@ -336,7 +336,7 @@ public class BGM {
 					time++;
 				}
 			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
-		} else if(b.equals("유적4")) {
+		} else if(b.equals("유적4")) { //구 슬라임
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
@@ -357,7 +357,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_FLY, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_DEATH, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -369,7 +369,7 @@ public class BGM {
 					time++;
 				}
 			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
-		} else if(b.equals("유적5")) {
+		} else if(b.equals("유적5")) { //구 하드바다
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
@@ -402,7 +402,7 @@ public class BGM {
 					time++;
 				}
 			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
-		} else if(b.equals("유적6")) {
+		} else if(b.equals("유적6")) { //구 하드요정
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
@@ -423,7 +423,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_AMBIENT, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_STEP, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -435,7 +435,7 @@ public class BGM {
 					time++;
 				}
 			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
-		} else if(b.equals("유적7")) {
+		} else if(b.equals("유적7")) { //구 하드아덴
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
@@ -456,7 +456,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_STEP, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_AMBIENT, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {

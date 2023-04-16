@@ -260,7 +260,7 @@ public class PlayerHitGimmick {
 								if(e instanceof Player) {
 									Player player = (Player) e;
 									player.damage(2);
-									player.setVelocity(new Vector(0,0.4,0));
+									player.setVelocity(new Vector(0,0.6,0));
 									
 									int num = rnd.nextInt(7);
 									if(num == 0) {
