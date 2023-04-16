@@ -42,7 +42,7 @@ public class BGM {
 			    @Override
 				public void run() {
 			    	
-			    	if(time == 4980) {
+			    	if(time == 4840) {
 			    		time = 0;
 			    	}
 			    	

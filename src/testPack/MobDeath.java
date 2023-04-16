@@ -63,6 +63,14 @@ public class MobDeath {
 					mobloot.galgori(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "철의 형제 조직원")) {
 					mobloot.ironman(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "버림받은 개 조직원")) {
+					mobloot.dog(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "꿀꿀이네 조직원")) {
+					mobloot.ggul(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "도끼파 조직원")) {
+					mobloot.axe(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "정육점파 조직원")) {
+					mobloot.meat(lootPlayer);
 				}
 				
 			} catch (Exception e) {

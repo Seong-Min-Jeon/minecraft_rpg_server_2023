@@ -99,7 +99,7 @@ public class Start {
 			public void run() {
 				if (!t.hasID()) {t.setID(sleep);}
 			
-				if(time>=50) {
+				if(time>=60) {
 					TTA_Methods.sendTitle(player, null, 20, 40, 20, "가방안에 무언가가 들어있는 것 같다.", 20, 40, 20);
 					t.endTask(); 
 					t.removeID();

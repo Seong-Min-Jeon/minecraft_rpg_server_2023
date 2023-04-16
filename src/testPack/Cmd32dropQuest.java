@@ -12,6 +12,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scoreboard.Objective;
 
+import dev.sergiferry.playernpc.api.NPC;
+import dev.sergiferry.playernpc.api.NPCLib;
 import net.md_5.bungee.api.ChatColor;
 
 public class Cmd32dropQuest implements CommandExecutor {
@@ -54,6 +56,11 @@ public class Cmd32dropQuest implements CommandExecutor {
 					}
 				} catch(Exception e) {
 					
+				}
+				
+				for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+					n.update();
+					n.forceUpdate();
 				}
 			}
 		}	

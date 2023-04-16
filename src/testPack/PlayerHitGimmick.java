@@ -50,6 +50,7 @@ public class PlayerHitGimmick {
 		caveSpider(mob);
 		galgori(mob);
 		ironman(mob);
+		dog(mob);
 	}
 
 	//날아오르는 다리
@@ -225,7 +226,87 @@ public class PlayerHitGimmick {
 		}
 	}
 	
-	public List<Entity> nearFrontEntities(Entity mob, int dist, int x, int y, int z) {
+	//버림받은 개
+	public void dog(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "버림받은 개 조직원")) {
+			int num = rnd.nextInt(5);
+			
+			//충격 강타
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+
+				    @Override
+					public void run() {
+						
+						if (time == 0) {
+							mob.setGlowing(true);
+						}
+						
+						if (time >= 40) {
+							// ===============================================================
+							ParticleData pd = new ParticleData(mob.getUniqueId());
+							if (pd.hasID()) {
+								pd.endTask();
+								pd.removeID();
+							}
+							ParticleEffect pe = new ParticleEffect(mob);
+							pe.mobS003();
+							// ================================================================
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 1.5, 1, 1, 1);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(2);
+									player.setVelocity(new Vector(0,0.4,0));
+									
+									int num = rnd.nextInt(7);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 1);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 1);
+											}
+										}
+									}
+								}
+							}
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
+	public List<Entity> nearFrontEntities(Entity mob, double dist, int x, int y, int z) {
 		Location normal = mob.getLocation();
 		Location e1;
 		

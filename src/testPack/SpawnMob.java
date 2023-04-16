@@ -267,7 +267,7 @@ public class SpawnMob {
 				entity.setRemoveWhenFarAway(false);
 				entity.setMaxHealth(800);
 				entity.setHealth(800);
-				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 8, false, false));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 10, false, false));
 				return true;
 			} else if (entity.getType() == (EntityType) EntityType.GHAST) {
 				entity.setCustomName(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산");

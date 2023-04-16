@@ -12,6 +12,7 @@ import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.World;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -21,6 +22,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Pose;
 import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 import net.md_5.bungee.api.ChatMessageType;
@@ -75,10 +77,6 @@ public class Skill {
 	}
 	
 	public void skill1(Player player, int up) {
-		Snowball arrow = player.launchProjectile(Snowball.class);
-		arrow.setShooter(player);
-		arrow.setVelocity(player.getLocation().getDirection().multiply(0.3f));		
-		
 		ThreadSkill t = new ThreadSkill(player.getUniqueId());
 		sleep = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 			int time = 0;
@@ -101,10 +99,9 @@ public class Skill {
 				}
 			
 				if(time>=3) {
-					world.spawnParticle(Particle.SWEEP_ATTACK, arrow.getLocation(), 1);
-					world.playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
+					new ParticleEffect(player).pS001();
 					
-					List<Entity> entitylist = arrow.getNearbyEntities(1,1,1);
+					List<Entity> entitylist = nearFrontEntities(player, 2, 1, 1, 1);
 					for (Entity nearEntity : entitylist) {
 						if (nearEntity instanceof LivingEntity && nearEntity != player) {
 							LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -124,6 +121,39 @@ public class Skill {
 	public void skill2(Player player, int up) {
 		player.setNoDamageTicks(20);
 		world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
+	}
+	
+	public List<Entity> nearFrontEntities(Player player, int dist, int x, int y, int z) {
+		Location normal = player.getLocation();
+		Location e1;
+		
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*dist, 1, dirZ1*dist);
+		
+		ArmorStand as = (ArmorStand) world.spawnEntity(e1, EntityType.ARMOR_STAND);
+		as.setVisible(false);
+		as.setSmall(true);
+		as.setGravity(false);
+		as.setRemoveWhenFarAway(true);
+		new BukkitRunnable() {
+			int time = 0;
+			
+			@Override
+			public void run() {
+				time++;
+				
+				if(time >= 3) {
+					as.remove();
+					this.cancel();
+				}
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+		return as.getNearbyEntities(x, y, z);
 	}
 	
 	public boolean reload(Player playerArg, int reload) {

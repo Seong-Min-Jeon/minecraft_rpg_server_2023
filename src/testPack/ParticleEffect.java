@@ -177,6 +177,26 @@ public class ParticleEffect {
 		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 	}
 	
+
+	//===========================================================================
+	
+	public void pS001() {
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+        
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*2, 1, dirZ1*2);
+		world.spawnParticle(Particle.SWEEP_ATTACK, e1, 3);
+		
+		world.playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
+	}
+	
+	//===========================================================================
 	
 	public void mobS001() {
 		
@@ -293,7 +313,47 @@ public class ParticleEffect {
 		
 	}
 	
-	
+	public void mobS003() {
+		
+		Location normal = ent.getLocation();
+		World world = ent.getWorld(); 
+		Location e1;
+        
+        Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(180, 180, 30), 1);
+        
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			e1 = normal.clone().add(dirX1*1.5, 0.9+(i*0.1), dirZ1*1.5);
+			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		}
+		
+		double arrowAngle2 = 93;
+		double totalAngle2 = normal.getYaw() + arrowAngle2;
+		double dirX2 = Math.cos(Math.toRadians(totalAngle2));
+		double dirZ2 = Math.sin(Math.toRadians(totalAngle2));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			e1 = normal.clone().add(dirX2*1.45, 0.9+(i*0.1), dirZ2*1.45);
+			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		}
+		
+		double arrowAngle5 = 87;
+		double totalAngle5 = normal.getYaw() + arrowAngle5;
+		double dirX5 = Math.cos(Math.toRadians(totalAngle5));
+		double dirZ5 = Math.sin(Math.toRadians(totalAngle5));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			e1 = normal.clone().add(dirX5*1.45, 0.9+(i*0.1), dirZ5*1.45);
+			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		}
+		
+		world.playSound(normal, Sound.ENTITY_IRON_GOLEM_DAMAGE, 1.0f, 1.0f);
+		
+	}
 	
 	
 	

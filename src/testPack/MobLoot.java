@@ -46,13 +46,13 @@ public class MobLoot {
 				QuestBoard qb = new QuestBoard();
 				if (getQuestName(p).equals("q0004")) {
 					int qNum = qb.getNum(p);
-					qb.q0004(p, qNum + 1);
+					qb.q0004(p, qNum + 1, false);
 				} else if (getQuestName(p).equals("q0014")) {
 					int qNum = qb.getNum(p);
-					qb.q0014(p, qNum + 1);
+					qb.q0014(p, qNum + 1, false);
 				} else if (getQuestName(p).equals("uq9")) {
 					int qNum = qb.getNum(p);
-					qb.uq9(p, qNum + 1);
+					qb.uq9(p, qNum + 1, false);
 				}
 			}
 		}
@@ -60,13 +60,13 @@ public class MobLoot {
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0004")) {
 			int qNum = qb.getNum(player);
-			qb.q0004(player, qNum + 1);
+			qb.q0004(player, qNum + 1, false);
 		} else if (getQuestName(player).equals("q0014")) {
 			int qNum = qb.getNum(player);
-			qb.q0014(player, qNum + 1);
+			qb.q0014(player, qNum + 1, false);
 		} else if (getQuestName(player).equals("uq9")) {
 			int qNum = qb.getNum(player);
-			qb.uq9(player, qNum + 1);
+			qb.uq9(player, qNum + 1, false);
 		}
 	}
 	
@@ -81,13 +81,13 @@ public class MobLoot {
 				QuestBoard qb = new QuestBoard();
 				if (getQuestName(p).equals("q0004")) {
 					int qNum = qb.getNum(p);
-					qb.q0004(p, qNum + 1);
+					qb.q0004(p, qNum + 1, false);
 				} else if (getQuestName(p).equals("q0014")) {
 					int qNum = qb.getNum(p);
-					qb.q0014(p, qNum + 1);
+					qb.q0014(p, qNum + 1, false);
 				} else if (getQuestName(p).equals("uq9")) {
 					int qNum = qb.getNum(p);
-					qb.uq9(p, qNum + 1);
+					qb.uq9(p, qNum + 1, false);
 				}
 			}
 		}
@@ -95,13 +95,13 @@ public class MobLoot {
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0004")) {
 			int qNum = qb.getNum(player);
-			qb.q0004(player, qNum + 1);
+			qb.q0004(player, qNum + 1, false);
 		} else if (getQuestName(player).equals("q0014")) {
 			int qNum = qb.getNum(player);
-			qb.q0014(player, qNum + 1);
+			qb.q0014(player, qNum + 1, false);
 		} else if (getQuestName(player).equals("uq9")) {
 			int qNum = qb.getNum(player);
-			qb.uq9(player, qNum + 1);
+			qb.uq9(player, qNum + 1, false);
 		}
 	}
 	
@@ -116,7 +116,7 @@ public class MobLoot {
 				QuestBoard qb = new QuestBoard();
 				if (getQuestName(p).equals("q0007")) {
 					int qNum = qb.getNum(p);
-					qb.q0007(p, qNum + 1);
+					qb.q0007(p, qNum + 1, false);
 				}
 			}
 		}
@@ -124,7 +124,7 @@ public class MobLoot {
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0007")) {
 			int qNum = qb.getNum(player);
-			qb.q0007(player, qNum + 1);
+			qb.q0007(player, qNum + 1, false);
 		}
 	}
 	
@@ -139,7 +139,7 @@ public class MobLoot {
 				QuestBoard qb = new QuestBoard();
 				if (getQuestName(p).equals("q0008")) {
 					int qNum = qb.getNum(p);
-					qb.q0008(p, qNum + 1);
+					qb.q0008(p, qNum + 1, false);
 				}
 			}
 		}
@@ -147,7 +147,7 @@ public class MobLoot {
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0008")) {
 			int qNum = qb.getNum(player);
-			qb.q0008(player, qNum + 1);
+			qb.q0008(player, qNum + 1, false);
 		}
 	}
 	
@@ -162,7 +162,7 @@ public class MobLoot {
 				QuestBoard qb = new QuestBoard();
 				if (getQuestName(p).equals("q0009")) {
 					int qNum = qb.getNum(p);
-					qb.q0009(p, qNum + 1);
+					qb.q0009(p, qNum + 1, false);
 				}
 			}
 		}
@@ -170,7 +170,7 @@ public class MobLoot {
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0009")) {
 			int qNum = qb.getNum(player);
-			qb.q0009(player, qNum + 1);
+			qb.q0009(player, qNum + 1, false);
 		}
 	}
 	
@@ -185,7 +185,7 @@ public class MobLoot {
 				QuestBoard qb = new QuestBoard();
 				if (getQuestName(p).equals("q0015")) {
 					int qNum = qb.getNum(p);
-					qb.q0015(p, qNum + 1);
+					qb.q0015(p, qNum + 1, false);
 				}
 			}
 		}
@@ -193,7 +193,7 @@ public class MobLoot {
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0015")) {
 			int qNum = qb.getNum(player);
-			qb.q0015(player, qNum + 1);
+			qb.q0015(player, qNum + 1, false);
 		}
 	}
 	
@@ -208,7 +208,7 @@ public class MobLoot {
 				QuestBoard qb = new QuestBoard();
 				if (getQuestName(p).equals("q0019")) {
 					int qNum = qb.getNum(p);
-					qb.q0019(p, qNum + 1);
+					qb.q0019(p, qNum + 1, false);
 				}
 			}
 		}
@@ -216,7 +216,99 @@ public class MobLoot {
 		QuestBoard qb = new QuestBoard();
 		if (getQuestName(player).equals("q0019")) {
 			int qNum = qb.getNum(player);
-			qb.q0019(player, qNum + 1);
+			qb.q0019(player, qNum + 1, false);
+		}
+	}
+	
+	//버림받은 개
+	public void dog(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(500) + 2000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0021")) {
+					int qNum = qb.getNum(p);
+					qb.q0021(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0021")) {
+			int qNum = qb.getNum(player);
+			qb.q0021(player, qNum + 1, false);
+		}
+	}
+	
+	//꿀꿀이네
+	public void ggul(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(1000) + 1000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0022")) {
+					int qNum = qb.getNum(p);
+					qb.q0022(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0022")) {
+			int qNum = qb.getNum(player);
+			qb.q0022(player, qNum + 1, false);
+		}
+	}
+	
+	//도끼파
+	public void axe(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(1000) + 2000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0023")) {
+					int qNum = qb.getNum(p);
+					qb.q0023(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0023")) {
+			int qNum = qb.getNum(player);
+			qb.q0023(player, qNum + 1, false);
+		}
+	}
+	
+	//정육점파
+	public void meat(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(1500) + 1000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0024")) {
+					int qNum = qb.getNum(p);
+					qb.q0024(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0024")) {
+			int qNum = qb.getNum(player);
+			qb.q0024(player, qNum + 1, false);
 		}
 	}
 
@@ -232,60 +324,6 @@ public class MobLoot {
 		ticket.setItemMeta(ticketIm);
 		player.getInventory().addItem(ticket);
 		sendMessage(player, ChatColor.YELLOW + "낫 교환권" + ChatColor.WHITE + "을 획득했다.");
-	}
-
-	// 유혹하는 나무
-	public void mob246(Player player) {
-		int num = rnd.nextInt(9) + 9;
-		ItemStack item = new ItemStack(Material.SCUTE, num);
-		ItemMeta im = item.getItemMeta();
-		im.setDisplayName(ChatColor.LIGHT_PURPLE + "에메랄드 주머니+");
-		item.setItemMeta(im);
-		player.getInventory().addItem(item);
-		
-		ItemStack var1 = new ItemStack(Material.POLISHED_BLACKSTONE_BRICKS);
-		ItemMeta var1im = var1.getItemMeta();
-		var1im.setDisplayName(ChatColor.LIGHT_PURPLE + "최상급 포보르의 피");
-		var1.setItemMeta(var1im);
-		
-		ItemStack var2 = new ItemStack(Material.POLISHED_BLACKSTONE_BRICK_STAIRS);
-		ItemMeta var2im = var2.getItemMeta();
-		var2im.setDisplayName(ChatColor.LIGHT_PURPLE + "최상급 포보르의 쓸개");
-		var2.setItemMeta(var2im);
-		
-		ItemStack var3 = new ItemStack(Material.CRACKED_POLISHED_BLACKSTONE_BRICKS);
-		ItemMeta var3im = var3.getItemMeta();
-		var3im.setDisplayName(ChatColor.LIGHT_PURPLE + "최상급 포보르의 살점");
-		var3.setItemMeta(var3im);
-		
-		ItemStack var4 = new ItemStack(Material.POLISHED_BLACKSTONE_BRICK_SLAB);
-		ItemMeta var4im = var4.getItemMeta();
-		var4im.setDisplayName(ChatColor.LIGHT_PURPLE + "최상급 포보르의 간");
-		var4.setItemMeta(var4im);
-		
-		ItemStack var5 = new ItemStack(Material.CHISELED_POLISHED_BLACKSTONE);
-		ItemMeta var5im = var5.getItemMeta();
-		var5im.setDisplayName(ChatColor.LIGHT_PURPLE + "최상급 포보르의 심장");
-		var5.setItemMeta(var5im);
-		
-		int tmp = rnd.nextInt(12);
-		if(tmp == 0) {
-			player.getInventory().addItem(var1);
-			sendMessage(player, ChatColor.LIGHT_PURPLE + "최상급 포보르의 피" + ChatColor.WHITE + "를 획득했다.");
-		} else if(tmp == 1) {
-			player.getInventory().addItem(var2);
-			sendMessage(player, ChatColor.LIGHT_PURPLE + "최상급 포보르의 쓸개" + ChatColor.WHITE + "를 획득했다.");
-		} else if(tmp == 2) {
-			player.getInventory().addItem(var3);
-			sendMessage(player, ChatColor.LIGHT_PURPLE + "최상급 포보르의 살점" + ChatColor.WHITE + "을 획득했다.");
-		} else if(tmp == 3) {
-			player.getInventory().addItem(var4);
-			sendMessage(player, ChatColor.LIGHT_PURPLE + "최상급 포보르의 간" + ChatColor.WHITE + "을 획득했다.");
-		} else if(tmp == 4) {
-			player.getInventory().addItem(var5);
-			sendMessage(player, ChatColor.LIGHT_PURPLE + "최상급 포보르의 심장" + ChatColor.WHITE + "을 획득했다.");
-		}
-		
 	}
 	
 	public String getQuestName(Player player) {
