@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -29,9 +31,21 @@ public class BGM {
 		if(b.equals("로비")) {
 			battle.remove(player);
 			
-			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
-			}
+			new BukkitRunnable() {
+				int time = 0;
+
+				@Override
+				public void run() {
+
+					if (time == 10) {
+						for(int i = 0 ; i < bgm.size() ; i++) {
+							player.stopSound(Sound.valueOf(bgm.get(i)));
+						}
+					}
+
+					time++;
+				}
+			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 			
 			if(now.containsKey(player)) {now.remove(player);}
 			now.put(player, "로비");
@@ -42,11 +56,11 @@ public class BGM {
 			    @Override
 				public void run() {
 			    	
-			    	if(time == 4840) {
+			    	if(time == 4850) {
 			    		time = 0;
 			    	}
 			    	
-			    	if(time == 0) {
+			    	if(time == 10) {
 			    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_AMBIENT, 1.0f, 1.0f);
 			    	}
 			    	

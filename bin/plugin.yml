@@ -96,4 +96,7 @@ commands:
   dropQuest:
    description: drop quest
    usage: /dropQuest
+  mob:
+   description: mob summon
+   usage: /mob
 api-version: 1.19

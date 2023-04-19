@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -15,6 +16,7 @@ import org.bukkit.block.Chest;
 import org.bukkit.entity.Blaze;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Ghast;
 import org.bukkit.entity.Llama;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Phantom;
@@ -28,29 +30,353 @@ import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+
+import de.Herbystar.TTA.TTA_Methods;
 
 public class TPMobSpawn {
 
 	public TPMobSpawn(Player player, Location loc) {
 
 //		System.out.println(loc.toString());
-
-		fairy(player, loc);
-		snow(player, loc);
-		senmag(player, loc);
-		tower(player, loc);
-		maze(player, loc);
-		aracune(player, loc);
-		forest(player, loc);
-		samak(player, loc);
-		skelig(player, loc);
-		hardSea(player, loc);
-		hardForest(player, loc);
+		
+		if(loc.getX() == -1145 && loc.getY() == 81 && loc.getZ() == 1341) {
+			player.teleport(new Location(player.getWorld(), -1145, 81.1, 1341));
+			TTA_Methods.sendTitle(player, null, 20, 40, 20, "신비한 힘으로 도시에 돌아오게 되었다.", 20, 40, 20);
+			new BGM(player, "메인"); //메인 브금 재생
+		}
+		
+		d1_1(player, loc);
+		d1_2(player, loc);
+		d1_3(player, loc);
+		d1_4(player, loc);
+		d1_5(player, loc);
 		
 	}
+	
+	public void d1_1(Player player, Location loc) {
+		// 나태를 벌하는 유적1
+		if (loc.getX() == 3464.5 && loc.getY() == 18 && loc.getZ() == 3740) {
+			player.teleport(new Location(player.getWorld(), 3464.5, 18.1, 3740));
+			int num = 0;
+			List<Entity> entitylist = player.getNearbyEntities(30, 30, 30);
+			for (Entity nearEntity : entitylist) {
+				if (nearEntity.getType() == EntityType.PLAYER) {
+					Player nearPlayer = (Player) nearEntity;
+					Location loc2 = nearPlayer.getLocation();
+					// 3448 15 3734  3480 33 3767
+					if (loc2.getX() <= 3480 && loc2.getY() <= 33 && loc2.getZ() <= 3767 
+							&& loc2.getX() >= 3448 && loc2.getY() >= 15 && loc2.getZ() >= 3734) {
+						num++;
+						return;
+					}
+				}
+			}
+			if (num == 0) {
+				for (Entity nearEntity : entitylist) {
+					if (nearEntity instanceof Zombie) {
+						Location loc2 = nearEntity.getLocation();
+						if (loc2.getX() <= 3480 && loc2.getY() <= 33 && loc2.getZ() <= 3767 
+								&& loc2.getX() >= 3448 && loc2.getY() >= 15 && loc2.getZ() >= 3734) {
+							nearEntity.remove();
+						}
+					}
+				}
+			}
+			Location chestLoc = new Location(loc.getWorld(), -1828, 92, 3039);
+			Block block = chestLoc.getBlock();
+			Chest chest = (Chest) block.getState();
+			
+			Zombie mob1 = (Zombie) loc.getWorld().spawnEntity(new Location(player.getWorld(), 3465, 22, 3751), EntityType.ZOMBIE);
+			mob1.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "변이된 나뭇잎");
+			mob1.setCustomNameVisible(true);
+			mob1.setRemoveWhenFarAway(false);
+			mob1.setMaxHealth(40);
+			mob1.setHealth(40);
+			Zombie zombie = (Zombie) mob1;
+			zombie.setBaby(false);
+			EntityEquipment weapon = mob1.getEquipment();
+			ItemStack weaponItem = new ItemStack(Material.AIR);
+			weapon.setItemInMainHand(weaponItem);
+			EntityEquipment head = mob1.getEquipment();
+			ItemStack headItem = chest.getInventory().getItem(9);
+			head.setHelmet(headItem);
+			EntityEquipment chestplate = mob1.getEquipment();
+			ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+			LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+			chestmeta.setColor(Color.fromRGB(50, 200, 50));
+			chestplateItem.setItemMeta(chestmeta);
+			chestplate.setChestplate(chestplateItem);
+			EntityEquipment leggings = mob1.getEquipment();
+			ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+			LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+			leggingsmeta.setColor(Color.fromRGB(50, 200, 50));
+			leggingsItem.setItemMeta(leggingsmeta);
+			leggings.setLeggings(leggingsItem);
+			EntityEquipment boots = mob1.getEquipment();
+			ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+			LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+			bootsmeta.setColor(Color.fromRGB(50, 200, 50));
+			bootsItem.setItemMeta(bootsmeta);
+			boots.setBoots(bootsItem);
+			mob1.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
+			return;
+		}
+	}
+	
+	public void d1_2(Player player, Location loc) {
+		// 나태를 벌하는 유적2
+		if (loc.getX() == 3464.5 && loc.getY() == 18 && loc.getZ() == 3697) {
+			player.teleport(new Location(player.getWorld(), 3464.5, 18.1, 3697));
+			int num = 0;
+			List<Entity> entitylist = player.getNearbyEntities(30, 30, 30);
+			for (Entity nearEntity : entitylist) {
+				if (nearEntity.getType() == EntityType.PLAYER) {
+					Player nearPlayer = (Player) nearEntity;
+					Location loc2 = nearPlayer.getLocation();
+					// 3449 15 3692  3480 33 3724
+					if (loc2.getX() <= 3480 && loc2.getY() <= 33 && loc2.getZ() <= 3724 
+							&& loc2.getX() >= 3449 && loc2.getY() >= 15 && loc2.getZ() >= 3692) {
+						num++;
+						return;
+					}
+				}
+			}
+			if (num == 0) {
+				for (Entity nearEntity : entitylist) {
+					if (nearEntity instanceof Zombie) {
+						Location loc2 = nearEntity.getLocation();
+						if (loc2.getX() <= 3480 && loc2.getY() <= 33 && loc2.getZ() <= 3724 
+								&& loc2.getX() >= 3449 && loc2.getY() >= 15 && loc2.getZ() >= 3692) {
+							nearEntity.remove();
+						}
+					}
+				}
+			}
+			Location chestLoc = new Location(loc.getWorld(), -1828, 92, 3039);
+			Block block = chestLoc.getBlock();
+			Chest chest = (Chest) block.getState();
+			
+			Zombie mob1 = (Zombie) loc.getWorld().spawnEntity(new Location(player.getWorld(), 3465, 22, 3707), EntityType.ZOMBIE);
+			mob1.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "변이된 나뭇잎");
+			mob1.setCustomNameVisible(true);
+			mob1.setRemoveWhenFarAway(false);
+			mob1.setMaxHealth(40);
+			mob1.setHealth(40);
+			Zombie zombie = (Zombie) mob1;
+			zombie.setBaby(false);
+			EntityEquipment weapon = mob1.getEquipment();
+			ItemStack weaponItem = new ItemStack(Material.AIR);
+			weapon.setItemInMainHand(weaponItem);
+			EntityEquipment head = mob1.getEquipment();
+			ItemStack headItem = chest.getInventory().getItem(9);
+			head.setHelmet(headItem);
+			EntityEquipment chestplate = mob1.getEquipment();
+			ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+			LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+			chestmeta.setColor(Color.fromRGB(50, 200, 50));
+			chestplateItem.setItemMeta(chestmeta);
+			chestplate.setChestplate(chestplateItem);
+			EntityEquipment leggings = mob1.getEquipment();
+			ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+			LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+			leggingsmeta.setColor(Color.fromRGB(50, 200, 50));
+			leggingsItem.setItemMeta(leggingsmeta);
+			leggings.setLeggings(leggingsItem);
+			EntityEquipment boots = mob1.getEquipment();
+			ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+			LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+			bootsmeta.setColor(Color.fromRGB(50, 200, 50));
+			bootsItem.setItemMeta(bootsmeta);
+			boots.setBoots(bootsItem);
+			mob1.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
+			return;
+		}
+	}
+	
+	public void d1_3(Player player, Location loc) {
+		// 나태를 벌하는 유적3
+		if (loc.getX() == 3503.5 && loc.getY() == 18 && loc.getZ() == 3698) {
+			player.teleport(new Location(player.getWorld(), 3503.5, 18.1, 3698));
+			int num = 0;
+			List<Entity> entitylist = player.getNearbyEntities(30, 30, 30);
+			for (Entity nearEntity : entitylist) {
+				if (nearEntity.getType() == EntityType.PLAYER) {
+					Player nearPlayer = (Player) nearEntity;
+					Location loc2 = nearPlayer.getLocation();
+					// 3488 15 3692  3519 33 3725
+					if (loc2.getX() <= 3519 && loc2.getY() <= 33 && loc2.getZ() <= 3725 
+							&& loc2.getX() >= 3488 && loc2.getY() >= 15 && loc2.getZ() >= 3692) {
+						num++;
+						return;
+					}
+				}
+			}
+			if (num == 0) {
+				for (Entity nearEntity : entitylist) {
+					if (nearEntity instanceof Zombie) {
+						Location loc2 = nearEntity.getLocation();
+						if (loc2.getX() <= 3519 && loc2.getY() <= 33 && loc2.getZ() <= 3725 
+								&& loc2.getX() >= 3488 && loc2.getY() >= 15 && loc2.getZ() >= 3692) {
+							nearEntity.remove();
+						}
+					}
+				}
+			}
+			Location chestLoc = new Location(loc.getWorld(), -1828, 92, 3039);
+			Block block = chestLoc.getBlock();
+			Chest chest = (Chest) block.getState();
+			
+			Zombie mob1 = (Zombie) loc.getWorld().spawnEntity(new Location(player.getWorld(), 3504, 22, 3709), EntityType.ZOMBIE);
+			mob1.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "변이된 나뭇잎");
+			mob1.setCustomNameVisible(true);
+			mob1.setRemoveWhenFarAway(false);
+			mob1.setMaxHealth(40);
+			mob1.setHealth(40);
+			Zombie zombie = (Zombie) mob1;
+			zombie.setBaby(false);
+			EntityEquipment weapon = mob1.getEquipment();
+			ItemStack weaponItem = new ItemStack(Material.AIR);
+			weapon.setItemInMainHand(weaponItem);
+			EntityEquipment head = mob1.getEquipment();
+			ItemStack headItem = chest.getInventory().getItem(9);
+			head.setHelmet(headItem);
+			EntityEquipment chestplate = mob1.getEquipment();
+			ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+			LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+			chestmeta.setColor(Color.fromRGB(50, 200, 50));
+			chestplateItem.setItemMeta(chestmeta);
+			chestplate.setChestplate(chestplateItem);
+			EntityEquipment leggings = mob1.getEquipment();
+			ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+			LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+			leggingsmeta.setColor(Color.fromRGB(50, 200, 50));
+			leggingsItem.setItemMeta(leggingsmeta);
+			leggings.setLeggings(leggingsItem);
+			EntityEquipment boots = mob1.getEquipment();
+			ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+			LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+			bootsmeta.setColor(Color.fromRGB(50, 200, 50));
+			bootsItem.setItemMeta(bootsmeta);
+			boots.setBoots(bootsItem);
+			mob1.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
+			return;
+		}
+	}
+	
+	public void d1_4(Player player, Location loc) {
+		// 나태를 벌하는 유적4	
+		if (loc.getX() == 3514.5 && loc.getY() == 18 && loc.getZ() == 3745) {
+			player.teleport(new Location(player.getWorld(), 3514.5, 18.1, 3745));
+			int num = 0;
+			List<Entity> entitylist = player.getNearbyEntities(30, 30, 30);
+			for (Entity nearEntity : entitylist) {
+				if (nearEntity.getType() == EntityType.PLAYER) {
+					Player nearPlayer = (Player) nearEntity;
+					Location loc2 = nearPlayer.getLocation();
+					// 3499 15 3740  3531 33 3773
+					if (loc2.getX() <= 3531 && loc2.getY() <= 33 && loc2.getZ() <= 3773 
+							&& loc2.getX() >= 3499 && loc2.getY() >= 15 && loc2.getZ() >= 3740) {
+						num++;
+						return;
+					}
+				}
+			}
+			if (num == 0) {
+				for (Entity nearEntity : entitylist) {
+					if (nearEntity instanceof Zombie) {
+						Location loc2 = nearEntity.getLocation();
+						if (loc2.getX() <= 3531 && loc2.getY() <= 33 && loc2.getZ() <= 3773 
+								&& loc2.getX() >= 3499 && loc2.getY() >= 15 && loc2.getZ() >= 3740) {
+							nearEntity.remove();
+						}
+					}
+				}
+			}
+			Location chestLoc = new Location(loc.getWorld(), -1828, 92, 3039);
+			Block block = chestLoc.getBlock();
+			Chest chest = (Chest) block.getState();
+			
+			Zombie mob1 = (Zombie) loc.getWorld().spawnEntity(new Location(player.getWorld(), 3515, 22, 3756), EntityType.ZOMBIE);
+			mob1.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "변이된 나뭇잎");
+			mob1.setCustomNameVisible(true);
+			mob1.setRemoveWhenFarAway(false);
+			mob1.setMaxHealth(40);
+			mob1.setHealth(40);
+			Zombie zombie = (Zombie) mob1;
+			zombie.setBaby(false);
+			EntityEquipment weapon = mob1.getEquipment();
+			ItemStack weaponItem = new ItemStack(Material.AIR);
+			weapon.setItemInMainHand(weaponItem);
+			EntityEquipment head = mob1.getEquipment();
+			ItemStack headItem = chest.getInventory().getItem(9);
+			head.setHelmet(headItem);
+			EntityEquipment chestplate = mob1.getEquipment();
+			ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+			LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+			chestmeta.setColor(Color.fromRGB(50, 200, 50));
+			chestplateItem.setItemMeta(chestmeta);
+			chestplate.setChestplate(chestplateItem);
+			EntityEquipment leggings = mob1.getEquipment();
+			ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+			LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+			leggingsmeta.setColor(Color.fromRGB(50, 200, 50));
+			leggingsItem.setItemMeta(leggingsmeta);
+			leggings.setLeggings(leggingsItem);
+			EntityEquipment boots = mob1.getEquipment();
+			ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+			LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+			bootsmeta.setColor(Color.fromRGB(50, 200, 50));
+			bootsItem.setItemMeta(bootsmeta);
+			boots.setBoots(bootsItem);
+			mob1.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
+			return;
+		}
+	}
+	
+	public void d1_5(Player player, Location loc) {
+		// 나태를 벌하는 유적5	
+		if (loc.getX() == 3562.5 && loc.getY() == 25 && loc.getZ() == 3736.5) {
+			player.teleport(new Location(player.getWorld(), 3562.6, 25, 3736.6));
+			int num = 0;
+			List<Entity> entitylist = player.getNearbyEntities(50, 50, 50);
+			for (Entity nearEntity : entitylist) {
+				if (nearEntity.getType() == EntityType.PLAYER) {
+					Player nearPlayer = (Player) nearEntity;
+					Location loc2 = nearPlayer.getLocation();
+					if (loc2.getX() <= 3587 && loc2.getY() <= 57 && loc2.getZ() <= 3737 
+							&& loc2.getX() >= 3537 && loc2.getY() >= 0 && loc2.getZ() >= 3685) {
+						num++;
+						return;
+					}
+				}
+			}
+
+			if (num == 0) {
+				for (Entity nearEntity : entitylist) {
+					if (nearEntity instanceof Mob) {
+						Location loc2 = nearEntity.getLocation();
+						if (loc2.getX() <= 3587 && loc2.getY() <= 57 && loc2.getZ() <= 3737 
+								&& loc2.getX() >= 3537 && loc2.getY() >= 0 && loc2.getZ() >= 3685) {
+							nearEntity.remove();
+						}
+					}
+				}
+			}
+			Ghast mob1 = (Ghast) loc.getWorld().spawnEntity(new Location(player.getWorld(), 3562, 30, 3712), EntityType.GHAST);
+			mob1.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "나태한 수호령");
+			mob1.setCustomNameVisible(true);
+			mob1.setRemoveWhenFarAway(false);
+			mob1.setMaxHealth(70);
+			mob1.setHealth(70);
+			return;
+		}
+	}
+	
+	
 
 	public void fairy(Player player, Location loc) {
 		// 타락한 요정 왕국 엘리베이터

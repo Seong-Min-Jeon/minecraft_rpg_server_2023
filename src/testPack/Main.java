@@ -151,8 +151,6 @@ public class Main extends JavaPlugin implements Listener{
 		NPCLib.getInstance().registerPlugin(this);
 		this.getServer().getPluginManager().registerEvents(this, this);
 		//custom command
-		getCommand("ChangeAir").setExecutor(new Cmd2ChangeAir());
-		getCommand("WallPaint").setExecutor(new Cmd3WallPaint());
 		getCommand("Where").setExecutor(new Cmd4Where());
 		getCommand("ServerChat").setExecutor(new Cmd5ServerChat());
 		getCommand("msg").setExecutor(new Cmd6msg());
@@ -161,11 +159,11 @@ public class Main extends JavaPlugin implements Listener{
 		getCommand("VilTP").setExecutor(new Cmd10VilTp());
 		getCommand("SpawnVil").setExecutor(new Cmd11SpawnVil());
 		getCommand("k").setExecutor(new Cmd19Kick());
-		getCommand("LoveWood").setExecutor(new Cmd20LoveWood());
 		getCommand("velocity").setExecutor(new Cmd27velocity());
 		getCommand("target").setExecutor(new Cmd28target());
 		getCommand("t").setExecutor(new Cmd31tp());
 		getCommand("dropQuest").setExecutor(new Cmd32dropQuest());
+		getCommand("mob").setExecutor(new Cmd33mob());
 		
 		new RefreshServer();
 		new NPCManager();
@@ -472,7 +470,13 @@ public class Main extends JavaPlugin implements Listener{
 	    	} catch(Exception e) {
 	    		
 	    	}
-			new BGM(player, "메인"); //메인 브금 재생
+			
+			if(player.getLocation().getX() > 2500) {
+				player.teleport(new Location(world, -1145, 81, 1341));
+			} else {
+				new BGM(player, "메인"); //메인 브금 재생
+			}
+			
 		}
 		
 		//몹 스폰 생성
@@ -1217,6 +1221,31 @@ public class Main extends JavaPlugin implements Listener{
 		} catch(Exception e) {
 			
 		}
+		
+		try {
+			if(event.getEntity().getCustomName().equals(ChatColor.WHITE + "" + ChatColor.BOLD + "나태한 수호령")) {
+				ItemStack rewardKey = new ItemStack(Material.TRIPWIRE_HOOK);
+				ItemMeta rewardKeyIm = rewardKey.getItemMeta();
+				rewardKeyIm.setDisplayName(ChatColor.GOLD + "나태의 열쇠");
+				rewardKey.setItemMeta(rewardKeyIm);
+				
+				List<Entity> entitylist = event.getEntity().getNearbyEntities(40, 20, 40);
+				for (Entity nearEntity : entitylist) {
+					if (nearEntity.getType() == EntityType.PLAYER) {
+						Player nearplayer = (Player) nearEntity;
+						Location loc = nearplayer.getLocation();
+						if (loc.getX() <= 3587 && loc.getY() <= 57 && loc.getZ() <= 3737 
+								&& loc.getX() >= 3537 && loc.getY() >= 0 && loc.getZ() >= 3685) {
+							nearplayer.getInventory().addItem(rewardKey);
+							nearplayer.teleport(new Location(world, 3470.5, 52, 3740));
+							nearplayer.sendMessage("유적 어딘가로 이동했다.");
+						}
+					}
+				}
+			}
+		} catch(Exception e) {
+			
+		}
 	}
 	
 	@EventHandler
@@ -1460,7 +1489,8 @@ public class Main extends JavaPlugin implements Listener{
 				}			
 			}
 			if(entity.getType() == EntityType.ZOMBIE) {
-				entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "버림받은 개 조직원");
+				Zombie zom = (Zombie) entity;
+				zom.setAdult();
 			}
 		} catch(Exception e3) {
 			
@@ -1565,12 +1595,25 @@ public class Main extends JavaPlugin implements Listener{
 			return;
 		}
 		
-		//플레이어가 발사한 화살은 히트 불가
+		//arrow에 데미지 넣은 만큼 데미지 주도록
 		try {
-			if (event.getDamager() instanceof Arrow) {
-				if(((Arrow) event.getDamager()).getShooter() instanceof Player) {
-					event.setCancelled(true);
-					return;
+			if(event.getDamager() instanceof Arrow) {
+				Arrow arrow = ((Arrow) event.getDamager());
+				if(arrow.getShooter() instanceof Player) {
+					if(event.getEntity() instanceof Player) {
+						event.setCancelled(true);
+						((Player) (event.getEntity())).damage(arrow.getDamage());
+					} else if(event.getEntity() instanceof Mob) {
+						event.setCancelled(true);
+						((Mob) (event.getEntity())).damage(arrow.getDamage());
+					}
+				} else if(arrow.getShooter() instanceof Mob) {
+					if(event.getEntity() instanceof Player) {
+						event.setCancelled(true);
+						((Player) (event.getEntity())).damage(arrow.getDamage());
+					} else if(event.getEntity() instanceof Mob) {
+						event.setCancelled(true);
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -1683,6 +1726,17 @@ public class Main extends JavaPlugin implements Listener{
 				return;
 			}
 			
+		}
+		
+		//도시 이외에서는 낙뎀 없음
+		if(event.getEntity() instanceof Player) {
+			Location loc = event.getEntity().getLocation();
+			if(event.getCause() == DamageCause.FALL) {
+				if (loc.getX() > 2500) {
+					event.setCancelled(true);
+					return;
+				}
+			}
 		}
 		
 		//데미지 0이하면 패스
@@ -1946,16 +2000,19 @@ public class Main extends JavaPlugin implements Listener{
 				if(mob.getTarget() instanceof Player) {
 					Player player = (Player) mob.getTarget();
 					
-					if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
-						new BGM(player, "폭주하는 황소");
-					} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
-						new BGM(player, "우는 영혼들의 산");
-					} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
-						new BGM(player, "도망쳐");
-					} else {
-						new BGM(player, "전투");
+					if(player.getLocation().getX() < 2500) {
+						if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
+							new BGM(player, "폭주하는 황소");
+						} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
+							new BGM(player, "우는 영혼들의 산");
+						} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
+							new BGM(player, "도망쳐");
+						} else {
+							new BGM(player, "전투");
+						}
+						player.setTicksLived(1);
 					}
-					player.setTicksLived(1);
+					
 				}
 			}
 		} catch(Exception e) {
@@ -1981,113 +2038,6 @@ public class Main extends JavaPlugin implements Listener{
 					}
 				}
 			}
-		} catch(Exception e) {
-			
-		}
-		
-		// 데미지 표기
-		try {
-			if(event.getEntity() instanceof Mob) {
-				Entity entity = event.getEntity();
-				
-				int damage = (int)event.getFinalDamage();
-				
-				if(damage > 0 && !(event.getCause() == DamageCause.ENTITY_ATTACK) && !(event.getCause() == DamageCause.ENTITY_SWEEP_ATTACK)) {
-					ArmorStand damageSign = (ArmorStand) entity.getWorld().spawnEntity(entity.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
-					damageSign.setVisible(false);
-					damageSign.setSmall(true);
-					
-					if(damage < 100) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#808080") + Integer.toString(damage*10));
-					} else if(damage < 200) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#B4B4B4") + Integer.toString(damage*10));
-					} else if(damage < 300) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#E5E5E5") + Integer.toString(damage*10));
-					} else if(damage < 400) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#EFEFEF") + Integer.toString(damage*10));
-					} else if(damage < 500) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#FFFFFF") + Integer.toString(damage*10));
-					} else if(damage < 600) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#f2ffeb") + Integer.toString(damage*10));
-					} else if(damage < 700) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#e0ffcf") + Integer.toString(damage*10));
-					} else if(damage < 800) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ccffb0") + Integer.toString(damage*10));
-					} else if(damage < 900) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#b3ff8a") + Integer.toString(damage*10));
-					} else if(damage < 1000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#9dff69") + Integer.toString(damage*10));
-					} else if(damage < 2000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#7fff3b") + Integer.toString(damage*10));
-					} else if(damage < 3000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#1aff00") + Integer.toString(damage*10));
-					} else if(damage < 4000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00ff77") + Integer.toString(damage*10));
-					} else if(damage < 5000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00ffc3") + Integer.toString(damage*10));
-					} else if(damage < 6000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00fff7") + Integer.toString(damage*10));
-					} else if(damage < 7000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00d0ff") + Integer.toString(damage*10));
-					} else if(damage < 8000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#00aeff") + Integer.toString(damage*10));
-					} else if(damage < 9000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#008cff") + Integer.toString(damage*10));
-					} else if(damage < 10000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#0062ff") + Integer.toString(damage*10));
-					} else if(damage < 20000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#002aff") + Integer.toString(damage*10));
-					} else if(damage < 30000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#3c00ff") + Integer.toString(damage*10));
-					} else if(damage < 40000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#8c00ff") + Integer.toString(damage*10));
-					} else if(damage < 50000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#c300ff") + Integer.toString(damage*10));
-					} else if(damage < 60000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff00f7") + Integer.toString(damage*10));
-					} else if(damage < 70000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff00b3") + Integer.toString(damage*10));
-					} else if(damage < 80000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff0080") + Integer.toString(damage*10));
-					} else if(damage < 90000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff0048") + Integer.toString(damage*10));
-					} else if(damage < 100000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ff0000") + Integer.toString(damage*10));
-					} else if(damage < 200000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ab0000") + Integer.toString(damage*10));
-					} else if(damage < 300000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#630000") + Integer.toString(damage*10));
-					} else if(damage < 400000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#8f0062") + Integer.toString(damage*10));
-					} else if(damage < 500000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#70008f") + Integer.toString(damage*10));
-					} else if(damage < 600000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#420054") + Integer.toString(damage*10));
-					} else if(damage < 10000000) {
-						damageSign.setCustomName(ChatColor.BOLD + "" + ChatColor.MAGIC + Integer.toString(damage*10));
-					} else {
-						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ffffff") + Integer.toString(damage*10));
-					}
-					damageSign.setCustomNameVisible(true);
-					damageSign.setGravity(false);
-					damageSign.setRemoveWhenFarAway(true);
-					
-					new BukkitRunnable() {
-						int time = 0;
-						
-						@Override
-						public void run() {
-							time++;
-							damageSign.teleport(damageSign.getLocation().add(0,0.02,0));
-							
-							if(time >= 30) {
-								damageSign.remove();
-								this.cancel();
-							}
-						}
-					}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
-				}
-			}		 
 		} catch(Exception e) {
 			
 		}
@@ -3883,15 +3833,6 @@ public class Main extends JavaPlugin implements Listener{
 	
 	@EventHandler
 	public void arrowRemove(ProjectileHitEvent event) {
-		try {
-			if(event.getEntity().getShooter() instanceof Player) {
-				event.setCancelled(true);
-				event.getEntity().remove();
-				return;
-			}
-		} catch(Exception e) {
-			
-		}
 		try {
 			event.getEntity().getPassenger().remove(); 
 			Entity ent = event.getEntity().getPassenger();

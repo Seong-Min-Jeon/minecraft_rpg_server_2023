@@ -233,9 +233,11 @@ public class RefreshServer {
 			 		
 			 		//뒤틀림 제거
 			 		if(time > 3460 && time < 3600) {
-			 			for(Entity ent : distorted) {
-			 				distorted.remove(ent);
-			 				ent.remove();
+			 			if(distorted.size() != 0) {
+			 				for(Entity ent : distorted) {
+				 				distorted.remove(ent);
+				 				ent.remove();
+				 			}
 			 			}
 			 		}
 				}

@@ -1,0 +1,393 @@
+package testPack;
+
+import java.util.Random;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Color;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.Block;
+import org.bukkit.block.Chest;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Zombie;
+import org.bukkit.inventory.EntityEquipment;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+
+public class Cmd33mob implements CommandExecutor {
+	
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+		
+		try {
+			if(cmd.getName().equalsIgnoreCase("mob")) {
+				if(sender instanceof Player) {
+					if(!sender.isOp()) {
+						return true;
+					}
+				}
+				
+				String num = args[0];
+				World world = Bukkit.getWorld("world");
+				Player player = (Player) sender;
+				Random rnd = new Random();
+				
+				if(num.equals("1")) {
+					Location chestLoc = new Location(world, -1147, 166, 1467);
+					Block block = chestLoc.getBlock();
+					Chest chest = (Chest) block.getState();
+					
+					Zombie entity = (Zombie) player.getWorld().spawnEntity(player.getLocation(), EntityType.ZOMBIE);
+					entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 9급 해결사");
+					entity.setCustomNameVisible(true);
+					entity.setPersistent(true);
+					entity.setRemoveWhenFarAway(false);
+					entity.setMaxHealth(30);
+					entity.setHealth(30);
+					EntityEquipment weapon = entity.getEquipment();
+					ItemStack weaponItem = new ItemStack(Material.DARK_OAK_LOG);
+					weapon.setItemInMainHand(weaponItem);
+					EntityEquipment head = entity.getEquipment();
+					ItemStack headItem = chest.getInventory().getItem(0);
+					head.setHelmet(headItem);
+					EntityEquipment chestplate = entity.getEquipment();
+					ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+					LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+					chestmeta.setColor(Color.fromRGB(0,0,0));
+					chestplateItem.setItemMeta(chestmeta);
+					chestplate.setChestplate(chestplateItem);
+					EntityEquipment leggings = entity.getEquipment();
+					ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+					LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+					leggingsmeta.setColor(Color.fromRGB(0,0,0));
+					leggingsItem.setItemMeta(leggingsmeta);
+					leggings.setLeggings(leggingsItem);
+					EntityEquipment boots = entity.getEquipment();
+					ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+					LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+					bootsmeta.setColor(Color.fromRGB(0,0,0));
+					bootsItem.setItemMeta(bootsmeta);
+					boots.setBoots(bootsItem);
+				} else if(num.equals("2")) {
+					Location chestLoc = new Location(world, -1147, 166, 1467);
+					Block block = chestLoc.getBlock();
+					Chest chest = (Chest) block.getState();
+					
+					Zombie entity = (Zombie) player.getWorld().spawnEntity(player.getLocation(), EntityType.ZOMBIE);
+					entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 8급 해결사");
+					entity.setCustomNameVisible(true);
+					entity.setPersistent(true);
+					entity.setRemoveWhenFarAway(false);
+					entity.setMaxHealth(50);
+					entity.setHealth(50);
+					EntityEquipment weapon = entity.getEquipment();
+					ItemStack weaponItem = new ItemStack(Material.JUNGLE_PLANKS);
+					weapon.setItemInMainHand(weaponItem);
+					EntityEquipment head = entity.getEquipment();
+					ItemStack headItem = chest.getInventory().getItem(1);
+					head.setHelmet(headItem);
+					EntityEquipment chestplate = entity.getEquipment();
+					ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+					LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+					chestmeta.setColor(Color.fromRGB(rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+					chestplateItem.setItemMeta(chestmeta);
+					chestplate.setChestplate(chestplateItem);
+					EntityEquipment leggings = entity.getEquipment();
+					ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+					LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+					leggingsmeta.setColor(Color.fromRGB(rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+					leggingsItem.setItemMeta(leggingsmeta);
+					leggings.setLeggings(leggingsItem);
+					EntityEquipment boots = entity.getEquipment();
+					ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+					LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+					bootsmeta.setColor(Color.fromRGB(rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+					bootsItem.setItemMeta(bootsmeta);
+					boots.setBoots(bootsItem);
+					entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
+				} else if(num.equals("3")) {
+					Location chestLoc = new Location(world, -1147, 166, 1467);
+					Block block = chestLoc.getBlock();
+					Chest chest = (Chest) block.getState();
+					
+					Zombie entity = (Zombie) player.getWorld().spawnEntity(player.getLocation(), EntityType.ZOMBIE);
+					entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 7급 해결사");
+					entity.setCustomNameVisible(true);
+					entity.setPersistent(true);
+					entity.setRemoveWhenFarAway(false);
+					entity.setMaxHealth(70);
+					entity.setHealth(70);
+					EntityEquipment weapon = entity.getEquipment();
+					ItemStack weaponItem = new ItemStack(Material.BIRCH_LOG);
+					weapon.setItemInMainHand(weaponItem);
+					EntityEquipment head = entity.getEquipment();
+					ItemStack headItem = chest.getInventory().getItem(2);
+					head.setHelmet(headItem);
+					EntityEquipment chestplate = entity.getEquipment();
+					ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+					LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+					chestmeta.setColor(Color.fromRGB(rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+					chestplateItem.setItemMeta(chestmeta);
+					chestplate.setChestplate(chestplateItem);
+					EntityEquipment leggings = entity.getEquipment();
+					ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+					LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+					leggingsmeta.setColor(Color.fromRGB(rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+					leggingsItem.setItemMeta(leggingsmeta);
+					leggings.setLeggings(leggingsItem);
+					EntityEquipment boots = entity.getEquipment();
+					ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+					LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+					bootsmeta.setColor(Color.fromRGB(rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+					bootsItem.setItemMeta(bootsmeta);
+					boots.setBoots(bootsItem);
+					entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+				} else if(num.equals("4")) {
+					Location chestLoc = new Location(world, -1147, 166, 1467);
+					Block block = chestLoc.getBlock();
+					Chest chest = (Chest) block.getState();
+					
+					Zombie entity = (Zombie) player.getWorld().spawnEntity(player.getLocation(), EntityType.ZOMBIE);
+					entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "갈고리 사무소 해결사");
+					entity.setCustomNameVisible(true);
+					entity.setPersistent(true);
+					entity.setRemoveWhenFarAway(false);
+					entity.setMaxHealth(20);
+					entity.setHealth(20);
+					EntityEquipment weapon = entity.getEquipment();
+					ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
+					weapon.setItemInMainHand(weaponItem);
+					EntityEquipment head = entity.getEquipment();
+					ItemStack headItem = chest.getInventory().getItem(3);
+					head.setHelmet(headItem);
+					EntityEquipment chestplate = entity.getEquipment();
+					ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+					LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+					chestmeta.setColor(Color.fromRGB(rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+					chestplateItem.setItemMeta(chestmeta);
+					chestplate.setChestplate(chestplateItem);
+					EntityEquipment leggings = entity.getEquipment();
+					ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+					LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+					leggingsmeta.setColor(Color.fromRGB(rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+					leggingsItem.setItemMeta(leggingsmeta);
+					leggings.setLeggings(leggingsItem);
+					EntityEquipment boots = entity.getEquipment();
+					ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+					LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+					bootsmeta.setColor(Color.fromRGB(rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+					bootsItem.setItemMeta(bootsmeta);
+					boots.setBoots(bootsItem);
+					entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
+				} else if(num.equals("5")) {
+					Location chestLoc = new Location(world, -1147, 166, 1467);
+					Block block = chestLoc.getBlock();
+					Chest chest = (Chest) block.getState();
+					
+					for(int i = 0 ; i < 3 ; i++) {
+						Zombie entity = (Zombie) player.getWorld().spawnEntity(player.getLocation(), EntityType.ZOMBIE);
+						entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "철의 형제 조직원");
+						entity.setCustomNameVisible(true);
+						entity.setPersistent(true);
+						entity.setRemoveWhenFarAway(false);
+						entity.setMaxHealth(80);
+						entity.setHealth(80);
+						EntityEquipment head = entity.getEquipment();
+						ItemStack headItem = chest.getInventory().getItem(4);
+						head.setHelmet(headItem);
+						EntityEquipment chestplate = entity.getEquipment();
+						ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+						LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+						chestmeta.setColor(Color.fromRGB(84,75,75));
+						chestplateItem.setItemMeta(chestmeta);
+						chestplate.setChestplate(chestplateItem);
+						EntityEquipment leggings = entity.getEquipment();
+						ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+						LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+						leggingsmeta.setColor(Color.fromRGB(84,75,75));
+						leggingsItem.setItemMeta(leggingsmeta);
+						leggings.setLeggings(leggingsItem);
+						EntityEquipment boots = entity.getEquipment();
+						ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+						LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+						bootsmeta.setColor(Color.fromRGB(84,75,75));
+						bootsItem.setItemMeta(bootsmeta);
+						boots.setBoots(bootsItem);
+						entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+						entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 1, false, false));
+					}
+				} else if(num.equals("6")) {
+					Location chestLoc = new Location(world, -1147, 166, 1467);
+					Block block = chestLoc.getBlock();
+					Chest chest = (Chest) block.getState();
+					
+					for(int i = 0 ; i < 2 ; i++) {
+						Zombie entity = (Zombie) player.getWorld().spawnEntity(player.getLocation(), EntityType.ZOMBIE);
+						entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "버림받은 개 조직원");
+						entity.setCustomNameVisible(true);
+						entity.setPersistent(true);
+						entity.setRemoveWhenFarAway(false);
+						entity.setMaxHealth(60);
+						entity.setHealth(60);
+						EntityEquipment head = entity.getEquipment();
+						ItemStack headItem = chest.getInventory().getItem(5);
+						head.setHelmet(headItem);
+						EntityEquipment chestplate = entity.getEquipment();
+						ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+						LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+						chestmeta.setColor(Color.fromRGB(30,30,30));
+						chestplateItem.setItemMeta(chestmeta);
+						chestplate.setChestplate(chestplateItem);
+						EntityEquipment leggings = entity.getEquipment();
+						ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+						LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+						leggingsmeta.setColor(Color.fromRGB(30,30,30));
+						leggingsItem.setItemMeta(leggingsmeta);
+						leggings.setLeggings(leggingsItem);
+						EntityEquipment boots = entity.getEquipment();
+						ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+						LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+						bootsmeta.setColor(Color.fromRGB(30,30,30));
+						bootsItem.setItemMeta(bootsmeta);
+						boots.setBoots(bootsItem);
+						entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
+						entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 0, false, false));
+					}
+				} else if(num.equals("7")) {
+					Location chestLoc = new Location(world, -1147, 166, 1467);
+					Block block = chestLoc.getBlock();
+					Chest chest = (Chest) block.getState();
+					
+					for(int i = 0 ; i < 3 ; i++) {
+						Zombie entity = (Zombie) player.getWorld().spawnEntity(player.getLocation(), EntityType.ZOMBIE);
+						entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "꿀꿀이네 조직원");
+						entity.setCustomNameVisible(true);
+						entity.setPersistent(true);
+						entity.setRemoveWhenFarAway(false);
+						entity.setMaxHealth(50);
+						entity.setHealth(50);
+						EntityEquipment weapon = entity.getEquipment();
+						ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
+						weapon.setItemInMainHand(weaponItem);
+						EntityEquipment head = entity.getEquipment();
+						ItemStack headItem = chest.getInventory().getItem(6);
+						head.setHelmet(headItem);
+						EntityEquipment chestplate = entity.getEquipment();
+						ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+						LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+						chestmeta.setColor(Color.fromRGB(160,80,80));
+						chestplateItem.setItemMeta(chestmeta);
+						chestplate.setChestplate(chestplateItem);
+						EntityEquipment leggings = entity.getEquipment();
+						ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+						LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+						leggingsmeta.setColor(Color.fromRGB(160,80,80));
+						leggingsItem.setItemMeta(leggingsmeta);
+						leggings.setLeggings(leggingsItem);
+						EntityEquipment boots = entity.getEquipment();
+						ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+						LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+						bootsmeta.setColor(Color.fromRGB(160,80,80));
+						bootsItem.setItemMeta(bootsmeta);
+						boots.setBoots(bootsItem);
+					}
+				} else if(num.equals("8")) {
+					Location chestLoc = new Location(world, -1147, 166, 1467);
+					Block block = chestLoc.getBlock();
+					Chest chest = (Chest) block.getState();
+					
+					for(int i = 0 ; i < 4 ; i++) {
+						Zombie entity = (Zombie) player.getWorld().spawnEntity(player.getLocation(), EntityType.ZOMBIE);
+						entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "도끼파 조직원");
+						entity.setCustomNameVisible(true);
+						entity.setPersistent(true);
+						entity.setRemoveWhenFarAway(false);
+						entity.setMaxHealth(30);
+						entity.setHealth(30);
+						EntityEquipment weapon = entity.getEquipment();
+						ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
+						weapon.setItemInMainHand(weaponItem);
+						EntityEquipment head = entity.getEquipment();
+						ItemStack headItem = chest.getInventory().getItem(7);
+						head.setHelmet(headItem);
+						EntityEquipment chestplate = entity.getEquipment();
+						ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+						LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+						chestmeta.setColor(Color.fromRGB(100,100,20));
+						chestplateItem.setItemMeta(chestmeta);
+						chestplate.setChestplate(chestplateItem);
+						EntityEquipment leggings = entity.getEquipment();
+						ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+						LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+						leggingsmeta.setColor(Color.fromRGB(100,100,20));
+						leggingsItem.setItemMeta(leggingsmeta);
+						leggings.setLeggings(leggingsItem);
+						EntityEquipment boots = entity.getEquipment();
+						ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+						LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+						bootsmeta.setColor(Color.fromRGB(100,100,20));
+						bootsItem.setItemMeta(bootsmeta);
+						boots.setBoots(bootsItem);
+						entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
+					}
+				} else if(num.equals("9")) {
+					Location chestLoc = new Location(world, -1147, 166, 1467);
+					Block block = chestLoc.getBlock();
+					Chest chest = (Chest) block.getState();
+					
+					for(int i = 0 ; i < 2 ; i++) {
+						Zombie entity = (Zombie) player.getWorld().spawnEntity(player.getLocation(), EntityType.ZOMBIE);
+						entity.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + "정육점파 조직원");
+						entity.setCustomNameVisible(true);
+						entity.setPersistent(true);
+						entity.setRemoveWhenFarAway(false);
+						entity.setMaxHealth(60);
+						entity.setHealth(60);
+						EntityEquipment weapon = entity.getEquipment();
+						ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
+						weapon.setItemInMainHand(weaponItem);
+						EntityEquipment head = entity.getEquipment();
+						ItemStack headItem = chest.getInventory().getItem(8);
+						head.setHelmet(headItem);
+						EntityEquipment chestplate = entity.getEquipment();
+						ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+						LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+						chestmeta.setColor(Color.fromRGB(200,200,200));
+						chestplateItem.setItemMeta(chestmeta);
+						chestplate.setChestplate(chestplateItem);
+						EntityEquipment leggings = entity.getEquipment();
+						ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+						LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+						leggingsmeta.setColor(Color.fromRGB(200,200,200));
+						leggingsItem.setItemMeta(leggingsmeta);
+						leggings.setLeggings(leggingsItem);
+						EntityEquipment boots = entity.getEquipment();
+						ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+						LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+						bootsmeta.setColor(Color.fromRGB(200,200,200));
+						bootsItem.setItemMeta(bootsmeta);
+						boots.setBoots(bootsItem);
+						entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
+					}
+				} else if(num.equals("10")) {
+					
+				}
+			}
+			
+		} catch(Exception e) {
+			
+		}
+		
+		return true;
+	}
+	
+
+}

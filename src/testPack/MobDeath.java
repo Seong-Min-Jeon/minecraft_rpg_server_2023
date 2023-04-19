@@ -71,6 +71,8 @@ public class MobDeath {
 					mobloot.axe(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "정육점파 조직원")) {
 					mobloot.meat(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.WHITE + "" + ChatColor.BOLD + "변이된 나뭇잎")) {
+					mobloot.d1_1(lootPlayer);
 				}
 				
 			} catch (Exception e) {

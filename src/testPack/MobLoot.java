@@ -311,6 +311,36 @@ public class MobLoot {
 			qb.q0024(player, qNum + 1, false);
 		}
 	}
+	
+	//변이된 나뭇잎
+	public void d1_1(Player player) {
+		World world = player.getWorld();
+		int num2 = rnd.nextInt(5);
+		if (num2 == 0) {
+			player.teleport(new Location(world, 3464.5, 18, 3740));
+			sendMessage(player, "유적 어딘가로 이동했다.");
+		} else if (num2 == 1) {
+			player.teleport(new Location(world, 3464.5, 18, 3697));
+			sendMessage(player, "유적 어딘가로 이동했다.");
+		} else if (num2 == 2) {
+			player.teleport(new Location(world, 3503.5, 18, 3698));
+			sendMessage(player, "유적 어딘가로 이동했다.");
+		} else if (num2 == 3) {
+			player.teleport(new Location(world, 3514.5, 18, 3745));
+			sendMessage(player, "유적 어딘가로 이동했다.");
+		} else if (num2 == 4) {
+			player.teleport(new Location(world, 3515.5, 48, 3706));
+			sendMessage(player, "유적 어딘가로 이동했다.");
+		}
+		
+		List<Entity> entitylist = player.getNearbyEntities(30, 12, 30);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity.getType() == EntityType.PLAYER) {
+				Player nearPlayer = (Player) nearEntity;
+				nearPlayer.teleport(player.getLocation());
+			}
+		}
+	}
 
 	// 보스 스켈이
 	public void mob2(Player player) {
