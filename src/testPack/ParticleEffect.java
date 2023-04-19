@@ -355,8 +355,135 @@ public class ParticleEffect {
 		
 	}
 	
+	public void mobS004() {
+		
+		Location normal = ent.getLocation();
+		World world = ent.getWorld(); 
+		Location e1;
+        
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*2, 1.2, dirZ1*2);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle2 = 95;
+		double totalAngle2 = normal.getYaw() + arrowAngle2;
+		double dirX2 = Math.cos(Math.toRadians(totalAngle2));
+		double dirZ2 = Math.sin(Math.toRadians(totalAngle2));
+		
+		e1 = normal.clone().add(dirX2*1.8, 1.3, dirZ2*1.8);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle3 = 100;
+		double totalAngle3 = normal.getYaw() + arrowAngle3;
+		double dirX3 = Math.cos(Math.toRadians(totalAngle3));
+		double dirZ3 = Math.sin(Math.toRadians(totalAngle3));
+		
+		e1 = normal.clone().add(dirX3*1.6, 1.4, dirZ3*1.6);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle4 = 105;
+		double totalAngle4 = normal.getYaw() + arrowAngle4;
+		double dirX4 = Math.cos(Math.toRadians(totalAngle4));
+		double dirZ4 = Math.sin(Math.toRadians(totalAngle4));
+		
+		e1 = normal.clone().add(dirX4*1.4, 1.5, dirZ4*1.4);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle5 = 85;
+		double totalAngle5 = normal.getYaw() + arrowAngle5;
+		double dirX5 = Math.cos(Math.toRadians(totalAngle5));
+		double dirZ5 = Math.sin(Math.toRadians(totalAngle5));
+		
+		e1 = normal.clone().add(dirX5*1.8, 1.1, dirZ5*1.8);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle6 = 80;
+		double totalAngle6 = normal.getYaw() + arrowAngle6;
+		double dirX6 = Math.cos(Math.toRadians(totalAngle6));
+		double dirZ6 = Math.sin(Math.toRadians(totalAngle6));
+		
+		e1 = normal.clone().add(dirX6*1.6, 1.0, dirZ6*1.6);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle7 = 75;
+		double totalAngle7 = normal.getYaw() + arrowAngle7;
+		double dirX7 = Math.cos(Math.toRadians(totalAngle7));
+		double dirZ7 = Math.sin(Math.toRadians(totalAngle7));
+		
+		e1 = normal.clone().add(dirX7*1.4, 0.9, dirZ7*1.4);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle8 = 70;
+		double totalAngle8 = normal.getYaw() + arrowAngle8;
+		double dirX8 = Math.cos(Math.toRadians(totalAngle8));
+		double dirZ8 = Math.sin(Math.toRadians(totalAngle8));
+		
+		e1 = normal.clone().add(dirX8*1.2, 0.8, dirZ8*1.2);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle9 = 110;
+		double totalAngle9 = normal.getYaw() + arrowAngle9;
+		double dirX9 = Math.cos(Math.toRadians(totalAngle9));
+		double dirZ9 = Math.sin(Math.toRadians(totalAngle9));
+		
+		e1 = normal.clone().add(dirX9*1.2, 1.6, dirZ9*1.2);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 1.0f);
+		
+	}
 	
+	public void mobS005() {
+		
+		Location normal = ent.getLocation();
+		World world = ent.getWorld(); 
+		Location e1;
+        
+        double var = 0;
+		
+		for(int i = 0 ; i < 8 ; i++) {
+			e1 = normal.clone().add(Math.cos(var), 0, Math.sin(var));
+			world.playEffect(e1, Effect.STEP_SOUND, e1.clone().add(0,-1,0).getBlock().getType());
+			
+			e1 = normal.clone().add(Math.cos(var)*2, 0, Math.sin(var)*2);
+			world.playEffect(e1, Effect.STEP_SOUND, e1.clone().add(0,-1,0).getBlock().getType());
+			
+			var += Math.PI / 8;
+		}
+		
+		world.playSound(normal, Sound.ENTITY_GENERIC_EXPLODE, 1.0f, 2.0f);
+		
+	}
 	
+	public void mobS006() {
+		
+		Location normal = ent.getLocation();
+		World world = ent.getWorld(); 
+		Location e1;
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(255,50,50), 1);
+        
+        double var = 0;
+		
+		for(int i = 0 ; i < 8 ; i++) {
+			e1 = normal.clone().add(Math.cos(var), 0, Math.sin(var));
+			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			
+			e1 = normal.clone().add(Math.cos(var)*2, 0, Math.sin(var)*2);
+			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			
+			var += Math.PI / 8;
+		}
+		
+		world.playSound(normal, Sound.ENTITY_GENERIC_EXPLODE, 1.0f, 2.0f);
+		
+	}
+
+	//===========================================================================
 	
 	// 토템
 	public void newEffect0() {

@@ -39,6 +39,8 @@ public class AnotherScroll {
 		personalityUpgrade8(player, itemArg, folder);
 		personalityUpgrade9(player, itemArg, folder);
 		personalityOpen(player, itemArg, folder);
+		
+		check(player, itemArg, folder);
 	}
 	
 	public void personalityUpgrade1(Player player, ItemStack itemArg, File folder) {	
@@ -571,6 +573,26 @@ public class AnotherScroll {
 			fixFile(player, 3, 27, folder);
 			itemArg.setAmount(itemArg.getAmount()-1);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+		}
+	}
+	
+	public void check(Player player, ItemStack itemArg, File folder) {
+		if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.WHITE + "1만안 수표")) {
+			player.setLevel(player.getLevel() + 10000);
+			player.sendMessage(ChatColor.GOLD + "[System] 10000안을 획득했다.");
+			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		} else if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.WHITE + "10만안 수표")) {
+			player.setLevel(player.getLevel() + 100000);
+			player.sendMessage(ChatColor.GOLD + "[System] 100000안을 획득했다.");
+			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		} else if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.WHITE + "100만안 수표")) {
+			player.setLevel(player.getLevel() + 1000000);
+			player.sendMessage(ChatColor.GOLD + "[System] 1000000안을 획득했다.");
+			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		} else if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.WHITE + "1000만안 수표")) {
+			player.setLevel(player.getLevel() + 10000000);
+			player.sendMessage(ChatColor.GOLD + "[System] 10000000안을 획득했다.");
+			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
 		}
 	}
 	

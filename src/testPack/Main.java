@@ -446,6 +446,20 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0025(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0026")) {
 						qb.q0026(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0027")) {
+						qb.q0027(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0028")) {
+						qb.q0028(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0029")) {
+						qb.q0029(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0030")) {
+						qb.q0030(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0031")) {
+						qb.q0031(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0032")) {
+						qb.q0032(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0033")) {
+						qb.q0033(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq9")) {
 						qb.uq9(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq8")) {
@@ -808,6 +822,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "외눈 물고기")) {
 						TTA_Methods.sendTitle(player, "DISTORTED FELLED", 40, 40, 20, "외눈 물고기", 40, 40, 20);
@@ -827,6 +844,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "회색 인간")) {
 						TTA_Methods.sendTitle(player, "DISTORTED FELLED", 40, 40, 20, "회색 인간", 40, 40, 20);
@@ -846,6 +866,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음")) {
 						if(((Slime) ent).getSize() <= 2) {
@@ -872,6 +895,9 @@ public class Main extends JavaPlugin implements Listener{
 							} else if (getQuestName(player).equals("q0025")) {
 								int qNum = qb.getNum(player);
 								qb.q0025(player, qNum + 1, false);
+							} else if (getQuestName(player).equals("q0031")) {
+								int qNum = qb.getNum(player);
+								qb.q0031(player, qNum + 1, false);
 							}
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작은 조각")) {
@@ -898,6 +924,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "약쟁이 소녀")) {
 						TTA_Methods.sendTitle(player, "GREAT DISTORTED FELLED", 40, 40, 20, "약쟁이 소녀", 40, 40, 20);
@@ -923,6 +952,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "날아오르는 다리")) {
 						TTA_Methods.sendTitle(player, "GREAT DISTORTED FELLED", 40, 40, 20, "날아오르는 다리", 40, 40, 20);
@@ -948,6 +980,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "검은 인격")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "검은 인격", 40, 40, 20);
@@ -979,6 +1014,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "외눈 물고기 성체", 40, 40, 20);
@@ -1010,6 +1048,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "녹아내리는 마음", 40, 40, 20);
@@ -1041,6 +1082,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "쏘아올리는 불꽃", 40, 40, 20);
@@ -1072,6 +1116,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "부패의 조각", 40, 40, 20);
@@ -1103,6 +1150,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "폭주하는 황소", 40, 40, 20);
@@ -1140,6 +1190,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "우는 영혼들의 산", 40, 40, 20);
@@ -1177,6 +1230,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "도망쳐", 40, 40, 20);
@@ -1214,6 +1270,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0031")) {
+							int qNum = qb.getNum(player);
+							qb.q0031(player, qNum + 1, false);
 						}
 					}
 				}
@@ -1739,10 +1798,52 @@ public class Main extends JavaPlugin implements Listener{
 			}
 		}
 		
+		//몹은 낙뎀 최소로 받음
+		if(event.getEntity() instanceof Mob) {
+			event.setDamage(1);
+		}
+		
+		//회피
+		if(event.getEntity() instanceof Player) {
+			try {
+				Player player = (Player) event.getEntity();
+				int num = 0;
+				if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+					if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 신속 반지")) {
+						num = 10;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 신속 반지")) {
+						num = 15;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 신속 반지")) {
+						num = 20;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 신속 반지")) {
+						num = 25;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 신속 반지")) {
+						num = 30;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 신속 반지")) {
+						num = 35;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 신속 반지")) {
+						num = 40;
+					}
+				}
+				
+				if(rnd.nextInt(100) < num) {
+					event.setDamage(0);
+					event.setCancelled(true);
+					return;
+				}
+			} catch (Exception e2) {
+				
+			}
+		}
+		
 		//데미지 0이하면 패스
 		if(event.getDamage() <= 0) {
-			event.setCancelled(true);
-			return;
+			if(event.getEntity() instanceof Player) {
+				event.setDamage(0.1);
+			} else {
+				event.setCancelled(true);
+				return;
+			}
 		}
 		
 		//무적인 엔티티
@@ -1761,8 +1862,9 @@ public class Main extends JavaPlugin implements Listener{
 				Player player = (Player) event.getEntity();
 				double damage = event.getDamage();
 				
-				int personality = 0; //10이면 10% 경감
+				int personality = 0; //1이면 5% 경감
 				int chestplate = 0; 
+				int arti = 0; //10이면 10% 경감
 				
 				try {
 					ItemStack item = player.getInventory().getItem(7);
@@ -1782,7 +1884,25 @@ public class Main extends JavaPlugin implements Listener{
 					}
 				}
 				
-				damage = (damage - chestplate) * (100 - (personality*5)) * 0.01;
+				if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+					if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 보호 반지")) {
+						arti = 5;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 보호 반지")) {
+						arti = 10;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 보호 반지")) {
+						arti = 15;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 보호 반지")) {
+						arti = 20;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 보호 반지")) {
+						arti = 25;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 보호 반지")) {
+						arti = 30;
+					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 보호 반지")) {
+						arti = 35;
+					}
+				}
+				
+				damage = (damage - chestplate) * (100 - (personality*5 + arti)) * 0.01;
 				
 				event.setDamage(damage);
 			}
@@ -1792,14 +1912,20 @@ public class Main extends JavaPlugin implements Listener{
 		
 		//다시 데미지 0이하면 패스
 		if (event.getDamage() <= 0) {
-			event.setCancelled(true);
-			return;
+			if(event.getEntity() instanceof Player) {
+				event.setDamage(0.1);
+			} else {
+				event.setCancelled(true);
+				return;
+			}
 		}
 		
 		// 인식변경
 		try {
 			if (event.getEntity() instanceof Mob) {
 				Mob mob = (Mob) event.getEntity();
+				mob.setTicksLived(1);
+				
 				Player player = null;
 				if(mob.getTarget() == null) {
 					List<Entity> nearEntity = mob.getNearbyEntities(5, 5, 5);
@@ -1811,30 +1937,9 @@ public class Main extends JavaPlugin implements Listener{
 					}
 					mob.setTarget(player);
 				}
-				
-				mob.setTicksLived(1);
 			}
 		} catch (Exception e) {
 
-		}
-		
-		//회피
-		try {
-			if (event.getEntity() instanceof Player) {
-				Player player = (Player) event.getEntity();
-				int num = 0;
-				
-				if(num > 70) {
-					num = 70;
-				}
-				
-				if(rnd.nextInt(100) < num) {
-					event.setCancelled(true);
-					return;
-				}
-			}
-		} catch(Exception e) {
-			
 		}
 		
 		// 특수 데미지 처리(뎀지 경감 이후 처리)
@@ -1872,7 +1977,27 @@ public class Main extends JavaPlugin implements Listener{
 							}
 						}
 					}
-					event.setDamage(1);
+					try {
+						if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+							if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 내공 반지")) {
+								event.setDamage(0.9);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 내공 반지")) {
+								event.setDamage(0.8);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 내공 반지")) {
+								event.setDamage(0.7);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 내공 반지")) {
+								event.setDamage(0.6);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 내공 반지")) {
+								event.setDamage(0.5);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 내공 반지")) {
+								event.setDamage(0.4);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 내공 반지")) {
+								event.setDamage(0.3);
+							}
+						}
+					} catch (Exception e2) {
+						event.setDamage(1);
+					}
 				}
 			} else if (event.getCause() == DamageCause.VOID) {
 				if (event.getEntity() instanceof Player) {
@@ -1891,7 +2016,28 @@ public class Main extends JavaPlugin implements Listener{
 				}
 			} else if (event.getCause() == DamageCause.POISON) {
 				if (event.getEntity() instanceof Player) {
-					event.setDamage(1);
+					Player player = (Player) event.getEntity();
+					try {
+						if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+							if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 내공 반지")) {
+								event.setDamage(0.9);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 내공 반지")) {
+								event.setDamage(0.8);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 내공 반지")) {
+								event.setDamage(0.7);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 내공 반지")) {
+								event.setDamage(0.6);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 내공 반지")) {
+								event.setDamage(0.5);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 내공 반지")) {
+								event.setDamage(0.4);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 내공 반지")) {
+								event.setDamage(0.3);
+							}
+						}
+					} catch (Exception e2) {
+						event.setDamage(1);
+					}
 				}
 			} else if (event.getCause() == DamageCause.WITHER) {
 				if (event.getEntity() instanceof Player) {
@@ -1926,23 +2072,82 @@ public class Main extends JavaPlugin implements Listener{
 							}
 						}
 					}
-					event.setDamage(1);
+					try {
+						if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+							if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 내공 반지")) {
+								event.setDamage(0.9);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 내공 반지")) {
+								event.setDamage(0.8);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 내공 반지")) {
+								event.setDamage(0.7);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 내공 반지")) {
+								event.setDamage(0.6);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 내공 반지")) {
+								event.setDamage(0.5);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 내공 반지")) {
+								event.setDamage(0.4);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 내공 반지")) {
+								event.setDamage(0.3);
+							}
+						}
+					} catch (Exception e2) {
+						event.setDamage(1);
+					}
 				}
 			} else if (event.getCause() == DamageCause.BLOCK_EXPLOSION) {
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
-					event.setDamage(player.getMaxHealth()/4);
+					try {
+						if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+							if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 내공 반지")) {
+								event.setDamage(1.8);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 내공 반지")) {
+								event.setDamage(1.6);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 내공 반지")) {
+								event.setDamage(1.4);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 내공 반지")) {
+								event.setDamage(1.2);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 내공 반지")) {
+								event.setDamage(1);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 내공 반지")) {
+								event.setDamage(0.8);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 내공 반지")) {
+								event.setDamage(0.6);
+							}
+						}
+					} catch (Exception e2) {
+						event.setDamage(2);
+					}
 					player.setFireTicks(100);
 				}
 			} else if (event.getCause() == DamageCause.ENTITY_EXPLOSION) {
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
-					event.setDamage(player.getMaxHealth()/4);
+					try {
+						if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+							if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 내공 반지")) {
+								event.setDamage(1.8);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 내공 반지")) {
+								event.setDamage(1.6);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 내공 반지")) {
+								event.setDamage(1.4);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 내공 반지")) {
+								event.setDamage(1.2);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 내공 반지")) {
+								event.setDamage(1);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 내공 반지")) {
+								event.setDamage(0.8);
+							} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 내공 반지")) {
+								event.setDamage(0.6);
+							}
+						}
+					} catch (Exception e2) {
+						event.setDamage(2);
+					}
 					player.setFireTicks(100);
 				}
 			} else if(event.getCause() == DamageCause.STARVATION) {
-				Player player = (Player) event.getEntity();
-				event.setDamage(player.getMaxHealth());
+				event.setDamage(1);
 			}
 		} catch(Exception e){
 			
@@ -2042,6 +2247,48 @@ public class Main extends JavaPlugin implements Listener{
 			
 		}
 		
+		
+		//부활
+		if(event.getEntity() instanceof Player) {
+			Player player = (Player) event.getEntity();
+			if(event.getDamage() >= player.getHealth()) {
+				try {
+					int num = 0;
+					if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+						if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 생명 반지")) {
+							num = 10;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 생명 반지")) {
+							num = 20;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 생명 반지")) {
+							num = 30;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 생명 반지")) {
+							num = 40;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 생명 반지")) {
+							num = 50;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 생명 반지")) {
+							num = 60;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 생명 반지")) {
+							num = 70;
+						}
+					}
+					
+					if(rnd.nextInt(100) < num) {
+						if(player.getMaxHealth() < 1) {
+							player.setMaxHealth(1);
+						}
+	 					player.setHealth(player.getMaxHealth());
+	 					player.teleport(new Location(world, -1081.5, 186, 1451.5));
+						
+						event.setDamage(0);
+						event.setCancelled(true);
+						return;
+					}
+				} catch (Exception e2) {
+					
+				}
+			}
+		}
+		
 	}
 	
 	@EventHandler
@@ -2055,7 +2302,8 @@ public class Main extends JavaPlugin implements Listener{
 					ItemStack item = player.getInventory().getItemInMainHand();
 					Material type = item.getType();
 					if((type == Material.CREEPER_BANNER_PATTERN) || (type == Material.FLOWER_BANNER_PATTERN) || (type == Material.GLOBE_BANNER_PATTERN)
-							|| (type == Material.MOJANG_BANNER_PATTERN) || (type == Material.PIGLIN_BANNER_PATTERN) || (type == Material.SKULL_BANNER_PATTERN)) {
+							|| (type == Material.MOJANG_BANNER_PATTERN) || (type == Material.PIGLIN_BANNER_PATTERN) || (type == Material.SKULL_BANNER_PATTERN)
+							|| (type == Material.MAP)) {
 						new ScrollUseEvent(player, item, getDataFolder());
 					} else if(type == Material.SLIME_BALL) {
 						if(item.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "GAME START")) {
@@ -2574,6 +2822,12 @@ public class Main extends JavaPlugin implements Listener{
 	    			if(block.getType() == Material.ENCHANTING_TABLE) {
 	    				event.setCancelled(true);
 	    			}
+	    			
+	    			if(block.getType() == Material.WHITE_GLAZED_TERRACOTTA) {
+	    				LootChest lc = new LootChest();
+		    			lc.open(player, block);
+		    			event.setCancelled(true);
+	    			}
 	    		}
 	    		
 	    		//취소 이벤드
@@ -2951,7 +3205,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0021")) {
+					} else if (getQuestName(player).equals("q0021") || getQuestName(player).equals("q0027")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -2991,7 +3245,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 0, false, false));
 						}
-					} else if (getQuestName(player).equals("q0022")) {
+					} else if (getQuestName(player).equals("q0022") || getQuestName(player).equals("q0028")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -3008,7 +3262,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.setMaxHealth(50);
 							entity.setHealth(50);
 							EntityEquipment weapon = entity.getEquipment();
-							ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
+							ItemStack weaponItem = new ItemStack(Material.SPRUCE_LOG);
 							weapon.setItemInMainHand(weaponItem);
 							EntityEquipment head = entity.getEquipment();
 							ItemStack headItem = chest.getInventory().getItem(6);
@@ -3032,7 +3286,7 @@ public class Main extends JavaPlugin implements Listener{
 							bootsItem.setItemMeta(bootsmeta);
 							boots.setBoots(bootsItem);
 						}
-					} else if (getQuestName(player).equals("q0023")) {
+					} else if (getQuestName(player).equals("q0023") || getQuestName(player).equals("q0029")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -3049,7 +3303,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.setMaxHealth(30);
 							entity.setHealth(30);
 							EntityEquipment weapon = entity.getEquipment();
-							ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
+							ItemStack weaponItem = new ItemStack(Material.GREEN_CARPET);
 							weapon.setItemInMainHand(weaponItem);
 							EntityEquipment head = entity.getEquipment();
 							ItemStack headItem = chest.getInventory().getItem(7);
@@ -3074,7 +3328,7 @@ public class Main extends JavaPlugin implements Listener{
 							boots.setBoots(bootsItem);
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
 						}
-					} else if (getQuestName(player).equals("q0024")) {
+					} else if (getQuestName(player).equals("q0024") || getQuestName(player).equals("q0030")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -3091,7 +3345,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.setMaxHealth(60);
 							entity.setHealth(60);
 							EntityEquipment weapon = entity.getEquipment();
-							ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
+							ItemStack weaponItem = new ItemStack(Material.BIRCH_LOG);
 							weapon.setItemInMainHand(weaponItem);
 							EntityEquipment head = entity.getEquipment();
 							ItemStack headItem = chest.getInventory().getItem(8);
@@ -3190,9 +3444,9 @@ public class Main extends JavaPlugin implements Listener{
 		        			} else if(event.getSlot() == 12) {
 		        				player.getInventory().addItem(new Shop1().item13());
 		        			}
-		        			new Message().msg(player, "나오: 당신에게 도움이 되기를..");
+		        			new Message().msg(player, "나오: 당신에게 도움이 되기를…");
 		        		} else {
-		        			new Message().msg(player, "나오: 광기가.. 부족하시네요..");
+		        			new Message().msg(player, "나오: 광기가… 부족하시네요…");
 		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
 		        		}
 					} 
@@ -3213,7 +3467,7 @@ public class Main extends JavaPlugin implements Listener{
 		        			}
 		        			new Message().msg(player, "단테: 째깍째깍!");
 		        		} else {
-		        			new Message().msg(player, "단테: 째깍..");
+		        			new Message().msg(player, "단테: 째깍…");
 		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
 		        		}
 					}
@@ -3398,6 +3652,75 @@ public class Main extends JavaPlugin implements Listener{
 		        			new Message().msg(player, "아인: 이 순간까지 도달한 너라면 이겨낼 수 있을 거야.");
 		        		} else {
 		        			new Message().msg(player, "아인: 충분한 가치는 있으니 도둑질은 잠시 참아줘.");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					//암거래상
+					else if (loc.getX() <= -1134 && loc.getY() <= 80 && loc.getZ() <= 1305
+							&& loc.getX() >= -1142 && loc.getY() >= 70 && loc.getZ() >= 1297) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop11().item1());
+		        			}
+		        			new Message().msg(player, "암거래상: 용건이 없으면 이제 빨리 꺼져라.");
+		        		} else {
+		        			new Message().msg(player, "암거래상: 죽고 싶냐?");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					//w사 영업사원
+					else if (loc.getX() <= -1144 && loc.getY() <= 85 && loc.getZ() <= 1347
+							&& loc.getX() >= -1152 && loc.getY() >= 75 && loc.getZ() >= 1339) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop12().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop12().item1());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop12().item1());
+		        			} else if(event.getSlot() == 3) {
+		        				player.getInventory().addItem(new Shop12().item1());
+		        			} else if(event.getSlot() == 4) {
+		        				player.getInventory().addItem(new Shop12().item1());
+		        			} else if(event.getSlot() == 5) {
+		        				player.getInventory().addItem(new Shop12().item1());
+		        			} else if(event.getSlot() == 6) {
+		        				player.getInventory().addItem(new Shop12().item1());
+		        			}
+		        			new Message().msg(player, "w사 영업사원: 탑승 시에 안전벨트를 잘 착용해주세요.");
+		        		} else {
+		        			new Message().msg(player, "w사 영업사원: 돈이 없으면 열차 탑승이 불가능해요.");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					//바다
+					else if (loc.getX() <= -1115 && loc.getY() <= 190 && loc.getZ() <= 1454
+							&& loc.getX() >= -1123 && loc.getY() >= 180 && loc.getZ() >= 1446) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop13().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop13().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop13().item3());
+		        			} else if(event.getSlot() == 3) {
+		        				player.getInventory().addItem(new Shop13().item4());
+		        			}
+		        			new Message().msg(player, "바다: 수표 발급이군요.%바다: 알겠습니다.");
+		        		} else {
+		        			new Message().msg(player, "바다: 돈이… 부족하시군요.");
 		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
 		        		}
 					}
@@ -4433,6 +4756,11 @@ public class Main extends JavaPlugin implements Listener{
 						} else {
 							new Message().msg(player, "산: 물건은 어디에 두고 온거야?");
 						}
+	 	    		} else if (getQuestName(player).equals("q0032")) {
+	 	    			new Message().msg(player, "산: 보안점검 오셨나보네요.%산: 저희는 문제 없습니다.%산: 줄리아랑 이사도라한테도 안부인사 전해주세요.");
+	 	    			QuestBoard qb = new QuestBoard();
+	 	    			int qNum = qb.getNum(player);
+        				qb.q0032(player, qNum + 1, false);
 	 	    		} else {
 	 	    			if(office.equals("가로등 사무소")) {
 	 	    				if (getQuestName(player).equals("q0014")) {
@@ -4579,18 +4907,81 @@ public class Main extends JavaPlugin implements Listener{
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("줄리아")) {
 	 	    		if(getQuestName(player) == null) {
-	 	    			
+	 	    			int num = rnd.nextInt(3);
+		 	    		if(num == 0) {
+		 	    			new Message().msg(player, "줄리아: 이사도라는 너무 냉정한 것 같아.");
+		 	    		} else if(num == 1) {
+		 	    			new Message().msg(player, "줄리아: 가로등 사무소의 산이라고 알아?%줄리아: 나랑 같은 사무소 동기였어!");
+		 	    		} else if(num == 2) {
+		 	    			new Message().msg(player, "줄리아: 6과라도 우리는 협회 소속이야.%줄리아: 어디가서 꿀리지 않는다는 말이지.");
+		 	    		}
 	 	    		} else if (getQuestName(player).equals("q0016")) {
 	 	    			QuestBoard qb = new QuestBoard();
 	 	    			new Message().msg(player, "줄리아: 가로등 사무소에서 왔지?%줄리아: 이걸 전달해주면 돼.");
 						int qNum = qb.getNum(player);
         				qb.q0016(player, qNum + 1, false);
 	 	    		} else {
-	 	    			
+	 	    			int num = rnd.nextInt(3);
+		 	    		if(num == 0) {
+		 	    			new Message().msg(player, "줄리아: 이사도라는 너무 냉정한 것 같아.");
+		 	    		} else if(num == 1) {
+		 	    			new Message().msg(player, "줄리아: 가로등 사무소의 산이라고 알아?%줄리아: 나랑 같은 사무소 동기였어!");
+		 	    		} else if(num == 2) {
+		 	    			new Message().msg(player, "줄리아: 6과라도 우리는 협회 소속이야.%줄리아: 어디가서 꿀리지 않는다는 말이지.");
+		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("이사도라")) {
+	 	    		int num = rnd.nextInt(4);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "이사도라: 우리는 정으로만 움직이면 안 되는 거야.%이사도라: 그랬다간 모든 게 무너지는 거라고.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "이사도라: 뒤틀림 현상…%이사도라: 본 적은 없어도 들어본 적은 있지?%이사도라: 백야, 흑주 이후 전 도시적으로 발생하고 있는 이상 현상 말이야.%"
+	 	    					+ "이사도라: 확실히 빈도는 낮아도… 각각의 개체마다 처리조차 쉽게 감당이 안 되는 사건.%이사도라: 아직까지 뒤틀림이 발생하는 원인에 대한 단서도 없어.%"
+	 	    					+ "이사도라: 이런 것들과 언제까지 싸워야하는걸까.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "이사도라: 동료에게 듣기로는 자기가 맡던 치안 구역에 위험요소는 없었는데…%이사도라: 갑자기 거주민의 몸이 뒤틀리면서 네발짐승처럼 바뀌었다고 했어.%"
+	 	    					+ "이사도라: 다행히 한 자릿수 정도의 사상자 선에서 처리할 수 있었지만…%이사도라: 그리고 식당 종업원이 돌연 식인 샌드위치…?%이사도라: 그런 괴물로 바뀌었다고도 들은 적 있어.");
+	 	    		} else if(num == 3) {
+	 	    			new Message().msg(player, "이사도라: 츠바이의 경구는 '당신의 방패'야.%이사도라: 기억해.");
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("월터")) {
 	 	    		if(getQuestName(player) == null) {
-	 	    			
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("츠바이 협회 6과")) {
+	 	    				int num = rnd.nextInt(7);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "월터: 협회에서 관리하는 구역에 개미새끼들이 나타났다고 하는군.%월터: 자네가 나서서 처리할 수 있도록.%q0027%월터: 적당히 손봐주기만 하라고… 크흠…");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "월터: 협회에서 관리하는 구역에 개미새끼들이 나타났다고 하는군.%월터: 자네가 나서서 처리할 수 있도록.%q0028");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "월터: 협회에서 관리하는 구역에 개미새끼들이 나타났다고 하는군.%월터: 자네가 나서서 처리할 수 있도록.%q0029");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "월터: 협회에서 관리하는 구역에 개미새끼들이 나타났다고 하는군.%월터: 자네가 나서서 처리할 수 있도록.%q0030");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "월터: 협회에서 뒤틀림을 사냥하라는 명이 떨어졌네.%월터: 우리 6과는 도시 전설급으로 지정된 뒤틀림만 처리해도 공적이 인정된다네.%월터: 자네가 나서서 처리할 수 있도록.%"
+	 	    							+ "월터: 뒤틀림이 발생하는 원인을 알아온다면 더욱 좋을거야.%q0031");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "월터: 가로등 사무소의 보안점검을 하는 날이군.%월터: 협회의 말단은 이런 시덥잖은 일도 한다네.%q0032");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "월터: 5과에 보고서를 전달하고 오게.%q0033");
+	 	    				}
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 6)) {
+		 	    			int num = rnd.nextInt(5);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "월터: 협회에서 관리하는 구역에 개미새끼들이 나타났다고 하네.%월터: 자네가 처리해주면 고맙겠구만.%q0027%월터: 적당히 손봐주기만 하라고… 크흠…");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "월터: 협회에서 관리하는 구역에 개미새끼들이 나타났다고 하네.%월터: 자네가 처리해주면 고맙겠구만.%q0028");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "월터: 협회에서 관리하는 구역에 개미새끼들이 나타났다고 하네.%월터: 자네가 처리해주면 고맙겠구만.%q0029");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "월터: 협회에서 관리하는 구역에 개미새끼들이 나타났다고 하네.%월터: 자네가 처리해주면 고맙겠구만.%q0030");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "월터: 협회에서 뒤틀림을 사냥하라는 명이 떨어졌네.%월터: 우리 6과는 도시 전설급으로 지정된 뒤틀림만 처리해도 공적이 인정된다네.%월터: 자네가 처리해주면 고맙겠구만.%q0031");
+	 	    				}
+		 	    		} else {
+		 	    			new Message().msg(player, "월터: 우리는 의뢰자의 방패입니다.%월터: 용건은 무엇입니까.");
+		 	    		}
 	 	    		} else if (getQuestName(player).equals("q0006")) {
 	 	    			QuestBoard qb = new QuestBoard();
 	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
@@ -4606,7 +4997,19 @@ public class Main extends JavaPlugin implements Listener{
 							new Message().msg(player, "월터: 자네 지금 장난하자는건가?%월터: 빨리 음식을 내오게나.");
 						}
 	 	    		} else {
-	 	    			
+	 	    			if(office.equals("츠바이 협회 6과")) {
+	 	    				if (getQuestName(player).equals("q0027")) {
+		 	    				new Message().msg(player, "월터: 왜 적당히 해야하냐고?%월터: …명령이니 그대로 수행하도록.");
+		 	    			} else if (getQuestName(player).equals("q0031")) {
+		 	    				new Message().msg(player, "월터: 뒤틀림 현상에 관한 의뢰가 제일 공적 쌓기에 좋다네.");
+		 	    			} else {
+		 	    				new Message().msg(player, "월터: 의뢰나 끝마치고 찾아오도록.");
+		 	    			}
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "월터: 잘 부탁하네.");
+		 	    		} else {
+		 	    			new Message().msg(player, "월터: 우리는 의뢰자의 방패입니다.%월터: 용건은 무엇입니까.");
+		 	    		}
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("디모르포돈")) {
 	 	    		if(getQuestName(player) == null) {
@@ -4616,6 +5019,21 @@ public class Main extends JavaPlugin implements Listener{
 	 	    			new Message().msg(player, "디모르포돈: 가로등 사무소로 전하는 물건이오.");
 						int qNum = qb.getNum(player);
         				qb.q0017(player, qNum + 1, false);
+	 	    		} else if (getQuestName(player).equals("q0033")) {
+	 	    			QuestBoard qb = new QuestBoard();
+	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						ItemStack food = chest.getInventory().getItem(6);
+						if(player.getInventory().contains(food)) {
+							new Message().msg(player, "디모르포돈: 잘 받았소.%디모르포돈: 상부에는 내가 전하지.");
+							
+							player.getInventory().remove(food);
+							int qNum = qb.getNum(player);
+	        				qb.q0033(player, qNum + 1, false);
+						} else {
+							new Message().msg(player, "디모르포돈: 보고서를 가지고 온게 아니오?");
+						}
 	 	    		} else {
 	 	    			
 	 	    		}

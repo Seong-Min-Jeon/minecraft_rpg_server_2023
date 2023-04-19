@@ -57,7 +57,6 @@ public class Start {
 			
 		}
 		
-		player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 100, 1,false,false));
 		ItemStack item = player.getInventory().getItem(0);
 		player.getInventory().clear();
 		player.setLevel(0);
@@ -68,6 +67,9 @@ public class Start {
 		if(name.equals("평범한 해결사의 인격")) {
 			player.setMaxHealth(10); //인격 강화에 따라서 증가시켜줘야됨
 		}
+		
+		player.setHealth(player.getMaxHealth());
+		player.setFoodLevel(20);
 		
 		ItemStack lic = new ItemStack(Material.ACACIA_DOOR);
 		ItemMeta licIm = lic.getItemMeta();

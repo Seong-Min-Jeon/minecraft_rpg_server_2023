@@ -275,7 +275,7 @@ public class Cmd33mob implements CommandExecutor {
 						entity.setMaxHealth(50);
 						entity.setHealth(50);
 						EntityEquipment weapon = entity.getEquipment();
-						ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
+						ItemStack weaponItem = new ItemStack(Material.SPRUCE_LOG);
 						weapon.setItemInMainHand(weaponItem);
 						EntityEquipment head = entity.getEquipment();
 						ItemStack headItem = chest.getInventory().getItem(6);
@@ -313,7 +313,7 @@ public class Cmd33mob implements CommandExecutor {
 						entity.setMaxHealth(30);
 						entity.setHealth(30);
 						EntityEquipment weapon = entity.getEquipment();
-						ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
+						ItemStack weaponItem = new ItemStack(Material.GREEN_CARPET);
 						weapon.setItemInMainHand(weaponItem);
 						EntityEquipment head = entity.getEquipment();
 						ItemStack headItem = chest.getInventory().getItem(7);
@@ -352,7 +352,7 @@ public class Cmd33mob implements CommandExecutor {
 						entity.setMaxHealth(60);
 						entity.setHealth(60);
 						EntityEquipment weapon = entity.getEquipment();
-						ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
+						ItemStack weaponItem = new ItemStack(Material.BIRCH_LOG);
 						weapon.setItemInMainHand(weaponItem);
 						EntityEquipment head = entity.getEquipment();
 						ItemStack headItem = chest.getInventory().getItem(8);

@@ -49,6 +49,12 @@ public class TPMobSpawn {
 			new BGM(player, "메인"); //메인 브금 재생
 		}
 		
+		if(loc.getX() == -1081.5 && loc.getY() == 186 && loc.getZ() == 1451.5) {
+			player.teleport(new Location(player.getWorld(), -1081.5, 186.1, 1451.5));
+			TTA_Methods.sendTitle(player, null, 20, 40, 20, "죽음의 경계에서 살아남았다.", 20, 40, 20);
+			new BGM(player, "메인"); //메인 브금 재생
+		}
+		
 		d1_1(player, loc);
 		d1_2(player, loc);
 		d1_3(player, loc);
