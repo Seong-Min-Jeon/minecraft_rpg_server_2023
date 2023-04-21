@@ -71,6 +71,16 @@ public class MobDeath {
 					mobloot.axe(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "정육점파 조직원")) {
 					mobloot.meat(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "녹슨 사슬파 간부")) {
+					mobloot.chainB(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "흑운회 카시라")) {
+					mobloot.kuroB(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "사육제 전투원")) {
+					mobloot.carniB(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "철공회 간부")) {
+					mobloot.ironballB(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "하바네로파 간부")) {
+					mobloot.habaB(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.WHITE + "" + ChatColor.BOLD + "변이된 나뭇잎")) {
 					mobloot.d1_1(lootPlayer);
 				}

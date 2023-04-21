@@ -19,6 +19,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.scoreboard.Objective;
 
 import de.Herbystar.TTA.TTA_Methods;
 
@@ -898,6 +899,12 @@ public class LootChest {
 				if (is.getItemMeta().getDisplayName().equals(ChatColor.GOLD + str)) {
 					is.setAmount(is.getAmount()-1);
 					player.getWorld().playSound(player.getLocation(), Sound.BLOCK_CHEST_OPEN, 1.0f, 1.0f);
+					
+					QuestBoard qb = new QuestBoard();
+					if (getQuestName(player).equals("q0040")) {
+						int qNum = qb.getNum(player);
+						qb.q0040(player, qNum + 1, false);
+					}
 					return true;
 				}
 			}
@@ -907,43 +914,19 @@ public class LootChest {
 		return false;		
 	}
 
-	public ItemStack setStat(int num, ItemStack item, int lvl) {
-		ItemMeta im = item.getItemMeta();
-		if(num == 0) {
-			im.setDisplayName(ChatColor.YELLOW + "의문의 상자");
-		} else if(num == 1) {
-			im.setDisplayName(ChatColor.LIGHT_PURPLE + "의문의 상자");
-		} else if(num == 2) {
-			im.setDisplayName(ChatColor.AQUA + "의문의 상자");
-		} else if(num == 3) {
-			im.setDisplayName(ChatColor.DARK_RED + "의문의 상자");
-		} else if(num == 4) {
-			im.setDisplayName(ChatColor.DARK_PURPLE + "의문의 상자");
-		} else if(num == 5) {
-			im.setDisplayName(ChatColor.DARK_GREEN + "의문의 상자");
+	public String getQuestName(Player player) {
+		try {
+			ArrayList<Objective> list = new ArrayList<Objective>(player.getScoreboard().getObjectives());
+			String name = null;
+			for(Objective obj : list) {
+				if(obj.getDisplayName().charAt(2) == '[') {
+					name = obj.getName();
+					break;
+				}
+			}			
+			return name;
+		} catch(Exception e) {
+			return null;
 		}
-		
-		int minLvl = ((int)(lvl/10)) * 10;
-		int maxLvl = minLvl + 10;
-		
-		ArrayList<String> lore = new ArrayList();
-		if(num == 5) {
-			lore.add(ChatColor.GRAY + "신비한 힘으로 굳게 닫힌 상자");
-			lore.add(ChatColor.GRAY + "요정의 테이블에서 열 수 있을 것 같다.");
-		} else {
-			lore.add(ChatColor.GRAY + "레벨 범위: " + ChatColor.WHITE + minLvl + "-" + maxLvl);
-			lore.add(ChatColor.GRAY + " ");
-			lore.add(ChatColor.GRAY + "신비한 힘으로 굳게 닫힌 상자");
-			lore.add(ChatColor.GRAY + "요정의 테이블에서 열 수 있을 것 같다.");
-		}
-		im.setLore(lore);
-		
-		im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-		im.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-		im.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-		
-		item.setItemMeta(im);
-		return item;
 	}
-	
 }

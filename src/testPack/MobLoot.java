@@ -336,6 +336,116 @@ public class MobLoot {
 		}
 	}
 	
+	public void chainB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(3000) + 5000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0034")) {
+					int qNum = qb.getNum(p);
+					qb.q0034(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0034")) {
+			int qNum = qb.getNum(player);
+			qb.q0034(player, qNum + 1, false);
+		}
+	}
+	
+	public void kuroB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(2000) + 6000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0035")) {
+					int qNum = qb.getNum(p);
+					qb.q0035(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0035")) {
+			int qNum = qb.getNum(player);
+			qb.q0035(player, qNum + 1, false);
+		}
+	}
+	
+	public void carniB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(1000) + 100));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0036")) {
+					int qNum = qb.getNum(p);
+					qb.q0036(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0036")) {
+			int qNum = qb.getNum(player);
+			qb.q0036(player, qNum + 1, false);
+		}
+	}
+	
+	public void ironballB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(5000) + 6000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0037")) {
+					int qNum = qb.getNum(p);
+					qb.q0037(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0037")) {
+			int qNum = qb.getNum(player);
+			qb.q0037(player, qNum + 1, false);
+		}
+	}
+	
+	public void habaB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(12000) + 2000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0038")) {
+					int qNum = qb.getNum(p);
+					qb.q0038(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0038")) {
+			int qNum = qb.getNum(player);
+			qb.q0038(player, qNum + 1, false);
+		}
+	}
+	
 	//변이된 나뭇잎
 	public void d1_1(Player player) {
 		World world = player.getWorld();
