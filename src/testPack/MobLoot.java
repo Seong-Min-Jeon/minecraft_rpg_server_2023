@@ -446,6 +446,146 @@ public class MobLoot {
 		}
 	}
 	
+	public void chain(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(2000) + 3000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0043")) {
+					int qNum = qb.getNum(p);
+					qb.q0043(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0049")) {
+					int qNum = qb.getNum(p);
+					qb.q0049(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0043")) {
+			int qNum = qb.getNum(player);
+			qb.q0043(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0049")) {
+			int qNum = qb.getNum(player);
+			qb.q0049(player, qNum + 1, false);
+		}
+	}
+	
+	public void kuro(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(1500) + 4000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0035")) {
+					int qNum = qb.getNum(p);
+					qb.q0035(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0050")) {
+					int qNum = qb.getNum(p);
+					qb.q0050(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0035")) {
+			int qNum = qb.getNum(player);
+			qb.q0035(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0050")) {
+			int qNum = qb.getNum(player);
+			qb.q0050(player, qNum + 1, false);
+		}
+	}
+	
+	public void carni(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(500) + 100));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0036")) {
+					int qNum = qb.getNum(p);
+					qb.q0036(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0051")) {
+					int qNum = qb.getNum(p);
+					qb.q0051(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0036")) {
+			int qNum = qb.getNum(player);
+			qb.q0036(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0051")) {
+			int qNum = qb.getNum(player);
+			qb.q0051(player, qNum + 1, false);
+		}
+	}
+	
+	public void ironball(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(3000) + 4000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0037")) {
+					int qNum = qb.getNum(p);
+					qb.q0037(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0052")) {
+					int qNum = qb.getNum(p);
+					qb.q0052(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0037")) {
+			int qNum = qb.getNum(player);
+			qb.q0037(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0052")) {
+			int qNum = qb.getNum(player);
+			qb.q0052(player, qNum + 1, false);
+		}
+	}
+	
+	public void haba(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(7000) + 1000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0038")) {
+					int qNum = qb.getNum(p);
+					qb.q0038(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0053")) {
+					int qNum = qb.getNum(p);
+					qb.q0053(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0038")) {
+			int qNum = qb.getNum(player);
+			qb.q0038(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0053")) {
+			int qNum = qb.getNum(player);
+			qb.q0053(player, qNum + 1, false);
+		}
+	}
+	
 	//변이된 나뭇잎
 	public void d1_1(Player player) {
 		World world = player.getWorld();

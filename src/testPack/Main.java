@@ -480,6 +480,34 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0041_1(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0042")) {
 						qb.q0042(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0043")) {
+						qb.q0043(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0044")) {
+						qb.q0044(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0045")) {
+						qb.q0045(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0046")) {
+						qb.q0046(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0047")) {
+						qb.q0047(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0048")) {
+						qb.q0048(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0049")) {
+						qb.q0049(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0050")) {
+						qb.q0050(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0051")) {
+						qb.q0051(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0052")) {
+						qb.q0052(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0053")) {
+						qb.q0053(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0054")) {
+						qb.q0054(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0055")) {
+						qb.q0055(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0056")) {
+						qb.q0056(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq9")) {
 						qb.uq9(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq8")) {
@@ -1576,6 +1604,21 @@ public class Main extends JavaPlugin implements Listener{
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.GOLDEN_APPLE) {
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.PUMPKIN_PIE) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.COOKIE) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.POISONOUS_POTATO) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.DRIED_KELP) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
+			} else if(player.getInventory().getItemInMainHand().getType() == Material.GLOW_BERRIES) {
+				event.setCancelled(true);
+				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			}
 		} catch(Exception e) {
 			
@@ -1589,19 +1632,19 @@ public class Main extends JavaPlugin implements Listener{
 			if(entity instanceof Drowned) {
 				entity.remove();
 			}
+			
+			if(entity.getType() == EntityType.CHICKEN) {
+				new SpawnAnimal().spawn(entity);
+			}
 			if(!(entity.getType() == EntityType.HORSE || entity.getType() == EntityType.PIG || entity.getType() == EntityType.SHEEP
 					|| entity.getType() == EntityType.COW || entity.getType() == EntityType.CHICKEN)) {
 				((LivingEntity)entity).addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, Integer.MAX_VALUE, 2, true, false, false));
 			}
 			if((entity.getType() != EntityType.HORSE) && (entity.getType() != EntityType.ARMOR_STAND)) {
 				SpawnMob sm = new SpawnMob();
-				SpawnAnimal sa = new SpawnAnimal();
 				if(!sm.spawn(entity)) {			
 					event.setCancelled(true);
 				}
-				if(!sa.spawn(entity)) {			
-					event.setCancelled(true);
-				}			
 			}
 			if(entity.getType() == EntityType.ZOMBIE) {
 				Zombie zom = (Zombie) entity;
@@ -1727,8 +1770,13 @@ public class Main extends JavaPlugin implements Listener{
 					}
 				} else if(arrow.getShooter() instanceof Mob) {
 					if(event.getEntity() instanceof Player) {
+						Player player = (Player) (event.getEntity());
 						event.setCancelled(true);
-						((Player) (event.getEntity())).damage(arrow.getDamage());
+						player.damage(arrow.getDamage());
+						
+						if(arrow.getDamage() == 0.01) {
+							player.setFireTicks(60);
+						}
 					} else if(event.getEntity() instanceof Mob) {
 						event.setCancelled(true);
 					}
@@ -3240,6 +3288,9 @@ public class Main extends JavaPlugin implements Listener{
 							entity.setRemoveWhenFarAway(false);
 							entity.setMaxHealth(80);
 							entity.setHealth(80);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.AIR);
+							weapon.setItemInMainHand(weaponItem);
 							EntityEquipment head = entity.getEquipment();
 							ItemStack headItem = chest.getInventory().getItem(4);
 							head.setHelmet(headItem);
@@ -3280,6 +3331,9 @@ public class Main extends JavaPlugin implements Listener{
 							entity.setRemoveWhenFarAway(false);
 							entity.setMaxHealth(60);
 							entity.setHealth(60);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.AIR);
+							weapon.setItemInMainHand(weaponItem);
 							EntityEquipment head = entity.getEquipment();
 							ItemStack headItem = chest.getInventory().getItem(5);
 							head.setHelmet(headItem);
@@ -3446,7 +3500,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.setMaxHealth(150);
 							entity.setHealth(150);
 							EntityEquipment weapon = entity.getEquipment();
-							ItemStack weaponItem = new ItemStack(Material.BOW);
+							ItemStack weaponItem = new ItemStack(Material.AIR);
 							weapon.setItemInMainHand(weaponItem);
 							EntityEquipment head = entity.getEquipment();
 							ItemStack headItem = chest.getInventory().getItem(9);
@@ -3575,6 +3629,9 @@ public class Main extends JavaPlugin implements Listener{
 							entity.setRemoveWhenFarAway(false);
 							entity.setMaxHealth(180);
 							entity.setHealth(180);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.AIR);
+							weapon.setItemInMainHand(weaponItem);
 							EntityEquipment head = entity.getEquipment();
 							ItemStack headItem = chest.getInventory().getItem(12);
 							head.setHelmet(headItem);
@@ -3620,6 +3677,221 @@ public class Main extends JavaPlugin implements Listener{
 							weapon.setItemInMainHand(weaponItem);
 							EntityEquipment head = entity.getEquipment();
 							ItemStack headItem = chest.getInventory().getItem(13);
+							head.setHelmet(headItem);
+							EntityEquipment chestplate = entity.getEquipment();
+							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+							chestmeta.setColor(Color.fromRGB(255,150,150));
+							chestplateItem.setItemMeta(chestmeta);
+							chestplate.setChestplate(chestplateItem);
+							EntityEquipment leggings = entity.getEquipment();
+							ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+							LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+							leggingsmeta.setColor(Color.fromRGB(255,150,150));
+							leggingsItem.setItemMeta(leggingsmeta);
+							leggings.setLeggings(leggingsItem);
+							EntityEquipment boots = entity.getEquipment();
+							ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+							LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+							bootsmeta.setColor(Color.fromRGB(255,150,150));
+							bootsItem.setItemMeta(bootsmeta);
+							boots.setBoots(bootsItem);
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+						}
+					} else if (getQuestName(player).equals("q0043") || getQuestName(player).equals("q0049")) {
+						qo.returnEntity(player).remove();
+						qo.remove(player);
+						
+						Location chestLoc = new Location(world, -1147, 166, 1467);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						
+						for(int i = 0 ; i < 3 ; i++) {
+							Zombie entity = (Zombie) player.getWorld().spawnEntity(event.getRightClicked().getLocation(), EntityType.ZOMBIE);
+							entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "녹슨 사슬파 조직원");
+							entity.setCustomNameVisible(true);
+							entity.setPersistent(true);
+							entity.setRemoveWhenFarAway(false);
+							entity.setMaxHealth(90);
+							entity.setHealth(90);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.AIR);
+							weapon.setItemInMainHand(weaponItem);
+							EntityEquipment head = entity.getEquipment();
+							ItemStack headItem = chest.getInventory().getItem(14);
+							head.setHelmet(headItem);
+							EntityEquipment chestplate = entity.getEquipment();
+							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+							chestmeta.setColor(Color.fromRGB(30,30,30));
+							chestplateItem.setItemMeta(chestmeta);
+							chestplate.setChestplate(chestplateItem);
+							EntityEquipment leggings = entity.getEquipment();
+							ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+							LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+							leggingsmeta.setColor(Color.fromRGB(30,30,30));
+							leggingsItem.setItemMeta(leggingsmeta);
+							leggings.setLeggings(leggingsItem);
+							EntityEquipment boots = entity.getEquipment();
+							ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+							LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+							bootsmeta.setColor(Color.fromRGB(30,30,30));
+							bootsItem.setItemMeta(bootsmeta);
+							boots.setBoots(bootsItem);
+						}
+					} else if (getQuestName(player).equals("q0044") || getQuestName(player).equals("q0050")) {
+						qo.returnEntity(player).remove();
+						qo.remove(player);
+						
+						Location chestLoc = new Location(world, -1147, 166, 1467);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						
+						for(int i = 0 ; i < 3 ; i++) {
+							Zombie entity = (Zombie) player.getWorld().spawnEntity(event.getRightClicked().getLocation(), EntityType.ZOMBIE);
+							entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "흑운회 와카슈");
+							entity.setCustomNameVisible(true);
+							entity.setPersistent(true);
+							entity.setRemoveWhenFarAway(false);
+							entity.setMaxHealth(75);
+							entity.setHealth(75);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.OAK_PLANKS);
+							weapon.setItemInMainHand(weaponItem);
+							EntityEquipment head = entity.getEquipment();
+							ItemStack headItem = chest.getInventory().getItem(15);
+							head.setHelmet(headItem);
+							EntityEquipment chestplate = entity.getEquipment();
+							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+							chestmeta.setColor(Color.fromRGB(0,0,0));
+							chestplateItem.setItemMeta(chestmeta);
+							chestplate.setChestplate(chestplateItem);
+							EntityEquipment leggings = entity.getEquipment();
+							ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+							LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+							leggingsmeta.setColor(Color.fromRGB(0,0,0));
+							leggingsItem.setItemMeta(leggingsmeta);
+							leggings.setLeggings(leggingsItem);
+							EntityEquipment boots = entity.getEquipment();
+							ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+							LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+							bootsmeta.setColor(Color.fromRGB(0,0,0));
+							bootsItem.setItemMeta(bootsmeta);
+							boots.setBoots(bootsItem);
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
+						}
+					} else if (getQuestName(player).equals("q0045") || getQuestName(player).equals("q0051")) {
+						qo.returnEntity(player).remove();
+						qo.remove(player);
+						
+						Location chestLoc = new Location(world, -1147, 166, 1467);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						
+						for(int i = 0 ; i < 2 ; i++) {
+							Zombie entity = (Zombie) player.getWorld().spawnEntity(event.getRightClicked().getLocation(), EntityType.ZOMBIE);
+							entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "사육제 재단사");
+							entity.setCustomNameVisible(true);
+							entity.setPersistent(true);
+							entity.setRemoveWhenFarAway(false);
+							entity.setMaxHealth(110);
+							entity.setHealth(110);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.STONE_BRICK_SLAB);
+							weapon.setItemInMainHand(weaponItem);
+							EntityEquipment sub = entity.getEquipment();
+							ItemStack subItem = new ItemStack(Material.STONE_BRICK_SLAB);
+							sub.setItemInOffHand(subItem);
+							EntityEquipment head = entity.getEquipment();
+							ItemStack headItem = chest.getInventory().getItem(16);
+							head.setHelmet(headItem);
+							EntityEquipment chestplate = entity.getEquipment();
+							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+							chestmeta.setColor(Color.fromRGB(0,0,0));
+							chestplateItem.setItemMeta(chestmeta);
+							chestplate.setChestplate(chestplateItem);
+							EntityEquipment leggings = entity.getEquipment();
+							ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+							LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+							leggingsmeta.setColor(Color.fromRGB(0,0,0));
+							leggingsItem.setItemMeta(leggingsmeta);
+							leggings.setLeggings(leggingsItem);
+							EntityEquipment boots = entity.getEquipment();
+							ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+							LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+							bootsmeta.setColor(Color.fromRGB(0,0,0));
+							bootsItem.setItemMeta(bootsmeta);
+							boots.setBoots(bootsItem);
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 0, false, false));
+						}
+					} else if (getQuestName(player).equals("q0046") || getQuestName(player).equals("q0052")) {
+						qo.returnEntity(player).remove();
+						qo.remove(player);
+						
+						Location chestLoc = new Location(world, -1147, 166, 1467);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						
+						for(int i = 0 ; i < 2 ; i++) {
+							Zombie entity = (Zombie) player.getWorld().spawnEntity(event.getRightClicked().getLocation(), EntityType.ZOMBIE);
+							entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "철공회 조직원");
+							entity.setCustomNameVisible(true);
+							entity.setPersistent(true);
+							entity.setRemoveWhenFarAway(false);
+							entity.setMaxHealth(100);
+							entity.setHealth(100);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.AIR);
+							weapon.setItemInMainHand(weaponItem);
+							EntityEquipment head = entity.getEquipment();
+							ItemStack headItem = chest.getInventory().getItem(17);
+							head.setHelmet(headItem);
+							EntityEquipment chestplate = entity.getEquipment();
+							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+							chestmeta.setColor(Color.fromRGB(255,232,188));
+							chestplateItem.setItemMeta(chestmeta);
+							chestplate.setChestplate(chestplateItem);
+							EntityEquipment leggings = entity.getEquipment();
+							ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+							LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+							leggingsmeta.setColor(Color.fromRGB(160,220,160));
+							leggingsItem.setItemMeta(leggingsmeta);
+							leggings.setLeggings(leggingsItem);
+							EntityEquipment boots = entity.getEquipment();
+							ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+							LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+							bootsmeta.setColor(Color.fromRGB(90,150,90));
+							bootsItem.setItemMeta(bootsmeta);
+							boots.setBoots(bootsItem);
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 0, false, false));
+						}
+					} else if (getQuestName(player).equals("q0047") || getQuestName(player).equals("q0053")) {
+						qo.returnEntity(player).remove();
+						qo.remove(player);
+						
+						Location chestLoc = new Location(world, -1147, 166, 1467);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						
+						for(int i = 0 ; i < 3 ; i++) {
+							Zombie entity = (Zombie) player.getWorld().spawnEntity(event.getRightClicked().getLocation(), EntityType.ZOMBIE);
+							entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "하바네로파 조직원");
+							entity.setCustomNameVisible(true);
+							entity.setPersistent(true);
+							entity.setRemoveWhenFarAway(false);
+							entity.setMaxHealth(90);
+							entity.setHealth(90);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.JUNGLE_LOG);
+							weapon.setItemInMainHand(weaponItem);
+							EntityEquipment head = entity.getEquipment();
+							ItemStack headItem = chest.getInventory().getItem(18);
 							head.setHelmet(headItem);
 							EntityEquipment chestplate = entity.getEquipment();
 							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
@@ -5416,6 +5688,175 @@ public class Main extends JavaPlugin implements Listener{
 		 	    		} else {
 		 	    			new Message().msg(player, "리웨이: 우리는 암살 전문 사무소다.%리웨이: 용건은 뭐지?");
 		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("필립")) {
+	 	    		if(getQuestName(player) == null) {
+	 	    			int num = rnd.nextInt(5);
+		 	    		if(num == 0) {
+		 	    			new Message().msg(player, "필립: 차는 늘 드시던 대로 준비해야돼요.%필립: 스승님은 향을 극대화한 쌍화차를 좋아하시죠.%필립: 유나 선배는 밀크티랑 커피를 좋아하세요.");
+		 	    		} else if(num == 1) {
+		 	    			new Message().msg(player, "필립: 스승님은 츠바이 협회 출신이에요.%필립: 한 때 연기전쟁에서 이름을 날린 실력자시죠.");
+		 	    		} else if(num == 2) {
+		 	    			new Message().msg(player, "필립: 우리 사무소는 쐐기 사무소와 형제 사무소에요.%필립: 스승님의 성품 덕분에 저희 사무소는 협력자들이 많죠.%필립: 덕분에 사무소도 둥지에 있고요.");
+		 	    		} else if(num == 3) {
+		 	    			new Message().msg(player, "필립: 제 주특기는 쌍화차 타는 것이에요.%필립: 스승님은 쌍화차 타는 실력으로 해결사 등급을 매기면 제가 특색이 될거라고 하세요.%필립: 쌍화차의 노른자처럼 노란색의 특색이요.%"
+		 	    					+ "필립: 특색이 된다면 이명은 천사라고 짓고 싶어요.%필립: 특색… 노란 천사…");
+		 	    		} else if(num == 4) {
+		 	    			new Message().msg(player, "필립: 가끔 불안할 때면 아름다운 목소리가 귓가에서 조언을 해줘요.%필립: 하지만 그 조언을 들을 필요는 없어요.%필립: 저에게는 스승님과 유나 선배가 있으니까요.");
+		 	    		}
+	 	    		} else if (getQuestName(player).equals("q0055")) {
+	 	    			QuestBoard qb = new QuestBoard();
+						if(player.getInventory().contains(Material.EGG)) {
+							new Message().msg(player, "필립: 고마워요.%필립: 덕분에 질 좋은 쌍화차를 만들 수 있겠군요.");
+							
+							player.getInventory().remove(Material.EGG);
+							int qNum = qb.getNum(player);
+	        				qb.q0055(player, qNum + 1, false);
+						} else {
+							new Message().msg(player, "필립: 계란은 쌍화차를 만드는 필수 재료죠.");
+						}
+	 	    		} else {
+	 	    			int num = rnd.nextInt(5);
+		 	    		if(num == 0) {
+		 	    			new Message().msg(player, "필립: 차는 늘 드시던 대로 준비해야돼요.%필립: 스승님은 향을 극대화한 쌍화차를 좋아하시죠.%필립: 유나 선배는 밀크티랑 커피를 좋아하세요.");
+		 	    		} else if(num == 1) {
+		 	    			new Message().msg(player, "필립: 스승님은 츠바이 협회 출신이에요.%필립: 한 때 연기전쟁에서 이름을 날린 실력자시죠.");
+		 	    		} else if(num == 2) {
+		 	    			new Message().msg(player, "필립: 우리 사무소는 쐐기 사무소와 형제 사무소에요.%필립: 스승님의 성품 덕분에 저희 사무소는 협력자들이 많죠.%필립: 덕분에 사무소도 둥지에 있고요.");
+		 	    		} else if(num == 3) {
+		 	    			new Message().msg(player, "필립: 제 주특기는 쌍화차 타는 것이에요.%필립: 스승님은 쌍화차 타는 실력으로 해결사 등급을 매기면 제가 특색이 될거라고 하세요.%필립: 쌍화차의 노른자처럼 노란색의 특색이요.%"
+		 	    					+ "필립: 특색이 된다면 이명은 천사라고 짓고 싶어요.%필립: 특색… 노란 천사…");
+		 	    		} else if(num == 4) {
+		 	    			new Message().msg(player, "필립: 가끔 불안할 때면 아름다운 목소리가 귓가에서 조언을 해줘요.%필립: 하지만 그 조언을 들을 필요는 없어요.%필립: 저에게는 스승님과 유나 선배가 있으니까요.");
+		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("유나")) {
+	 	    		int num = rnd.nextInt(4);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "유나: 어우, 이놈의 지긋지긋한 쌍화차 냄새… 오늘따라 더 진한데?");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "유나: 필립은 날마다 쌍화차 타는 실력이 늘어가나 봐.%유나: 필립이 해고당하지 않는 이유가 쌍화차일 수도 있어.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "유나: 최근에 혼자서 도시 전설급 뒤틀림을 해결했어.%유나: 녀석의 움직임이 특이해서 상대하기 까다로웠지.%유나: 마지막에는 특히나 위험했어.%"
+	 	    					+ "유나: 어디서 구했는지 몰라도 뇌간집속 공명기를 이용해서 주변 시체들하고 합체를 했다니까.%유나: 그 속에서 건물은 녹아내리지, 미친 듯이 터져 나오는 바늘에 맞은 사람들이 폭발해서 아수라장이 됐지…%"
+	 	    					+ "유나: 정말 죽는 줄 알았다고.");
+	 	    		} else if(num == 3) {
+	 	    			new Message().msg(player, "유나: 솔직히 믿을 수 없지만, 마법이라는 것이 정말 존재하는 모양이야.%유나: 마법과 특이점…%유나: 어쩌면 시초는 같을 수도 있지 않을까?");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("살바도르")) {
+	 	    		if(getQuestName(player) == null) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("새벽 사무소")) {
+	 	    				int num = rnd.nextInt(14);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "살바도르: 앞으로 3주 정도는 월세 걱정 없을 만한 일을 받았다네.%살바도르: 도시 질병급 조직을 처리하는 일이라네.%살바도르: 우리 사무소 단독으로 처리할 수 있는 일일게야.%"
+	 	    							+ "살바도르: 둥지에 사무소를 유지하려면 어려운 의뢰도 마다하지 않아야 하는 법.%q0043");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "살바도르: 앞으로 3주 정도는 월세 걱정 없을 만한 일을 받았다네.%살바도르: 도시 질병급 조직을 처리하는 일이라네.%살바도르: 우리 사무소 단독으로 처리할 수 있는 일일게야.%"
+	 	    							+ "살바도르: 둥지에 사무소를 유지하려면 어려운 의뢰도 마다하지 않아야 하는 법.%q0044");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "살바도르: 앞으로 3주 정도는 월세 걱정 없을 만한 일을 받았다네.%살바도르: 도시 질병급 조직을 처리하는 일이라네.%살바도르: 우리 사무소 단독으로 처리할 수 있는 일일게야.%"
+	 	    							+ "살바도르: 둥지에 사무소를 유지하려면 어려운 의뢰도 마다하지 않아야 하는 법.%q0045");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "살바도르: 앞으로 3주 정도는 월세 걱정 없을 만한 일을 받았다네.%살바도르: 도시 질병급 조직을 처리하는 일이라네.%살바도르: 우리 사무소 단독으로 처리할 수 있는 일일게야.%"
+	 	    							+ "살바도르: 둥지에 사무소를 유지하려면 어려운 의뢰도 마다하지 않아야 하는 법.%q0046");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "살바도르: 앞으로 3주 정도는 월세 걱정 없을 만한 일을 받았다네.%살바도르: 도시 질병급 조직을 처리하는 일이라네.%살바도르: 우리 사무소 단독으로 처리할 수 있는 일일게야.%"
+	 	    							+ "살바도르: 둥지에 사무소를 유지하려면 어려운 의뢰도 마다하지 않아야 하는 법.%q0047");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "살바도르: 앞으로 2개월 정도는 월세 걱정 없을 만한 일을 받았다네.%살바도르: 뒤틀림을 사냥하는 일이라네.%살바도르: 그래도 뒤틀림의 대한 정보가 많이 모여서 당하지만은 않을걸세.%"
+	 	    							+ "살바도르: 하나 협회의 도서관에도 정보가 많다고 하니, 참고해도 좋겠군.%q0048");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "살바도르: 쐐기 사무소에서 협력 의뢰가 들어왔다네.%살바도르: 협력이라고 해도 일이 많아서 분배해주는 것이지만…%살바도르: 사실상 우리 사무소 단독으로 처리하는 것이라 보수는 우리가 대부분 먹을거야.%"
+	 	    							+ "살바도르: 도움을 받으려면 먼저 도움을 줘야 하는 법.%q0049");
+	 	    				} else if(num == 7) {
+	 	    					new Message().msg(player, "살바도르: 쐐기 사무소에서 협력 의뢰가 들어왔다네.%살바도르: 협력이라고 해도 일이 많아서 분배해주는 것이지만…%살바도르: 사실상 우리 사무소 단독으로 처리하는 것이라 보수는 우리가 대부분 먹을거야.%"
+	 	    							+ "살바도르: 도움을 받으려면 먼저 도움을 줘야 하는 법.%q0050");
+	 	    				} else if(num == 8) {
+	 	    					new Message().msg(player, "살바도르: 쐐기 사무소에서 협력 의뢰가 들어왔다네.%살바도르: 협력이라고 해도 일이 많아서 분배해주는 것이지만…%살바도르: 사실상 우리 사무소 단독으로 처리하는 것이라 보수는 우리가 대부분 먹을거야.%"
+	 	    							+ "살바도르: 도움을 받으려면 먼저 도움을 줘야 하는 법.%q0051");
+	 	    				} else if(num == 9) {
+	 	    					new Message().msg(player, "살바도르: 쐐기 사무소에서 협력 의뢰가 들어왔다네.%살바도르: 협력이라고 해도 일이 많아서 분배해주는 것이지만…%살바도르: 사실상 우리 사무소 단독으로 처리하는 것이라 보수는 우리가 대부분 먹을거야.%"
+	 	    							+ "살바도르: 도움을 받으려면 먼저 도움을 줘야 하는 법.%q0052");
+	 	    				} else if(num == 10) {
+	 	    					new Message().msg(player, "살바도르: 쐐기 사무소에서 협력 의뢰가 들어왔다네.%살바도르: 협력이라고 해도 일이 많아서 분배해주는 것이지만…%살바도르: 사실상 우리 사무소 단독으로 처리하는 것이라 보수는 우리가 대부분 먹을거야.%"
+	 	    							+ "살바도르: 도움을 받으려면 먼저 도움을 줘야 하는 법.%q0053");
+	 	    				} else if(num == 11) {
+	 	    					new Message().msg(player, "살바도르: 쐐기 사무소에서 협력 의뢰가 들어왔다네.%살바도르: 협력이라고 해도 일이 많아서 분배해주는 것이지만…%살바도르: 사실상 우리 사무소 단독으로 처리하는 것이라 보수는 우리가 대부분 먹을거야.%"
+	 	    							+ "살바도르: 도움을 받으려면 먼저 도움을 줘야 하는 법.%q0054");
+	 	    				} else if(num == 12) {
+	 	    					new Message().msg(player, "살바도르: 필립이 쌍화차에 쓸 계란이 거의 떨어졌다는군.%살바도르: 자네가 가서 달걀을 가져오도록.%살바도르: 필립이 자연산 계란이 아니면 안된다고 고집을 피워서 말이야.%"
+	 	    							+ "살바도르: 귀찮겠지만 직접 가서 주워오게나.%q0055");
+	 	    				} else if(num == 13) {
+	 	    					new Message().msg(player, "살바도르: 필립이 만든 쌍화차를 쐐기 사무소에 전해주게나.%살바도르: 명색이 형제 사무소인데, 좋은 건 나눠야하지 않겠는가?%q0056");
+	 	    				}
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 4)) {
+		 	    			int num = rnd.nextInt(7);
+		 	    			if(num == 0) {
+	 	    					new Message().msg(player, "살바도르: 의뢰를 받으러 왔는가.%살바도르: 우리 사무소가 둥지에 있어서 월세가 장난 아니라네.%살바도르: 그래서 보수는 많이 주진 못할게야."
+	 	    							+ "%살바도르: 대신 이 늙은이의 인맥으로 평판은 섭섭하지 않게 올려주도록 하지.%q0043");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "살바도르: 의뢰를 받으러 왔는가.%살바도르: 우리 사무소가 둥지에 있어서 월세가 장난 아니라네.%살바도르: 그래서 보수는 많이 주진 못할게야."
+	 	    							+ "%살바도르: 대신 이 늙은이의 인맥으로 평판은 섭섭하지 않게 올려주도록 하지.%q0044");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "살바도르: 의뢰를 받으러 왔는가.%살바도르: 우리 사무소가 둥지에 있어서 월세가 장난 아니라네.%살바도르: 그래서 보수는 많이 주진 못할게야."
+	 	    							+ "%살바도르: 대신 이 늙은이의 인맥으로 평판은 섭섭하지 않게 올려주도록 하지.%q0045");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "살바도르: 의뢰를 받으러 왔는가.%살바도르: 우리 사무소가 둥지에 있어서 월세가 장난 아니라네.%살바도르: 그래서 보수는 많이 주진 못할게야."
+	 	    							+ "%살바도르: 대신 이 늙은이의 인맥으로 평판은 섭섭하지 않게 올려주도록 하지.%q0046");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "살바도르: 의뢰를 받으러 왔는가.%살바도르: 우리 사무소가 둥지에 있어서 월세가 장난 아니라네.%살바도르: 그래서 보수는 많이 주진 못할게야."
+	 	    							+ "%살바도르: 대신 이 늙은이의 인맥으로 평판은 섭섭하지 않게 올려주도록 하지.%q0047");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "살바도르: 의뢰를 받으러 왔는가.%살바도르: 우리 사무소가 둥지에 있어서 월세가 장난 아니라네.%살바도르: 그래서 보수는 많이 주진 못할게야."
+	 	    							+ "%살바도르: 대신 이 늙은이의 인맥으로 평판은 섭섭하지 않게 올려주도록 하지.%q0048");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "살바도르: 의뢰를 받으러 왔는가.%살바도르: 지금 사무소에 계란이 다 떨어져서 그런데%살바도르: 계란을 좀 주워와 줄 수 있겠는가."
+	 	    							+ "%살바도르: 가끔은 심심한 일도 하고 그래야지.%q0055");
+	 	    				}
+		 	    		} else {
+		 	    			new Message().msg(player, "살바도르: 늙은이의 새벽빛 검을 보고 싶어서 온겐가?");
+		 	    		}
+	 	    		} else {
+	 	    			if(office.equals("새벽 사무소")) {
+	 	    				if (getQuestName(player).equals("q0055")) {
+		 	    				new Message().msg(player, "살바도르: 계란이 없어서 쌍화차를 못마시면 자네가 책임질겐가?%살바도르: 화내기 전에 빨리 다녀오게나.");
+		 	    			} else if (getQuestName(player).equals("q0056")) {
+		 	    				new Message().msg(player, "살바도르: 식기 전에 가져다 주게나.");
+		 	    			} else {
+		 	    				new Message().msg(player, "살바도르: 내가 아무리 좋더라도 일은 갔다오게나.");
+		 	    			}
+		 	    		} else if(office.equals("무소속")) {
+		 	    			if (getQuestName(player).equals("q0055")) {
+		 	    				new Message().msg(player, "살바도르: 계란이 없어서 쌍화차를 못마시면 자네가 책임질겐가?%살바도르: 화내기 전에 빨리 다녀오게나.");
+		 	    			} else {
+		 	    				new Message().msg(player, "살바도르: 내가 아무리 좋더라도 일은 갔다오시게.");
+		 	    			}
+		 	    		} else {
+		 	    			new Message().msg(player, "살바도르: 늙은이의 새벽빛 검을 보고 싶어서 온겐가?");
+		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("오스카")) {
+	 	    		if(getQuestName(player) == null) {
+	 	    			
+	 	    		} else if (getQuestName(player).equals("q0056")) {
+	 	    			QuestBoard qb = new QuestBoard();
+	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						ItemStack food = chest.getInventory().getItem(9);
+						if(player.getInventory().contains(food)) {
+							new Message().msg(player, "오스카: 이게 그 필립군의 쌍화차인가…");
+							
+							player.getInventory().remove(food);
+							int qNum = qb.getNum(player);
+	        				qb.q0056(player, qNum + 1, false);
+						} else {
+							new Message().msg(player, "오스카: 살바도르가 그 쌍화차를 굉장히 칭찬하더군.%오스카: 그래서 차는 어디에 있는가?");
+						}
+	 	    		} else {
+	 	    			
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("디모르포돈")) {
 	 	    		if(getQuestName(player) == null) {

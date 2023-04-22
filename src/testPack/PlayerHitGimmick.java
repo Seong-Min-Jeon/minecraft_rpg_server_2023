@@ -55,6 +55,11 @@ public class PlayerHitGimmick {
 			ggul(mob);
 			axe(mob);
 			meat(mob);
+			chainB(mob);
+			kuroB(mob);
+			carniB(mob);
+			ironballB(mob);
+			habaB(mob);
 		}
 	}
 
@@ -542,6 +547,278 @@ public class PlayerHitGimmick {
 									}
 								}
 							}
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
+	public void chainB(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "녹슨 사슬파 간부")) {
+			int num = rnd.nextInt(4);
+			
+			//사슬 맛 좀 볼래?
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					Arrow arrow;
+					World world;
+
+				    @Override
+					public void run() {
+				    	
+				    	if(time == 0) {
+				    		mob.setGlowing(true);
+				    		world = mob.getWorld();
+				    	}
+						
+						if (time == 20) {
+							arrow = ((Mob) mob).launchProjectile(Arrow.class);
+							arrow.setShooter(((Mob) mob));
+							arrow.setDamage(16);
+							arrow.setVelocity(mob.getLocation().getDirection().multiply(3.0f));	
+							
+							world.playSound(mob.getLocation(), Sound.ENTITY_FISHING_BOBBER_THROW, 2.0f, 1.0f);
+						}
+						
+						if (time >= 20) {
+							world.spawnParticle(Particle.CRIT_MAGIC, arrow.getLocation(), 1);
+						}
+						
+						if (time >= 25) {
+							arrow.remove();
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
+	public void kuroB(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "흑운회 카시라")) {
+			int num = rnd.nextInt(3);
+			
+			//먹칠
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					
+				    @Override
+					public void run() {
+						
+						if (time == 0) {
+							mob.setGlowing(true);
+						}
+						
+						if (time >= 30) {
+							// ===============================================================
+							ParticleData pd = new ParticleData(mob.getUniqueId());
+							if (pd.hasID()) {
+								pd.endTask();
+								pd.removeID();
+							}
+							ParticleEffect pe = new ParticleEffect(mob);
+							pe.mobS007();
+							// ================================================================
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 2, 2, 1, 2);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(24);
+									
+									int num = rnd.nextInt(5);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 1);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 1);
+											}
+										}
+									}
+								}
+							}
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
+	public void carniB(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "사육제 전투원")) {
+			int num = rnd.nextInt(4);
+			
+			//먹칠
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					
+				    @Override
+					public void run() {
+						
+						if (time == 0) {
+							mob.setGlowing(true);
+						}
+						
+						if (time >= 25) {
+							// ===============================================================
+							ParticleData pd = new ParticleData(mob.getUniqueId());
+							if (pd.hasID()) {
+								pd.endTask();
+								pd.removeID();
+							}
+							ParticleEffect pe = new ParticleEffect(mob);
+							pe.mobS008();
+							// ================================================================
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 3, 3, 3, 3);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(1);
+									
+									player.setVelocity(mob.getFacing().getDirection().add(new Vector(0,0.5,0)).multiply(-1.0f));
+								}
+							}
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
+	public void ironballB(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "철공회 간부")) {
+			int num = rnd.nextInt(5);
+			
+			//마!
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+
+				    @Override
+					public void run() {
+				    	
+				    	if(time == 0) {
+				    		mob.setGlowing(true);
+				    	}
+						
+						if (time >= 30) {
+							// ===============================================================
+							ParticleData pd = new ParticleData(mob.getUniqueId());
+							if (pd.hasID()) {
+								pd.endTask();
+								pd.removeID();
+							}
+							ParticleEffect pe = new ParticleEffect(mob);
+							pe.mobS009();
+							// ================================================================
+							
+							List<Entity> nearPlayer = mob.getNearbyEntities(5, 3, 5);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(1);
+									
+									player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
+									player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
+								}
+							}
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
+	public void habaB(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "하바네로파 간부")) {
+			int num = rnd.nextInt(4);
+			
+			//매워!
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					Arrow arrow;
+					World world;
+
+				    @Override
+					public void run() {
+				    	
+				    	if(time == 0) {
+				    		mob.setGlowing(true);
+				    		world = mob.getWorld();
+				    	}
+						
+						if (time == 20) {
+							arrow = ((Mob) mob).launchProjectile(Arrow.class);
+							arrow.setShooter(((Mob) mob));
+							arrow.setDamage(0.01);
+							arrow.setVelocity(mob.getLocation().getDirection().multiply(3.0f));	
+							
+							world.playSound(mob.getLocation(), Sound.ENTITY_FIREWORK_ROCKET_TWINKLE, 1.0f, 0.2f);
+							world.playSound(mob.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.7f, 0.8f);
+						}
+						
+						if (time >= 20) {
+							world.spawnParticle(Particle.FLAME, arrow.getLocation(), 5);
+						}
+						
+						if (time >= 25) {
+							arrow.remove();
 							mob.setGlowing(false);
 							this.cancel();
 						}

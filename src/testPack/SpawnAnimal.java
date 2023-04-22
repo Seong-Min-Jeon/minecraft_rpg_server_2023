@@ -1,6 +1,8 @@
 package testPack;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.entity.Chicken;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -9,34 +11,35 @@ import org.bukkit.potion.PotionEffectType;
 
 public class SpawnAnimal {
 
-	public boolean spawn(Entity animal) {
-		LivingEntity entity = (LivingEntity) animal;				
-		if(animal0(entity)) {
-			return true;
-		} 
-		return false;
+	public void spawn(Entity animal) {
+		try {
+			LivingEntity entity = (LivingEntity) animal;				
+			animal0(entity);
+		} catch(Exception e) {
+			
+		}
 	}
 	
-	public boolean animal0(LivingEntity entity) {
-		//튜토 돼지 3939 171 3949  3921 163 3921
-		if(entity.getLocation().getX()<=3939 && entity.getLocation().getY()<=171 && entity.getLocation().getZ()<=3949
-				&& entity.getLocation().getX()>=3921 && entity.getLocation().getY()>=163 && entity.getLocation().getZ()>=3921) {
-			if (entity.getType() == (EntityType) EntityType.PIG) {
-				entity.setCustomName(ChatColor.GREEN + "돼지");
-				entity.setCustomNameVisible(true);
-				((LivingEntity) entity).setMaxHealth(99999);
-				((LivingEntity) entity).setHealth(99999);
-				entity.setNoDamageTicks(Integer.MAX_VALUE);
-				entity.setCollidable(false);
-				entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 32700));
-				return true;
-			} else if(entity.getType() == (EntityType) EntityType.IRON_GOLEM || entity.getType() == (EntityType) EntityType.SALMON) {
-				return true;
-			} else {
-				return false;
+	public void animal0(LivingEntity entity) {
+		Location loc = entity.getLocation();
+				
+		if(loc.getX() <= -884 && loc.getY() <= 255 && loc.getZ() <= 1599 && 
+				loc.getX() >= -1309 && loc.getY() >= 0 && loc.getZ() >= 1074) {
+			if (entity.getType() == (EntityType) EntityType.CHICKEN) {
+				Chicken chick = (Chicken) entity;
+				chick.setCustomName(ChatColor.WHITE + "닭도리");
+				chick.setCustomNameVisible(true);
+				chick.setMaxHealth(99999);
+				chick.setHealth(99999);
+				chick.setNoDamageTicks(Integer.MAX_VALUE);
+				chick.setCollidable(false);
+				chick.setAI(false);
+				chick.setBreed(false);
+				chick.setAgeLock(true);
+				chick.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 32700));
+				chick.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, Integer.MAX_VALUE, Integer.MAX_VALUE));
 			}
 		}
-		return true;
 	}
 	
 }
