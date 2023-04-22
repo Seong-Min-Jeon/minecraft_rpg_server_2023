@@ -27,7 +27,7 @@ public class SpawnAnimal {
 				loc.getX() >= -1309 && loc.getY() >= 0 && loc.getZ() >= 1074) {
 			if (entity.getType() == (EntityType) EntityType.CHICKEN) {
 				Chicken chick = (Chicken) entity;
-				chick.setCustomName(ChatColor.WHITE + "닭도리");
+				chick.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "닭도리");
 				chick.setCustomNameVisible(true);
 				chick.setMaxHealth(99999);
 				chick.setHealth(99999);

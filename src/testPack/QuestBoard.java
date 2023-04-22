@@ -3683,7 +3683,7 @@ public class QuestBoard {
 		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
 		Score score = obj.getScore("필립에게 달걀 전달하기");
 		score.setScore(2);
-		Score score2 = obj.getScore("?, ?, ?");
+		Score score2 = obj.getScore("-1063, 89, 1276");
 		score2.setScore(1);
 		Score score3 = obj.getScore("(" + num + "/1)");
 		score3.setScore(0);

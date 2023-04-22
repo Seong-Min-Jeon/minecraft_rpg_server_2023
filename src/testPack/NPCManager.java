@@ -45,6 +45,9 @@ public class NPCManager {
 		yuna();
 		philip();
 		salbadol();
+		fameli();
+		famela();
+		osuka();
 		bono();
 		dalrock();
 		alrock();

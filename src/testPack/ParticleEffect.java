@@ -209,7 +209,7 @@ public class ParticleEffect {
         double var = 0;
 		
 		for(int i = 0 ; i < 8 ; i++) {
-			e1 = normal.clone().add(Math.cos(var), 0, Math.sin(var));
+			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
 			world.spawnParticle(Particle.REDSTONE, e1, 2, dustOptions1);
 			
 			var += Math.PI / 8;
@@ -446,10 +446,10 @@ public class ParticleEffect {
         double var = 0;
 		
 		for(int i = 0 ; i < 8 ; i++) {
-			e1 = normal.clone().add(Math.cos(var), 0, Math.sin(var));
+			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
 			world.playEffect(e1, Effect.STEP_SOUND, e1.clone().add(0,-1,0).getBlock().getType());
 			
-			e1 = normal.clone().add(Math.cos(var)*2, 0, Math.sin(var)*2);
+			e1 = normal.clone().add(Math.cos(var)*2, 0.1, Math.sin(var)*2);
 			world.playEffect(e1, Effect.STEP_SOUND, e1.clone().add(0,-1,0).getBlock().getType());
 			
 			var += Math.PI / 8;
@@ -470,10 +470,10 @@ public class ParticleEffect {
         double var = 0;
 		
 		for(int i = 0 ; i < 8 ; i++) {
-			e1 = normal.clone().add(Math.cos(var), 0, Math.sin(var));
+			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
 			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
 			
-			e1 = normal.clone().add(Math.cos(var)*2, 0, Math.sin(var)*2);
+			e1 = normal.clone().add(Math.cos(var)*2, 0.1, Math.sin(var)*2);
 			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
 			
 			var += Math.PI / 8;
@@ -627,7 +627,7 @@ public class ParticleEffect {
 			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
 		}
 		
-		world.playSound(normal, Sound.ENTITY_GHAST_SCREAM, 1.0f, 1.0f);
+		world.playSound(normal, Sound.ENTITY_GHAST_HURT, 1.0f, 1.0f);
 	}
 	
 	public void mobS009() {
@@ -641,19 +641,19 @@ public class ParticleEffect {
         double var = 0;
 		
 		for(int i = 0 ; i < 8 ; i++) {
-			e1 = normal.clone().add(Math.cos(var), 0, Math.sin(var));
+			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
 			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
 			
-			e1 = normal.clone().add(Math.cos(var)*2, 0, Math.sin(var)*2);
+			e1 = normal.clone().add(Math.cos(var)*2, 0.1, Math.sin(var)*2);
 			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
 			
-			e1 = normal.clone().add(Math.cos(var)*3, 0, Math.sin(var)*3);
+			e1 = normal.clone().add(Math.cos(var)*3, 0.1, Math.sin(var)*3);
 			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
 			
-			e1 = normal.clone().add(Math.cos(var)*4, 0, Math.sin(var)*4);
+			e1 = normal.clone().add(Math.cos(var)*4, 0.1, Math.sin(var)*4);
 			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
 			
-			e1 = normal.clone().add(Math.cos(var)*5, 0, Math.sin(var)*5);
+			e1 = normal.clone().add(Math.cos(var)*5, 0.1, Math.sin(var)*5);
 			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
 			
 			var += Math.PI / 8;
