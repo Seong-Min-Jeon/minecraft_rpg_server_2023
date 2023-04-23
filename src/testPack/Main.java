@@ -182,10 +182,10 @@ public class Main extends JavaPlugin implements Listener{
 		
 		// 접속가능한 플레이어
 		try {
-			if (!(player.getDisplayName().equalsIgnoreCase("yumehama"))) {
-				player.kickPlayer("서버 점검 중 입니다.");
-				return;
-			}
+//			if (!(player.getDisplayName().equalsIgnoreCase("yumehama"))) {
+//				player.kickPlayer("서버 점검 중 입니다.");
+//				return;
+//			}
 		} catch (Exception e) {
 			System.err.println(player.getDisplayName() + "이 접속을 시도하였습니다.");
 		}

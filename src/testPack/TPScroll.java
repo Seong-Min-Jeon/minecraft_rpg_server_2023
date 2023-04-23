@@ -66,7 +66,7 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							//워프열차 안내 브금 출력
+							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
 						}
 						
 						if (time == 800) {
@@ -140,7 +140,7 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							//워프열차 안내 브금 출력
+							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
 						}
 						
 						if (time == 800) {
@@ -214,7 +214,7 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							//워프열차 안내 브금 출력
+							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
 						}
 						
 						if (time == 800) {
@@ -288,7 +288,7 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							//워프열차 안내 브금 출력
+							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
 						}
 						
 						if (time == 800) {
@@ -362,7 +362,7 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							//워프열차 안내 브금 출력
+							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
 						}
 						
 						if (time == 800) {
@@ -436,7 +436,7 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							//워프열차 안내 브금 출력
+							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
 						}
 						
 						if (time == 800) {
@@ -510,7 +510,7 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							//워프열차 안내 브금 출력
+							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
 						}
 						
 						if (time == 800) {

@@ -64,6 +64,12 @@ public class TPMobSpawn {
 			new BGM(player, "메인"); //메인 브금 재생
 		}
 		
+		//유적1 보상방
+		if(loc.getX() == 3470.5 && loc.getY() == 52 && loc.getZ() == 3740) {
+			player.teleport(new Location(player.getWorld(), 3470.5, 52.1, 3740));
+			new BGM(player, "유적1"); //메인 브금 재생
+		}
+		
 		d1_1(player, loc);
 		d1_2(player, loc);
 		d1_3(player, loc);
@@ -356,6 +362,9 @@ public class TPMobSpawn {
 		// 나태를 벌하는 유적5	
 		if (loc.getX() == 3562.5 && loc.getY() == 25 && loc.getZ() == 3736.5) {
 			player.teleport(new Location(player.getWorld(), 3562.6, 25, 3736.6));
+			
+			new BGM(player, "유적1B"); //유적1 보스 브금 재생
+			
 			int num = 0;
 			List<Entity> entitylist = player.getNearbyEntities(50, 50, 50);
 			for (Entity nearEntity : entitylist) {

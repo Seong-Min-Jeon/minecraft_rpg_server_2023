@@ -21,7 +21,8 @@ public class BGM {
 	static ArrayList<String> bgm = new ArrayList<>(Arrays.asList("ENTITY_SKELETON_HORSE_AMBIENT", "ENTITY_PARROT_DEATH", "ENTITY_PARROT_EAT", "ENTITY_PARROT_FLY",
 															"ENTITY_PARROT_HURT", "ENTITY_PARROT_AMBIENT", "ENTITY_PARROT_STEP", "ENTITY_CAMEL_AMBIENT",
 															"ENTITY_CAMEL_DASH", "ENTITY_CAMEL_DASH_READY", "ENTITY_CAMEL_DEATH", "ENTITY_CAMEL_SIT",
-															"ENTITY_CAMEL_HURT"));
+															"ENTITY_CAMEL_HURT", "ENTITY_SNIFFER_HURT" , "ENTITY_SNIFFER_DEATH", "ENTITY_SNIFFER_DIGGING_STOP",
+															"ENTITY_SNIFFER_EAT", "ENTITY_SNIFFER_HAPPY"));
 	
 	static HashMap<Player, String> now = new HashMap<>();
 	
@@ -475,6 +476,138 @@ public class BGM {
 			    	
 			    	if(time % 200 == 0) {
 			    		if(!now.get(player).equals("유적7")) {
+			    			this.cancel();
+			    		}
+			    	}
+			    	
+					time++;
+				}
+			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		} else if(b.equals("유적1B")) { //나태 보스
+			battle.remove(player);
+			
+			for(int i = 0 ; i < bgm.size() ; i++) {
+				player.stopSound(Sound.valueOf(bgm.get(i)));
+			}
+			
+			if(now.containsKey(player)) {now.remove(player);}
+			now.put(player, "유적1B");
+			
+			new BukkitRunnable() {
+				int time = 0;
+
+			    @Override
+				public void run() {
+			    	
+			    	if(time == 5880) {
+			    		time = 0;
+			    	}
+			    	
+			    	if(time == 0) {
+			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_DEATH, 1.0f, 1.0f);
+			    	}
+			    	
+			    	if(time % 200 == 0) {
+			    		if(!now.get(player).equals("유적1B")) {
+			    			this.cancel();
+			    		}
+			    	}
+			    	
+					time++;
+				}
+			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		} else if(b.equals("유적2B")) { //분노 보스
+			battle.remove(player);
+			
+			for(int i = 0 ; i < bgm.size() ; i++) {
+				player.stopSound(Sound.valueOf(bgm.get(i)));
+			}
+			
+			if(now.containsKey(player)) {now.remove(player);}
+			now.put(player, "유적2B");
+			
+			new BukkitRunnable() {
+				int time = 0;
+
+			    @Override
+				public void run() {
+			    	
+			    	if(time == 5880) {
+			    		time = 0;
+			    	}
+			    	
+			    	if(time == 0) {
+			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_DIGGING_STOP, 1.0f, 1.0f);
+			    	}
+			    	
+			    	if(time % 200 == 0) {
+			    		if(!now.get(player).equals("유적2B")) {
+			    			this.cancel();
+			    		}
+			    	}
+			    	
+					time++;
+				}
+			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		} else if(b.equals("유적3B")) { //색욕 보스
+			battle.remove(player);
+			
+			for(int i = 0 ; i < bgm.size() ; i++) {
+				player.stopSound(Sound.valueOf(bgm.get(i)));
+			}
+			
+			if(now.containsKey(player)) {now.remove(player);}
+			now.put(player, "유적3B");
+			
+			new BukkitRunnable() {
+				int time = 0;
+
+			    @Override
+				public void run() {
+			    	
+			    	if(time == 5880) {
+			    		time = 0;
+			    	}
+			    	
+			    	if(time == 0) {
+			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_EAT, 1.0f, 1.0f);
+			    	}
+			    	
+			    	if(time % 200 == 0) {
+			    		if(!now.get(player).equals("유적3B")) {
+			    			this.cancel();
+			    		}
+			    	}
+			    	
+					time++;
+				}
+			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		} else if(b.equals("유적4B")) { //탐식 보스
+			battle.remove(player);
+			
+			for(int i = 0 ; i < bgm.size() ; i++) {
+				player.stopSound(Sound.valueOf(bgm.get(i)));
+			}
+			
+			if(now.containsKey(player)) {now.remove(player);}
+			now.put(player, "유적4B");
+			
+			new BukkitRunnable() {
+				int time = 0;
+
+			    @Override
+				public void run() {
+			    	
+			    	if(time == 5880) {
+			    		time = 0;
+			    	}
+			    	
+			    	if(time == 0) {
+			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HAPPY, 1.0f, 1.0f);
+			    	}
+			    	
+			    	if(time % 200 == 0) {
+			    		if(!now.get(player).equals("유적4B")) {
 			    			this.cancel();
 			    		}
 			    	}
