@@ -1900,6 +1900,7 @@ public class Main extends JavaPlugin implements Listener{
 						for(Entity entity : player.getNearbyEntities(2, 2, 2)) {
 							if(entity instanceof LivingEntity) {
 								event.setDamage(9999);
+								((LivingEntity) entity).damage(9999);
 							}
 						}
 						event.setCancelled(true);
@@ -2034,30 +2035,36 @@ public class Main extends JavaPlugin implements Listener{
 					Player player = (Player) event.getDamager();
 					Entity mob = event.getEntity();
 					
-					if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
-						new BGM(player, "폭주하는 황소");
-					} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
-						new BGM(player, "우는 영혼들의 산");
-					} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
-						new BGM(player, "도망쳐");
-					} else {
-						new BGM(player, "전투");
+					if(player.getLocation().getX() < 500) {
+						if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
+							new BGM(player, "폭주하는 황소");
+						} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
+							new BGM(player, "우는 영혼들의 산");
+						} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
+							new BGM(player, "도망쳐");
+						} else {
+							new BGM(player, "전투");
+						}
 					}
+					
 				}
 			} else {
 				if(event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
 					Entity mob = event.getDamager();
 					
-					if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
-						new BGM(player, "폭주하는 황소");
-					} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
-						new BGM(player, "우는 영혼들의 산");
-					} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
-						new BGM(player, "도망쳐");
-					} else {
-						new BGM(player, "전투");
+					if(player.getLocation().getX() < 500) {
+						if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
+							new BGM(player, "폭주하는 황소");
+						} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
+							new BGM(player, "우는 영혼들의 산");
+						} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
+							new BGM(player, "도망쳐");
+						} else {
+							new BGM(player, "전투");
+						}
 					}
+					
 				}
 			}
 		} catch(Exception e) {
@@ -2502,7 +2509,6 @@ public class Main extends JavaPlugin implements Listener{
 		
 		//브금
 		try {
-			System.out.println(event.getDamage());
 			if(event.getEntity() instanceof Mob && event.getDamage() > 1.9) {
 				Mob mob = (Mob) event.getEntity();
 				if(mob.getTarget() instanceof Player) {

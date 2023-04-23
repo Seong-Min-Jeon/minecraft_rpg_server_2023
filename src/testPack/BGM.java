@@ -483,6 +483,35 @@ public class BGM {
 					time++;
 				}
 			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		} else if(b.equals("워프")) { //워프열차
+			battle.remove(player);
+			
+			for(int i = 0 ; i < bgm.size() ; i++) {
+				player.stopSound(Sound.valueOf(bgm.get(i)));
+			}
+			
+			if(now.containsKey(player)) {now.remove(player);}
+			now.put(player, "워프");
+			
+			new BukkitRunnable() {
+				int time = 0;
+
+			    @Override
+				public void run() {
+			    	
+			    	if(time == 0) {
+			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
+			    	}
+			    	
+			    	if(time % 200 == 0) {
+			    		if(!now.get(player).equals("워프")) {
+			    			this.cancel();
+			    		}
+			    	}
+			    	
+					time++;
+				}
+			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 		} else if(b.equals("유적1B")) { //나태 보스
 			battle.remove(player);
 			
@@ -499,7 +528,7 @@ public class BGM {
 			    @Override
 				public void run() {
 			    	
-			    	if(time == 5880) {
+			    	if(time == 2100) {
 			    		time = 0;
 			    	}
 			    	
@@ -532,7 +561,7 @@ public class BGM {
 			    @Override
 				public void run() {
 			    	
-			    	if(time == 5880) {
+			    	if(time == 5800) {
 			    		time = 0;
 			    	}
 			    	
@@ -565,7 +594,7 @@ public class BGM {
 			    @Override
 				public void run() {
 			    	
-			    	if(time == 5880) {
+			    	if(time == 5020) {
 			    		time = 0;
 			    	}
 			    	
@@ -598,7 +627,7 @@ public class BGM {
 			    @Override
 				public void run() {
 			    	
-			    	if(time == 5880) {
+			    	if(time == 5340) {
 			    		time = 0;
 			    	}
 			    	

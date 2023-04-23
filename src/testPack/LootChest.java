@@ -31,6 +31,7 @@ public class LootChest {
 		if(block.getType() == Material.WHITE_GLAZED_TERRACOTTA) {
 			if(block.getX()==3470 && block.getY()==54 && block.getZ()==3751){
 				if(removeKey(player, "나태의 열쇠")) {
+					System.out.println(1);
 					dungeon1(player);
 				}				
 			}
@@ -63,7 +64,7 @@ public class LootChest {
 		ItemStack var1 = new ItemStack(Material.SMOOTH_RED_SANDSTONE_STAIRS);
 		ItemMeta var1Im = var1.getItemMeta();
 		var1Im.setDisplayName(ChatColor.GOLD + "나태의 내공 반지");
-		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var1Lore = new ArrayList();
 		var1Lore.add(ChatColor.GRAY + "나태를 벌하는 유적에서 찾은 유물");
 		var1Lore.add(ChatColor.GRAY + "황금빛이 띄고 있다.");
@@ -79,7 +80,7 @@ public class LootChest {
 		ItemStack var2 = new ItemStack(Material.POLISHED_GRANITE_STAIRS);
 		ItemMeta var2Im = var2.getItemMeta();
 		var2Im.setDisplayName(ChatColor.GOLD + "나태의 신속 반지");
-		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var2Lore = new ArrayList();
 		var2Lore.add(ChatColor.GRAY + "나태를 벌하는 유적에서 찾은 유물");
 		var2Lore.add(ChatColor.GRAY + "하늘색 보석이 돋보인다.");
@@ -95,7 +96,7 @@ public class LootChest {
 		ItemStack var3 = new ItemStack(Material.POLISHED_DIORITE_STAIRS);
 		ItemMeta var3Im = var3.getItemMeta();
 		var3Im.setDisplayName(ChatColor.GOLD + "나태의 생명 반지");
-		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var3Lore = new ArrayList();
 		var3Lore.add(ChatColor.GRAY + "나태를 벌하는 유적에서 찾은 유물");
 		var3Lore.add(ChatColor.GRAY + "무지개빛으로 빛나고 있다.");
@@ -111,7 +112,7 @@ public class LootChest {
 		ItemStack var4 = new ItemStack(Material.MOSSY_COBBLESTONE_STAIRS);
 		ItemMeta var4Im = var4.getItemMeta();
 		var4Im.setDisplayName(ChatColor.GOLD + "나태의 기량 반지");
-		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var4Lore = new ArrayList();
 		var4Lore.add(ChatColor.GRAY + "나태를 벌하는 유적에서 찾은 유물");
 		var4Lore.add(ChatColor.GRAY + "알 수 없는 힘이 느껴진다.");
@@ -127,7 +128,7 @@ public class LootChest {
 		ItemStack var5 = new ItemStack(Material.END_STONE_BRICK_STAIRS);
 		ItemMeta var5Im = var5.getItemMeta();
 		var5Im.setDisplayName(ChatColor.GOLD + "나태의 보호 반지");
-		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var5Lore = new ArrayList();
 		var5Lore.add(ChatColor.GRAY + "나태를 벌하는 유적에서 찾은 유물");
 		var5Lore.add(ChatColor.GRAY + "푸른 빛의 파도가 느껴진다.");
@@ -143,7 +144,7 @@ public class LootChest {
 		ItemStack var6 = new ItemStack(Material.MOSSY_STONE_BRICK_STAIRS);
 		ItemMeta var6Im = var6.getItemMeta();
 		var6Im.setDisplayName(ChatColor.GOLD + "나태의 신비 반지");
-		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var6Lore = new ArrayList();
 		var6Lore.add(ChatColor.GRAY + "나태를 벌하는 유적에서 찾은 유물");
 		var6Lore.add(ChatColor.GRAY + "어두운 힘이 느껴진다.");
@@ -157,6 +158,7 @@ public class LootChest {
 		var6.setItemMeta(var6Im);
 		
 		int num = rnd.nextInt(6);
+		System.out.println(num);
 		if(num == 0) {
 			player.getInventory().addItem(var1);
 		} else if(num == 1) {
@@ -182,7 +184,7 @@ public class LootChest {
 		ItemStack var1 = new ItemStack(Material.SMOOTH_RED_SANDSTONE_STAIRS);
 		ItemMeta var1Im = var1.getItemMeta();
 		var1Im.setDisplayName(ChatColor.GOLD + "분노의 내공 반지");
-		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var1Lore = new ArrayList();
 		var1Lore.add(ChatColor.GRAY + "분노를 꿈꾸는 유적에서 찾은 유물");
 		var1Lore.add(ChatColor.GRAY + "황금빛이 띄고 있다.");
@@ -198,7 +200,7 @@ public class LootChest {
 		ItemStack var2 = new ItemStack(Material.POLISHED_GRANITE_STAIRS);
 		ItemMeta var2Im = var2.getItemMeta();
 		var2Im.setDisplayName(ChatColor.GOLD + "분노의 신속 반지");
-		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var2Lore = new ArrayList();
 		var2Lore.add(ChatColor.GRAY + "분노를 꿈꾸는 유적에서 찾은 유물");
 		var2Lore.add(ChatColor.GRAY + "하늘색 보석이 돋보인다.");
@@ -214,7 +216,7 @@ public class LootChest {
 		ItemStack var3 = new ItemStack(Material.POLISHED_DIORITE_STAIRS);
 		ItemMeta var3Im = var3.getItemMeta();
 		var3Im.setDisplayName(ChatColor.GOLD + "분노의 생명 반지");
-		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var3Lore = new ArrayList();
 		var3Lore.add(ChatColor.GRAY + "분노를 꿈꾸는 유적에서 찾은 유물");
 		var3Lore.add(ChatColor.GRAY + "무지개빛으로 빛나고 있다.");
@@ -230,7 +232,7 @@ public class LootChest {
 		ItemStack var4 = new ItemStack(Material.MOSSY_COBBLESTONE_STAIRS);
 		ItemMeta var4Im = var4.getItemMeta();
 		var4Im.setDisplayName(ChatColor.GOLD + "분노의 기량 반지");
-		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var4Lore = new ArrayList();
 		var4Lore.add(ChatColor.GRAY + "분노를 꿈꾸는 유적에서 찾은 유물");
 		var4Lore.add(ChatColor.GRAY + "알 수 없는 힘이 느껴진다.");
@@ -246,7 +248,7 @@ public class LootChest {
 		ItemStack var5 = new ItemStack(Material.END_STONE_BRICK_STAIRS);
 		ItemMeta var5Im = var5.getItemMeta();
 		var5Im.setDisplayName(ChatColor.GOLD + "분노의 보호 반지");
-		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var5Lore = new ArrayList();
 		var5Lore.add(ChatColor.GRAY + "분노를 꿈꾸는 유적에서 찾은 유물");
 		var5Lore.add(ChatColor.GRAY + "푸른 빛의 파도가 느껴진다.");
@@ -262,7 +264,7 @@ public class LootChest {
 		ItemStack var6 = new ItemStack(Material.MOSSY_STONE_BRICK_STAIRS);
 		ItemMeta var6Im = var6.getItemMeta();
 		var6Im.setDisplayName(ChatColor.GOLD + "분노의 신비 반지");
-		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var6Lore = new ArrayList();
 		var6Lore.add(ChatColor.GRAY + "분노를 꿈꾸는 유적에서 찾은 유물");
 		var6Lore.add(ChatColor.GRAY + "어두운 힘이 느껴진다.");
@@ -301,7 +303,7 @@ public class LootChest {
 		ItemStack var1 = new ItemStack(Material.SMOOTH_RED_SANDSTONE_STAIRS);
 		ItemMeta var1Im = var1.getItemMeta();
 		var1Im.setDisplayName(ChatColor.GOLD + "색욕의 내공 반지");
-		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var1Lore = new ArrayList();
 		var1Lore.add(ChatColor.GRAY + "색욕을 감추는 유적에서 찾은 유물");
 		var1Lore.add(ChatColor.GRAY + "황금빛이 띄고 있다.");
@@ -317,7 +319,7 @@ public class LootChest {
 		ItemStack var2 = new ItemStack(Material.POLISHED_GRANITE_STAIRS);
 		ItemMeta var2Im = var2.getItemMeta();
 		var2Im.setDisplayName(ChatColor.GOLD + "색욕의 신속 반지");
-		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var2Lore = new ArrayList();
 		var2Lore.add(ChatColor.GRAY + "색욕을 감추는 유적에서 찾은 유물");
 		var2Lore.add(ChatColor.GRAY + "하늘색 보석이 돋보인다.");
@@ -333,7 +335,7 @@ public class LootChest {
 		ItemStack var3 = new ItemStack(Material.POLISHED_DIORITE_STAIRS);
 		ItemMeta var3Im = var3.getItemMeta();
 		var3Im.setDisplayName(ChatColor.GOLD + "색욕의 생명 반지");
-		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var3Lore = new ArrayList();
 		var3Lore.add(ChatColor.GRAY + "색욕을 감추는 유적에서 찾은 유물");
 		var3Lore.add(ChatColor.GRAY + "무지개빛으로 빛나고 있다.");
@@ -349,7 +351,7 @@ public class LootChest {
 		ItemStack var4 = new ItemStack(Material.MOSSY_COBBLESTONE_STAIRS);
 		ItemMeta var4Im = var4.getItemMeta();
 		var4Im.setDisplayName(ChatColor.GOLD + "색욕의 기량 반지");
-		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var4Lore = new ArrayList();
 		var4Lore.add(ChatColor.GRAY + "색욕을 감추는 유적에서 찾은 유물");
 		var4Lore.add(ChatColor.GRAY + "알 수 없는 힘이 느껴진다.");
@@ -365,7 +367,7 @@ public class LootChest {
 		ItemStack var5 = new ItemStack(Material.END_STONE_BRICK_STAIRS);
 		ItemMeta var5Im = var5.getItemMeta();
 		var5Im.setDisplayName(ChatColor.GOLD + "색욕의 보호 반지");
-		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var5Lore = new ArrayList();
 		var5Lore.add(ChatColor.GRAY + "색욕을 감추는 유적에서 찾은 유물");
 		var5Lore.add(ChatColor.GRAY + "푸른 빛의 파도가 느껴진다.");
@@ -381,7 +383,7 @@ public class LootChest {
 		ItemStack var6 = new ItemStack(Material.MOSSY_STONE_BRICK_STAIRS);
 		ItemMeta var6Im = var6.getItemMeta();
 		var6Im.setDisplayName(ChatColor.GOLD + "색욕의 신비 반지");
-		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var6Lore = new ArrayList();
 		var6Lore.add(ChatColor.GRAY + "색욕을 감추는 유적에서 찾은 유물");
 		var6Lore.add(ChatColor.GRAY + "어두운 힘이 느껴진다.");
@@ -420,7 +422,7 @@ public class LootChest {
 		ItemStack var1 = new ItemStack(Material.SMOOTH_RED_SANDSTONE_STAIRS);
 		ItemMeta var1Im = var1.getItemMeta();
 		var1Im.setDisplayName(ChatColor.GOLD + "탐식의 내공 반지");
-		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var1Lore = new ArrayList();
 		var1Lore.add(ChatColor.GRAY + "탐식을 꾀하는 유적에서 찾은 유물");
 		var1Lore.add(ChatColor.GRAY + "황금빛이 띄고 있다.");
@@ -436,7 +438,7 @@ public class LootChest {
 		ItemStack var2 = new ItemStack(Material.POLISHED_GRANITE_STAIRS);
 		ItemMeta var2Im = var2.getItemMeta();
 		var2Im.setDisplayName(ChatColor.GOLD + "탐식의 신속 반지");
-		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var2Lore = new ArrayList();
 		var2Lore.add(ChatColor.GRAY + "탐식을 꾀하는 유적에서 찾은 유물");
 		var2Lore.add(ChatColor.GRAY + "하늘색 보석이 돋보인다.");
@@ -452,7 +454,7 @@ public class LootChest {
 		ItemStack var3 = new ItemStack(Material.POLISHED_DIORITE_STAIRS);
 		ItemMeta var3Im = var3.getItemMeta();
 		var3Im.setDisplayName(ChatColor.GOLD + "탐식의 생명 반지");
-		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var3Lore = new ArrayList();
 		var3Lore.add(ChatColor.GRAY + "탐식을 꾀하는 유적에서 찾은 유물");
 		var3Lore.add(ChatColor.GRAY + "무지개빛으로 빛나고 있다.");
@@ -468,7 +470,7 @@ public class LootChest {
 		ItemStack var4 = new ItemStack(Material.MOSSY_COBBLESTONE_STAIRS);
 		ItemMeta var4Im = var4.getItemMeta();
 		var4Im.setDisplayName(ChatColor.GOLD + "탐식의 기량 반지");
-		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var4Lore = new ArrayList();
 		var4Lore.add(ChatColor.GRAY + "탐식을 꾀하는 유적에서 찾은 유물");
 		var4Lore.add(ChatColor.GRAY + "알 수 없는 힘이 느껴진다.");
@@ -484,7 +486,7 @@ public class LootChest {
 		ItemStack var5 = new ItemStack(Material.END_STONE_BRICK_STAIRS);
 		ItemMeta var5Im = var5.getItemMeta();
 		var5Im.setDisplayName(ChatColor.GOLD + "탐식의 보호 반지");
-		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var5Lore = new ArrayList();
 		var5Lore.add(ChatColor.GRAY + "탐식을 꾀하는 유적에서 찾은 유물");
 		var5Lore.add(ChatColor.GRAY + "푸른 빛의 파도가 느껴진다.");
@@ -500,7 +502,7 @@ public class LootChest {
 		ItemStack var6 = new ItemStack(Material.MOSSY_STONE_BRICK_STAIRS);
 		ItemMeta var6Im = var6.getItemMeta();
 		var6Im.setDisplayName(ChatColor.GOLD + "탐식의 신비 반지");
-		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var6Lore = new ArrayList();
 		var6Lore.add(ChatColor.GRAY + "탐식을 꾀하는 유적에서 찾은 유물");
 		var6Lore.add(ChatColor.GRAY + "어두운 힘이 느껴진다.");
@@ -539,7 +541,7 @@ public class LootChest {
 		ItemStack var1 = new ItemStack(Material.SMOOTH_RED_SANDSTONE_STAIRS);
 		ItemMeta var1Im = var1.getItemMeta();
 		var1Im.setDisplayName(ChatColor.GOLD + "우울의 내공 반지");
-		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var1Lore = new ArrayList();
 		var1Lore.add(ChatColor.GRAY + "우울을 비추는 유적에서 찾은 유물");
 		var1Lore.add(ChatColor.GRAY + "황금빛이 띄고 있다.");
@@ -555,7 +557,7 @@ public class LootChest {
 		ItemStack var2 = new ItemStack(Material.POLISHED_GRANITE_STAIRS);
 		ItemMeta var2Im = var2.getItemMeta();
 		var2Im.setDisplayName(ChatColor.GOLD + "우울의 신속 반지");
-		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var2Lore = new ArrayList();
 		var2Lore.add(ChatColor.GRAY + "우울을 비추는 유적에서 찾은 유물");
 		var2Lore.add(ChatColor.GRAY + "하늘색 보석이 돋보인다.");
@@ -571,7 +573,7 @@ public class LootChest {
 		ItemStack var3 = new ItemStack(Material.POLISHED_DIORITE_STAIRS);
 		ItemMeta var3Im = var3.getItemMeta();
 		var3Im.setDisplayName(ChatColor.GOLD + "우울의 생명 반지");
-		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var3Lore = new ArrayList();
 		var3Lore.add(ChatColor.GRAY + "우울을 비추는 유적에서 찾은 유물");
 		var3Lore.add(ChatColor.GRAY + "무지개빛으로 빛나고 있다.");
@@ -587,7 +589,7 @@ public class LootChest {
 		ItemStack var4 = new ItemStack(Material.MOSSY_COBBLESTONE_STAIRS);
 		ItemMeta var4Im = var4.getItemMeta();
 		var4Im.setDisplayName(ChatColor.GOLD + "우울의 기량 반지");
-		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var4Lore = new ArrayList();
 		var4Lore.add(ChatColor.GRAY + "우울을 비추는 유적에서 찾은 유물");
 		var4Lore.add(ChatColor.GRAY + "알 수 없는 힘이 느껴진다.");
@@ -603,7 +605,7 @@ public class LootChest {
 		ItemStack var5 = new ItemStack(Material.END_STONE_BRICK_STAIRS);
 		ItemMeta var5Im = var5.getItemMeta();
 		var5Im.setDisplayName(ChatColor.GOLD + "우울의 보호 반지");
-		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var5Lore = new ArrayList();
 		var5Lore.add(ChatColor.GRAY + "우울을 비추는 유적에서 찾은 유물");
 		var5Lore.add(ChatColor.GRAY + "푸른 빛의 파도가 느껴진다.");
@@ -619,7 +621,7 @@ public class LootChest {
 		ItemStack var6 = new ItemStack(Material.MOSSY_STONE_BRICK_STAIRS);
 		ItemMeta var6Im = var6.getItemMeta();
 		var6Im.setDisplayName(ChatColor.GOLD + "우울의 신비 반지");
-		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var6Lore = new ArrayList();
 		var6Lore.add(ChatColor.GRAY + "우울을 비추는 유적에서 찾은 유물");
 		var6Lore.add(ChatColor.GRAY + "어두운 힘이 느껴진다.");
@@ -658,7 +660,7 @@ public class LootChest {
 		ItemStack var1 = new ItemStack(Material.SMOOTH_RED_SANDSTONE_STAIRS);
 		ItemMeta var1Im = var1.getItemMeta();
 		var1Im.setDisplayName(ChatColor.GOLD + "질투의 내공 반지");
-		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var1Lore = new ArrayList();
 		var1Lore.add(ChatColor.GRAY + "질투를 부르는 유적에서 찾은 유물");
 		var1Lore.add(ChatColor.GRAY + "황금빛이 띄고 있다.");
@@ -674,7 +676,7 @@ public class LootChest {
 		ItemStack var2 = new ItemStack(Material.POLISHED_GRANITE_STAIRS);
 		ItemMeta var2Im = var2.getItemMeta();
 		var2Im.setDisplayName(ChatColor.GOLD + "질투의 신속 반지");
-		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var2Lore = new ArrayList();
 		var2Lore.add(ChatColor.GRAY + "질투를 부르는 유적에서 찾은 유물");
 		var2Lore.add(ChatColor.GRAY + "하늘색 보석이 돋보인다.");
@@ -690,7 +692,7 @@ public class LootChest {
 		ItemStack var3 = new ItemStack(Material.POLISHED_DIORITE_STAIRS);
 		ItemMeta var3Im = var3.getItemMeta();
 		var3Im.setDisplayName(ChatColor.GOLD + "질투의 생명 반지");
-		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var3Lore = new ArrayList();
 		var3Lore.add(ChatColor.GRAY + "질투를 부르는 유적에서 찾은 유물");
 		var3Lore.add(ChatColor.GRAY + "무지개빛으로 빛나고 있다.");
@@ -706,7 +708,7 @@ public class LootChest {
 		ItemStack var4 = new ItemStack(Material.MOSSY_COBBLESTONE_STAIRS);
 		ItemMeta var4Im = var4.getItemMeta();
 		var4Im.setDisplayName(ChatColor.GOLD + "질투의 기량 반지");
-		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var4Lore = new ArrayList();
 		var4Lore.add(ChatColor.GRAY + "질투를 부르는 유적에서 찾은 유물");
 		var4Lore.add(ChatColor.GRAY + "알 수 없는 힘이 느껴진다.");
@@ -722,7 +724,7 @@ public class LootChest {
 		ItemStack var5 = new ItemStack(Material.END_STONE_BRICK_STAIRS);
 		ItemMeta var5Im = var5.getItemMeta();
 		var5Im.setDisplayName(ChatColor.GOLD + "질투의 보호 반지");
-		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var5Lore = new ArrayList();
 		var5Lore.add(ChatColor.GRAY + "질투를 부르는 유적에서 찾은 유물");
 		var5Lore.add(ChatColor.GRAY + "푸른 빛의 파도가 느껴진다.");
@@ -738,7 +740,7 @@ public class LootChest {
 		ItemStack var6 = new ItemStack(Material.MOSSY_STONE_BRICK_STAIRS);
 		ItemMeta var6Im = var6.getItemMeta();
 		var6Im.setDisplayName(ChatColor.GOLD + "질투의 신비 반지");
-		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var6Lore = new ArrayList();
 		var6Lore.add(ChatColor.GRAY + "질투를 부르는 유적에서 찾은 유물");
 		var6Lore.add(ChatColor.GRAY + "어두운 힘이 느껴진다.");
@@ -777,7 +779,7 @@ public class LootChest {
 		ItemStack var1 = new ItemStack(Material.SMOOTH_RED_SANDSTONE_STAIRS);
 		ItemMeta var1Im = var1.getItemMeta();
 		var1Im.setDisplayName(ChatColor.GOLD + "오만의 내공 반지");
-		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var1Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var1Lore = new ArrayList();
 		var1Lore.add(ChatColor.GRAY + "오만을 행하는 유적에서 찾은 유물");
 		var1Lore.add(ChatColor.GRAY + "황금빛이 띄고 있다.");
@@ -793,7 +795,7 @@ public class LootChest {
 		ItemStack var2 = new ItemStack(Material.POLISHED_GRANITE_STAIRS);
 		ItemMeta var2Im = var2.getItemMeta();
 		var2Im.setDisplayName(ChatColor.GOLD + "오만의 신속 반지");
-		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var2Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var2Lore = new ArrayList();
 		var2Lore.add(ChatColor.GRAY + "오만을 행하는 유적에서 찾은 유물");
 		var2Lore.add(ChatColor.GRAY + "하늘색 보석이 돋보인다.");
@@ -809,7 +811,7 @@ public class LootChest {
 		ItemStack var3 = new ItemStack(Material.POLISHED_DIORITE_STAIRS);
 		ItemMeta var3Im = var3.getItemMeta();
 		var3Im.setDisplayName(ChatColor.GOLD + "오만의 생명 반지");
-		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var3Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var3Lore = new ArrayList();
 		var3Lore.add(ChatColor.GRAY + "오만을 행하는 유적에서 찾은 유물");
 		var3Lore.add(ChatColor.GRAY + "무지개빛으로 빛나고 있다.");
@@ -825,7 +827,7 @@ public class LootChest {
 		ItemStack var4 = new ItemStack(Material.MOSSY_COBBLESTONE_STAIRS);
 		ItemMeta var4Im = var4.getItemMeta();
 		var4Im.setDisplayName(ChatColor.GOLD + "오만의 기량 반지");
-		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var4Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var4Lore = new ArrayList();
 		var4Lore.add(ChatColor.GRAY + "오만을 행하는 유적에서 찾은 유물");
 		var4Lore.add(ChatColor.GRAY + "알 수 없는 힘이 느껴진다.");
@@ -841,7 +843,7 @@ public class LootChest {
 		ItemStack var5 = new ItemStack(Material.END_STONE_BRICK_STAIRS);
 		ItemMeta var5Im = var5.getItemMeta();
 		var5Im.setDisplayName(ChatColor.GOLD + "오만의 보호 반지");
-		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var5Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var5Lore = new ArrayList();
 		var5Lore.add(ChatColor.GRAY + "오만을 행하는 유적에서 찾은 유물");
 		var5Lore.add(ChatColor.GRAY + "푸른 빛의 파도가 느껴진다.");
@@ -857,7 +859,7 @@ public class LootChest {
 		ItemStack var6 = new ItemStack(Material.MOSSY_STONE_BRICK_STAIRS);
 		ItemMeta var6Im = var6.getItemMeta();
 		var6Im.setDisplayName(ChatColor.GOLD + "오만의 신비 반지");
-		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(2000000000)));
+		var6Im.setLocalizedName(String.valueOf(rnd.nextInt(200000000)));
 		ArrayList<String> var6Lore = new ArrayList();
 		var6Lore.add(ChatColor.GRAY + "오만을 행하는 유적에서 찾은 유물");
 		var6Lore.add(ChatColor.GRAY + "어두운 힘이 느껴진다.");
@@ -900,14 +902,19 @@ public class LootChest {
 					is.setAmount(is.getAmount()-1);
 					player.getWorld().playSound(player.getLocation(), Sound.BLOCK_CHEST_OPEN, 1.0f, 1.0f);
 					
-					QuestBoard qb = new QuestBoard();
-					if (getQuestName(player).equals("q0040")) {
-						int qNum = qb.getNum(player);
-						qb.q0040(player, qNum + 1, false);
-					} else if (getQuestName(player).equals("q0069")) {
-						int qNum = qb.getNum(player);
-						qb.q0069(player, qNum + 1, false);
+					try {
+						QuestBoard qb = new QuestBoard();
+						if (getQuestName(player).equals("q0040")) {
+							int qNum = qb.getNum(player);
+							qb.q0040(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0069")) {
+							int qNum = qb.getNum(player);
+							qb.q0069(player, qNum + 1, false);
+						}
+					} catch(Exception e) {
+						
 					}
+					
 					return true;
 				}
 			}

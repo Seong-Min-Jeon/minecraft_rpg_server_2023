@@ -39,9 +39,6 @@ public class TPScroll {
 
 	public void ticket1(Player player, ItemStack itemArg, World world) {
 		Location loc = player.getLocation();
-		ItemStack ticket = itemArg.clone();
-		ticket.setAmount(1);
-		
 		if (loc.getX() <= -1145 && loc.getY() <= 90 && loc.getZ() <= 1389 && 
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "나태의 유적행 열차 티켓")) {
@@ -66,11 +63,11 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
+							new BGM(player, "워프");
 						}
 						
 						if (time == 800) {
-							for(int i = 0 ; i < 5 ; i++) {
+							for(int i = 0 ; i < 10 ; i++) {
 								Zombie entity = (Zombie) player.getWorld().spawnEntity(loc3, EntityType.ZOMBIE);
 								entity.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "고통스러운 승객");
 								entity.setCustomNameVisible(true);
@@ -97,7 +94,7 @@ public class TPScroll {
 
 						if (time >= 12000) {
 							player.teleport(new Location(world, -1144.5, 81, 1341.5));
-							player.getInventory().addItem(ticket);
+							
 							td.endTask();
 							td.removeID();
 							return;
@@ -113,9 +110,6 @@ public class TPScroll {
 	
 	public void ticket2(Player player, ItemStack itemArg, World world) {
 		Location loc = player.getLocation();
-		ItemStack ticket = itemArg.clone();
-		ticket.setAmount(1);
-		
 		if (loc.getX() <= -1145 && loc.getY() <= 90 && loc.getZ() <= 1389 && 
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "분노의 유적행 열차 티켓")) {
@@ -140,11 +134,11 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
+							new BGM(player, "워프");
 						}
 						
 						if (time == 800) {
-							for(int i = 0 ; i < 5 ; i++) {
+							for(int i = 0 ; i < 10 ; i++) {
 								Zombie entity = (Zombie) player.getWorld().spawnEntity(loc3, EntityType.ZOMBIE);
 								entity.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "고통스러운 승객");
 								entity.setCustomNameVisible(true);
@@ -171,7 +165,7 @@ public class TPScroll {
 
 						if (time >= 12000) {
 							player.teleport(new Location(world, -1144.5, 81, 1341.5));
-							player.getInventory().addItem(ticket);
+							
 							td.endTask();
 							td.removeID();
 							return;
@@ -187,8 +181,6 @@ public class TPScroll {
 	
 	public void ticket3(Player player, ItemStack itemArg, World world) {
 		Location loc = player.getLocation();
-		ItemStack ticket = itemArg.clone();
-		ticket.setAmount(1);
 		
 		if (loc.getX() <= -1145 && loc.getY() <= 90 && loc.getZ() <= 1389 && 
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
@@ -214,11 +206,11 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
+							new BGM(player, "워프");
 						}
 						
 						if (time == 800) {
-							for(int i = 0 ; i < 5 ; i++) {
+							for(int i = 0 ; i < 10 ; i++) {
 								Zombie entity = (Zombie) player.getWorld().spawnEntity(loc3, EntityType.ZOMBIE);
 								entity.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "고통스러운 승객");
 								entity.setCustomNameVisible(true);
@@ -245,7 +237,7 @@ public class TPScroll {
 
 						if (time >= 12000) {
 							player.teleport(new Location(world, -1144.5, 81, 1341.5));
-							player.getInventory().addItem(ticket);
+							
 							td.endTask();
 							td.removeID();
 							return;
@@ -261,9 +253,6 @@ public class TPScroll {
 	
 	public void ticket4(Player player, ItemStack itemArg, World world) {
 		Location loc = player.getLocation();
-		ItemStack ticket = itemArg.clone();
-		ticket.setAmount(1);
-		
 		if (loc.getX() <= -1145 && loc.getY() <= 90 && loc.getZ() <= 1389 && 
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "탐식의 유적행 열차 티켓")) {
@@ -288,11 +277,11 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
+							new BGM(player, "워프");
 						}
 						
 						if (time == 800) {
-							for(int i = 0 ; i < 5 ; i++) {
+							for(int i = 0 ; i < 10 ; i++) {
 								Zombie entity = (Zombie) player.getWorld().spawnEntity(loc3, EntityType.ZOMBIE);
 								entity.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "고통스러운 승객");
 								entity.setCustomNameVisible(true);
@@ -319,7 +308,7 @@ public class TPScroll {
 
 						if (time >= 12000) {
 							player.teleport(new Location(world, -1144.5, 81, 1341.5));
-							player.getInventory().addItem(ticket);
+							
 							td.endTask();
 							td.removeID();
 							return;
@@ -335,9 +324,6 @@ public class TPScroll {
 	
 	public void ticket5(Player player, ItemStack itemArg, World world) {
 		Location loc = player.getLocation();
-		ItemStack ticket = itemArg.clone();
-		ticket.setAmount(1);
-		
 		if (loc.getX() <= -1145 && loc.getY() <= 90 && loc.getZ() <= 1389 && 
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "우울의 유적행 열차 티켓")) {
@@ -362,11 +348,11 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
+							new BGM(player, "워프");
 						}
 						
 						if (time == 800) {
-							for(int i = 0 ; i < 5 ; i++) {
+							for(int i = 0 ; i < 10 ; i++) {
 								Zombie entity = (Zombie) player.getWorld().spawnEntity(loc3, EntityType.ZOMBIE);
 								entity.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "고통스러운 승객");
 								entity.setCustomNameVisible(true);
@@ -393,7 +379,7 @@ public class TPScroll {
 
 						if (time >= 12000) {
 							player.teleport(new Location(world, -1144.5, 81, 1341.5));
-							player.getInventory().addItem(ticket);
+							
 							td.endTask();
 							td.removeID();
 							return;
@@ -409,9 +395,6 @@ public class TPScroll {
 	
 	public void ticket6(Player player, ItemStack itemArg, World world) {
 		Location loc = player.getLocation();
-		ItemStack ticket = itemArg.clone();
-		ticket.setAmount(1);
-		
 		if (loc.getX() <= -1145 && loc.getY() <= 90 && loc.getZ() <= 1389 && 
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "질투의 유적행 열차 티켓")) {
@@ -436,11 +419,11 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
+							new BGM(player, "워프");
 						}
 						
 						if (time == 800) {
-							for(int i = 0 ; i < 5 ; i++) {
+							for(int i = 0 ; i < 10 ; i++) {
 								Zombie entity = (Zombie) player.getWorld().spawnEntity(loc3, EntityType.ZOMBIE);
 								entity.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "고통스러운 승객");
 								entity.setCustomNameVisible(true);
@@ -467,7 +450,7 @@ public class TPScroll {
 
 						if (time >= 12000) {
 							player.teleport(new Location(world, -1144.5, 81, 1341.5));
-							player.getInventory().addItem(ticket);
+							
 							td.endTask();
 							td.removeID();
 							return;
@@ -483,9 +466,6 @@ public class TPScroll {
 	
 	public void ticket7(Player player, ItemStack itemArg, World world) {
 		Location loc = player.getLocation();
-		ItemStack ticket = itemArg.clone();
-		ticket.setAmount(1);
-		
 		if (loc.getX() <= -1145 && loc.getY() <= 90 && loc.getZ() <= 1389 && 
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "오만의 유적행 열차 티켓")) {
@@ -510,11 +490,11 @@ public class TPScroll {
 						
 						if (time == 0) {
 							player.teleport(loc2);
-							player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
+							new BGM(player, "워프");
 						}
 						
 						if (time == 800) {
-							for(int i = 0 ; i < 5 ; i++) {
+							for(int i = 0 ; i < 10 ; i++) {
 								Zombie entity = (Zombie) player.getWorld().spawnEntity(loc3, EntityType.ZOMBIE);
 								entity.setCustomName(ChatColor.WHITE + "" + ChatColor.BOLD + "고통스러운 승객");
 								entity.setCustomNameVisible(true);
@@ -541,7 +521,7 @@ public class TPScroll {
 
 						if (time >= 12000) {
 							player.teleport(new Location(world, -1144.5, 81, 1341.5));
-							player.getInventory().addItem(ticket);
+							
 							td.endTask();
 							td.removeID();
 							return;
