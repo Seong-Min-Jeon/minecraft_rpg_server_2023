@@ -26,6 +26,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 public class Start {
 	
 	private int sleep = 0;
+	Random rnd = new Random();
 	
 	public Start(Player player, File folder) {
 		
@@ -90,7 +91,18 @@ public class Start {
 		
 		new BGM(player, "메인");
 		
-		player.teleport(new Location(player.getWorld(),-1143,181,1461)); //임시로 둥지 내부에 이동
+		int num = rnd.nextInt(5);
+		if(num == 0) {
+			player.teleport(new Location(player.getWorld(),-1143,62,1138));
+		} else if(num == 1) {
+			player.teleport(new Location(player.getWorld(),-1218,62,1280));
+		} else if(num == 2) {
+			player.teleport(new Location(player.getWorld(),-1256,62,1386));
+		} else if(num == 3) {
+			player.teleport(new Location(player.getWorld(),-1052,62,1114));
+		} else if(num == 4) {
+			player.teleport(new Location(player.getWorld(),-995,62,1275));
+		}
 		
 		TTA_Methods.sendTitle(player, null, 20, 40, 20, "정신을 차려보니 어딘가의 뒷골목이다..", 20, 40, 20);
 		

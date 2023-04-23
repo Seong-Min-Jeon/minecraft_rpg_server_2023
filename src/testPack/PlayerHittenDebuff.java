@@ -75,6 +75,7 @@ public class PlayerHittenDebuff {
 		ironball(player, mob);
 		haba(player, mob);
 		
+		wcorp(player, mob);
 		d1_1(player, mob);
 		
 		spider(player, mob);
@@ -844,6 +845,42 @@ public class PlayerHittenDebuff {
 	
 
 //=====================================================================
+	
+	public void wcorp(Player player, Entity mob) {
+		if(mob.getCustomName().equalsIgnoreCase(ChatColor.WHITE + "" + ChatColor.BOLD + "고통스러운 승객")) {
+			if(player.getHealth() - 2 > 0) {
+				player.setHealth(player.getHealth() - 2);
+			} else {
+				player.setHealth(player.getMaxHealth());
+				player.setFoodLevel(20);
+				
+				Location loc = player.getLocation();
+				if(loc.getY() < 128) {
+					player.teleport(new Location(player.getWorld(), 3464.5, 18, 3740));
+					new BGM(player, "유적1");
+				} else if(loc.getY() < 149) {
+					//유적2 이동
+					new BGM(player, "유적2");
+				} else if(loc.getY() < 170) {
+					//유적3 이동
+					new BGM(player, "유적3");
+				} else if(loc.getY() < 191) {
+					//유적4 이동
+					new BGM(player, "유적4");
+				} else if(loc.getY() < 212) {
+					//유적5 이동
+					new BGM(player, "유적5");
+				} else if(loc.getY() < 233) {
+					//유적6 이동
+					new BGM(player, "유적6");
+				} else if(loc.getY() < 254) {
+					//유적7 이동
+					new BGM(player, "유적7");
+				}
+				
+			}
+		}
+	}
 	
 	//변이된 나뭇잎
 	public void d1_1(Player player, Entity mob) {

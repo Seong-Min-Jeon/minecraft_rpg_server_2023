@@ -4534,17 +4534,17 @@ public class Main extends JavaPlugin implements Listener{
 		        			if(event.getSlot() == 0) {
 		        				player.getInventory().addItem(new Shop12().item1());
 		        			} else if(event.getSlot() == 1) {
-		        				player.getInventory().addItem(new Shop12().item1());
+		        				player.getInventory().addItem(new Shop12().item2());
 		        			} else if(event.getSlot() == 2) {
-		        				player.getInventory().addItem(new Shop12().item1());
+		        				player.getInventory().addItem(new Shop12().item3());
 		        			} else if(event.getSlot() == 3) {
-		        				player.getInventory().addItem(new Shop12().item1());
+		        				player.getInventory().addItem(new Shop12().item4());
 		        			} else if(event.getSlot() == 4) {
-		        				player.getInventory().addItem(new Shop12().item1());
+		        				player.getInventory().addItem(new Shop12().item5());
 		        			} else if(event.getSlot() == 5) {
-		        				player.getInventory().addItem(new Shop12().item1());
+		        				player.getInventory().addItem(new Shop12().item6());
 		        			} else if(event.getSlot() == 6) {
-		        				player.getInventory().addItem(new Shop12().item1());
+		        				player.getInventory().addItem(new Shop12().item7());
 		        			}
 		        			new Message().msg(player, "w사 영업사원: 탑승 시에 안전벨트를 잘 착용해주세요.");
 		        		} else {

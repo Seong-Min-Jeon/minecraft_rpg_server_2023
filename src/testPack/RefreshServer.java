@@ -232,14 +232,14 @@ public class RefreshServer {
 			 		}
 			 		
 			 		//뒤틀림 제거
-			 		if(time > 3460 && time < 3600) {
-			 			if(distorted.size() != 0) {
-			 				for(Entity ent : distorted) {
-				 				distorted.remove(ent);
-				 				ent.remove();
-				 			}
-			 			}
-			 		}
+//			 		if(time > 3460 && time < 3600) {
+//			 			if(distorted.size() != 0) {
+//			 				for(Entity ent : distorted) {
+//				 				distorted.remove(ent);
+//				 				ent.remove();
+//				 			}
+//			 			}
+//			 		}
 				}
 			
 				time++;

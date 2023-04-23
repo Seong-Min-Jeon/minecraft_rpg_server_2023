@@ -43,12 +43,21 @@ public class TPMobSpawn {
 
 //		System.out.println(loc.toString());
 		
+		//유적에서 끄거나 유적 클리어
 		if(loc.getX() == -1145 && loc.getY() == 81 && loc.getZ() == 1341) {
 			player.teleport(new Location(player.getWorld(), -1145, 81.1, 1341));
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "신비한 힘으로 도시에 돌아오게 되었다.", 20, 40, 20);
 			new BGM(player, "메인"); //메인 브금 재생
 		}
 		
+		//워프열차 생존
+		if(loc.getX() == -1144.5 && loc.getY() == 81 && loc.getZ() == 1341.5) {
+			player.teleport(new Location(player.getWorld(), -1144.5, 81.1, 1341.5));
+			TTA_Methods.sendTitle(player, null, 20, 40, 20, "분명 열차에 탑승했던 것 같은데…", 20, 40, 20);
+			new BGM(player, "메인"); //메인 브금 재생
+		}
+		
+		//부활계 유물 효과
 		if(loc.getX() == -1081.5 && loc.getY() == 186 && loc.getZ() == 1451.5) {
 			player.teleport(new Location(player.getWorld(), -1081.5, 186.1, 1451.5));
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "죽음의 경계에서 살아남았다.", 20, 40, 20);
