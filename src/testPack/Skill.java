@@ -75,7 +75,7 @@ public class Skill {
 	public void skill1(Player player) {
 		new ParticleEffect(player).pS001();
 		
-		List<Entity> entitylist = nearFrontEntities(player, 1.5, 0.5, 1, 0.5);
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
 		for (Entity nearEntity : entitylist) {
 			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 				LivingEntity nearMob = (LivingEntity) nearEntity;

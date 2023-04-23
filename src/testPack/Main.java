@@ -2094,6 +2094,18 @@ public class Main extends JavaPlugin implements Listener{
 			
 		}
 		
+		//워프열차는 무적
+		if(event.getEntity() instanceof Player) {
+			//3746 255 3805  3689 100 3760
+			Location loc = event.getEntity().getLocation();
+			if (loc.getX() <= 3746 && loc.getY() <= 255 && loc.getZ() <= 3805 
+					&& loc.getX() >= 3689 && loc.getY() >= 100 && loc.getZ() >= 3760) {
+				event.setCancelled(true);
+				return;
+			}
+			
+		}
+		
 		//도시 이외에서는 낙뎀 없음
 		if(event.getEntity() instanceof Player) {
 			Location loc = event.getEntity().getLocation();
@@ -2796,10 +2808,6 @@ public class Main extends JavaPlugin implements Listener{
 		    						qb.q0010(player, qNum + 1, false);
 		    						player.sendMessage(ChatColor.GOLD + "[System] 윤 사무소의 정보를 획득했습니다. (성공확률: " + persent + "%)");
 	    						} else {
-	    							QuestOwner qo = new QuestOwner();
-	    							qo.returnEntity(player).remove();
-	    							qo.remove(player);
-	    							
 	    							player.sendMessage(ChatColor.GOLD + "[System] 윤 사무소의 정보를 얻지 못했습니다. (성공확률: " + persent + "%)");
 	    							player.sendMessage(ChatColor.GOLD + "[System] 핀의 공격으로 최대체력이 1만큼 감소합니다.");
 	    							damageMaxHealth(player, 1);
@@ -2825,10 +2833,6 @@ public class Main extends JavaPlugin implements Listener{
 		    						qb.q0011(player, qNum + 1, false);
 		    						player.sendMessage(ChatColor.GOLD + "[System] 가로등 사무소의 정보를 획득했습니다. (성공확률: " + persent + "%)");
 	    						} else {
-	    							QuestOwner qo = new QuestOwner();
-	    							qo.returnEntity(player).remove();
-	    							qo.remove(player);
-	    							
 	    							player.sendMessage(ChatColor.GOLD + "[System] 가로등 사무소의 정보를 얻지 못했습니다. (성공확률: " + persent + "%)");
 	    							player.sendMessage(ChatColor.GOLD + "[System] 산의 공격으로 최대체력이 1만큼 감소합니다.");
 	    							damageMaxHealth(player, 1);
@@ -2854,10 +2858,6 @@ public class Main extends JavaPlugin implements Listener{
 		    						qb.q0012(player, qNum + 1, false);
 		    						player.sendMessage(ChatColor.GOLD + "[System] 어금니 사무소의 정보를 획득했습니다. (성공확률: " + persent + "%)");
 	    						} else {
-	    							QuestOwner qo = new QuestOwner();
-	    							qo.returnEntity(player).remove();
-	    							qo.remove(player);
-	    							
 	    							player.sendMessage(ChatColor.GOLD + "[System] 어금니 사무소의 정보를 얻지 못했습니다. (성공확률: " + persent + "%)");
 	    							player.sendMessage(ChatColor.GOLD + "[System] 올가의 술병이 머리에 떨어져 최대체력이 1만큼 감소합니다.");
 	    							damageMaxHealth(player, 1);
@@ -2883,10 +2883,6 @@ public class Main extends JavaPlugin implements Listener{
 		    						qb.q0013(player, qNum + 1, false);
 		    						player.sendMessage(ChatColor.GOLD + "[System] 하나 협회 3과의 정보를 획득했습니다. (성공확률: " + persent + "%)");
 	    						} else {
-	    							QuestOwner qo = new QuestOwner();
-	    							qo.returnEntity(player).remove();
-	    							qo.remove(player);
-	    							
 	    							player.sendMessage(ChatColor.GOLD + "[System] 하나 협회 3과의 정보를 얻지 못했습니다. (성공확률: " + persent + "%)");
 	    							player.sendMessage(ChatColor.GOLD + "[System] 올리비에의 괘각으로 최대체력이 3만큼 감소합니다.");
 	    							damageMaxHealth(player, 3);

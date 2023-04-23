@@ -848,8 +848,8 @@ public class PlayerHittenDebuff {
 	
 	public void wcorp(Player player, Entity mob) {
 		if(mob.getCustomName().equalsIgnoreCase(ChatColor.WHITE + "" + ChatColor.BOLD + "고통스러운 승객")) {
-			if(player.getHealth() - 2 > 0) {
-				player.setHealth(player.getHealth() - 2);
+			if(player.getHealth() - 1 > 0) {
+				player.setHealth(player.getHealth() - 1);
 			} else {
 				player.setHealth(player.getMaxHealth());
 				player.setFoodLevel(20);

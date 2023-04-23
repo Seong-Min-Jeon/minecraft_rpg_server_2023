@@ -77,6 +77,8 @@ public class MobThread implements Listener{
 								slum(player, loc);
 								slum(player, loc);
 								slum(player, loc);
+								slum(player, loc);
+								slum(player, loc);
 							}
 						}
 					} 
@@ -100,41 +102,47 @@ public class MobThread implements Listener{
 				loc.getX() >= -1309 && loc.getY() >= 0 && loc.getZ() >= 1074)) {
 			return;
 		}
-		if (player.getWorld().getTime() >= 21000 && player.getWorld().getTime() <= 23000) {
-			IronGolem golem = (IronGolem) loc.getWorld().spawnEntity(loc, EntityType.IRON_GOLEM);
-			golem.setTarget(player);
-			player.setNoDamageTicks(20);
-			
-			int t = (int) player.getWorld().getTime();
-			final int removeTime = 23000 - t;
-			
-			taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
+		Material mat = loc.clone().add(0,-2,0).getBlock().getType();
+		if(mat == Material.STONE || mat == Material.STONE_BRICKS || mat == Material.MOSSY_STONE_BRICKS || mat == Material.POLISHED_ANDESITE ||
+				mat == Material.ANDESITE || mat == Material.SMOOTH_STONE || mat == Material.CHISELED_STONE_BRICKS || mat == Material.GRASS_BLOCK || 
+				mat == Material.SMOOTH_STONE_SLAB) {
+			if (player.getWorld().getTime() >= 21000 && player.getWorld().getTime() <= 23000) {
+				IronGolem golem = (IronGolem) loc.getWorld().spawnEntity(loc, EntityType.IRON_GOLEM);
+				golem.setTarget(player);
+				player.setNoDamageTicks(20);
+				
+				int t = (int) player.getWorld().getTime();
+				final int removeTime = 23000 - t;
+				
+				taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 
-				int time = 0;
-				ThreadSweeper td = new ThreadSweeper(player.getUniqueId());
+					int time = 0;
+					ThreadSweeper td = new ThreadSweeper(player.getUniqueId());
 
-				@Override
-				public void run() {
-					if (!td.hasID()) {
-						td.setID(taskID);
+					@Override
+					public void run() {
+						if (!td.hasID()) {
+							td.setID(taskID);
+						}
+
+						if (time >= removeTime && golem.getTarget() == null) {
+							golem.remove();
+							
+							td.endTask();
+							td.removeID();
+							return;
+						}
+
+						time++;
 					}
 
-					if (time >= removeTime && golem.getTarget() == null) {
-						golem.remove();
-						
-						td.endTask();
-						td.removeID();
-						return;
-					}
-
-					time++;
-				}
-
-			}, 0, 1);
-			
-		} else {
-			loc.getWorld().spawnEntity(loc, EntityType.SKELETON);
+				}, 0, 1);
+				
+			} else {
+				loc.getWorld().spawnEntity(loc, EntityType.SKELETON);
+			}
 		}
+		
 	}
 	
 	public Location location(Location loc) {

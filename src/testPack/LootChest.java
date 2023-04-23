@@ -31,7 +31,6 @@ public class LootChest {
 		if(block.getType() == Material.WHITE_GLAZED_TERRACOTTA) {
 			if(block.getX()==3470 && block.getY()==54 && block.getZ()==3751){
 				if(removeKey(player, "나태의 열쇠")) {
-					System.out.println(1);
 					dungeon1(player);
 				}				
 			}
@@ -158,7 +157,6 @@ public class LootChest {
 		var6.setItemMeta(var6Im);
 		
 		int num = rnd.nextInt(6);
-		System.out.println(num);
 		if(num == 0) {
 			player.getInventory().addItem(var1);
 		} else if(num == 1) {

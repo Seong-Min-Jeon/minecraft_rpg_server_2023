@@ -43,8 +43,8 @@ public class TPScroll {
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "나태의 유적행 열차 티켓")) {
 				itemArg.setAmount(itemArg.getAmount()-1);
-				Location loc2 = new Location(world, 3729.5, 119.1, 3780.5);
-				Location loc3 = new Location(world, 3703.5, 119.1, 3780.5);
+				Location loc2 = new Location(world, 3729.5, 119.1, 3780.5, 90, 0);
+				Location loc3 = new Location(world, 3703.5, 119.1, 3780.5, 270, 0);
 				taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 
 					int time = 0;
@@ -114,8 +114,8 @@ public class TPScroll {
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "분노의 유적행 열차 티켓")) {
 				itemArg.setAmount(itemArg.getAmount()-1);
-				Location loc2 = new Location(world, 3729.5, 140.1, 3780.5);
-				Location loc3 = new Location(world, 3703.5, 140.1, 3780.5);
+				Location loc2 = new Location(world, 3729.5, 140.1, 3780.5, 90, 0);
+				Location loc3 = new Location(world, 3703.5, 140.1, 3780.5, 270, 0);
 				taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 
 					int time = 0;
@@ -186,8 +186,8 @@ public class TPScroll {
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "색욕의 유적행 열차 티켓")) {
 				itemArg.setAmount(itemArg.getAmount()-1);
-				Location loc2 = new Location(world, 3729.5, 161.1, 3780.5);
-				Location loc3 = new Location(world, 3703.5, 161.1, 3780.5);
+				Location loc2 = new Location(world, 3729.5, 161.1, 3780.5, 90, 0);
+				Location loc3 = new Location(world, 3703.5, 161.1, 3780.5, 270, 0);
 				taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 
 					int time = 0;
@@ -257,8 +257,8 @@ public class TPScroll {
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "탐식의 유적행 열차 티켓")) {
 				itemArg.setAmount(itemArg.getAmount()-1);
-				Location loc2 = new Location(world, 3729.5, 182.1, 3780.5);
-				Location loc3 = new Location(world, 3703.5, 182.1, 3780.5);
+				Location loc2 = new Location(world, 3729.5, 182.1, 3780.5, 90, 0);
+				Location loc3 = new Location(world, 3703.5, 182.1, 3780.5, 270, 0);
 				taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 
 					int time = 0;
@@ -328,8 +328,8 @@ public class TPScroll {
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "우울의 유적행 열차 티켓")) {
 				itemArg.setAmount(itemArg.getAmount()-1);
-				Location loc2 = new Location(world, 3729.5, 203.1, 3780.5);
-				Location loc3 = new Location(world, 3703.5, 203.1, 3780.5);
+				Location loc2 = new Location(world, 3729.5, 203.1, 3780.5, 90, 0);
+				Location loc3 = new Location(world, 3703.5, 203.1, 3780.5, 270, 0);
 				taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 
 					int time = 0;
@@ -399,8 +399,8 @@ public class TPScroll {
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "질투의 유적행 열차 티켓")) {
 				itemArg.setAmount(itemArg.getAmount()-1);
-				Location loc2 = new Location(world, 3729.5, 224.1, 3780.5);
-				Location loc3 = new Location(world, 3703.5, 224.1, 3780.5);
+				Location loc2 = new Location(world, 3729.5, 224.1, 3780.5, 90, 0);
+				Location loc3 = new Location(world, 3703.5, 224.1, 3780.5, 270, 0);
 				taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 
 					int time = 0;
@@ -470,8 +470,8 @@ public class TPScroll {
 				loc.getX() >= -1165 && loc.getY() >= 75 && loc.getZ() >= 1364) {
 			if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "오만의 유적행 열차 티켓")) {
 				itemArg.setAmount(itemArg.getAmount()-1);
-				Location loc2 = new Location(world, 3729.5, 245.1, 3780.5);
-				Location loc3 = new Location(world, 3703.5, 245.1, 3780.5);
+				Location loc2 = new Location(world, 3729.5, 245.1, 3780.5, 90, 0);
+				Location loc3 = new Location(world, 3703.5, 245.1, 3780.5, 270, 0);
 				taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 
 					int time = 0;
