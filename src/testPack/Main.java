@@ -582,6 +582,8 @@ public class Main extends JavaPlugin implements Listener{
 			player.setLevel(0); //그냥 초기화
 			player.setMaxHealth(20); //최대체력 디폴트로
 			
+			player.getEnderChest().remove(Material.PAPER); //초대장 삭제
+			
 			new BGM(player, "로비"); //로비 브금 재생
 			
 			//퀘스트 초기화
@@ -1674,7 +1676,7 @@ public class Main extends JavaPlugin implements Listener{
 					player.setHealth(tmp);
 				}
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "혈청-K")) {
-				damageMaxHealth(player, 3);
+				damageMaxHealth(player, 4);
 			}
 			
 			//음식
@@ -1822,6 +1824,12 @@ public class Main extends JavaPlugin implements Listener{
 			if(entity.getType() == EntityType.ZOMBIE) {
 				Zombie zom = (Zombie) entity;
 				zom.setAdult();
+			}
+			if(entity.getType() == EntityType.ILLUSIONER) {
+				Illusioner mob = (Illusioner) entity;
+				EntityEquipment head = mob.getEquipment();
+				ItemStack headItem = new ItemStack(Material.AIR);
+				head.setHelmet(headItem);
 			}
 		} catch(Exception e3) {
 			
@@ -2808,10 +2816,16 @@ public class Main extends JavaPlugin implements Listener{
 		    						qb.q0010(player, qNum + 1, false);
 		    						player.sendMessage(ChatColor.GOLD + "[System] 윤 사무소의 정보를 획득했습니다. (성공확률: " + persent + "%)");
 	    						} else {
+	    							player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 	    							player.sendMessage(ChatColor.GOLD + "[System] 윤 사무소의 정보를 얻지 못했습니다. (성공확률: " + persent + "%)");
-	    							player.sendMessage(ChatColor.GOLD + "[System] 핀의 공격으로 최대체력이 1만큼 감소합니다.");
-	    							damageMaxHealth(player, 1);
+	    							player.sendMessage(ChatColor.GOLD + "[System] 핀의 공격으로 최대체력이 2만큼 감소합니다.");
+	    							damageMaxHealth(player, 2);
 	    							player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_HURT, 1.0f, 1.0f);
+	    							
+	    							for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+	    								n.update();
+	    								n.forceUpdate();
+	    							}
 	    						}
 	    					} else if (getQuestName(player).equals("q0011") && block.getType() == Material.CHEST && block.getX() == -1216 && block.getY() == 67 && block.getZ() == 1298) {
 	    						int persent = 30;
@@ -2833,10 +2847,16 @@ public class Main extends JavaPlugin implements Listener{
 		    						qb.q0011(player, qNum + 1, false);
 		    						player.sendMessage(ChatColor.GOLD + "[System] 가로등 사무소의 정보를 획득했습니다. (성공확률: " + persent + "%)");
 	    						} else {
+	    							player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 	    							player.sendMessage(ChatColor.GOLD + "[System] 가로등 사무소의 정보를 얻지 못했습니다. (성공확률: " + persent + "%)");
-	    							player.sendMessage(ChatColor.GOLD + "[System] 산의 공격으로 최대체력이 1만큼 감소합니다.");
-	    							damageMaxHealth(player, 1);
+	    							player.sendMessage(ChatColor.GOLD + "[System] 산의 공격으로 최대체력이 2만큼 감소합니다.");
+	    							damageMaxHealth(player, 2);
 	    							player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_HURT, 1.0f, 1.0f);
+	    							
+	    							for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+	    								n.update();
+	    								n.forceUpdate();
+	    							}
 	    						}
 	    					} else if (getQuestName(player).equals("q0012") && block.getType() == Material.CHEST && block.getX() == -1032 && block.getY() == 67 && block.getZ() == 1223) {
 	    						int persent = 10;
@@ -2858,10 +2878,16 @@ public class Main extends JavaPlugin implements Listener{
 		    						qb.q0012(player, qNum + 1, false);
 		    						player.sendMessage(ChatColor.GOLD + "[System] 어금니 사무소의 정보를 획득했습니다. (성공확률: " + persent + "%)");
 	    						} else {
+	    							player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 	    							player.sendMessage(ChatColor.GOLD + "[System] 어금니 사무소의 정보를 얻지 못했습니다. (성공확률: " + persent + "%)");
-	    							player.sendMessage(ChatColor.GOLD + "[System] 올가의 술병이 머리에 떨어져 최대체력이 1만큼 감소합니다.");
-	    							damageMaxHealth(player, 1);
+	    							player.sendMessage(ChatColor.GOLD + "[System] 올가의 술병이 머리에 떨어져 최대체력이 2만큼 감소합니다.");
+	    							damageMaxHealth(player, 2);
 	    							player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_HURT, 1.0f, 1.0f);
+	    							
+	    							for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+	    								n.update();
+	    								n.forceUpdate();
+	    							}
 	    						}
 	    					} else if (getQuestName(player).equals("q0013") && block.getType() == Material.CHEST && block.getX() == -1105 && block.getY() == 186 && block.getZ() == 1467) {
 	    						int persent = -50;
@@ -2883,10 +2909,16 @@ public class Main extends JavaPlugin implements Listener{
 		    						qb.q0013(player, qNum + 1, false);
 		    						player.sendMessage(ChatColor.GOLD + "[System] 하나 협회 3과의 정보를 획득했습니다. (성공확률: " + persent + "%)");
 	    						} else {
+	    							player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 	    							player.sendMessage(ChatColor.GOLD + "[System] 하나 협회 3과의 정보를 얻지 못했습니다. (성공확률: " + persent + "%)");
-	    							player.sendMessage(ChatColor.GOLD + "[System] 올리비에의 괘각으로 최대체력이 3만큼 감소합니다.");
-	    							damageMaxHealth(player, 3);
+	    							player.sendMessage(ChatColor.GOLD + "[System] 올리비에의 괘각으로 최대체력이 4만큼 감소합니다.");
+	    							damageMaxHealth(player, 4);
 	    							player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_HURT, 1.0f, 1.0f);
+	    							
+	    							for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+	    								n.update();
+	    								n.forceUpdate();
+	    							}
 	    						}
 	    					}
 	    				}
@@ -6058,7 +6090,7 @@ public class Main extends JavaPlugin implements Listener{
 	 	    			player.getInventory().remove(Material.PAPER);
 	 	    			player.getEnderChest().remove(Material.PAPER);
 	 	    			if(office.equals("새벽 사무소")) {
-	 	    				int num = rnd.nextInt(14);
+	 	    				int num = rnd.nextInt(16);
 	 	    				if(num == 0) {
 	 	    					new Message().msg(player, "살바도르: 앞으로 3주 정도는 월세 걱정 없을 만한 일을 받았다네.%살바도르: 도시 질병급 조직을 처리하는 일이라네.%살바도르: 우리 사무소 단독으로 처리할 수 있는 일일게야.%"
 	 	    							+ "살바도르: 둥지에 사무소를 유지하려면 어려운 의뢰도 마다하지 않아야 하는 법.%q0043");
@@ -6095,10 +6127,10 @@ public class Main extends JavaPlugin implements Listener{
 	 	    				} else if(num == 11) {
 	 	    					new Message().msg(player, "살바도르: 쐐기 사무소에서 협력 의뢰가 들어왔다네.%살바도르: 협력이라고 해도 일이 많아서 분배해주는 것이지만…%살바도르: 사실상 우리 사무소 단독으로 처리하는 것이라 보수는 우리가 대부분 먹을거야.%"
 	 	    							+ "살바도르: 도움을 받으려면 먼저 도움을 줘야 하는 법.%q0054");
-	 	    				} else if(num == 12) {
+	 	    				} else if(num <= 13) {
 	 	    					new Message().msg(player, "살바도르: 필립이 쌍화차에 쓸 계란이 거의 떨어졌다는군.%살바도르: 자네가 가서 달걀을 가져오도록.%살바도르: 필립이 자연산 계란이 아니면 안된다고 고집을 피워서 말이야.%"
 	 	    							+ "살바도르: 귀찮겠지만 직접 가서 주워오게나.%q0055");
-	 	    				} else if(num == 13) {
+	 	    				} else if(num <= 15) {
 	 	    					new Message().msg(player, "살바도르: 필립이 만든 쌍화차를 쐐기 사무소에 전해주게나.%살바도르: 명색이 형제 사무소인데, 좋은 건 나눠야하지 않겠는가?%q0056");
 	 	    				}
 		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 4)) {
@@ -6174,7 +6206,7 @@ public class Main extends JavaPlugin implements Listener{
 	 	    			player.getInventory().remove(Material.PAPER);
 	 	    			player.getEnderChest().remove(Material.PAPER);
 	 	    			if(office.equals("쐐기 사무소")) {
-	 	    				int num = rnd.nextInt(14);
+	 	    				int num = rnd.nextInt(15);
 	 	    				if(num == 0) {
 	 	    					new Message().msg(player, "오스카: 뒷골목에 핏기 없는 자들이 행보하고 있다는군…%오스카: 그들에게 악몽을 경험시켜주고 오게.%오스카: 인간 사냥의 밤이 시작될테니…%q0057");
 	 	    				} else if(num == 1) {
@@ -6201,7 +6233,7 @@ public class Main extends JavaPlugin implements Listener{
 	 	    					new Message().msg(player, "오스카: 새벽 사무소에서 협력 의뢰가 들어왔군.%오스카: 협력이라해도 사실상 우리 사무소 단독으로 처리해야 한다.%오스카: 사무소 명예에 먹칠하지 않도록 하게.%q0068");
 	 	    				} else if(num == 12) {
 	 	    					new Message().msg(player, "오스카: 어두운 비밀을 파해칠 시간이군…%오스카: 꼬맹이, 너는 외곽을 조사하러 간다.%오스카: 좋은 유물을 얻게 될지 누가 알겠는가.%q0069");
-	 	    				} else if(num == 13) {
+	 	    				} else if(num <= 14) {
 	 	    					new Message().msg(player, "오스카: 지지 않는 싸움을 하는 법을 알고있나?%오스카: 나를 알고 상대를 아는 것이라네.%오스카: 사무소의 등급을 높히는 방법은 알고 있나?%"
 	 	    							+ "오스카: 지금보다 더 어려운 의뢰들을 해결하면 된다네.%오스카: 우리는 앞으로 뒤틀림을 사냥하는 사냥꾼이 될거다.%오스카: 지금은 도시 질병급 뒤틀림을 사냥하지만…%"
 	 	    							+ "오스카: 장차 앞으로는 도시 악몽이나 도시의 별급 뒤틀림도 사냥하게 되겠지.%오스카: 그러기 위해서는 그들에 대한 정보가 필요하다네.%"
@@ -6256,6 +6288,104 @@ public class Main extends JavaPlugin implements Listener{
 		 	    			new Message().msg(player, "오스카: 이타적인 행동이라는 건 인간에게 있을 수 없다네.%오스카: 누군가를 위해서 목숨을 바치겠다는 것도 자신을 위한 것이야.%오스카: 내가 자네의 편의를 봐주는 것도 한계가 있다는 말이지.");
 		 	    		} else {
 		 	    			new Message().msg(player, "오스카: 우리는 사냥꾼이라네.%오스카: 뒤틀림에 대한 의뢰라면 받아주지.");
+		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("보노")) {
+	 	    		int num = rnd.nextInt(4);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "보노: 날개의 특이점을 어설프게 캐내려 하다간 인생 종치는거야.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "보노: 2억안짜리 의뢰든 지팡이 사무소의 의뢰든 목숨을 걸진 않을거야.%보노: 다들 돈이면 환장한다니까?");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "보노: 전신의체로 바꿔서 그런진 모르겠지만…%보노: 점점 생각도 기계처럼 변하는 것 같아.%보노: 명확한 답이나 근거 있는 일이 아니라면 불안해.%보노: 뇌만은 순수한 인간의 것인데…");
+	 	    		} else if(num == 3) {
+	 	    			new Message().msg(player, "보노: N사에는 이단심문관이라는 의체 혐오집단이 있대.%보노: 의체를 사용 중인 사람들을 못과 망치로 처참히 죽여버린다는데…%보노: 그러고는 시체가 땅에 닿지 않게 꼬치에 매달기까지 한다더라.%"
+	 	    					+ "보노: 같은 의체 동지인 발톱이 나타나서 싹 몰살시켰으면 좋겠어.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("달록")) {
+	 	    		int num = rnd.nextInt(4);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "달록: 내가 달록이고, 대표가 알록이야.%달록: 틀리지 말라고.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "달록: 우리 사무소는 지팡이 사무소에서 직접 의뢰를 받기도 하지.%달록: 위험한 일도 있긴하지만 보수는 확실하다고?");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "달록: 언젠가는 특이점에 대한 정보도 알아내고야 말겠어…");
+	 	    		} else if(num == 3) {
+	 	    			new Message().msg(player, "달록: 얼굴에 화면 잘 나오고 있어?%달록: 가끔 방전되기도 한단 말이야.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("알록")) {
+	 	    		if(getQuestName(player) == null) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("시선 사무소")) {
+	 	    				int num = rnd.nextInt(6);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "알록: 지팡이 사무소에서 의뢰가 들어왔어.%알록: 누군가를 감시하는 일이야.%알록: 이번에는 좀 높으신 분들을 대상으로 하는 일이라,%"
+	 	    							+ "알록: 우리가 평소에 쓰던 관측 장치로는 힘들어.%알록: 그래서 네가 지팡이 사무소로 가서 관측 장치를 가져와줬으면 해.%q0071");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "알록: 요즘 뒤틀림이라는 것이 도시를 망치고 있다면서?%알록: 직접적인 피해만 주지 않는다면 오히려 좋지.%알록: 뒤틀림에 대한 정보는 아주 비싸게 판매된다고.%"
+	 	    							+ "알록: 의체 유지비며 기름값이며 사무소 월세며…%알록: 돈 나갈 구멍이 산더미였는데 아주 잘된거지.%알록: 그러니 네가 뒤틀림과 싸우는 장면을 우리가 녹화해서 팔면 아주 좋겠지?%"
+	 	    							+ "알록: 뭐 팔다리 하나 잘려도 우리가 의체로 바꿔줄테니까…%알록: 명예와 돈을 위해 힘써주길 바랄게.%q0072");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "알록: 최근에 W사에서 외곽으로 가는 열차를 만들었다고 하더라?%알록: 외곽의 유적은 아직 협회에서도 제대로 파악하지 못한 미지의 세계야.%"
+	 	    							+ "알록: 그런 곳을 공략해버리는 영상이 있으면 돈이 되지 않겠어?%알록: 내가 초소형 관측 장치를 몸에 부착시켜줄게.%알록: 가서 유적을 공략하고 와줘.%알록: 가는 김에 W사의 특이점에 대한 비밀도 밝혀주면 더 고맙고.%q0073");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "알록: 지팡이 사무소에서 의뢰가 들어왔어.%알록: 마침표 사무소의 리웨이에게 관측 장치를 부착하는 일이야.%알록: 걱정마. 들킬 위험은 없어.%알록: 사용할 장치는 눈에 보이지 않는 무소음 초소형 드론이니까.%"
+	 	    							+ "알록: 너는 말을 거는 척 잠시 몸에 손을 대기만 하면 된다고.%q0074%알록: 이걸로 시 협회가 어디를 노리고 있는지 미리 알 수 있겠지.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "알록: 지팡이 사무소에서 의뢰가 들어왔어.%알록: 새벽 사무소의 필립에게 관측 장치를 부착하는 일이야.%알록: 걱정마. 들킬 위험은 없어.%알록: 사용할 장치는 눈에 보이지 않는 무소음 초소형 드론이니까.%"
+	 	    							+ "알록: 너는 말을 거는 척 잠시 몸에 손을 대기만 하면 된다고.%q0075%알록: 이걸로 전설의 쌍화차의 비법을 지팡이 사무소에서 밝혀낼지도 모르겠어.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "알록: 지팡이 사무소에서 의뢰가 들어왔어.%알록: 쐐기 사무소의 오스카에게 관측 장치를 부착하는 일이야.%알록: 걱정마. 들킬 위험은 없어.%알록: 사용할 장치는 눈에 보이지 않는 무소음 초소형 드론이니까.%"
+	 	    							+ "알록: 너는 말을 거는 척 잠시 몸에 손을 대기만 하면 된다고.%q0076%알록: 이걸로 오스카가 늑대인간이라는 소문이 진짜인지 확인할 수도 있겠지.");
+	 	    				}
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 4)) {
+		 	    			int num = rnd.nextInt(6);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "알록: 지팡이 사무소에서 의뢰가 들어왔어.%알록: 우리가 평소에 쓰던 관측 장치로는 불가능한 일이라…%알록: 지팡이 사무소로 가서 관측 장치를 가져와줬으면 해.%q0071");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "알록: 요즘 뒤틀림이라는 것이 도시를 망치고 있다면서?%알록: 직접적인 피해만 주지 않는다면 오히려 좋지.%알록: 뒤틀림에 대한 정보는 아주 비싸게 판매된다고.%"
+	 	    							+ "알록: 의체 유지비며 기름값이며 사무소 월세며…%알록: 돈 나갈 구멍이 산더미였는데 아주 잘된거지.%알록: 그러니 네가 뒤틀림과 싸우는 장면을 우리가 녹화해서 팔면 아주 좋겠지?%"
+	 	    							+ "알록: 뭐 팔다리 하나 잘려도 우리가 의체로 바꿔줄테니까…%알록: 무소속 해결사면 전투에 자신 있는거 아니야?%q0072");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "알록: 최근에 W사에서 외곽으로 가는 열차를 만들었다고 하더라?%알록: 외곽의 유적은 아직 협회에서도 제대로 파악하지 못한 미지의 세계야.%"
+	 	    							+ "알록: 그런 곳을 공략해버리는 영상이 있으면 돈이 되지 않겠어?%알록: 내가 초소형 관측 장치를 몸에 부착시켜줄게.%알록: 가서 유적을 공략하고 와줘.%"
+	 	    							+ "알록: 우리는 여기서 지켜보고 있을게.%알록: 절대 무서워서 그러는건 아니야.%q0073");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "알록: 지팡이 사무소에서 의뢰가 들어왔어.%알록: 마침표 사무소의 리웨이에게 관측 장치를 부착하는 일이야.%알록: 걱정마. 들킬 위험은 없어.%알록: 사용할 장치는 눈에 보이지 않는 무소음 초소형 드론이니까.%"
+	 	    							+ "알록: 너는 말을 거는 척 잠시 몸에 손을 대기만 하면 된다고.%q0074%알록: 그쪽에 의뢰를 구하러 온 것처럼 가서 몰래 작업하면 될거야.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "알록: 지팡이 사무소에서 의뢰가 들어왔어.%알록: 새벽 사무소의 필립에게 관측 장치를 부착하는 일이야.%알록: 걱정마. 들킬 위험은 없어.%알록: 사용할 장치는 눈에 보이지 않는 무소음 초소형 드론이니까.%"
+	 	    							+ "알록: 너는 말을 거는 척 잠시 몸에 손을 대기만 하면 된다고.%q0075%알록: 그쪽에 의뢰를 구하러 온 것처럼 가서 몰래 작업하면 될거야.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "알록: 지팡이 사무소에서 의뢰가 들어왔어.%알록: 쐐기 사무소의 오스카에게 관측 장치를 부착하는 일이야.%알록: 걱정마. 들킬 위험은 없어.%알록: 사용할 장치는 눈에 보이지 않는 무소음 초소형 드론이니까.%"
+	 	    							+ "알록: 너는 말을 거는 척 잠시 몸에 손을 대기만 하면 된다고.%q0076%알록: 그쪽에 의뢰를 구하러 온 것처럼 가서 몰래 작업하면 될거야.");
+	 	    				}
+		 	    		} else {
+		 	    			new Message().msg(player, "알록: 우리는 정보 조사 전문 사무소야.%알록: 전투 관련 의뢰는 다른 곳을 알아보라고.");
+		 	    		}
+	 	    		} else if (getQuestName(player).equals("q0071_1")) {
+	 	    			QuestBoard qb = new QuestBoard();
+	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						ItemStack food = chest.getInventory().getItem(10);
+						if(player.getInventory().contains(food)) {
+							new Message().msg(player, "알록: 이게 그 신형 장치구나?%알록: 고마워.");
+							
+							player.getInventory().remove(food);
+							int qNum = qb.getNum(player);
+	        				qb.q0056(player, qNum + 1, false);
+						} else {
+							new Message().msg(player, "알록: 지팡이 사무소는 둥지 제일 안쪽에 있어.%알록: 거리가 머니까 빨리 출발하는게 좋을거야.");
+						}
+	 	    		} else {
+	 	    			if(office.equals("시선 사무소")) {
+	 	    				new Message().msg(player, "알록: 이미 우리 사무소에 소속된 순간, 너의 위치 정보는 실시간으로 알 수 있어.%알록: 일 안하고 농땡이 피우면 해고시킬거야.");
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "알록: 돈을 벌려면 쉬지 않고 움직여야 한단다.");
+		 	    		} else {
+		 	    			new Message().msg(player, "알록: 우리는 정보 조사 전문 사무소야.%알록: 전투 관련 의뢰는 다른 곳을 알아보라고.");
 		 	    		}
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("디모르포돈")) {
@@ -6386,6 +6516,10 @@ public class Main extends JavaPlugin implements Listener{
 	 	    		//워프 열차 티켓 상인
 	 	    		new Shop12(player);
 	 	    		new Message().msg(player, "W사 영업사원: 신속하고 정확하게 목적지로 이동하는 워프 열차입니다.%W사 영업사원: 1등석 티켓의 판매는 종료되었습니다."); 
+	 	    	} else if(npc.getText().get(0).equals("바다")) {
+	 	    		//수표 상인
+	 	    		new Shop13(player);
+	 	    		new Message().msg(player, "바다: 수표는 B사에서 직접 발행한 것입니다.%바다: 진품임은 저희가 보장합니다."); 
 	 	    	} else if(npc.getText().get(0).equals("묘")) {
 	 	    		if(getQuestName(player) == null) {
 	 	    			new Message().msg(player, "묘: 뒤틀림의 정보를 보고 있는 중이야.%묘: 너도 죽기 싫으면 봐두는게 좋을걸?");

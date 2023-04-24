@@ -192,6 +192,19 @@ public class RefreshServer {
 							new BGM(player, "메인");
 						}
 					}
+					
+					if(world.getTime() >= 20400 && world.getTime() < 21000) {
+						for(Player player : Bukkit.getOnlinePlayers()) {
+							player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "뒷골목의 밤이 다가옵니다.");
+						}
+					}
+					
+					if(world.getTime() > 23000 && world.getTime() <= 23600) {
+						for(Player player : Bukkit.getOnlinePlayers()) {
+							player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "뒷골목의 밤이 지나갑니다.");
+						}
+					}
+					
 				}
 				
 				//뒤틀림
@@ -199,10 +212,10 @@ public class RefreshServer {
 					long dayTime = System.currentTimeMillis(); 
 			 		SimpleDateFormat hms = new SimpleDateFormat("mmss");
 			 		String strTime = hms.format(new Date(dayTime));
-			 		Integer time = Integer.parseInt(strTime);
+			 		Integer t = Integer.parseInt(strTime);
 			 		
 			 		//뒤틀림 소환
-			 		if(time > 2960 && time < 3100) {
+			 		if(t > 2960 && t < 3100) {
 			 			for(Location loc : ary) {
 			 				int tmp = rnd.nextInt(15);
 			 				Entity ent = null;
@@ -232,7 +245,7 @@ public class RefreshServer {
 			 		}
 			 		
 			 		//뒤틀림 제거
-//			 		if(time > 3460 && time < 3600) {
+//			 		if(t > 3460 && t < 3600) {
 //			 			if(distorted.size() != 0) {
 //			 				for(Entity ent : distorted) {
 //				 				distorted.remove(ent);

@@ -39,6 +39,20 @@ public class MobLoot {
 	public void rat(Player player) {
 		player.setLevel(player.getLevel() + (rnd.nextInt(500) + 100));
 		
+		ItemStack food = new ItemStack(Material.BEEF);
+		ItemMeta foodIm = food.getItemMeta();
+		foodIm.setDisplayName(ChatColor.RED + "누군가의 살점");
+		ArrayList<String> foodLore = new ArrayList<>();
+		foodLore.add(ChatColor.GRAY + "뒷골목에서 채취한 신선한 고기");
+		foodLore.add(ChatColor.GRAY + "");
+		foodLore.add(ChatColor.GRAY + "호사유피 인사유명이라 하였소.");
+		foodLore.add(ChatColor.GRAY + "혈에는 말갛게 꽃이 피었소.");
+		foodLore.add(ChatColor.GRAY + "이런 척박한 도시에서도 결국");
+		foodLore.add(ChatColor.GRAY + "봉오리는 피우는구려.");
+		foodIm.setLore(foodLore);
+		food.setItemMeta(foodIm);
+		player.getInventory().addItem(food);
+		
 		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
 		for(Entity np : nearPlayer) {
 			if(np instanceof Player) {
@@ -73,6 +87,20 @@ public class MobLoot {
 	//쥐 두목
 	public void ratBoss(Player player) {
 		player.setLevel(player.getLevel() + (rnd.nextInt(2000) + 100));
+		
+		ItemStack food = new ItemStack(Material.BEEF);
+		ItemMeta foodIm = food.getItemMeta();
+		foodIm.setDisplayName(ChatColor.RED + "누군가의 살점");
+		ArrayList<String> foodLore = new ArrayList<>();
+		foodLore.add(ChatColor.GRAY + "뒷골목에서 채취한 신선한 고기");
+		foodLore.add(ChatColor.GRAY + "");
+		foodLore.add(ChatColor.GRAY + "호사유피 인사유명이라 하였소.");
+		foodLore.add(ChatColor.GRAY + "혈에는 말갛게 꽃이 피었소.");
+		foodLore.add(ChatColor.GRAY + "이런 척박한 도시에서도 결국");
+		foodLore.add(ChatColor.GRAY + "봉오리는 피우는구려.");
+		foodIm.setLore(foodLore);
+		food.setItemMeta(foodIm);
+		player.getInventory().addItem(food);
 		
 		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
 		for(Entity np : nearPlayer) {

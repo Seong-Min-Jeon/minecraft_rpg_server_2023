@@ -5974,12 +5974,27 @@ public class PlayerHittenDebuff {
 	}
 	
 	public void damageMaxHealth(Player player, int num) {
-		if(player.getMaxHealth() <= num) {
-			player.setMaxHealth(1);
-			player.setHealth(0);
+		if(num == 1) {
+			if(player.hasPotionEffect(PotionEffectType.FAST_DIGGING)) {
+				if(player.getMaxHealth() <= 2) {
+					player.setMaxHealth(1);
+					player.setHealth(0);
+				} else {
+					player.setMaxHealth(player.getMaxHealth() - 2);
+				}
+				player.removePotionEffect(PotionEffectType.FAST_DIGGING);
+			} else {
+				player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0, true, true));
+			}
 		} else {
-			player.setMaxHealth(player.getMaxHealth() - num);
+			if(player.getMaxHealth() <= num) {
+				player.setMaxHealth(1);
+				player.setHealth(0);
+			} else {
+				player.setMaxHealth(player.getMaxHealth() - num);
+			}
 		}
+		
 	}
 	
 	public void sendMessage(Player player, String msg) {
