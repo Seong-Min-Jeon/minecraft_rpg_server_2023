@@ -579,18 +579,22 @@ public class AnotherScroll {
 	public void check(Player player, ItemStack itemArg, File folder) {
 		if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.WHITE + "1만안 수표")) {
 			player.setLevel(player.getLevel() + 10000);
+			itemArg.setAmount(itemArg.getAmount()-1);
 			player.sendMessage(ChatColor.GOLD + "[System] 10000안을 획득했다.");
 			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
 		} else if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.WHITE + "10만안 수표")) {
 			player.setLevel(player.getLevel() + 100000);
+			itemArg.setAmount(itemArg.getAmount()-1);
 			player.sendMessage(ChatColor.GOLD + "[System] 100000안을 획득했다.");
 			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
 		} else if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.WHITE + "100만안 수표")) {
 			player.setLevel(player.getLevel() + 1000000);
+			itemArg.setAmount(itemArg.getAmount()-1);
 			player.sendMessage(ChatColor.GOLD + "[System] 1000000안을 획득했다.");
 			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
 		} else if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.WHITE + "1000만안 수표")) {
 			player.setLevel(player.getLevel() + 10000000);
+			itemArg.setAmount(itemArg.getAmount()-1);
 			player.sendMessage(ChatColor.GOLD + "[System] 10000000안을 획득했다.");
 			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
 		}
@@ -843,24 +847,6 @@ public class AnotherScroll {
 		} catch (Exception e2) {
 			
 		}
-	}
-	
-	public String makeEnch(String[] ary, String str, int num) {
-		String result = "";
-		for(int i = 0 ; i < 10 ; i++) {
-			if(i == num) {
-				result = result + "," + str;
-				continue;
-			}
-			result = result + "," + ary[i];
-		}
-		String data = result.substring(1);
-		try {
-			data = data.concat("," + ary[10]);
-		} catch(Exception e) {
-			
-		}
-		return data;
 	}
 	
 }

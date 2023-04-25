@@ -4711,6 +4711,320 @@ public class QuestBoard {
 		
 	}
 	
+	public void q0071(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			//퀘스트 아이템 주기
+			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+			Block block = chestLoc.getBlock();
+			Chest chest = (Chest) block.getState();
+			ItemStack item = chest.getInventory().getItem(10);
+			player.getInventory().addItem(item);
+			
+			q0071_1(player, 0, true);
+
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0071", Criteria.DUMMY, ChatColor.GOLD + "[시선 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("지팡이 사무소로 가기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1119, 181.5, 1455"); //네모
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0071_1(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("시선 사무소")) {
+				player.setLevel(player.getLevel() + 50000);
+				giveExp(player, 10);
+				player.sendMessage(ChatColor.GOLD + "[System] 50000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 10만큼 증가했다.");
+			} else {
+				player.setLevel(player.getLevel() + 20000);
+				giveExp(player, 3);
+				player.sendMessage(ChatColor.GOLD + "[System] 20000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 3만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0071_1", Criteria.DUMMY, ChatColor.GOLD + "[시선 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("알록에게 물건 전달하기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1011, 67, 1174"); //알록
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0072(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("시선 사무소")) {
+				player.sendMessage(ChatColor.WHITE + "알록: 영상은 잘 나왔어.");
+				
+				player.setLevel(player.getLevel() + 150000);
+				giveExp(player, 40);
+				player.sendMessage(ChatColor.GOLD + "[System] 150000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 40만큼 증가했다.");
+			} else {
+				player.sendMessage(ChatColor.WHITE + "알록: 영상은 잘 나왔어.");
+				
+				player.setLevel(player.getLevel() + 50000);
+				giveExp(player, 15);
+				player.sendMessage(ChatColor.GOLD + "[System] 50000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 15만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0072", Criteria.DUMMY, ChatColor.GOLD + "[시선 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("도시 질병급 이상 뒤틀림 사냥");
+		score.setScore(1);
+		Score score2 = obj.getScore("(" + num + "/1)");
+		score2.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0073(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("시선 사무소")) {
+				player.sendMessage(ChatColor.WHITE + "알록: 쭉 지켜봤는데, 잘 싸우더라.");
+				
+				player.setLevel(player.getLevel() + 170000);
+				giveExp(player, 35);
+				player.sendMessage(ChatColor.GOLD + "[System] 170000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 35만큼 증가했다.");
+			} else {
+				player.sendMessage(ChatColor.WHITE + "알록: 쭉 지켜봤는데, 잘 싸우더라.");
+				
+				player.setLevel(player.getLevel() + 60000);
+				giveExp(player, 10);
+				player.sendMessage(ChatColor.GOLD + "[System] 60000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 10만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0073", Criteria.DUMMY, ChatColor.GOLD + "[시선 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("외곽의 유적 조사");
+		score.setScore(1);
+		Score score2 = obj.getScore("(" + num + "/1)");
+		score2.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0074(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("시선 사무소")) {
+				player.sendMessage(ChatColor.WHITE + "알록: 신호 양호. 임무 완료다.");
+				
+				player.setLevel(player.getLevel() + 100000);
+				giveExp(player, 15);
+				player.sendMessage(ChatColor.GOLD + "[System] 100000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 15만큼 증가했다.");
+			} else {
+				player.sendMessage(ChatColor.WHITE + "알록: 신호 양호. 임무 완료다.");
+				
+				player.setLevel(player.getLevel() + 30000);
+				giveExp(player, 5);
+				player.sendMessage(ChatColor.GOLD + "[System] 30000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 5만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0074", Criteria.DUMMY, ChatColor.GOLD + "[시선 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("리웨이에게 장치 부착하기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1106, 71, 1176"); //리웨이
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0075(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("시선 사무소")) {
+				player.sendMessage(ChatColor.WHITE + "알록: 신호 양호. 임무 완료다.");
+				
+				player.setLevel(player.getLevel() + 100000);
+				giveExp(player, 15);
+				player.sendMessage(ChatColor.GOLD + "[System] 100000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 15만큼 증가했다.");
+			} else {
+				player.sendMessage(ChatColor.WHITE + "알록: 신호 양호. 임무 완료다.");
+				
+				player.setLevel(player.getLevel() + 30000);
+				giveExp(player, 5);
+				player.sendMessage(ChatColor.GOLD + "[System] 30000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 5만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0075", Criteria.DUMMY, ChatColor.GOLD + "[시선 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("필립에게 장치 부착하기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1044, 94, 1253"); //필립
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0076(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("시선 사무소")) {
+				player.sendMessage(ChatColor.WHITE + "알록: 신호 양호. 임무 완료다.");
+				
+				player.setLevel(player.getLevel() + 100000);
+				giveExp(player, 15);
+				player.sendMessage(ChatColor.GOLD + "[System] 100000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 15만큼 증가했다.");
+			} else {
+				player.sendMessage(ChatColor.WHITE + "알록: 신호 양호. 임무 완료다.");
+				
+				player.setLevel(player.getLevel() + 30000);
+				giveExp(player, 5);
+				player.sendMessage(ChatColor.GOLD + "[System] 30000안을 획득했다.");
+				player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 5만큼 증가했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0076", Criteria.DUMMY, ChatColor.GOLD + "[시선 사무소의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("오스카에게 장치 부착하기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1072, 62, 1145"); //오스카
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
 	public void uq9(Player player, int num, boolean start) {
 		if(num>=5) {
 			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
@@ -7766,7 +8080,7 @@ public class QuestBoard {
 	public String getQuestName(Player player) {
 		try {
 			ArrayList<Objective> list = new ArrayList<Objective>(player.getScoreboard().getObjectives());
-			String name = null;
+			String name = "N";
 			for(Objective obj : list) {
 				if(obj.getDisplayName().charAt(2) == '[') {
 					name = obj.getName();
@@ -7775,7 +8089,7 @@ public class QuestBoard {
 			}			
 			return name;
 		} catch(Exception e) {
-			return null;
+			return "N";
 		}
 	}
 	

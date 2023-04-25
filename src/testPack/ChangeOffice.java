@@ -2,6 +2,7 @@ package testPack;
 
 import java.util.ArrayList;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -35,6 +36,9 @@ public class ChangeOffice {
 		} else if(office.equals("가로등 사무소")) {
 			player.sendMessage(ChatColor.GOLD + "[System] -1214, 67, 1304 좌표로 향해봅시다.");
 		}
+		
+		//퀘스트 초기화
+		player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 	}
 	
 }

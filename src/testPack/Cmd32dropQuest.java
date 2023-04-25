@@ -24,7 +24,7 @@ public class Cmd32dropQuest implements CommandExecutor {
 		if(sender instanceof Player) {
 			Player player = (Player) sender;
 			
-			if(getQuestName(player) != null) {
+			if(!getQuestName(player).equals("N")) {
 				//퀘스트 제거
 				player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 				try {
@@ -70,7 +70,7 @@ public class Cmd32dropQuest implements CommandExecutor {
 	public String getQuestName(Player player) {
 		try {
 			ArrayList<Objective> list = new ArrayList<Objective>(player.getScoreboard().getObjectives());
-			String name = null;
+			String name = "N";
 			for(Objective obj : list) {
 				if(obj.getDisplayName().charAt(2) == '[') {
 					name = obj.getName();
@@ -79,7 +79,7 @@ public class Cmd32dropQuest implements CommandExecutor {
 			}			
 			return name;
 		} catch(Exception e) {
-			return null;
+			return "N";
 		}
 	}
 	

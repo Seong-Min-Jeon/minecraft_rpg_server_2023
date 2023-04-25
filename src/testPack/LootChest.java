@@ -908,6 +908,9 @@ public class LootChest {
 						} else if (getQuestName(player).equals("q0069")) {
 							int qNum = qb.getNum(player);
 							qb.q0069(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0073")) {
+							int qNum = qb.getNum(player);
+							qb.q0073(player, qNum + 1, false);
 						}
 					} catch(Exception e) {
 						
@@ -925,7 +928,7 @@ public class LootChest {
 	public String getQuestName(Player player) {
 		try {
 			ArrayList<Objective> list = new ArrayList<Objective>(player.getScoreboard().getObjectives());
-			String name = null;
+			String name = "N";
 			for(Objective obj : list) {
 				if(obj.getDisplayName().charAt(2) == '[') {
 					name = obj.getName();
@@ -934,7 +937,7 @@ public class LootChest {
 			}			
 			return name;
 		} catch(Exception e) {
-			return null;
+			return "N";
 		}
 	}
 }

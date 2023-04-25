@@ -48,7 +48,7 @@ public class Shop13 {
 	}
 	
 	public ItemStack item1D() {
-		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemStack item = new ItemStack(Material.MAP);
 		ItemMeta itemIm = item.getItemMeta();
 		itemIm.setDisplayName(ChatColor.WHITE + "1만안 수표");
 		itemIm.setLocalizedName("10000");
@@ -89,7 +89,7 @@ public class Shop13 {
 	}
 	
 	public ItemStack item2D() {
-		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemStack item = new ItemStack(Material.MAP);
 		ItemMeta itemIm = item.getItemMeta();
 		itemIm.setDisplayName(ChatColor.WHITE + "10만안 수표");
 		itemIm.setLocalizedName("100000");
@@ -130,7 +130,7 @@ public class Shop13 {
 	}
 	
 	public ItemStack item3D() {
-		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemStack item = new ItemStack(Material.MAP);
 		ItemMeta itemIm = item.getItemMeta();
 		itemIm.setDisplayName(ChatColor.WHITE + "100만안 수표");
 		itemIm.setLocalizedName("1000000");
@@ -171,7 +171,7 @@ public class Shop13 {
 	}
 	
 	public ItemStack item4D() {
-		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemStack item = new ItemStack(Material.MAP);
 		ItemMeta itemIm = item.getItemMeta();
 		itemIm.setDisplayName(ChatColor.WHITE + "1000만안 수표");
 		itemIm.setLocalizedName("10000000");
