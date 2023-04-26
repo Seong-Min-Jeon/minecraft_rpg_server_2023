@@ -598,7 +598,7 @@ public class PlayerHitGimmick {
 							world.spawnParticle(Particle.CRIT_MAGIC, arrow.getLocation(), 0);
 						}
 						
-						if (time >= 30) {
+						if (time >= 40) {
 							arrow.remove();
 							mob.setGlowing(false);
 							this.cancel();
@@ -824,7 +824,7 @@ public class PlayerHitGimmick {
 							world.spawnParticle(Particle.FLAME, arrow.getLocation(), 0);
 						}
 						
-						if (time >= 30) {
+						if (time >= 40) {
 							arrow.remove();
 							mob.setGlowing(false);
 							this.cancel();
@@ -872,7 +872,7 @@ public class PlayerHitGimmick {
 							world.spawnParticle(Particle.CRIT_MAGIC, arrow.getLocation(), 0);
 						}
 						
-						if (time >= 30) {
+						if (time >= 40) {
 							arrow.remove();
 							mob.setGlowing(false);
 							this.cancel();
@@ -1098,7 +1098,7 @@ public class PlayerHitGimmick {
 							world.spawnParticle(Particle.FLAME, arrow.getLocation(), 0);
 						}
 						
-						if (time >= 30) {
+						if (time >= 40) {
 							arrow.remove();
 							mob.setGlowing(false);
 							this.cancel();

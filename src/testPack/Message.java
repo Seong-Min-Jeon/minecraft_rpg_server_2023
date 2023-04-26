@@ -1,9 +1,18 @@
 package testPack;
 
+import java.util.ArrayList;
+
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Color;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -69,10 +78,36 @@ public class Message {
 					} else if(ary[cnt].substring(0, 5).equals("q0005")) {
 						QuestBoard qb = new QuestBoard();
 						qb.q0005(player, 0, true);
+						
+						//음식 아이템 주기
+						ItemStack food = new ItemStack(Material.MUSHROOM_STEW);
+						ItemMeta foodIm = food.getItemMeta();
+						foodIm.setDisplayName(ChatColor.WHITE + "윤이 만든 음식");
+						ArrayList<String> foodLore = new ArrayList<>();
+						foodLore.add(ChatColor.GRAY + "윤이 에리와 함께 만든 음식");
+						foodLore.add(ChatColor.GRAY + "하급 사무소는 제대로 된 의뢰를 받는 일이");
+						foodLore.add(ChatColor.GRAY + "드물기 때문에 별의별 일을 다 맡는다고 한다.");
+						foodIm.setLore(foodLore);
+						food.setItemMeta(foodIm);
+						player.getInventory().addItem(food);
+						
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 5).equals("q0006")) {
 						QuestBoard qb = new QuestBoard();
 						qb.q0006(player, 0, true);
+						
+						//음식 아이템 주기
+						ItemStack food = new ItemStack(Material.MUSHROOM_STEW);
+						ItemMeta foodIm = food.getItemMeta();
+						foodIm.setDisplayName(ChatColor.WHITE + "윤이 만든 음식");
+						ArrayList<String> foodLore = new ArrayList<>();
+						foodLore.add(ChatColor.GRAY + "윤이 에리와 함께 만든 음식");
+						foodLore.add(ChatColor.GRAY + "하급 사무소는 제대로 된 의뢰를 받는 일이");
+						foodLore.add(ChatColor.GRAY + "드물기 때문에 별의별 일을 다 맡는다고 한다.");
+						foodIm.setLore(foodLore);
+						food.setItemMeta(foodIm);
+						player.getInventory().addItem(food);
+						
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 5).equals("q0007")) {
 						QuestBoard qb = new QuestBoard();
@@ -129,6 +164,19 @@ public class Message {
 					} else if(ary[cnt].substring(0, 5).equals("q0020")) {
 						QuestBoard qb = new QuestBoard();
 						qb.q0020(player, 0, true);
+						
+						//편지 주기
+						ItemStack letter = new ItemStack(Material.MAP);
+						ItemMeta letterIm = letter.getItemMeta();
+						letterIm.setDisplayName(ChatColor.WHITE + "묘에게 전하는 편지");
+						ArrayList<String> letterLore = new ArrayList<>();
+						letterLore.add(ChatColor.GRAY + "올가가 그녀의 친구인 묘에게 쓴 편지이다.");
+						letterLore.add(ChatColor.GRAY + "안에 무슨 내용이 적혀있을지 궁금하지만");
+						letterLore.add(ChatColor.GRAY + "열어본 순간 사무소에서 짤릴 것 같다.");
+						letterIm.setLore(letterLore);
+						letter.setItemMeta(letterIm);
+						player.getInventory().addItem(letter);
+						
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 5).equals("q0021")) {
 						QuestBoard qb = new QuestBoard();
@@ -181,6 +229,18 @@ public class Message {
 					} else if(ary[cnt].substring(0, 5).equals("q0033")) {
 						QuestBoard qb = new QuestBoard();
 						qb.q0033(player, 0, true);
+						
+						//음식 아이템 주기
+						ItemStack letter = new ItemStack(Material.BOOK);
+						ItemMeta letterIm = letter.getItemMeta();
+						letterIm.setDisplayName(ChatColor.WHITE + "츠바이 협회 6과의 보고서");
+						ArrayList<String> letterLore = new ArrayList<>();
+						letterLore.add(ChatColor.GRAY + "월터가 작성한 이번달 6과의 보고서");
+						letterLore.add(ChatColor.GRAY + "5과에 전달해주기로 하였다.");
+						letterIm.setLore(letterLore);
+						letter.setItemMeta(letterIm);
+						player.getInventory().addItem(letter);
+						
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 5).equals("q0034")) {
 						QuestBoard qb = new QuestBoard();
@@ -273,6 +333,30 @@ public class Message {
 					} else if(ary[cnt].substring(0, 5).equals("q0056")) {
 						QuestBoard qb = new QuestBoard();
 						qb.q0056(player, 0, true);
+						
+						//음식 아이템 주기
+						ItemStack food = new ItemStack(Material.POTION);
+						ItemMeta foodIm = food.getItemMeta();
+						foodIm.setDisplayName(ChatColor.WHITE + "필립의 쌍화차");
+						ArrayList<String> foodLore = new ArrayList<>();
+						foodLore.add(ChatColor.GRAY + "장차 전설적인 인물이 될 필립이 직접 탄 쌍화차");
+						foodLore.add(ChatColor.GRAY + "약재를 정성스럽게 뭉근히 달여 달달하고도");
+						foodLore.add(ChatColor.GRAY + "기분 좋은 쌉쌀한 맛이 난다.");
+						foodLore.add(ChatColor.GRAY + "건더기로 호두, 잣, 달걀이 들어갔으며");
+						foodLore.add(ChatColor.GRAY + "달걀은 신선한 닭이 낳은 최고급 유정란만을");
+						foodLore.add(ChatColor.GRAY + "사용한다고 알려져있다.");
+						foodLore.add(ChatColor.GRAY + "이 쌍화차를 마시면 영양분 보충은 물론이고");
+						foodLore.add(ChatColor.GRAY + "감기 예방과 기력 회복 등 무수한 효과가 나타난다.");
+						foodIm.setLore(foodLore);
+						foodIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+						foodIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+						foodIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+						PotionMeta pm = (PotionMeta) foodIm;
+						pm.setColor(Color.fromRGB(60, 10, 10));
+						foodIm = pm;
+						food.setItemMeta(foodIm);
+						player.getInventory().addItem(food);
+						
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 5).equals("q0057")) {
 						QuestBoard qb = new QuestBoard();
@@ -353,6 +437,86 @@ public class Message {
 					} else if(ary[cnt].substring(0, 5).equals("q0076")) {
 						QuestBoard qb = new QuestBoard();
 						qb.q0076(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0077")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0077(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0078")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0078(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0079")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0079(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0080")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0080(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0081")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0081(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0082")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0082(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0083")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0083(player, 0, true);
+						
+						//음식 아이템 주기
+						ItemStack letter = new ItemStack(Material.BOOK);
+						ItemMeta letterIm = letter.getItemMeta();
+						letterIm.setDisplayName(ChatColor.WHITE + "츠바이 협회 5과의 지시서");
+						ArrayList<String> letterLore = new ArrayList<>();
+						letterLore.add(ChatColor.GRAY + "아누로그나투스가 보내는 5과의 지시서");
+						letterLore.add(ChatColor.GRAY + "6과가 해야할 의뢰가 적혀있다고 한다.");
+						letterIm.setLore(letterLore);
+						letter.setItemMeta(letterIm);
+						player.getInventory().addItem(letter);
+						
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0084")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0084(player, 0, true);
+						
+						//음식 아이템 주기
+						ItemStack letter = new ItemStack(Material.BOOK);
+						ItemMeta letterIm = letter.getItemMeta();
+						letterIm.setDisplayName(ChatColor.WHITE + "츠바이 협회 5과의 보고서");
+						ArrayList<String> letterLore = new ArrayList<>();
+						letterLore.add(ChatColor.GRAY + "아누로그나투스가 작성한 이번달 5과의 보고서");
+						letterLore.add(ChatColor.GRAY + "3과에 전달해주기로 하였다.");
+						letterIm.setLore(letterLore);
+						letter.setItemMeta(letterIm);
+						player.getInventory().addItem(letter);
+						
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0085")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0085(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0086")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0086(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0087")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0087(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0088")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0088(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0089")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0089(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0090")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0090(player, 0, true);
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 3).equals("uq9")) {
 						QuestBoard qb = new QuestBoard();
