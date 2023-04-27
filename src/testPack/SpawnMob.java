@@ -172,13 +172,17 @@ public class SpawnMob {
 				EntityEquipment head = entity.getEquipment();
 				ItemStack headItem = new ItemStack(Material.AIR);
 				head.setHelmet(headItem);
-				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 2, false, false));
 				return true;
 			} else if (entity.getType() == (EntityType) EntityType.SLIME) {
 				entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음");
 				entity.setCustomNameVisible(true);
 				entity.setPersistent(true);
 				entity.setRemoveWhenFarAway(false);
+				entity.setMaxHealth(40);
+				entity.setHealth(40);
+				Slime slime = (Slime) entity;
+				slime.setSize(4);
 				entity.setMaxHealth(40);
 				entity.setHealth(40);
 				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 2, false, false));
@@ -190,7 +194,7 @@ public class SpawnMob {
 				entity.setRemoveWhenFarAway(false);
 				entity.setMaxHealth(100);
 				entity.setHealth(100);
-				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 2, false, false));
 				entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
 				return true;
 			} else if (entity.getType() == (EntityType) EntityType.WITCH) {
@@ -208,7 +212,7 @@ public class SpawnMob {
 				entity.setRemoveWhenFarAway(false);
 				entity.setMaxHealth(90);
 				entity.setHealth(90);
-				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, false, false));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
 				return true;
 			} else if (entity.getType() == (EntityType) EntityType.ENDERMAN) {
 				entity.setCustomName(ChatColor.RED + "" + ChatColor.BOLD + "검은 인격");
@@ -217,7 +221,7 @@ public class SpawnMob {
 				entity.setRemoveWhenFarAway(false);
 				entity.setMaxHealth(200);
 				entity.setHealth(200);
-				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 3, false, false));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 6, false, false));
 				return true;
 			} else if (entity.getType() == (EntityType) EntityType.ELDER_GUARDIAN) {
 				entity.setCustomName(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체");
@@ -235,10 +239,10 @@ public class SpawnMob {
 				entity.setMaxHealth(250);
 				entity.setHealth(250);
 				MagmaCube magma = (MagmaCube) entity;
-				magma.setSize(2);
+				magma.setSize(3);
 				entity.setMaxHealth(250);
 				entity.setHealth(250);
-				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 4, false, false));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 7, false, false));
 				entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
 				return true;
 			} else if (entity.getType() == (EntityType) EntityType.BLAZE) {
@@ -248,7 +252,7 @@ public class SpawnMob {
 				entity.setRemoveWhenFarAway(false);
 				entity.setMaxHealth(400);
 				entity.setHealth(400);
-				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 5, false, false));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 8, false, false));
 				return true;
 			} else if (entity.getType() == (EntityType) EntityType.ENDERMITE) {
 				entity.setCustomName(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각");
@@ -257,7 +261,7 @@ public class SpawnMob {
 				entity.setRemoveWhenFarAway(false);
 				entity.setMaxHealth(250);
 				entity.setHealth(250);
-				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 3, false, false));
+				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 6, false, false));
 				entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
 				return true;
 			} else if (entity.getType() == (EntityType) EntityType.RAVAGER) {

@@ -588,7 +588,7 @@ public class PlayerHitGimmick {
 							arrow = ((Mob) mob).launchProjectile(Arrow.class);
 							arrow.setShooter(((Mob) mob));
 							arrow.setDamage(16);
-							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.3f));	
+							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.6f));	
 							arrow.setGravity(false);
 							
 							world.playSound(mob.getLocation(), Sound.ENTITY_FISHING_BOBBER_THROW, 2.0f, 1.0f);
@@ -598,7 +598,7 @@ public class PlayerHitGimmick {
 							world.spawnParticle(Particle.CRIT_MAGIC, arrow.getLocation(), 0);
 						}
 						
-						if (time >= 40) {
+						if (time >= 30) {
 							arrow.remove();
 							mob.setGlowing(false);
 							this.cancel();
@@ -813,7 +813,7 @@ public class PlayerHitGimmick {
 							arrow = ((Mob) mob).launchProjectile(Arrow.class);
 							arrow.setShooter(((Mob) mob));
 							arrow.setDamage(0.01);
-							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.3f));	
+							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.6f));	
 							arrow.setGravity(false);
 							
 							world.playSound(mob.getLocation(), Sound.ENTITY_FIREWORK_ROCKET_TWINKLE, 1.0f, 0.2f);
@@ -824,7 +824,7 @@ public class PlayerHitGimmick {
 							world.spawnParticle(Particle.FLAME, arrow.getLocation(), 0);
 						}
 						
-						if (time >= 40) {
+						if (time >= 30) {
 							arrow.remove();
 							mob.setGlowing(false);
 							this.cancel();
@@ -862,7 +862,7 @@ public class PlayerHitGimmick {
 							arrow = ((Mob) mob).launchProjectile(Arrow.class);
 							arrow.setShooter(((Mob) mob));
 							arrow.setDamage(16);
-							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.3f));	
+							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.6f));	
 							arrow.setGravity(false);
 							
 							world.playSound(mob.getLocation(), Sound.ENTITY_FISHING_BOBBER_THROW, 2.0f, 1.0f);
@@ -872,7 +872,7 @@ public class PlayerHitGimmick {
 							world.spawnParticle(Particle.CRIT_MAGIC, arrow.getLocation(), 0);
 						}
 						
-						if (time >= 40) {
+						if (time >= 30) {
 							arrow.remove();
 							mob.setGlowing(false);
 							this.cancel();
@@ -1087,7 +1087,7 @@ public class PlayerHitGimmick {
 							arrow = ((Mob) mob).launchProjectile(Arrow.class);
 							arrow.setShooter(((Mob) mob));
 							arrow.setDamage(0.01);
-							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.3f));	
+							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.6f));	
 							arrow.setGravity(false);
 							
 							world.playSound(mob.getLocation(), Sound.ENTITY_FIREWORK_ROCKET_TWINKLE, 1.0f, 0.2f);
@@ -1098,7 +1098,7 @@ public class PlayerHitGimmick {
 							world.spawnParticle(Particle.FLAME, arrow.getLocation(), 0);
 						}
 						
-						if (time >= 40) {
+						if (time >= 30) {
 							arrow.remove();
 							mob.setGlowing(false);
 							this.cancel();

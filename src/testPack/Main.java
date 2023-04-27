@@ -579,6 +579,20 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0089(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0090")) {
 						qb.q0090(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0091")) {
+						qb.q0091(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0092")) {
+						qb.q0092(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0093")) {
+						qb.q0093(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0094")) {
+						qb.q0094(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0095")) {
+						qb.q0095(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0096")) {
+						qb.q0096(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0097")) {
+						qb.q0097(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq9")) {
 						qb.uq9(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq8")) {
@@ -913,6 +927,23 @@ public class Main extends JavaPlugin implements Listener{
 			if(ent.getCustomName().equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음") && ((Slime) ent).getSize() > 2) {
 				Entity newEnt = world.spawnEntity(ent.getLocation(), EntityType.SLIME);
 				((Slime) newEnt).setSize(((Slime) ent).getSize() - 1);
+				
+				// ===============================================================
+				ParticleData pd = new ParticleData(ent.getUniqueId());
+				if (pd.hasID()) {
+					pd.endTask();
+					pd.removeID();
+				}
+				ParticleEffect pe = new ParticleEffect(ent);
+				pe.mobS000();
+				// ================================================================
+				
+				List<Entity> nearPlayer = ent.getNearbyEntities(5, 5, 5);
+				for(Entity p : nearPlayer) {
+					if(p instanceof Player) {
+						((Player) p).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 200, 0, true, true));
+					}
+				}
 				return;
 			}
 		} catch(Exception e) {
@@ -1043,6 +1074,9 @@ public class Main extends JavaPlugin implements Listener{
 							} else if (getQuestName(player).equals("q0090")) {
 								int qNum = qb.getNum(player);
 								qb.q0090(player, qNum + 1, false);
+							} else if (getQuestName(player).equals("q0096")) {
+								int qNum = qb.getNum(player);
+								qb.q0096(player, qNum + 1, false);
 							}
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "작은 조각")) {
@@ -1096,6 +1130,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0090")) {
 							int qNum = qb.getNum(player);
 							qb.q0090(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0096")) {
+							int qNum = qb.getNum(player);
+							qb.q0096(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "약쟁이 소녀")) {
 						TTA_Methods.sendTitle(player, "GREAT DISTORTED FELLED", 40, 40, 20, "약쟁이 소녀", 40, 40, 20);
@@ -1148,6 +1185,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0090")) {
 							int qNum = qb.getNum(player);
 							qb.q0090(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0096")) {
+							int qNum = qb.getNum(player);
+							qb.q0096(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "날아오르는 다리")) {
 						TTA_Methods.sendTitle(player, "GREAT DISTORTED FELLED", 40, 40, 20, "날아오르는 다리", 40, 40, 20);
@@ -1200,6 +1240,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0090")) {
 							int qNum = qb.getNum(player);
 							qb.q0090(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0096")) {
+							int qNum = qb.getNum(player);
+							qb.q0096(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "검은 인격")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "검은 인격", 40, 40, 20);
@@ -1258,6 +1301,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0090")) {
 							int qNum = qb.getNum(player);
 							qb.q0090(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0096")) {
+							int qNum = qb.getNum(player);
+							qb.q0096(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0097")) {
+							int qNum = qb.getNum(player);
+							qb.q0097(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "외눈 물고기 성체", 40, 40, 20);
@@ -1316,6 +1365,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0090")) {
 							int qNum = qb.getNum(player);
 							qb.q0090(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0096")) {
+							int qNum = qb.getNum(player);
+							qb.q0096(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0097")) {
+							int qNum = qb.getNum(player);
+							qb.q0097(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "녹아내리는 마음", 40, 40, 20);
@@ -1374,6 +1429,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0090")) {
 							int qNum = qb.getNum(player);
 							qb.q0090(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0096")) {
+							int qNum = qb.getNum(player);
+							qb.q0096(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0097")) {
+							int qNum = qb.getNum(player);
+							qb.q0097(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "쏘아올리는 불꽃", 40, 40, 20);
@@ -1432,6 +1493,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0090")) {
 							int qNum = qb.getNum(player);
 							qb.q0090(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0096")) {
+							int qNum = qb.getNum(player);
+							qb.q0096(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0097")) {
+							int qNum = qb.getNum(player);
+							qb.q0097(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "부패의 조각", 40, 40, 20);
@@ -1490,6 +1557,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0090")) {
 							int qNum = qb.getNum(player);
 							qb.q0090(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0096")) {
+							int qNum = qb.getNum(player);
+							qb.q0096(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0097")) {
+							int qNum = qb.getNum(player);
+							qb.q0097(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "폭주하는 황소", 40, 40, 20);
@@ -1554,6 +1627,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0090")) {
 							int qNum = qb.getNum(player);
 							qb.q0090(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0096")) {
+							int qNum = qb.getNum(player);
+							qb.q0096(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0097")) {
+							int qNum = qb.getNum(player);
+							qb.q0097(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "우는 영혼들의 산", 40, 40, 20);
@@ -1618,6 +1697,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0090")) {
 							int qNum = qb.getNum(player);
 							qb.q0090(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0096")) {
+							int qNum = qb.getNum(player);
+							qb.q0096(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0097")) {
+							int qNum = qb.getNum(player);
+							qb.q0097(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "도망쳐", 40, 40, 20);
@@ -1682,6 +1767,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0090")) {
 							int qNum = qb.getNum(player);
 							qb.q0090(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0096")) {
+							int qNum = qb.getNum(player);
+							qb.q0096(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0097")) {
+							int qNum = qb.getNum(player);
+							qb.q0097(player, qNum + 1, false);
 						}
 					}
 				}
@@ -2177,18 +2268,35 @@ public class Main extends JavaPlugin implements Listener{
 		//몹이 공격한 경우 디버프 부여
 		try {
 			if (event.getDamager() instanceof Entity) {
-				Entity entity = (Entity) event.getDamager();
-				Player player = (Player) event.getEntity();
-				
-				if(entity instanceof Arrow) {
-					entity = (Entity) ((Arrow) entity).getShooter();
+				if(event.getEntity() instanceof Player) {
+					Entity entity = (Entity) event.getDamager();
+					Player player = (Player) event.getEntity();
+					
+					if(entity instanceof Arrow) {
+						entity = (Entity) ((Arrow) entity).getShooter();
+					}
+					
+					PlayerHittenDebuff debuff = new PlayerHittenDebuff();
+					debuff.playerHittenDebuff(player, entity);
 				}
-				
-				PlayerHittenDebuff debuff = new PlayerHittenDebuff();
-				debuff.playerHittenDebuff(player, entity);
 			}
 		} catch (Exception e) {
 
+		}
+		
+		//외눈 물고기 딜 관리
+		try {
+			if (event.getDamager() instanceof Entity) {
+				if(event.getEntity() instanceof Player) {
+					if(event.getDamager().getCustomName().equals(ChatColor.GREEN + "" + ChatColor.BOLD + "외눈 물고기")) {
+						event.setDamage(6);
+					} else if(event.getDamager().getCustomName().equals(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
+						event.setDamage(15);
+					}
+				}
+			}
+		} catch(Exception e) {
+			
 		}
 		
 		//브금 재생
@@ -2898,6 +3006,9 @@ public class Main extends JavaPlugin implements Listener{
 	    							|| item.getType() == Material.OBSIDIAN || item.getType() == Material.SMOOTH_SANDSTONE || item.getType() == Material.CHISELED_RED_SANDSTONE
 	    							|| item.getType() == Material.CUT_RED_SANDSTONE || item.getType() == Material.RED_SANDSTONE_STAIRS || item.getType() == Material.STONE_STAIRS
 	    							
+	    							|| item.getType() == Material.BRAIN_CORAL_BLOCK || item.getType() == Material.HORN_CORAL_BLOCK || item.getType() == Material.TUBE_CORAL_BLOCK 
+	    							|| item.getType() == Material.BUBBLE_CORAL_BLOCK || item.getType() == Material.FIRE_CORAL_BLOCK
+	    							
 	    							|| item.getType() == Material.MUSIC_DISC_11 || item.getType() == Material.MUSIC_DISC_13 || item.getType() == Material.MUSIC_DISC_BLOCKS 
 	    							|| item.getType() == Material.MUSIC_DISC_CAT || item.getType() == Material.MUSIC_DISC_CHIRP || item.getType() == Material.MUSIC_DISC_FAR 
 	    							|| item.getType() == Material.MUSIC_DISC_MALL || item.getType() == Material.MUSIC_DISC_MELLOHI || item.getType() == Material.MUSIC_DISC_PIGSTEP 
@@ -3421,6 +3532,9 @@ public class Main extends JavaPlugin implements Listener{
 						|| item.getType() == Material.RED_SANDSTONE || item.getType() == Material.RED_SANDSTONE_SLAB || item.getType() == Material.SMOOTH_RED_SANDSTONE
 						|| item.getType() == Material.OBSIDIAN || item.getType() == Material.SMOOTH_SANDSTONE || item.getType() == Material.CHISELED_RED_SANDSTONE
 						|| item.getType() == Material.CUT_RED_SANDSTONE || item.getType() == Material.RED_SANDSTONE_STAIRS || item.getType() == Material.STONE_STAIRS
+						
+						|| item.getType() == Material.BRAIN_CORAL_BLOCK || item.getType() == Material.HORN_CORAL_BLOCK || item.getType() == Material.TUBE_CORAL_BLOCK 
+						|| item.getType() == Material.BUBBLE_CORAL_BLOCK || item.getType() == Material.FIRE_CORAL_BLOCK
 						
 						|| item.getType() == Material.MUSIC_DISC_11 || item.getType() == Material.MUSIC_DISC_13 || item.getType() == Material.MUSIC_DISC_BLOCKS 
 						|| item.getType() == Material.MUSIC_DISC_CAT || item.getType() == Material.MUSIC_DISC_CHIRP || item.getType() == Material.MUSIC_DISC_FAR 
@@ -4143,7 +4257,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
 						}
 					} else if (getQuestName(player).equals("q0043") || getQuestName(player).equals("q0049") || getQuestName(player).equals("q0057") || getQuestName(player).equals("q0063") ||
-							 getQuestName(player).equals("q0077")) {
+							 getQuestName(player).equals("q0077") || getQuestName(player).equals("q0091")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -4185,7 +4299,7 @@ public class Main extends JavaPlugin implements Listener{
 							boots.setBoots(bootsItem);
 						}
 					} else if (getQuestName(player).equals("q0044") || getQuestName(player).equals("q0050") || getQuestName(player).equals("q0058") || getQuestName(player).equals("q0064") ||
-							getQuestName(player).equals("q0078")) {
+							getQuestName(player).equals("q0078") || getQuestName(player).equals("q0092")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -4229,7 +4343,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
 						}
 					} else if (getQuestName(player).equals("q0045") || getQuestName(player).equals("q0051") || getQuestName(player).equals("q0059") || getQuestName(player).equals("q0065") ||
-							getQuestName(player).equals("q0079")) {
+							getQuestName(player).equals("q0079") || getQuestName(player).equals("q0093")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -4276,7 +4390,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 0, false, false));
 						}
 					} else if (getQuestName(player).equals("q0046") || getQuestName(player).equals("q0052") || getQuestName(player).equals("q0060") || getQuestName(player).equals("q0066") ||
-							getQuestName(player).equals("q0080")) {
+							getQuestName(player).equals("q0080") || getQuestName(player).equals("q0094")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -4320,7 +4434,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 0, false, false));
 						}
 					} else if (getQuestName(player).equals("q0047") || getQuestName(player).equals("q0053") || getQuestName(player).equals("q0061") || getQuestName(player).equals("q0067") ||
-							getQuestName(player).equals("q0081")) {
+							getQuestName(player).equals("q0081") || getQuestName(player).equals("q0095")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -6678,6 +6792,94 @@ public class Main extends JavaPlugin implements Listener{
 		 	    			new Message().msg(player, "아르타니스: 그대는 꽤나 고집이 있군, 안 그런가?%아르타니스: 어쩌면 피대신 기름이 흐르는 것 같기도 하고…");
 		 	    		} else {
 		 	    			new Message().msg(player, "아르타니스: 우리는 하나 되어 싸워야 한다.");
+		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("라이미라크")) {
+	 	    		int num = rnd.nextInt(4);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "라이미라크: 싸움은 싸움을 낳고 싸움은 다시 싸움을 낳으리니…%라이미라크: 너희는 싸움 보다는 화해와 이해를, 질투와 시기보다는 포용과 사랑에 힘쓰라.%"
+	 	    					+ "라이미라크: 거듭되는 싸움은 결국 모두를 망칠 뿐이리니…");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "라이미라크: 다른 이를 공격하지 말라.%라이미라크: 너도 모르는 사이에 다른 이를 공격해 그에게 상처를 입히는 적은 없는지 참회하라.%"
+	 	    					+ "라이미라크: 그도 신의 사랑을 받는 자일진대 어찌 한갓 피조물인 네가 너의 형제를 공격하고 상처를 입히느냐.%라이미라크: 아비된 마음으로 신의 마음을 헤아려 보아라…");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "라이미라크: 그대가 무릇 누군가를 미워한다면 당신의 감정은 그를 상처입히는 것이 아니라 그대의 영혼에 상처를 주는 것이리니…%"
+	 	    					+ "라이미라크: 상처입은 영혼을 느끼고 보듬는 것은 아무리 빨라도 너무도 고통스러운 시간이 되리라…");
+	 	    		} else if(num == 3) {
+	 	    			new Message().msg(player, "라이미라크: 너희는 마음에 무슨 근심이 있느냐.%라이미라크: 너희는 마음에 무슨 정념이 있느냐.%라이미라크: 그 모든 근심과 정념을 도시에 대한 사랑과 비기겠느냐…%"
+	 	    					+ "라이미라크: 어찌 너희의 힘과 열정을 허무한 것에 쓰느냐…");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("하이미라크")) {
+	 	    		int num = rnd.nextInt(3);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "하이미라크: 인간은 시련을 통해서 강해지는 법이란다…%하이미라크: 밤이 지나야 아침이 오는 법이니…");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "하이미라크: 너희는 여기까지 오면서 수십번, 수백번을 죽고 살아났으리라.%하이미라크: 그것은 세계가 태어난 횟수이니…%하이미라크: 기아스를 대가로 천칭은 유지되고 있구나…");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "하이미라크: 불이라는 것은 발생하기 위해 산소가 필요하단다…%하이미라크: 이곳에 산소가 존재하는 이유는 오직 신만이 알고있겠지.%하이미라크: 우리 모두의 고향은 푸른 별이니…");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("제미다라크")) {
+	 	    		if(getQuestName(player).equals("N")) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("리우 협회 5과")) {
+	 	    				int num = rnd.nextInt(7);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 썩은 조직들을 뿌리째 뽑아버리려무나.%제미다라크: 이번 전투는 우리와 3과의 협동 작전이란다.%"
+	 	    							+ "%제미다라크: 네가 맡을 구역은 의뢰서에 적어두었단다.%q0091%제미다라크: 리우의 불꽃을 보여줄 시간이구나.");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 썩은 조직들을 뿌리째 뽑아버리려무나.%제미다라크: 이번 전투는 우리와 3과의 협동 작전이란다.%"
+	 	    							+ "%제미다라크: 네가 맡을 구역은 의뢰서에 적어두었단다.%q0092%제미다라크: 리우의 불꽃을 보여줄 시간이구나.");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 썩은 조직들을 뿌리째 뽑아버리려무나.%제미다라크: 이번 전투는 우리와 3과의 협동 작전이란다.%"
+	 	    							+ "%제미다라크: 네가 맡을 구역은 의뢰서에 적어두었단다.%q0093%제미다라크: 리우의 불꽃을 보여줄 시간이구나.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 썩은 조직들을 뿌리째 뽑아버리려무나.%제미다라크: 이번 전투는 우리와 3과의 협동 작전이란다.%"
+	 	    							+ "%제미다라크: 네가 맡을 구역은 의뢰서에 적어두었단다.%q0094%제미다라크: 리우의 불꽃을 보여줄 시간이구나.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 썩은 조직들을 뿌리째 뽑아버리려무나.%제미다라크: 이번 전투는 우리와 3과의 협동 작전이란다.%"
+	 	    							+ "%제미다라크: 네가 맡을 구역은 의뢰서에 적어두었단다.%q0095%제미다라크: 리우의 불꽃을 보여줄 시간이구나.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 뒷골목에 뒤틀림이 나타나 생명이 꺼져가고 있단다.%q0096%제미다라크: 우리가 너의 불꽃이 되어 빛나리라.%"
+	 	    							+ "제미다라크: 너는 우리와 함께다.");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 뒷골목에 뒤틀림이 나타나 생명이 꺼져가고 있단다.%q0097%제미다라크: 이번에는 협회의 요청으로 도시 악몽 이상의 뒤틀림을 토벌해야한단다…%"
+	 	    							+ "제미다라크: 너의 수준으로는 어려울 것이라는건 알고 있단다…%제미다라크: 5과의 힘을 괴물 녀석들에게 보여주고 오거라.%제미다라크: 우리는 불꽃이 되어 너를 수호하겠노라…");
+	 	    				}
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 4)) {
+		 	    			int num = rnd.nextInt(7);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 썩은 조직들을 뿌리째 뽑아버리려무나.%제미다라크: 이번 전투는 우리와 너와 같은 용병들의 협동 작전이란다.%"
+	 	    							+ "%제미다라크: 네가 맡을 구역은 의뢰서에 적어두었단다.%q0091%제미다라크: 투지로 불타는 해결사들의 힘을 보여주자꾸나.");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 썩은 조직들을 뿌리째 뽑아버리려무나.%제미다라크: 이번 전투는 우리와 너와 같은 용병들의 협동 작전이란다.%"
+	 	    							+ "%제미다라크: 네가 맡을 구역은 의뢰서에 적어두었단다.%q0092%제미다라크: 투지로 불타는 해결사들의 힘을 보여주자꾸나.");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 썩은 조직들을 뿌리째 뽑아버리려무나.%제미다라크: 이번 전투는 우리와 너와 같은 용병들의 협동 작전이란다.%"
+	 	    							+ "%제미다라크: 네가 맡을 구역은 의뢰서에 적어두었단다.%q0093%제미다라크: 투지로 불타는 해결사들의 힘을 보여주자꾸나.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 썩은 조직들을 뿌리째 뽑아버리려무나.%제미다라크: 이번 전투는 우리와 너와 같은 용병들의 협동 작전이란다.%"
+	 	    							+ "%제미다라크: 네가 맡을 구역은 의뢰서에 적어두었단다.%q0094%제미다라크: 투지로 불타는 해결사들의 힘을 보여주자꾸나.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 썩은 조직들을 뿌리째 뽑아버리려무나.%제미다라크: 이번 전투는 우리와 너와 같은 용병들의 협동 작전이란다.%"
+	 	    							+ "%제미다라크: 네가 맡을 구역은 의뢰서에 적어두었단다.%q0095%제미다라크: 투지로 불타는 해결사들의 힘을 보여주자꾸나.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 뒷골목에 뒤틀림이 나타나 생명이 꺼져가고 있단다.%q0096%제미다라크: 각 지역에서 우리가 함께 싸울 것이다.%"
+	 	    							+ "제미다라크: 같은 목표를 노리게 된다면 잘 부탁하지.");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "제미다라크: 우리 모두 전투에 나가자꾸나.%제미다라크: 뒷골목에 뒤틀림이 나타나 생명이 꺼져가고 있단다.%q0097%제미다라크: 이번에는 협회의 요청으로 도시 악몽 이상의 뒤틀림을 토벌해야한단다…%"
+	 	    							+ "제미다라크: 너의 수준은 잘 모르지만 어려울지도 모르겠구나…%제미다라크: 리우의 의뢰를 받은 이상 리우의 소속.%제미다라크: 리우의 용맹함을 보여주고 오거라.");
+	 	    				}
+		 	    		} else {
+		 	    			new Message().msg(player, "제미다라크: 태초의 불은 신이 인간에게 전해준것이란다…%제미다라크: 우리는 신의 힘을 빌리고 있는 것이지…");
+		 	    		}
+	 	    		} else {
+	 	    			if(office.equals("리우 협회 5과")) {
+	 	    				new Message().msg(player, "제미다라크: 무의미한 일이라는 것은 네가 더 잘 알고 있을텐데…");
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "제미다라크: 무의미한 일이라는 것은 네가 더 잘 알고 있을텐데…");
+		 	    		} else {
+		 	    			new Message().msg(player, "제미다라크: 태초의 불은 신이 인간에게 전해준것이란다…%제미다라크: 우리는 신의 힘을 빌리고 있는 것이지…");
 		 	    		}
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("아즈다르코")) {

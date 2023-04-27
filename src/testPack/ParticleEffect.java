@@ -198,6 +198,37 @@ public class ParticleEffect {
 	
 	//===========================================================================
 	
+	public void mobS000() {
+		
+		Location normal = ent.getLocation();
+		World world = ent.getWorld(); 
+		Location e1;
+        
+        double var = 0;
+		
+		for(int i = 0 ; i < 8 ; i++) {
+			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
+			world.spawnParticle(Particle.SLIME, e1, 0);
+			
+			e1 = normal.clone().add(Math.cos(var)*2, 0.1, Math.sin(var)*2);
+			world.spawnParticle(Particle.SLIME, e1, 0);
+
+			e1 = normal.clone().add(Math.cos(var)*3, 0.1, Math.sin(var)*3);
+			world.spawnParticle(Particle.SLIME, e1, 0);
+			
+			e1 = normal.clone().add(Math.cos(var)*4, 0.1, Math.sin(var)*4);
+			world.spawnParticle(Particle.SLIME, e1, 0);
+			
+			e1 = normal.clone().add(Math.cos(var)*5, 0.1, Math.sin(var)*5);
+			world.spawnParticle(Particle.SLIME, e1, 0);
+
+			var += Math.PI / 8;
+		}
+		
+		world.playSound(normal, Sound.ENTITY_SILVERFISH_DEATH, 1.0f, 2.0f);
+		
+	}
+	
 	public void mobS001() {
 		
 		Location normal = ent.getLocation();
