@@ -546,6 +546,42 @@ public class Message {
 						QuestBoard qb = new QuestBoard();
 						qb.q0097(player, 0, true);
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0098")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0098(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0099")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0099(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0100")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0100(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0101")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0101(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0102")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0102(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0103")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0103(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0104")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0104(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0105")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0105(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0106")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0106(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 3).equals("uq9")) {
 						QuestBoard qb = new QuestBoard();
 						qb.uq9(player, 0, true);

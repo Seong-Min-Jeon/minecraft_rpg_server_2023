@@ -34,6 +34,7 @@ import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.Objective;
 
 import de.Herbystar.TTA.TTA_Methods;
 
@@ -55,6 +56,12 @@ public class TPMobSpawn {
 			player.teleport(new Location(player.getWorld(), -1144.5, 81.1, 1341.5));
 			TTA_Methods.sendTitle(player, null, 20, 40, 20, "분명 열차에 탑승했던 것 같은데…", 20, 40, 20);
 			new BGM(player, "메인"); //메인 브금 재생
+			
+			QuestBoard qb = new QuestBoard();
+			if (getQuestName(player).equals("q0106")) {
+				int qNum = qb.getNum(player);
+				qb.q0106(player, qNum + 1, false);
+			}
 		}
 		
 		//부활계 유물 효과
@@ -798,6 +805,22 @@ public class TPMobSpawn {
 		
 	}
 
+	public String getQuestName(Player player) {
+		try {
+			ArrayList<Objective> list = new ArrayList<Objective>(player.getScoreboard().getObjectives());
+			String name = "N";
+			for(Objective obj : list) {
+				if(obj.getDisplayName().charAt(2) == '[') {
+					name = obj.getName();
+					break;
+				}
+			}			
+			return name;
+		} catch(Exception e) {
+			return "N";
+		}
+	}
+	
 	public String randomKey(HashMap<String, Integer> map) {
 		List<String> keysAsArray = new ArrayList<String>(map.keySet());
 		Random rnd = new Random();
