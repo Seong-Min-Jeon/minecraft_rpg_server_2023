@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Effect;
 import org.bukkit.Location;
@@ -190,10 +191,10 @@ public class ParticleEffect {
 		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
 		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
 		
-		e1 = normal.clone().add(dirX1*2, 1, dirZ1*2);
+		e1 = normal.clone().add(dirX1*1.8, 1, dirZ1*1.8);
 		world.spawnParticle(Particle.SWEEP_ATTACK, e1, 3);
 		
-		world.playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
+		world.playSound(normal, Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
 	}
 	
 	//===========================================================================
@@ -693,7 +694,502 @@ public class ParticleEffect {
 		world.playSound(normal, Sound.ENTITY_ENDER_DRAGON_GROWL, 1.0f, 2.0f);
 		
 	}
+	
+	public void mobS010() {
+		Location normal = ent.getLocation();
+		World world = ent.getWorld(); 
+		Location e1;
+        
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*2.5, 1, dirZ1*2.5);
+		world.spawnParticle(Particle.SWEEP_ATTACK, e1, 3);
+		
+		double arrowAngle2 = 100;
+		double totalAngle2 = normal.getYaw() + arrowAngle2;
+		double dirX2 = Math.cos(Math.toRadians(totalAngle2));
+		double dirZ2 = Math.sin(Math.toRadians(totalAngle2));
+		
+		e1 = normal.clone().add(dirX2*2.3, 1, dirZ2*2.3);
+		world.spawnParticle(Particle.SWEEP_ATTACK, e1, 3);
+		
+		double arrowAngle3 = 80;
+		double totalAngle3 = normal.getYaw() + arrowAngle3;
+		double dirX3 = Math.cos(Math.toRadians(totalAngle3));
+		double dirZ3 = Math.sin(Math.toRadians(totalAngle3));
+		
+		e1 = normal.clone().add(dirX3*2.3, 1, dirZ3*2.3);
+		world.spawnParticle(Particle.SWEEP_ATTACK, e1, 3);
+		
+		world.playSound(normal, Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
+	}
 
+	public void mobS011() {
+		
+		Location normal = ent.getLocation();
+		World world = ent.getWorld(); 
+		Location e1;
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(255, 255, 255), 1);
+        
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*2.5, 1.2, dirZ1*2.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle2 = 100;
+		double totalAngle2 = normal.getYaw() + arrowAngle2;
+		double dirX2 = Math.cos(Math.toRadians(totalAngle2));
+		double dirZ2 = Math.sin(Math.toRadians(totalAngle2));
+		
+		e1 = normal.clone().add(dirX2*2.3, 1.3, dirZ2*2.3);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle3 = 110;
+		double totalAngle3 = normal.getYaw() + arrowAngle3;
+		double dirX3 = Math.cos(Math.toRadians(totalAngle3));
+		double dirZ3 = Math.sin(Math.toRadians(totalAngle3));
+		
+		e1 = normal.clone().add(dirX3*2.1, 1.4, dirZ3*2.1);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle4 = 120;
+		double totalAngle4 = normal.getYaw() + arrowAngle4;
+		double dirX4 = Math.cos(Math.toRadians(totalAngle4));
+		double dirZ4 = Math.sin(Math.toRadians(totalAngle4));
+		
+		e1 = normal.clone().add(dirX4*1.9, 1.5, dirZ4*1.9);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle5 = 80;
+		double totalAngle5 = normal.getYaw() + arrowAngle5;
+		double dirX5 = Math.cos(Math.toRadians(totalAngle5));
+		double dirZ5 = Math.sin(Math.toRadians(totalAngle5));
+		
+		e1 = normal.clone().add(dirX5*2.3, 1.1, dirZ5*2.3);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle6 = 70;
+		double totalAngle6 = normal.getYaw() + arrowAngle6;
+		double dirX6 = Math.cos(Math.toRadians(totalAngle6));
+		double dirZ6 = Math.sin(Math.toRadians(totalAngle6));
+		
+		e1 = normal.clone().add(dirX6*2.1, 1.0, dirZ6*2.1);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle7 = 60;
+		double totalAngle7 = normal.getYaw() + arrowAngle7;
+		double dirX7 = Math.cos(Math.toRadians(totalAngle7));
+		double dirZ7 = Math.sin(Math.toRadians(totalAngle7));
+		
+		e1 = normal.clone().add(dirX7*1.9, 0.9, dirZ7*1.9);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle8 = 50;
+		double totalAngle8 = normal.getYaw() + arrowAngle8;
+		double dirX8 = Math.cos(Math.toRadians(totalAngle8));
+		double dirZ8 = Math.sin(Math.toRadians(totalAngle8));
+		
+		e1 = normal.clone().add(dirX8*1.7, 0.8, dirZ8*1.7);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle9 = 130;
+		double totalAngle9 = normal.getYaw() + arrowAngle9;
+		double dirX9 = Math.cos(Math.toRadians(totalAngle9));
+		double dirZ9 = Math.sin(Math.toRadians(totalAngle9));
+		
+		e1 = normal.clone().add(dirX9*1.7, 1.6, dirZ9*1.7);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 1.0f);
+		
+	}
+	
+	public void mobS012() {
+
+		Location normal = ent.getLocation();
+		World world = ent.getWorld(); 
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(255, 0, 0), 1);
+		Particle.DustOptions dustOptions2 = new Particle.DustOptions(Color.fromRGB(80, 0, 0), 1);
+		
+		new BukkitRunnable() {
+			int time = 0;
+			
+		    Location e1;
+
+			@Override
+			public void run() {
+				
+				Location loc = ent.getLocation();
+				
+				if(time == 2) {
+					double rot = Math.toRadians(loc.getYaw());
+					double var = 0;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.5-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var += Math.PI / 8;
+					}	
+					
+					var = 0;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.3-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+						
+						var += Math.PI / 8;
+					}
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 3) {
+					double rot = Math.toRadians(loc.getYaw());
+					double var = 0;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.4-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var += Math.PI / 8;
+					}	
+					
+					var = 0;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.2-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+						
+						var += Math.PI / 8;
+					}
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 4) {
+					double rot = Math.toRadians(loc.getYaw());
+					double var = 0;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.3-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var += Math.PI / 8;
+					}	
+					
+					var = 0;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.1-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+						
+						var += Math.PI / 8;
+					}
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 12) {
+					double rot = Math.toRadians(loc.getYaw());
+					double var = Math.PI;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.5-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+						
+						var -= Math.PI / 8;
+					}	
+					
+					var = Math.PI;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.3-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var -= Math.PI / 8;
+					}
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 13) {
+					double rot = Math.toRadians(loc.getYaw());
+					double var = Math.PI;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.4-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+						
+						var -= Math.PI / 8;
+					}	
+					
+					var = Math.PI;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.2-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var -= Math.PI / 8;
+					}
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 14) {
+					double rot = Math.toRadians(loc.getYaw());
+					double var = Math.PI;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.3-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+						
+						var -= Math.PI / 8;
+					}	
+					
+					var = Math.PI;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.1-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var -= Math.PI / 8;
+					}
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 20) {
+					
+					double rot = Math.toRadians(loc.getYaw());
+					double var = Math.PI;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.3-(i*0.1), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+						
+						var -= Math.PI / 8;
+					}	
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 21) {
+					
+					double rot = Math.toRadians(loc.getYaw());
+					double var = 0;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1.3-(i*0.1), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var += Math.PI / 8;
+					}	
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 25) {
+					
+					double rot = Math.toRadians(loc.getYaw());
+					double var = Math.PI;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+						
+						var -= Math.PI / 8;
+					}	
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 26) {
+					
+					double rot = Math.toRadians(loc.getYaw());
+					double var = 0;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 1-(i*0.05), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var += Math.PI / 8;
+					}	
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 30) {
+					
+					double rot = Math.toRadians(loc.getYaw());
+					double var = Math.PI;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 0.5+(i*0.1), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var -= Math.PI / 8;
+					}	
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 31) {
+					
+					double rot = Math.toRadians(loc.getYaw());
+					double var = 0;
+					
+					for(int i = 0 ; i < 8 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 0.5+(i*0.1), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+						
+						var += Math.PI / 8;
+					}	
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 35) {
+					
+					double rot = Math.toRadians(loc.getYaw());
+					double var = Math.PI;
+					
+					for(int i = 0 ; i < 6 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 2-(i*0.2), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var -= Math.PI / 8;
+					}	
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 36) {
+					
+					double rot = Math.toRadians(loc.getYaw());
+					double var = 0;
+					
+					for(int i = 0 ; i < 6 ; i++) {
+						e1 = loc.clone().add(Math.cos(var+rot), 2-(i*0.2), Math.sin(var+rot));
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+						
+						var += Math.PI / 8;
+					}	
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 2.0f);
+				}
+				
+				if(time == 40) {
+					ent.setVelocity(loc.getDirection().multiply(3.0f).setY(0.1));
+				}
+				
+				if(time >= 40) {
+					
+					double arrowAngle1 = 0;
+			        double totalAngle1 = loc.getYaw() + arrowAngle1;
+			        double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+			        double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+			        
+			        double arrowAngle3 = 180;
+			        double totalAngle3 = loc.getYaw() + arrowAngle3;
+			        double dirX3 = Math.cos(Math.toRadians(totalAngle3));
+			        double dirZ3 = Math.sin(Math.toRadians(totalAngle3));
+					
+					e1 = loc.clone().add(dirX1*0.5, 0.7, dirZ1*0.5);
+					world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+
+					e1 = loc.clone().add(dirX3*0.5, 0.7, dirZ3*0.5);
+					world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+					
+					world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 0.8f);
+				}
+
+				if(time >= 41) {
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void mobS013() {
+		
+		Location normal = ent.getLocation().add(0,1.2,0);
+		World world = ent.getWorld();
+
+		new BukkitRunnable() {
+			int time = 0;
+			double var = 0;
+
+			Location e1, e2;
+			
+			double rot = normal.getYaw();
+			double dirX = Math.cos(Math.toRadians(rot));
+			double dirZ = Math.sin(Math.toRadians(rot));
+
+			@Override
+			public void run() {
+
+				double arrowAngle1 = 90;
+				double totalAngle1 = normal.getYaw() + arrowAngle1;
+				double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+				double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+
+				e1 = normal.clone().add(dirX1*(0.5+(0.2*time)), 0.2, dirZ1*(0.5+(0.2*time)));
+				
+				for(int i = 0 ; i < 8 ; i++) {
+					e2 = e1.clone().add(Math.cos(var)*(0.5+0.04*time)*dirX, Math.sin(var)*(0.5+0.04*time), Math.cos(var)*(0.5+0.04*time)*dirZ);
+					world.spawnParticle(Particle.CLOUD, e2, 0);
+					
+					var += Math.PI / 8;
+				}
+				
+				if(time % 10 == 0) {
+					e1 = normal.clone().add(dirX1*(0.5+(0.2*time)), 0.2, dirZ1*(0.5+(0.2*time)));
+					
+					ArmorStand tmpEnt = (ArmorStand) world.spawnEntity(e1, EntityType.ARMOR_STAND);
+					tmpEnt.setVisible(false);
+					tmpEnt.setSmall(true);
+					
+					new BukkitRunnable() {
+						@Override
+						public void run() {
+							tmpEnt.remove();
+							this.cancel();
+						}
+					}.runTaskTimer(Main.getPlugin(Main.class), 0, 3);
+					
+					List<Entity> nearPlayer = ent.getNearbyEntities(3, 3, 3);
+					for(Entity e : nearPlayer) {
+						if(e instanceof Player) {
+							Player player = (Player) e;
+							player.damage(35);
+						}
+					}
+					
+					world.playSound(e1, Sound.ENTITY_GENERIC_EXPLODE, 0.7f, 0.8f);
+					world.spawnParticle(Particle.EXPLOSION_LARGE, e1, 0);
+				}
+
+				if(time >= 20) {
+					this.cancel();
+				}
+
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	
 	//===========================================================================
 	
 	// 토템
@@ -13224,7 +13720,7 @@ public class ParticleEffect {
 					world.playSound(player.getLocation(), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 0.5f, 2.0f);
 				}
 
-				if(time >= 60) {
+				if(time >= 41) {
 					this.cancel();
 				}
 				

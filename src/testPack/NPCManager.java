@@ -686,7 +686,7 @@ public class NPCManager {
 	}
 	
 	public NPC ramporing() {
-		Location loc = new Location(Bukkit.getWorld("world"), -1039.5, 88, 1285.5, 120, 0);
+		Location loc = new Location(Bukkit.getWorld("world"), -1046.5, 88, 1282.5, 90, 0);
 		
 		NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "ramporing", loc);
 		npc.setText("람포링쿠스");
@@ -720,7 +720,7 @@ public class NPCManager {
 	}
 	
 	public NPC tape() {
-		Location loc = new Location(Bukkit.getWorld("world"), -1045.5, 88, 1282.5, 90, 0);
+		Location loc = new Location(Bukkit.getWorld("world"), -1039.5, 88, 1285.5, 120, 0);
 		
 		NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "tape", loc);
 		npc.setText("타페야라");

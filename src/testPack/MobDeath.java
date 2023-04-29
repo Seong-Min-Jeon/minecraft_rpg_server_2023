@@ -91,6 +91,14 @@ public class MobDeath {
 					mobloot.ironball(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "하바네로파 조직원")) {
 					mobloot.haba(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "엄지 솔다토")) {
+					mobloot.thumb(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "검지 수행자")) {
+					mobloot.index(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "웃는 얼굴들")) {
+					mobloot.laugh(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "마리아치 조직원")) {
+					mobloot.mariachi(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.WHITE + "" + ChatColor.BOLD + "변이된 나뭇잎")) {
 					mobloot.d1_1(lootPlayer);
 				}
