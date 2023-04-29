@@ -5753,9 +5753,17 @@ public class Main extends JavaPlugin implements Listener{
 	
 	@EventHandler
 	public void consoleEvent(ServerCommandEvent event) {
+		if(event.getCommand().contains("players online")) {
+			event.setCancelled(true);
+		}
+		
 		if(event.getCommand().equals("where")) {
 			for (Player allPlayer : Bukkit.getOnlinePlayers()) {
 				getLogger().info(allPlayer.getDisplayName() + " " + (int)(allPlayer.getLocation().getX()) + " " + (int)(allPlayer.getLocation().getY()) + " " + (int)(allPlayer.getLocation().getZ()));
+			}
+		} else if(event.getCommand().equals("list")) {
+			for (Player allPlayer : Bukkit.getOnlinePlayers()) {
+				getLogger().info(allPlayer.getDisplayName());
 			}
 		} else if(event.getCommand().split(" ")[0].equals("k")) {
 			try {
