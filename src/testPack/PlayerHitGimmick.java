@@ -364,7 +364,7 @@ public class PlayerHitGimmick {
 									Player player = (Player) e;
 									player.damage(9);
 									
-									player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 100, 25, true, false));
+									player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 100, 25, true, true));
 									
 									int num = rnd.nextInt(8);
 									if(num == 0) {
@@ -781,8 +781,8 @@ public class PlayerHitGimmick {
 									Player player = (Player) e;
 									player.damage(1);
 									
-									player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, false));
-									player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, false));
+									player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
+									player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
 								}
 							}
 							mob.setGlowing(false);
@@ -1055,8 +1055,8 @@ public class PlayerHitGimmick {
 									Player player = (Player) e;
 									player.damage(1);
 									
-									player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, false));
-									player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, false));
+									player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
+									player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
 								}
 							}
 							mob.setGlowing(false);
@@ -1794,7 +1794,7 @@ public class PlayerHitGimmick {
 									Player player = (Player) e;
 									player.damage(50);
 									
-									player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 10, true, false));
+									player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 10, true, true));
 								}
 							}
 							mob.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, mob.getLocation(), 0);
@@ -2486,7 +2486,7 @@ public class PlayerHitGimmick {
 									Player player = (Player) e;
 									player.damage(50);
 									
-									player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 10, true, false));
+									player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 10, true, true));
 								}
 							}
 							mob.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, mob.getLocation(), 0);
@@ -2550,7 +2550,7 @@ public class PlayerHitGimmick {
 					}
 					player.removePotionEffect(PotionEffectType.FAST_DIGGING);
 				} else {
-					player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0, true, false));
+					player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0, true, true));
 				}
 			} else {
 				if(player.getMaxHealth() <= num) {

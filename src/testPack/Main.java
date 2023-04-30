@@ -1133,7 +1133,7 @@ public class Main extends JavaPlugin implements Listener{
 				List<Entity> nearPlayer = ent.getNearbyEntities(5, 5, 5);
 				for(Entity p : nearPlayer) {
 					if(p instanceof Player) {
-						((Player) p).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 200, 0, true, false));
+						((Player) p).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 200, 0, true, true));
 					}
 				}
 				return;
@@ -2096,7 +2096,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, false));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#CC9933") + "올가의 홍차칵테일")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 2;
@@ -2105,7 +2105,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, false));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#993333") + "단테주")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 2.2;
@@ -2114,7 +2114,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, false));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#FFCCCC") + "눈물의 병")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 20;
@@ -2123,7 +2123,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, false));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#0033CC") + "진실의 삼키는 거짓말")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 18;
@@ -2181,7 +2181,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 600, 0, true, false));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 600, 0, true, true));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "혈청K")) {
 				player.setMaxHealth(player.getMaxHealth() + 4);
 				
@@ -2349,7 +2349,7 @@ public class Main extends JavaPlugin implements Listener{
 			}
 			if(!(entity.getType() == EntityType.HORSE || entity.getType() == EntityType.PIG || entity.getType() == EntityType.SHEEP
 					|| entity.getType() == EntityType.COW || entity.getType() == EntityType.CHICKEN)) {
-				((LivingEntity)entity).addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, Integer.MAX_VALUE, 2, true, false, false));
+				((LivingEntity)entity).addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, Integer.MAX_VALUE, 2, true, true, false));
 			}
 			if((entity.getType() != EntityType.HORSE) && (entity.getType() != EntityType.ARMOR_STAND)) {
 				SpawnMob sm = new SpawnMob();
@@ -2591,11 +2591,11 @@ public class Main extends JavaPlugin implements Listener{
 				Player player = (Player) event.getDamager();
 				if (player.getInventory().getBoots() != null) {
 					if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 0, true, false));
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 0, true, true));
 					} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 고급 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, true, false));
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, true, true));
 					} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 프리미엄 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 2, true, false));
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 2, true, true));
 					}
 				}
 			}
