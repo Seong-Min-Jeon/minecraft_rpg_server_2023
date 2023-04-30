@@ -99,6 +99,14 @@ public class MobDeath {
 					mobloot.laugh(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "마리아치 조직원")) {
 					mobloot.mariachi(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "규율을 따르는 엄지 솔다토")) {
+					mobloot.thumbB(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "신념이 강한 검지 수행자")) {
+					mobloot.indexB(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "연기에 중독된 웃는 얼굴들")) {
+					mobloot.laughB(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "마리아치 간부")) {
+					mobloot.mariachiB(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.WHITE + "" + ChatColor.BOLD + "변이된 나뭇잎")) {
 					mobloot.d1_1(lootPlayer);
 				}

@@ -93,7 +93,11 @@ public class TPScroll {
 						}
 
 						if (time >= 12000) {
-							player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							Location loc4 = player.getLocation();
+							if(loc4.getX() <= 3737 && loc4.getY() <= 255 && loc4.getZ() <= 3791 && 
+									loc4.getX() >= 3698 && loc4.getY() >= 100 && loc4.getZ() >= 3771) {
+								player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							}
 							
 							td.endTask();
 							td.removeID();
@@ -164,7 +168,11 @@ public class TPScroll {
 						}
 
 						if (time >= 12000) {
-							player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							Location loc4 = player.getLocation();
+							if(loc4.getX() <= 3737 && loc4.getY() <= 255 && loc4.getZ() <= 3791 && 
+									loc4.getX() >= 3698 && loc4.getY() >= 100 && loc4.getZ() >= 3771) {
+								player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							}
 							
 							td.endTask();
 							td.removeID();
@@ -236,7 +244,11 @@ public class TPScroll {
 						}
 
 						if (time >= 12000) {
-							player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							Location loc4 = player.getLocation();
+							if(loc4.getX() <= 3737 && loc4.getY() <= 255 && loc4.getZ() <= 3791 && 
+									loc4.getX() >= 3698 && loc4.getY() >= 100 && loc4.getZ() >= 3771) {
+								player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							}
 							
 							td.endTask();
 							td.removeID();
@@ -307,7 +319,11 @@ public class TPScroll {
 						}
 
 						if (time >= 12000) {
-							player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							Location loc4 = player.getLocation();
+							if(loc4.getX() <= 3737 && loc4.getY() <= 255 && loc4.getZ() <= 3791 && 
+									loc4.getX() >= 3698 && loc4.getY() >= 100 && loc4.getZ() >= 3771) {
+								player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							}
 							
 							td.endTask();
 							td.removeID();
@@ -378,7 +394,11 @@ public class TPScroll {
 						}
 
 						if (time >= 12000) {
-							player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							Location loc4 = player.getLocation();
+							if(loc4.getX() <= 3737 && loc4.getY() <= 255 && loc4.getZ() <= 3791 && 
+									loc4.getX() >= 3698 && loc4.getY() >= 100 && loc4.getZ() >= 3771) {
+								player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							}
 							
 							td.endTask();
 							td.removeID();
@@ -449,7 +469,11 @@ public class TPScroll {
 						}
 
 						if (time >= 12000) {
-							player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							Location loc4 = player.getLocation();
+							if(loc4.getX() <= 3737 && loc4.getY() <= 255 && loc4.getZ() <= 3791 && 
+									loc4.getX() >= 3698 && loc4.getY() >= 100 && loc4.getZ() >= 3771) {
+								player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							}
 							
 							td.endTask();
 							td.removeID();
@@ -520,7 +544,11 @@ public class TPScroll {
 						}
 
 						if (time >= 12000) {
-							player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							Location loc4 = player.getLocation();
+							if(loc4.getX() <= 3737 && loc4.getY() <= 255 && loc4.getZ() <= 3791 && 
+									loc4.getX() >= 3698 && loc4.getY() >= 100 && loc4.getZ() >= 3771) {
+								player.teleport(new Location(world, -1144.5, 81, 1341.5));
+							}
 							
 							td.endTask();
 							td.removeID();

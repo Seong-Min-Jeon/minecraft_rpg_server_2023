@@ -21,12 +21,12 @@ public class Shop12 {
 		Inventory inv = Bukkit.createInventory(player, 36, "상점");
 		
 		inv.setItem(0, item1D());
-		inv.setItem(1, item1D());
-		inv.setItem(2, item1D());
-		inv.setItem(3, item1D());
-		inv.setItem(4, item1D());
-		inv.setItem(5, item1D());
-		inv.setItem(6, item1D());
+		inv.setItem(1, item2D());
+		inv.setItem(2, item3D());
+		inv.setItem(3, item4D());
+		inv.setItem(4, item5D());
+		inv.setItem(5, item6D());
+		inv.setItem(6, item7D());
 		
 		player.openInventory(inv);
 	}

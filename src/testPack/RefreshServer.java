@@ -206,7 +206,7 @@ public class RefreshServer {
 								 || ent.getType() == EntityType.SPIDER || ent.getType() == EntityType.GUARDIAN || ent.getType() == EntityType.VINDICATOR || ent.getType() == EntityType.SLIME
 								 || ent.getType() == EntityType.SILVERFISH || ent.getType() == EntityType.WITCH || ent.getType() == EntityType.CAVE_SPIDER || ent.getType() == EntityType.ENDERMAN
 								 || ent.getType() == EntityType.ELDER_GUARDIAN || ent.getType() == EntityType.MAGMA_CUBE || ent.getType() == EntityType.BLAZE || ent.getType() == EntityType.ENDERMITE
-								 || ent.getType() == EntityType.RAVAGER || ent.getType() == EntityType.GHAST || ent.getType() == EntityType.WARDEN) {
+								 || ent.getType() == EntityType.RAVAGER || ent.getType() == EntityType.GHAST || ent.getType() == EntityType.WARDEN || ent.getType() == EntityType.IRON_GOLEM) {
 							if(ent.getTicksLived() > 6000) {
 								ent.remove();
 							}
@@ -241,7 +241,7 @@ public class RefreshServer {
 			 		Integer t = Integer.parseInt(strTime);
 			 		
 			 		//뒤틀림 소환
-			 		if((t > 2960 && t < 3100) || (t > 5960 && t < 100)) {
+			 		if((t > 2960 && t < 3100) || (t > 0 && t < 100)) {
 			 			for(Location loc : ary) {
 			 				int tmp = rnd.nextInt(15);
 			 				Entity ent = null;

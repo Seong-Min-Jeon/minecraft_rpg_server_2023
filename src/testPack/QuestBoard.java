@@ -2138,7 +2138,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0034", Criteria.DUMMY, ChatColor.GOLD + "[마침표 사무소의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("녹슨 사슬파 처리");
+			Score score = obj.getScore("[정예] 녹슨 사슬파 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -2156,7 +2156,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0034", Criteria.DUMMY, ChatColor.GOLD + "[마침표 사무소의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("녹슨 사슬파 처리");
+			Score score = obj.getScore("[정예] 녹슨 사슬파 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -2211,7 +2211,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0035", Criteria.DUMMY, ChatColor.GOLD + "[마침표 사무소의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("흑운회 처리");
+			Score score = obj.getScore("[정예] 흑운회 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -2229,7 +2229,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0035", Criteria.DUMMY, ChatColor.GOLD + "[마침표 사무소의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("흑운회 처리");
+			Score score = obj.getScore("[정예] 흑운회 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -2285,7 +2285,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0036", Criteria.DUMMY, ChatColor.GOLD + "[마침표 사무소의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("사육제 처리");
+			Score score = obj.getScore("[정예] 사육제 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -2303,7 +2303,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0036", Criteria.DUMMY, ChatColor.GOLD + "[마침표 사무소의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("사육제 처리");
+			Score score = obj.getScore("[정예] 사육제 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -2358,7 +2358,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0037", Criteria.DUMMY, ChatColor.GOLD + "[마침표 사무소의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("철공회 처리");
+			Score score = obj.getScore("[정예] 철공회 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -2376,7 +2376,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0037", Criteria.DUMMY, ChatColor.GOLD + "[마침표 사무소의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("철공회 처리");
+			Score score = obj.getScore("[정예] 철공회 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -2431,7 +2431,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0038", Criteria.DUMMY, ChatColor.GOLD + "[마침표 사무소의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("하바네로파 처리");
+			Score score = obj.getScore("[정예] 하바네로파 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -2449,7 +2449,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0038", Criteria.DUMMY, ChatColor.GOLD + "[마침표 사무소의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("하바네로파 처리");
+			Score score = obj.getScore("[정예] 하바네로파 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -5337,7 +5337,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0085", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("녹슨 사슬파 처리");
+			Score score = obj.getScore("[정예] 녹슨 사슬파 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -5355,7 +5355,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0085", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("녹슨 사슬파 처리");
+			Score score = obj.getScore("[정예] 녹슨 사슬파 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -5410,7 +5410,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0086", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("흑운회 처리");
+			Score score = obj.getScore("[정예] 흑운회 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -5428,7 +5428,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0086", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("흑운회 처리");
+			Score score = obj.getScore("[정예] 흑운회 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -5484,7 +5484,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0087", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("사육제 처리");
+			Score score = obj.getScore("[정예] 사육제 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -5502,7 +5502,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0087", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("사육제 처리");
+			Score score = obj.getScore("[정예] 사육제 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -5557,7 +5557,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0088", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("철공회 처리");
+			Score score = obj.getScore("[정예] 철공회 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -5575,7 +5575,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0088", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("철공회 처리");
+			Score score = obj.getScore("[정예] 철공회 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -5630,7 +5630,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0089", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("하바네로파 처리");
+			Score score = obj.getScore("[정예] 하바네로파 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -5648,7 +5648,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0038", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("하바네로파 처리");
+			Score score = obj.getScore("[정예] 하바네로파 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -6186,7 +6186,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0098", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("녹슨 사슬파 처리");
+			Score score = obj.getScore("[정예] 녹슨 사슬파 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -6204,7 +6204,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0098", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("녹슨 사슬파 처리");
+			Score score = obj.getScore("[정예] 녹슨 사슬파 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -6259,7 +6259,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0099", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("흑운회 처리");
+			Score score = obj.getScore("[정예] 흑운회 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -6277,7 +6277,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0099", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("흑운회 처리");
+			Score score = obj.getScore("[정예] 흑운회 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -6333,7 +6333,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0100", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("사육제 처리");
+			Score score = obj.getScore("[정예] 사육제 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -6351,7 +6351,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0100", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("사육제 처리");
+			Score score = obj.getScore("[정예] 사육제 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -6406,7 +6406,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0101", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("철공회 처리");
+			Score score = obj.getScore("[정예] 철공회 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -6424,7 +6424,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0101", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("철공회 처리");
+			Score score = obj.getScore("[정예] 철공회 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -6479,7 +6479,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0102", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("하바네로파 처리");
+			Score score = obj.getScore("[정예] 하바네로파 처리");
 			score.setScore(2);
 			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
 			score2.setScore(1);
@@ -6497,7 +6497,7 @@ public class QuestBoard {
 			Scoreboard board = manager.getNewScoreboard();
 			Objective obj = board.registerNewObjective("q0102", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 5과의 의뢰]");
 			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-			Score score = obj.getScore("하바네로파 처리");
+			Score score = obj.getScore("[정예] 하바네로파 처리");
 			score.setScore(1);
 			Score score3 = obj.getScore("(" + num + "/1)");
 			score3.setScore(0);
@@ -7133,6 +7133,359 @@ public class QuestBoard {
 			n.forceUpdate();
 		}
 	}
+	
+	public void q0115(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("시 협회 3과")) {
+				player.sendMessage(ChatColor.WHITE + "말라쉬: 아아… 모든 것은 지령의 뜻대로…");
+				
+				player.setLevel(player.getLevel() + 250000);
+				giveExp(player, 80);
+				player.sendMessage(ChatColor.GOLD + "[System] 250000안을 획득했다.");
+			} else {
+				player.sendMessage(ChatColor.WHITE + "말라쉬: 아아… 모든 것은 지령의 뜻대로…");
+				
+				player.setLevel(player.getLevel() + 80000);
+				giveExp(player, 30);
+				player.sendMessage(ChatColor.GOLD + "[System] 80000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -1001, 62, 1182, -1119, 62, 1092).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0115", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 3과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 엄지 솔다토 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0115", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 3과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 엄지 솔다토 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+		
+	}
+	
+	public void q0116(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("시 협회 3과")) {
+				player.sendMessage(ChatColor.WHITE + "말라쉬: 아아… 모든 것은 지령의 뜻대로…");
+				
+				player.setLevel(player.getLevel() + 250000);
+				giveExp(player, 80);
+				player.sendMessage(ChatColor.GOLD + "[System] 250000안을 획득했다.");
+			} else {
+				player.sendMessage(ChatColor.WHITE + "말라쉬: 아아… 모든 것은 지령의 뜻대로…");
+				
+				player.setLevel(player.getLevel() + 80000);
+				giveExp(player, 30);
+				player.sendMessage(ChatColor.GOLD + "[System] 80000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -919, 62, 1455, -985, 62, 1349).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0116", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 3과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 검지 수행자 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0116", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 3과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 검지 수행자 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+	}
+	
+	public void q0117(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("시 협회 3과")) {
+				player.sendMessage(ChatColor.WHITE + "말라쉬: 아아… 모든 것은 지령의 뜻대로…");
+				
+				player.setLevel(player.getLevel() + 250000);
+				giveExp(player, 80);
+				player.sendMessage(ChatColor.GOLD + "[System] 250000안을 획득했다.");
+			} else {
+				player.sendMessage(ChatColor.WHITE + "말라쉬: 아아… 모든 것은 지령의 뜻대로…");
+				
+				player.setLevel(player.getLevel() + 80000);
+				giveExp(player, 30);
+				player.sendMessage(ChatColor.GOLD + "[System] 80000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0117", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 3과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 웃는 얼굴들 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0117", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 3과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 웃는 얼굴들 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+	}
+	
+	public void q0118(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("시 협회 3과")) {
+				player.sendMessage(ChatColor.WHITE + "말라쉬: 아아… 모든 것은 지령의 뜻대로…");
+				
+				player.setLevel(player.getLevel() + 250000);
+				giveExp(player, 80);
+				player.sendMessage(ChatColor.GOLD + "[System] 250000안을 획득했다.");
+			} else {
+				player.sendMessage(ChatColor.WHITE + "말라쉬: 아아… 모든 것은 지령의 뜻대로…");
+				
+				player.setLevel(player.getLevel() + 80000);
+				giveExp(player, 30);
+				player.sendMessage(ChatColor.GOLD + "[System] 80000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0118", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 3과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 마리아치 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0118", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 3과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 마리아치 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+	}
+	
+	public void q0119(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("시 협회 3과")) {
+				player.sendMessage(ChatColor.WHITE + "말라쉬: 아아… 모든 것은 지령의 뜻대로…");
+				
+				player.setLevel(player.getLevel() + 400000);
+				giveExp(player, 140);
+				player.sendMessage(ChatColor.GOLD + "[System] 400000안을 획득했다.");
+			} else {
+				player.sendMessage(ChatColor.WHITE + "말라쉬: 아아… 모든 것은 지령의 뜻대로…");
+				
+				player.setLevel(player.getLevel() + 130000);
+				giveExp(player, 45);
+				player.sendMessage(ChatColor.GOLD + "[System] 130000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0119", Criteria.DUMMY, ChatColor.GOLD + "[시 협회 3과의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("도시 악몽급 이상 뒤틀림 사냥");
+		score.setScore(1);
+		Score score2 = obj.getScore("(" + num + "/1)");
+		score2.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
 	
 	
 	

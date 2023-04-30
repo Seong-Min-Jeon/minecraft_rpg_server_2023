@@ -58,7 +58,7 @@ public class Skill {
 							skill1(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 1000);
+						bool = reload2(player, 2000);
 						if (bool) {
 							sendPacket(player, "가벼운 방어");
 							skill2(player);
@@ -98,7 +98,7 @@ public class Skill {
 			
 		}
 		
-		player.setNoDamageTicks(10 + (personality*1));
+		player.setNoDamageTicks(15 + (personality*1));
 		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10 + (personality*1), 0, true, true));
 		world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 	}

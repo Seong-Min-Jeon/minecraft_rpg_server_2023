@@ -882,6 +882,94 @@ public class MobLoot {
 		}
 	}
 	
+	public void thumbB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(20000) + 30000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0115")) {
+					int qNum = qb.getNum(p);
+					qb.q0115(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0115")) {
+			int qNum = qb.getNum(player);
+			qb.q0115(player, qNum + 1, false);
+		}
+	}
+	
+	public void indexB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(30000) + 25000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0116")) {
+					int qNum = qb.getNum(p);
+					qb.q0116(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0116")) {
+			int qNum = qb.getNum(player);
+			qb.q0116(player, qNum + 1, false);
+		}
+	}
+	
+	public void laughB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(10000) + 12000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0117")) {
+					int qNum = qb.getNum(p);
+					qb.q0117(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0117")) {
+			int qNum = qb.getNum(player);
+			qb.q0117(player, qNum + 1, false);
+		}
+	}
+	
+	public void mariachiB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(10000) + 30000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0118")) {
+					int qNum = qb.getNum(p);
+					qb.q0118(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0118")) {
+			int qNum = qb.getNum(player);
+			qb.q0118(player, qNum + 1, false);
+		}
+	}
+	
 	
 	
 	//============================
