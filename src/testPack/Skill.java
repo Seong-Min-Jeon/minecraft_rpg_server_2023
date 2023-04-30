@@ -64,6 +64,48 @@ public class Skill {
 							skill2(player);
 						}
 					}
+				} else if(name.equals("윤 사무소 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 800);
+						if (bool) {
+							sendPacket(player, "회피 공격");
+							skill3(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 1500);
+						if (bool) {
+							sendPacket(player, "재빠름");
+							skill4(player);
+						}
+					}
+				} else if(name.equals("갈고리 사무소 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 800);
+						if (bool) {
+							sendPacket(player, "압도");
+							skill5(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 5000);
+						if (bool) {
+							sendPacket(player, "받아내보시지");
+							skill6(player);
+						}
+					}
+				} else if(name.equals("가로등 사무소 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1000);
+						if (bool) {
+							sendPacket(player, "쳐내기");
+							skill7(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 6000);
+						if (bool) {
+							sendPacket(player, "연속 방어");
+							skill8(player);
+						}
+					}
 				}
 				
 			}
@@ -99,9 +141,159 @@ public class Skill {
 		}
 		
 		player.setNoDamageTicks(15 + (personality*1));
-		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10 + (personality*1), 0, true, true));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10 + (personality*1), 0, true, false));
 		world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 	}
+	
+	public void skill3(Player player) {
+		
+		new BukkitRunnable() {
+			int time = 0;
+
+			@Override
+			public void run() {
+				
+				if(time == 0) {
+					player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.1,0,1.1).add(new Vector(0,0.1,0))));
+				}
+
+				if(time >= 10) {
+					new ParticleEffect(player).pS001();
+					
+					List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 2.5);
+						}
+					}
+					
+					this.cancel();
+				}
+
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+	}
+	
+	public void skill4(Player player) {
+		int personality = 0;
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.6+(0.02*personality),0,1.6+(0.02*personality)).add(new Vector(0,0.2,0))));
+	}
+	
+	public void skill5(Player player) {
+		new ParticleEffect(player).pS002();
+		List<Entity> entitylist = nearFrontEntities(player, 1.5, 0.5, 1, 0.5);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 3);
+			}
+		}
+	}
+	
+	public void skill6(Player player) {
+		player.setVelocity(player.getFacing().getDirection().multiply(-0.3f));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 40, 0,true,true));
+		
+		new BukkitRunnable() {
+			int time = 0;
+
+		    @Override
+			public void run() {
+		    	
+				if(time == 40) {
+					player.setVelocity(player.getFacing().getDirection().add(new Vector(0,-0.5,0)).multiply(2.0f));
+					
+					player.setNoDamageTicks(10);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false));
+					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
+				}
+				
+				if(time >= 40 && player.isOnGround()) {
+					new ParticleEffect(player).pS003();
+					
+					List<Entity> entitylist = player.getNearbyEntities(1.5, 1, 1.5);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 3.5);
+						}
+					}
+					this.cancel();
+				}
+				
+				time++;
+
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void skill7(Player player) {
+		new ParticleEffect(player).pS004();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.5, 0.6, 1, 0.6);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 2);
+				nearMob.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.3,0,1.3).add(new Vector(0,0.2,0))));
+			}
+		}
+	}
+	
+	public void skill8(Player player) {
+		
+		new BukkitRunnable() {
+			int time = 0;
+
+		    @Override
+			public void run() {
+		    	
+				if(time == 0) {
+					player.setNoDamageTicks(10);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false));
+					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
+				} 
+				
+				if(time == 20) {
+					player.setNoDamageTicks(10);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false));
+					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
+				}
+				
+				if(time == 40) {
+					player.setNoDamageTicks(10);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false));
+					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
+				}
+				
+				if(time >= 60) {
+					player.setNoDamageTicks(10);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false));
+					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
+					this.cancel();
+				}
+				
+				time++;
+
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
 	
 	public void damage(Player player, LivingEntity mob, double dam) {
 		if(mob instanceof ArmorStand) {

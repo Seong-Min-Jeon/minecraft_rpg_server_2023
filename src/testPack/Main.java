@@ -827,9 +827,24 @@ public class Main extends JavaPlugin implements Listener{
 				}
 			}
 			String name = "";
+			String playerName = player.getDisplayName();
+			
+			if(player.getDisplayName().equals("yumehama")) {
+				playerName = "관리자양반";
+			} else if(player.getDisplayName().equals("Akilae3102")) {
+				playerName = "아킬레님";
+			} else if(player.getDisplayName().equals("Espina_ID")) {
+				playerName = "규어님";
+			} else if(player.getDisplayName().equals("NN_TapeJara")) {
+				playerName = "타페야라님";
+			} else if(player.getDisplayName().equals("WoolRing")) {
+				playerName = "울링님";
+			} else {
+				playerName += "님";
+			}
 			
 			if(ent == null) {
-				event.setDeathMessage(ChatColor.RED + "" + player + "님이 알 수 없는 이유로 사망했습니다.");
+				event.setDeathMessage(ChatColor.RED + "" + playerName + "이 알 수 없는 이유로 사망했습니다.");
 			}
 			
 			if(ent instanceof Mob) {
@@ -838,104 +853,104 @@ public class Main extends JavaPlugin implements Listener{
 				}
 				
 				if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "다리가 많아! 몇개야?")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 죽었어! 목숨이 몇개야?");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 죽었어! 목숨이 몇개야?");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "외눈 물고기")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 물고기 사냥을 하다가 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 물고기 사냥을 하다가 죽었습니다.");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "회색 인간")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 인간과 가장 가까운 뒤틀림에게 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 인간과 가장 가까운 뒤틀림에게 죽었습니다.");
 				} else if(name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "작아지는 죽음")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 작아지는 죽음에 먹혀 녹아버렸습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 작아지는 죽음에 먹혀 녹아버렸습니다.");
 				} else if(name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "작은 조각")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님의 시체가 작은 조각에게 청소됩니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "의 시체가 작은 조각에게 청소됩니다.");
 				} else if(name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "약쟁이 소녀")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 약에 중독되어 사망합니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 약에 중독되어 사망합니다.");
 				} else if(name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "날아오르는 다리")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 날아오르는 다리에 찔려 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 날아오르는 다리에 찔려 죽었습니다.");
 				} else if(name.equals(ChatColor.RED + "" + ChatColor.BOLD + "검은 인격")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 검게 변하며 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 검게 변하며 죽었습니다.");
 				} else if(name.equals(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 거대한 물고기에게 먹혀 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 거대한 물고기에게 먹혀 죽었습니다.");
 				} else if(name.equals(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 사지가 녹아내려 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 사지가 녹아내려 죽었습니다.");
 				} else if(name.equals(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 불꽃이 되어 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 불꽃이 되어 죽었습니다.");
 				} else if(name.equals(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 보라빛으로 빛나며 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 보라빛으로 빛나며 죽었습니다.");
 				} else if(name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 황소에게 짖눌려 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 황소에게 짖눌려 죽었습니다.");
 				} else if(name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님의 영혼이 우는 영혼들의 산에 의해 흡수됩니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "의 영혼이 우는 영혼들의 산에 의해 흡수됩니다.");
 				} else if(name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 존재하지 않게 되었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 존재하지 않게 되었습니다.");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 겨우 쥐에게 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 겨우 쥐에게 죽었습니다.");
 				} else if(name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 쥐 두목에게 살해당했습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 쥐 두목에게 살해당했습니다.");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 9급 해결사")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 9급 해결사에게 살해당했습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 9급 해결사에게 살해당했습니다.");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 8급 해결사")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 8급 해결사에게 살해당했습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 8급 해결사에게 살해당했습니다.");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 7급 해결사")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 7급 해결사에게 살해당했습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 7급 해결사에게 살해당했습니다.");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "갈고리 사무소 해결사")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 갈고리 사무소 해결사에게 살해당했습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 갈고리 사무소 해결사에게 살해당했습니다.");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "철의 형제 조직원")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 전신의체인 형제들에게 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 전신의체인 형제들에게 죽었습니다.");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "버림받은 개 조직원")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 약속의 소중함을 모른채 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 약속의 소중함을 모른채 죽었습니다.");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "꿀꿀이네 조직원")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 꿀꿀이네의 음식이 되었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 꿀꿀이네의 음식이 되었습니다.");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "도끼파 조직원")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 가장 약한 도끼에 찍혀 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 가장 약한 도끼에 찍혀 죽었습니다.");
 				} else if(name.equals(ChatColor.GREEN + "" + ChatColor.BOLD + "정육점파 조직원")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 고기로 도축되었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 고기로 도축되었습니다.");
 				} else if(name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "녹슨 사슬파 간부")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 사슬에 묶여 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 사슬에 묶여 죽었습니다.");
 				} else if(name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "흑운회 카시라")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 검은 구름에 베어 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 검은 구름에 베어 죽었습니다.");
 				} else if(name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "사육제 전투원")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 좋은 실이 되었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 좋은 실이 되었습니다.");
 				} else if(name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "철공회 간부")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 호통 소리에 놀라 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 호통 소리에 놀라 죽었습니다.");
 				} else if(name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "하바네로파 간부")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 매운 맛을 느껴 사망했습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 매운 맛을 느껴 사망했습니다.");
 				} else if (name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "녹슨 사슬파 조직원")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 사슬에 묶여 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 사슬에 묶여 죽었습니다.");
 				} else if (name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "흑운회 와카슈")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 검은 구름에 베어 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 검은 구름에 베어 죽었습니다.");
 				} else if (name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "사육제 재단사")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 좋은 실이 되었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 좋은 실이 되었습니다.");
 				} else if (name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "철공회 조직원")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 호통 소리에 놀라 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 호통 소리에 놀라 죽었습니다.");
 				} else if (name.equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "하바네로파 조직원")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 매운 맛을 느껴 사망했습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 매운 맛을 느껴 사망했습니다.");
 				} else if (name.equals(ChatColor.RED + "" + ChatColor.BOLD + "엄지 솔다토")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 엄지의 규율에 따라 척살되었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 엄지의 규율에 따라 척살되었습니다.");
 				} else if (name.equals(ChatColor.RED + "" + ChatColor.BOLD + "검지 수행자")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 검지의 지령에 따라 도시에서 사라졌습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 검지의 지령에 따라 도시에서 사라졌습니다.");
 				} else if (name.equals(ChatColor.RED + "" + ChatColor.BOLD + "웃는 얼굴들")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 웃는 얼굴들에게 포가 떠져죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 웃는 얼굴들에게 포가 떠져죽었습니다.");
 				} else if (name.equals(ChatColor.RED + "" + ChatColor.BOLD + "마리아치 조직원")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 마라카스에 머리가 깨져 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 마라카스에 머리가 깨져 죽었습니다.");
 				} else if (name.equals(ChatColor.RED + "" + ChatColor.BOLD + "규율을 따르는 엄지 솔다토")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 엄지의 규율에 따라 척살되었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 엄지의 규율에 따라 척살되었습니다.");
 				} else if (name.equals(ChatColor.RED + "" + ChatColor.BOLD + "신념이 강한 검지 수행자")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 검지의 지령에 따라 도시에서 사라졌습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 검지의 지령에 따라 도시에서 사라졌습니다.");
 				} else if (name.equals(ChatColor.RED + "" + ChatColor.BOLD + "연기에 중독된 웃는 얼굴들")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 웃는 얼굴들에게 포가 떠져죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 웃는 얼굴들에게 포가 떠져죽었습니다.");
 				} else if (name.equals(ChatColor.RED + "" + ChatColor.BOLD + "마리아치 간부")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 마라카스에 머리가 깨져 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 마라카스에 머리가 깨져 죽었습니다.");
 				} else if (name.equals(ChatColor.WHITE + "" + ChatColor.BOLD + "변이된 나뭇잎")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 외곽의 유적에서 잊혀졌습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 외곽의 유적에서 잊혀졌습니다.");
 				} else if (name.equals(ChatColor.WHITE + "" + ChatColor.BOLD + "나태한 수호령")) {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 외곽의 유적에서 잊혀졌습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 외곽의 유적에서 잊혀졌습니다.");
 				} else {
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 " + name + "에 의해 죽었습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 " + name + "에 의해 죽었습니다.");
 				}
 			} else if(ent instanceof Player) {
 				if(ent != null) {
 					name = ((Player) ent).getDisplayName();
-					event.setDeathMessage(ChatColor.RED + "" + player + "님이 " + name + "에 의해 살해당했습니다.");
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 " + name + "에 의해 살해당했습니다.");
 				}
 			}
 		} catch (Exception e) {
@@ -1118,7 +1133,7 @@ public class Main extends JavaPlugin implements Listener{
 				List<Entity> nearPlayer = ent.getNearbyEntities(5, 5, 5);
 				for(Entity p : nearPlayer) {
 					if(p instanceof Player) {
-						((Player) p).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 200, 0, true, true));
+						((Player) p).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 200, 0, true, false));
 					}
 				}
 				return;
@@ -2081,7 +2096,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, false));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#CC9933") + "올가의 홍차칵테일")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 2;
@@ -2090,7 +2105,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, false));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#993333") + "단테주")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 2.2;
@@ -2099,7 +2114,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, false));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#FFCCCC") + "눈물의 병")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 20;
@@ -2108,7 +2123,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, false));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#0033CC") + "진실의 삼키는 거짓말")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 18;
@@ -2166,7 +2181,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 600, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 600, 0, true, false));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "혈청K")) {
 				player.setMaxHealth(player.getMaxHealth() + 4);
 				
@@ -2576,11 +2591,11 @@ public class Main extends JavaPlugin implements Listener{
 				Player player = (Player) event.getDamager();
 				if (player.getInventory().getBoots() != null) {
 					if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 0, true, true));
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 0, true, false));
 					} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 고급 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, true, true));
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, true, false));
 					} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 프리미엄 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 2, true, true));
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 2, true, false));
 					}
 				}
 			}

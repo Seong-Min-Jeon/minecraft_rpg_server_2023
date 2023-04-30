@@ -172,7 +172,7 @@ public class PlayerHittenDebuff {
 					}
 				}
 			} else if(num < 3) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, false));
 			}
 		}
 	}
@@ -1241,9 +1241,9 @@ public class PlayerHittenDebuff {
 					}
 				}
 			} else if(num == 1) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 0, true, false));
 			}
-			player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
+			player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, false));
 		}
 	}
 	
@@ -1496,7 +1496,7 @@ public class PlayerHittenDebuff {
 					}
 				}
 			} 
-			player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100, 0, true, true));
+			player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100, 0, true, false));
 		}
 	}
 	
@@ -1643,7 +1643,7 @@ public class PlayerHittenDebuff {
 					}
 				}
 			} 
-			player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100, 0, true, true));
+			player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100, 0, true, false));
 		}
 	}
 	
@@ -5887,7 +5887,7 @@ public class PlayerHittenDebuff {
 					List<Entity> nearPlayer = mob.getNearbyEntities(2, 2, 2);
 					for (Entity p : nearPlayer) {
 						if (p instanceof Player) {
-							((Player) p).addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60, 0, true, true));
+							((Player) p).addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60, 0, true, false));
 						}
 					}
 					mob.getWorld().spawnEntity(new Location(player.getWorld(), 3737.5, 91, 4170.5), EntityType.RAVAGER);
@@ -5897,7 +5897,7 @@ public class PlayerHittenDebuff {
 					if (num < 1) {
 						((Skeleton) mob).setTarget(player);
 						player.sendMessage(ChatColor.RED + "숲의 독극물이 흘러들어옵니다.");
-						player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 4, true, true));
+						player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 4, true, false));
 					} else if (num == 1) {
 						((Skeleton) mob).setTarget(player);
 
@@ -5905,7 +5905,7 @@ public class PlayerHittenDebuff {
 						sendMessage(player, ChatColor.RED + "심판자가 목을 풉니다.");
 						player.getWorld().playSound(mob.getLocation(), Sound.BLOCK_GRASS_BREAK, 5.0f, 2.0f);
 
-						((LivingEntity) mob).addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 50, 200, true, true));
+						((LivingEntity) mob).addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 50, 200, true, false));
 
 						Location loc = mob.getLocation();
 
@@ -6273,7 +6273,7 @@ public class PlayerHittenDebuff {
 					}
 					player.removePotionEffect(PotionEffectType.FAST_DIGGING);
 				} else {
-					player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0, true, true));
+					player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0, true, false));
 				}
 			} else {
 				if(player.getMaxHealth() <= num) {

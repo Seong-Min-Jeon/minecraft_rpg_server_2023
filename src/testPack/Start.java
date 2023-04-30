@@ -67,10 +67,17 @@ public class Start {
 		String name = player.getInventory().getItem(7).getItemMeta().getLocalizedName();
 		if(name.equals("평범한 해결사의 인격")) {
 			player.setMaxHealth(10); //인격 강화에 따라서 증가시켜줘야됨
+		} else if(name.equals("윤 사무소 해결사의 인격")) {
+			player.setMaxHealth(12);
+		} else if(name.equals("갈고리 사무소 해결사의 인격")) {
+			player.setMaxHealth(12);
+		} else if(name.equals("가로등 사무소 해결사의 인격")) {
+			player.setMaxHealth(12);
 		}
 		
 		player.setHealth(player.getMaxHealth());
 		player.setFoodLevel(20);
+		player.setSaturation((float) 8.0);
 		
 		ItemStack lic = new ItemStack(Material.ACACIA_DOOR);
 		ItemMeta licIm = lic.getItemMeta();
@@ -140,6 +147,45 @@ public class Start {
 			ArrayList<String> weaponLore = new ArrayList<>();
 			weaponLore.add(ChatColor.GRAY + "초보 해결사도 지니고 다닐 수 있는 저가형 무기");
 			weaponLore.add(ChatColor.GRAY + "내구성은 보기보다 좋다고 한다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("윤 사무소 해결사의 인격")) {
+			weapon = new ItemStack(Material.COBBLESTONE_SLAB);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "저급 공방의 칼");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "9급 사무소 해결사도 적당하게 쓸 수 있는 무기");
+			weaponLore.add(ChatColor.GRAY + "어느 공방에서 만들었는지 적혀있지도 않다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("갈고리 사무소 해결사의 인격")) {
+			weapon = new ItemStack(Material.COBBLESTONE_SLAB);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "저급 공방의 칼");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "9급 사무소 해결사도 적당하게 쓸 수 있는 무기");
+			weaponLore.add(ChatColor.GRAY + "어느 공방에서 만들었는지 적혀있지도 않다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("가로등 사무소 해결사의 인격")) {
+			weapon = new ItemStack(Material.COBBLESTONE_SLAB);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "저급 공방의 칼");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "9급 사무소 해결사도 적당하게 쓸 수 있는 무기");
+			weaponLore.add(ChatColor.GRAY + "어느 공방에서 만들었는지 적혀있지도 않다.");
 			weaponIm.setLore(weaponLore);
 			weaponIm.setUnbreakable(true);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);

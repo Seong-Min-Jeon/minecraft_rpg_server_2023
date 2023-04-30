@@ -71,7 +71,7 @@ public class StepAndRolling {
 	public void move(Player player) {
 		
 		player.setNoDamageTicks(10);
-		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, true));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false));
 
 		taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 
@@ -99,7 +99,7 @@ public class StepAndRolling {
 					x *= 4;
 					z *= 4;
 					if (x == 0 & z == 0) {
-						player.setVelocity(player.getLocation().getDirection().multiply(new Vector(-1, 0, -1)).add(new Vector(0, 0.1, 0)));
+						player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1, 0, 1)).add(new Vector(0, 0.1, 0)));
 					} else {
 						player.setVelocity(new Vector(x, 0.1, z));
 					}
