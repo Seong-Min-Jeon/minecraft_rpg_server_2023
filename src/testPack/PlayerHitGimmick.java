@@ -94,7 +94,7 @@ public class PlayerHitGimmick {
 			//받아내보시지
 			if (num == 0) {
 				mob.setVelocity(mob.getFacing().getDirection().multiply(-0.3f));
-				((LivingEntity) mob).addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 40, 0,true,true));
+				((LivingEntity) mob).addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 40, 0, true, false, true));
 				
 				new BukkitRunnable() {
 					int time = 0;

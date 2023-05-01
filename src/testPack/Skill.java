@@ -141,7 +141,7 @@ public class Skill {
 		}
 		
 		player.setNoDamageTicks(15 + (personality*1));
-		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10 + (personality*1), 0, true, false));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10 + (personality*1), 0, true, false, true));
 		world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 	}
 	
@@ -207,7 +207,7 @@ public class Skill {
 	
 	public void skill6(Player player) {
 		player.setVelocity(player.getFacing().getDirection().multiply(-0.3f));
-		player.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 40, 0,true,true));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 40, 0, true, false, true));
 		
 		new BukkitRunnable() {
 			int time = 0;
@@ -219,7 +219,7 @@ public class Skill {
 					player.setVelocity(player.getFacing().getDirection().add(new Vector(0,-0.5,0)).multiply(2.0f));
 					
 					player.setNoDamageTicks(10);
-					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false));
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false, true));
 					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 				}
 				
@@ -265,25 +265,25 @@ public class Skill {
 		    	
 				if(time == 0) {
 					player.setNoDamageTicks(10);
-					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false));
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false, true));
 					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 				} 
 				
 				if(time == 20) {
 					player.setNoDamageTicks(10);
-					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false));
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false, true));
 					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 				}
 				
 				if(time == 40) {
 					player.setNoDamageTicks(10);
-					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false));
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false, true));
 					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 				}
 				
 				if(time >= 60) {
 					player.setNoDamageTicks(10);
-					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false));
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false, true));
 					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 					this.cancel();
 				}

@@ -2253,55 +2253,55 @@ public class Main extends JavaPlugin implements Listener{
 			//음식
 			if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "윤이 만든 음식")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 0,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 0, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 5);
 				player.setSaturation((float) 1.0);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.WHITE + "보노 삼색" + ChatColor.GREEN + "비" + ChatColor.YELLOW + "빔" + ChatColor.RED + "밥")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1800, 0,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1800, 0, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 8);
 				player.setSaturation((float) 2.0);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#663333") + "사랑마을의 토머리조또")) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 1200, 0,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 1200, 0, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 10);
 				player.setSaturation((float) 5.0);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#996633") + "피에르 찰떡손파이")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 0,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 0, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 4);
 				player.setSaturation((float) 1.0);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#993333") + "단테 에그타르트")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 600, 1,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 600, 1, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 4);
 				player.setSaturation((float) 1.0);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#FF9933") + "네모네모 짜장쫄면")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 3,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 3, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 8);
 				player.setSaturation((float) 3.0);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#FF66CC") + "인어스테이크")) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 1200, 1,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 1200, 1, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 6);
 				player.setSaturation((float) 7.0);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#99FF66") + "꽃밭 위의 티타니아")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 6,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 6, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 1);
 				player.setSaturation((float) 3.0);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#33CC00") + "분노의 푸딩")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 3600, 1,true,true));
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 4,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 3600, 1, true, false, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 4, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 4);
 				player.setSaturation((float) 2.0);
 				
 				if(rnd.nextInt(10) == 0) {
-					player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 0,true,true));
+					player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 0, true, false, true));
 				}
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#CC0000") + "소녀의 잿더미 케이크")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 9,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 9, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 8);
 				player.setSaturation((float) 5.0);
 				
@@ -2310,20 +2310,20 @@ public class Main extends JavaPlugin implements Listener{
 				}
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#FFFFFF") + "침묵 교향곡 op.19")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 9,true,true));
-				player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1200, 0,true,true));
-				player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 1200, 0,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 9, true, false, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1200, 0, true, false, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 1200, 0, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 10);
 				player.setSaturation((float) 8.0);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#333399") + "마탄의 쿠키")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 14,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 14, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 8);
 				player.setSaturation((float) 8.0);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#990000") + "파고드는 포테이토")) {
 				player.removePotionEffect(PotionEffectType.ABSORPTION);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 9,true,true));
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 12000, 0,true,true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 1200, 9, true, false, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 12000, 0, true, false, true));
 				player.setFoodLevel(player.getFoodLevel() + 8);
 				player.setSaturation((float) 12.0);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.RED + "누군가의 살점")) {

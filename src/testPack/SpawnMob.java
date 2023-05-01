@@ -72,7 +72,7 @@ public class SpawnMob {
 					ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
 					weapon.setItemInMainHand(weaponItem);
 					EntityEquipment head = entity.getEquipment();
-					ItemStack headItem = chest.getInventory().getItem(rnd.nextInt(5));
+					ItemStack headItem = chest.getInventory().getItem(rnd.nextInt(19));
 					head.setHelmet(headItem);
 					EntityEquipment chestplate = entity.getEquipment();
 					ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
@@ -103,7 +103,7 @@ public class SpawnMob {
 					ItemStack weaponItem = new ItemStack(Material.OAK_LEAVES);
 					weapon.setItemInMainHand(weaponItem);
 					EntityEquipment head = entity.getEquipment();
-					ItemStack headItem = chest.getInventory().getItem(rnd.nextInt(5));
+					ItemStack headItem = chest.getInventory().getItem(rnd.nextInt(19));
 					head.setHelmet(headItem);
 					EntityEquipment chestplate = entity.getEquipment();
 					ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
@@ -135,6 +135,13 @@ public class SpawnMob {
 				entity.setMaxHealth(300);
 				entity.setHealth(300);
 				entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 5, false, false));
+				
+				for(Entity ent : entity.getNearbyEntities(10, 3, 10)) {
+					if(ent instanceof Player) {
+						((IronGolem) entity).setTarget((Player) ent);
+					}
+				}
+				
 			}
 		}
 		return true;
