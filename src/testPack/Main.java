@@ -218,7 +218,11 @@ public class Main extends JavaPlugin implements Listener{
 			player.kickPlayer("BANNED");
 			//player.sendMessage("매크로 사용으로 현재 1회 경고를 받은 상황입니다.");
 			//player.sendMessage("경고 2회 때에는 무통보 영구정지 및 캐릭터 삭제가 있을 수 있습니다.");
-		}
+		} else if(player.getDisplayName().equalsIgnoreCase("ServerOverflow")) {
+			player.kickPlayer("BANNED");
+			//player.sendMessage("매크로 사용으로 현재 1회 경고를 받은 상황입니다.");
+			//player.sendMessage("경고 2회 때에는 무통보 영구정지 및 캐릭터 삭제가 있을 수 있습니다.");
+		} 
 		
 		//op빼기
 		player.setGameMode(GameMode.ADVENTURE);
@@ -641,6 +645,18 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0118(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0119")) {
 						qb.q0119(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0120")) {
+						qb.q0120(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0121")) {
+						qb.q0121(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0122")) {
+						qb.q0122(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0123")) {
+						qb.q0123(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0124")) {
+						qb.q0124(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0125")) {
+						qb.q0125(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq9")) {
 						qb.uq9(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq8")) {
@@ -1520,6 +1536,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0119")) {
 							int qNum = qb.getNum(player);
 							qb.q0119(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0124")) {
+							int qNum = qb.getNum(player);
+							qb.q0124(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "외눈 물고기 성체", 40, 40, 20);
@@ -1593,6 +1612,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0119")) {
 							int qNum = qb.getNum(player);
 							qb.q0119(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0124")) {
+							int qNum = qb.getNum(player);
+							qb.q0124(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "녹아내리는 마음", 40, 40, 20);
@@ -1666,6 +1688,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0119")) {
 							int qNum = qb.getNum(player);
 							qb.q0119(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0124")) {
+							int qNum = qb.getNum(player);
+							qb.q0124(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "쏘아올리는 불꽃", 40, 40, 20);
@@ -1739,6 +1764,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0119")) {
 							int qNum = qb.getNum(player);
 							qb.q0119(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0124")) {
+							int qNum = qb.getNum(player);
+							qb.q0124(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "부패의 조각", 40, 40, 20);
@@ -1812,6 +1840,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0119")) {
 							int qNum = qb.getNum(player);
 							qb.q0119(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0124")) {
+							int qNum = qb.getNum(player);
+							qb.q0124(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "폭주하는 황소", 40, 40, 20);
@@ -1891,6 +1922,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0119")) {
 							int qNum = qb.getNum(player);
 							qb.q0119(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0124")) {
+							int qNum = qb.getNum(player);
+							qb.q0124(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0125")) {
+							int qNum = qb.getNum(player);
+							qb.q0125(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "우는 영혼들의 산", 40, 40, 20);
@@ -1970,6 +2007,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0119")) {
 							int qNum = qb.getNum(player);
 							qb.q0119(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0124")) {
+							int qNum = qb.getNum(player);
+							qb.q0124(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0125")) {
+							int qNum = qb.getNum(player);
+							qb.q0125(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "도망쳐", 40, 40, 20);
@@ -2049,6 +2092,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0119")) {
 							int qNum = qb.getNum(player);
 							qb.q0119(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0124")) {
+							int qNum = qb.getNum(player);
+							qb.q0124(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0125")) {
+							int qNum = qb.getNum(player);
+							qb.q0125(player, qNum + 1, false);
 						}
 					}
 				}
@@ -4838,7 +4887,7 @@ public class Main extends JavaPlugin implements Listener{
 							boots.setBoots(bootsItem);
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0107")) {
+					} else if (getQuestName(player).equals("q0107") || getQuestName(player).equals("q0120")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -4881,7 +4930,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 4, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
 						}
-					} else if (getQuestName(player).equals("q0108")) {
+					} else if (getQuestName(player).equals("q0108") || getQuestName(player).equals("q0121")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -4924,7 +4973,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 5, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0109")) {
+					} else if (getQuestName(player).equals("q0109") || getQuestName(player).equals("q0122")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -4966,7 +5015,7 @@ public class Main extends JavaPlugin implements Listener{
 							boots.setBoots(bootsItem);
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 6, false, false));
 						}
-					} else if (getQuestName(player).equals("q0110")) {
+					} else if (getQuestName(player).equals("q0110") || getQuestName(player).equals("q0123")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -7871,37 +7920,37 @@ public class Main extends JavaPlugin implements Listener{
 	 	    				int num = rnd.nextInt(5);
 	 	    				if(num == 0) {
 	 	    					new Message().msg(player, "말라쉬: 뒷골목에 가서 조직원을 죽여라.%말라쉬: 기한은 너의 생명이 다 할 때까지.%말라쉬: 용감히 싸워라, 전사들아.%"
-	 	    							+ "%말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0115");
+	 	    							+ "말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0115");
 	 	    				} else if(num == 1) {
 	 	    					new Message().msg(player, "말라쉬: 뒷골목에 가서 조직원을 죽여라.%말라쉬: 기한은 너의 생명이 다 할 때까지.%말라쉬: 용감히 싸워라, 전사들아.%"
-	 	    							+ "%말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0116");
+	 	    							+ "말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0116");
 	 	    				} else if(num == 2) {
 	 	    					new Message().msg(player, "말라쉬: 뒷골목에 가서 조직원을 죽여라.%말라쉬: 기한은 너의 생명이 다 할 때까지.%말라쉬: 용감히 싸워라, 전사들아.%"
-	 	    							+ "%말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0117");
+	 	    							+ "말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0117");
 	 	    				} else if(num == 3) {
 	 	    					new Message().msg(player, "말라쉬: 뒷골목에 가서 조직원을 죽여라.%말라쉬: 기한은 너의 생명이 다 할 때까지.%말라쉬: 용감히 싸워라, 전사들아.%"
-	 	    							+ "%말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0118");
+	 	    							+ "말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0118");
 	 	    				} else if(num == 4) {
 	 	    					new Message().msg(player, "말라쉬: 뒤틀림을 제거해라.%말라쉬: 재해 등급은 도시 악몽급 이상으로.%말라쉬: 기한은 너의 생명이 다 할 때까지.%말라쉬: 용감히 싸워라, 전사들아.%"
-	 	    							+ "%말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0119");
+	 	    							+ "말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0119");
 	 	    				}
-		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 4) && (new PlayerGrade().returnGrade(player) <= 6)) {
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 2) && (new PlayerGrade().returnGrade(player) <= 4)) {
 		 	    			int num = rnd.nextInt(5);
 	 	    				if(num == 0) {
 	 	    					new Message().msg(player, "말라쉬: 뒷골목에 가서 조직원을 죽여라.%말라쉬: 기한은 너의 생명이 다 할 때까지.%말라쉬: 용감히 싸워라, 낯선이여.%"
-	 	    							+ "%말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0115");
+	 	    							+ "말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0115");
 	 	    				} else if(num == 1) {
 	 	    					new Message().msg(player, "말라쉬: 뒷골목에 가서 조직원을 죽여라.%말라쉬: 기한은 너의 생명이 다 할 때까지.%말라쉬: 용감히 싸워라, 낯선이여.%"
-	 	    							+ "%말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0116");
+	 	    							+ "말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0116");
 	 	    				} else if(num == 2) {
 	 	    					new Message().msg(player, "말라쉬: 뒷골목에 가서 조직원을 죽여라.%말라쉬: 기한은 너의 생명이 다 할 때까지.%말라쉬: 용감히 싸워라, 낯선이여.%"
-	 	    							+ "%말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0117");
+	 	    							+ "말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0117");
 	 	    				} else if(num == 3) {
 	 	    					new Message().msg(player, "말라쉬: 뒷골목에 가서 조직원을 죽여라.%말라쉬: 기한은 너의 생명이 다 할 때까지.%말라쉬: 용감히 싸워라, 낯선이여.%"
-	 	    							+ "%말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0118");
+	 	    							+ "말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0118");
 	 	    				} else if(num == 4) {
 	 	    					new Message().msg(player, "말라쉬: 뒤틀림을 제거해라.%말라쉬: 재해 등급은 도시 악몽급 이상으로.%말라쉬: 기한은 너의 생명이 다 할 때까지.%말라쉬: 용감히 싸워라, 낯선이여.%"
-	 	    							+ "%말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0119");
+	 	    							+ "말라쉬: 모든 것은 지령의 뜻대로 될터이니…%q0119");
 	 	    				}
 		 	    		} else {
 		 	    			new Message().msg(player, "말라쉬: 이 놈의 협회는 썩을대로 썩어빠졌어.%말라쉬: 차라리 전쟁터에서 뒹굴 때가 나았다네.");
@@ -7913,6 +7962,74 @@ public class Main extends JavaPlugin implements Listener{
 		 	    			new Message().msg(player, "말라쉬: 지령이 없었다면 나는 이 자리까지 오르지 못했을 것이네.%말라쉬: 당신도 지령의 뜻을 받들지 아니하겠나?");
 		 	    		} else {
 		 	    			new Message().msg(player, "말라쉬: 이 놈의 협회는 썩을대로 썩어빠졌어.%말라쉬: 차라리 전쟁터에서 뒹굴 때가 나았다네.");
+		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("데히트라")) {
+	 	    		int num = rnd.nextInt(3);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "데히트라: 이번 회차는 내용이 특이하게 흘러가는군.%데히트라: 기아스의 영향인가…%데히트라: 뭐야, 언제부터 듣고 있었어?");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "데히트라: 뒤틀림은 도대체 뭐지?%데히트라: 인간이 저렇게 변한다니 내 상식선에선 이해가 되지 않는군.%데히트라: 뒤틀림이 된 인간은 다른 종으로 해석해야하는건가?");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "데히트라: 특색이라…%데히트라: 지난 생의 나라면 가능했을지도…?%데히트라: 큭큭…");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("아튼시미니")) {
+	 	    		int num = rnd.nextInt(3);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "아튼시미니: 이 세상은 신은 없다네.%아튼시미니: 신이 있다면 도시나 외곽이나 이렇게 지옥같지는 않겠지.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "아튼시미니: 불꽃을 일으키는 방법…?%아튼시미니: 그런 방법에 의문을 가지지 않는 것이 핵심이다.%아튼시미니: 그런 걸 궁금해봐야 결국 아무 소용 없을 것이야.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "아튼시미니: 알맞은 궤적과 마찰이 아니라면 불은 타오를 수 없다.%아튼시미니: 혼자 일어나는 불꽃은 없으니…");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("유메하마")) {
+	 	    		if(getQuestName(player).equals("N")) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("리우 협회 3과")) {
+	 	    				int num = rnd.nextInt(6);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "유메하마: 조직들을 끝장내버릴 기회야.%유메하마: 이번에 2과와 연계해서 도시 악몽급 조직을 공격하기로 했어.%유메하마: 뒷골목을 범죄로부터 해방시켜주자고.%q0120");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "유메하마: 조직들을 끝장내버릴 기회야.%유메하마: 이번에 2과와 연계해서 도시 악몽급 조직을 공격하기로 했어.%유메하마: 뒷골목을 범죄로부터 해방시켜주자고.%q0121");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "유메하마: 조직들을 끝장내버릴 기회야.%유메하마: 이번에 2과와 연계해서 도시 악몽급 조직을 공격하기로 했어.%유메하마: 뒷골목을 범죄로부터 해방시켜주자고.%q0122");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "유메하마: 조직들을 끝장내버릴 기회야.%유메하마: 이번에 2과와 연계해서 도시 악몽급 조직을 공격하기로 했어.%유메하마: 뒷골목을 범죄로부터 해방시켜주자고.%q0123");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "유메하마: 너정도면 이제는 뒤틀림에 대해 충분히 숙지했겠지?%유메하마: 아무래도 도시에는 정해진 뒤틀림만 주기적으로 발생하는 것 같아.%"
+	 	    							+ "유메하마: 녀석들의 패턴이 익숙해진다면 쉽게 사냥할 수 있지 않을까?%q0124");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "유메하마: 상부에서 명령이 내려왔어…%유메하마: 1과 인원이 부족해서 도시의 별급 뒤틀림을 2과에서도 대비하라고…%"
+	 	    							+ "유메하마: 그리고 오늘 의뢰가 내려왔어…%유메하마: 도시의 별급 뒤틀림을 사냥하라고…%q0125%유메하마: 죽지 않고 돌아와줘.");
+	 	    				}
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 2) && (new PlayerGrade().returnGrade(player) <= 4)) {
+		 	    			int num = rnd.nextInt(6);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "유메하마: 조직들을 끝장내버릴 기회야.%유메하마: 이번에 2과와 연계해서 도시 악몽급 조직을 공격하기로 했어.%유메하마: 뒷골목을 범죄로부터 해방시켜주자고.%q0120");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "유메하마: 조직들을 끝장내버릴 기회야.%유메하마: 이번에 2과와 연계해서 도시 악몽급 조직을 공격하기로 했어.%유메하마: 뒷골목을 범죄로부터 해방시켜주자고.%q0121");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "유메하마: 조직들을 끝장내버릴 기회야.%유메하마: 이번에 2과와 연계해서 도시 악몽급 조직을 공격하기로 했어.%유메하마: 뒷골목을 범죄로부터 해방시켜주자고.%q0122");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "유메하마: 조직들을 끝장내버릴 기회야.%유메하마: 이번에 2과와 연계해서 도시 악몽급 조직을 공격하기로 했어.%유메하마: 뒷골목을 범죄로부터 해방시켜주자고.%q0123");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "유메하마: 너정도 용병이면 이제는 뒤틀림에 대해 충분히 숙지했겠지?%유메하마: 아무래도 도시에는 정해진 뒤틀림만 주기적으로 발생하는 것 같아.%"
+	 	    							+ "유메하마: 녀석들의 패턴이 익숙해진다면 쉽게 사냥할 수 있지 않을까?%q0124");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "유메하마: 상부에서 명령이 내려왔어…%유메하마: 1과 인원이 부족해서 도시의 별급 뒤틀림을 2과에서도 대비하라고…%"
+	 	    							+ "유메하마: 그리고 오늘 의뢰가 내려왔어…%유메하마: 도시의 별급 뒤틀림을 사냥하라고…%q0125%유메하마: 자신이 없으면 포기해도 괜찮아.%유메하마: 우리끼리 처리해볼게.");
+	 	    				}
+		 	    		} else {
+		 	    			new Message().msg(player, "유메하마: 타오르는 불꽃만큼 아름다운 것은 없단다.");
+		 	    		}
+	 	    		} else {
+	 	    			if(office.equals("리우 협회 3과")) {
+	 	    				new Message().msg(player, "유메하마: 출동 준비를 마쳤으면 출발하자.");
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "유메하마: 출동 준비를 마쳤으면 출발하자.");
+		 	    		} else {
+		 	    			new Message().msg(player, "유메하마: 타오르는 불꽃만큼 아름다운 것은 없단다.");
 		 	    		}
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("람포링쿠스")) {

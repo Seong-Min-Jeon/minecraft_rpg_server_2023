@@ -805,6 +805,9 @@ public class MobLoot {
 				if (getQuestName(p).equals("q0107")) {
 					int qNum = qb.getNum(p);
 					qb.q0107(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0120")) {
+					int qNum = qb.getNum(p);
+					qb.q0120(p, qNum + 1, false);
 				}
 			}
 		}
@@ -813,6 +816,9 @@ public class MobLoot {
 		if (getQuestName(player).equals("q0107")) {
 			int qNum = qb.getNum(player);
 			qb.q0107(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0120")) {
+			int qNum = qb.getNum(player);
+			qb.q0120(player, qNum + 1, false);
 		}
 	}
 	
@@ -827,6 +833,9 @@ public class MobLoot {
 				if (getQuestName(p).equals("q0108")) {
 					int qNum = qb.getNum(p);
 					qb.q0108(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0121")) {
+					int qNum = qb.getNum(p);
+					qb.q0121(p, qNum + 1, false);
 				}
 			}
 		}
@@ -835,6 +844,9 @@ public class MobLoot {
 		if (getQuestName(player).equals("q0108")) {
 			int qNum = qb.getNum(player);
 			qb.q0108(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0121")) {
+			int qNum = qb.getNum(player);
+			qb.q0121(player, qNum + 1, false);
 		}
 	}
 	
@@ -849,6 +861,9 @@ public class MobLoot {
 				if (getQuestName(p).equals("q0109")) {
 					int qNum = qb.getNum(p);
 					qb.q0109(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0122")) {
+					int qNum = qb.getNum(p);
+					qb.q0122(p, qNum + 1, false);
 				}
 			}
 		}
@@ -857,6 +872,9 @@ public class MobLoot {
 		if (getQuestName(player).equals("q0109")) {
 			int qNum = qb.getNum(player);
 			qb.q0109(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0122")) {
+			int qNum = qb.getNum(player);
+			qb.q0122(player, qNum + 1, false);
 		}
 	}
 	
@@ -871,6 +889,9 @@ public class MobLoot {
 				if (getQuestName(p).equals("q0110")) {
 					int qNum = qb.getNum(p);
 					qb.q0110(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0123")) {
+					int qNum = qb.getNum(p);
+					qb.q0123(p, qNum + 1, false);
 				}
 			}
 		}
@@ -879,6 +900,9 @@ public class MobLoot {
 		if (getQuestName(player).equals("q0110")) {
 			int qNum = qb.getNum(player);
 			qb.q0110(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0123")) {
+			int qNum = qb.getNum(player);
+			qb.q0123(player, qNum + 1, false);
 		}
 	}
 	

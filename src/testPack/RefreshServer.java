@@ -801,7 +801,10 @@ public class RefreshServer {
 //			 				player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_GALLOP_WATER, 1.0f, 1.0f);
 //			 			}
 			 		}
-			 		
+				}
+				
+				if(time % 12000 == 0) {
+					Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "save-all");
 				}
 			
 				time++;
