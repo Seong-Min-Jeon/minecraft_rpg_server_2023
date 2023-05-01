@@ -1,5 +1,12 @@
 package testPack;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -29,9 +36,16 @@ import org.bukkit.scoreboard.Objective;
 public class MobLoot {
 
 	Random rnd = new Random();
-
+	static File folder = null; 
+	
+	public MobLoot() {}
+	
 	public MobLoot(Player player) {}
 
+	public void setFolder(File f) {
+		folder = f;
+	}
+	
 	// 메세지
 	public void sendMessage(Player player, String msg) {player.sendMessage(msg);}
 	
@@ -82,6 +96,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.uq9(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 1, 9);
+		}
 	}
 	
 	//쥐 두목
@@ -130,6 +148,35 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("uq9")) {
 			int qNum = qb.getNum(player);
 			qb.uq9(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(50) == 0) {
+			fixFile(player, 1, 9);
+		}
+	}
+	
+	//청소부
+	public void cleaner(Player player) {
+		ItemStack item = new ItemStack(Material.POTION);
+		ItemMeta itemIm = item.getItemMeta();
+		itemIm.setDisplayName(ChatColor.RED + "청소부의 액체연료");
+		ArrayList<String> itemLore = new ArrayList<>();
+		itemLore.add(ChatColor.GRAY + "체리향 연료가 들어간 젤리이다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.GRAY + "이 연료를 먹고 청소부의 식량이");
+		itemLore.add(ChatColor.GRAY + "될 수 있으니 주의하세요.");
+		itemIm.setLore(itemLore);
+		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		PotionMeta pm = (PotionMeta) itemIm;
+		pm.setColor(Color.fromRGB(255, 10, 10));
+		itemIm = pm;
+		item.setItemMeta(itemIm);
+		player.getInventory().addItem(item);
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 3, 36);
 		}
 	}
 	
@@ -246,6 +293,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0019(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 1, 10);
+		}
 	}
 	
 	//버림받은 개
@@ -274,6 +325,10 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0027")) {
 			int qNum = qb.getNum(player);
 			qb.q0027(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 1, 11);
 		}
 	}
 	
@@ -304,6 +359,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0028(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 1, 12);
+		}
 	}
 	
 	//도끼파
@@ -333,6 +392,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0029(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 1, 13);
+		}
 	}
 	
 	//정육점파
@@ -361,6 +424,10 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0030")) {
 			int qNum = qb.getNum(player);
 			qb.q0030(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 1, 14);
 		}
 	}
 	
@@ -396,6 +463,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0098(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(50) == 0) {
+			fixFile(player, 2, 21);
+		}
 	}
 	
 	public void kuroB(Player player) {
@@ -429,6 +500,10 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0099")) {
 			int qNum = qb.getNum(player);
 			qb.q0099(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(50) == 0) {
+			fixFile(player, 2, 22);
 		}
 	}
 	
@@ -464,6 +539,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0100(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(50) == 0) {
+			fixFile(player, 2, 23);
+		}
 	}
 	
 	public void ironballB(Player player) {
@@ -498,6 +577,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0101(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(50) == 0) {
+			fixFile(player, 2, 24);
+		}
 	}
 	
 	public void habaB(Player player) {
@@ -531,6 +614,10 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0102")) {
 			int qNum = qb.getNum(player);
 			qb.q0102(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(50) == 0) {
+			fixFile(player, 2, 25);
 		}
 	}
 	
@@ -584,6 +671,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0091(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 2, 21);
+		}
 	}
 	
 	public void kuro(Player player) {
@@ -635,6 +726,10 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0092")) {
 			int qNum = qb.getNum(player);
 			qb.q0092(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 2, 22);
 		}
 	}
 	
@@ -688,6 +783,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0093(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 2, 23);
+		}
 	}
 	
 	public void ironball(Player player) {
@@ -739,6 +838,10 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0094")) {
 			int qNum = qb.getNum(player);
 			qb.q0094(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 2, 24);
 		}
 	}
 	
@@ -792,6 +895,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0095(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(100) == 0) {
+			fixFile(player, 2, 25);
+		}
 	}
 	
 	public void thumb(Player player) {
@@ -819,6 +926,10 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0120")) {
 			int qNum = qb.getNum(player);
 			qb.q0120(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(150) == 0) {
+			fixFile(player, 2, 26);
 		}
 	}
 	
@@ -848,6 +959,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0121(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(150) == 0) {
+			fixFile(player, 2, 27);
+		}
 	}
 	
 	public void laugh(Player player) {
@@ -875,6 +990,10 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0122")) {
 			int qNum = qb.getNum(player);
 			qb.q0122(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(150) == 0) {
+			fixFile(player, 3, 28);
 		}
 	}
 	
@@ -904,6 +1023,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0123(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(150) == 0) {
+			fixFile(player, 3, 29);
+		}
 	}
 	
 	public void thumbB(Player player) {
@@ -925,6 +1048,10 @@ public class MobLoot {
 		if (getQuestName(player).equals("q0115")) {
 			int qNum = qb.getNum(player);
 			qb.q0115(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(80) == 0) {
+			fixFile(player, 2, 26);
 		}
 	}
 	
@@ -948,6 +1075,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0116(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(80) == 0) {
+			fixFile(player, 2, 27);
+		}
 	}
 	
 	public void laughB(Player player) {
@@ -970,6 +1101,10 @@ public class MobLoot {
 			int qNum = qb.getNum(player);
 			qb.q0117(player, qNum + 1, false);
 		}
+		
+		if(rnd.nextInt(80) == 0) {
+			fixFile(player, 3, 28);
+		}
 	}
 	
 	public void mariachiB(Player player) {
@@ -991,6 +1126,10 @@ public class MobLoot {
 		if (getQuestName(player).equals("q0118")) {
 			int qNum = qb.getNum(player);
 			qb.q0118(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(80) == 0) {
+			fixFile(player, 3, 29);
 		}
 	}
 	
@@ -1040,6 +1179,125 @@ public class MobLoot {
 		ticket.setItemMeta(ticketIm);
 		player.getInventory().addItem(ticket);
 		sendMessage(player, ChatColor.YELLOW + "낫 교환권" + ChatColor.WHITE + "을 획득했다.");
+	}
+	
+	public void fixFile(Player player, int rare, int order) {
+		try {
+			File dataFolder = folder;
+            if(!dataFolder.exists()) {
+                dataFolder.mkdir();
+            } else {
+            	File dir = new File(folder + "/" + player.getUniqueId().toString());
+            	if(!dir.exists()) {
+            		try{
+            		    dir.mkdir(); 
+            		} catch(Exception e2) {
+            		    e2.getStackTrace();
+            		}
+				}
+				File file = new File(dir, "personality_grade.dat");
+				try {
+					FileReader filereader = new FileReader(file);
+    				BufferedReader bufReader = new BufferedReader(filereader);
+    				String first = bufReader.readLine();
+    				String second = bufReader.readLine();
+    				String third = bufReader.readLine();
+    				String fourth = bufReader.readLine();
+    				
+    				if(rare == 1) {
+    					String[] num = first.split("/");
+    					if(num[order].equals("-1")) {
+    						num[order] = "0";
+            				String str = "";
+            				for(int i = 0 ; i < 53 ; i++) {
+            					str += num[i] + "/";
+            				}
+            				str += num[53];
+        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(str);
+        	                fw.write("\n");
+        	                fw.write(second);
+        	                fw.write("\n");
+        	                fw.write(third);
+        	                fw.write("\n");
+        	                fw.write(fourth);
+        	                fw.close();
+        	                
+        	                player.sendMessage(ChatColor.GOLD + "[System] 새로운 인격이 개방되었습니다.");
+    					}
+    				} else if(rare == 2) {
+    					String[] num = second.split("/");
+    					if(num[order].equals("-1")) {
+    						num[order] = "0";
+            				String str = "";
+            				for(int i = 0 ; i < 53 ; i++) {
+            					str += num[i] + "/";
+            				}
+            				str += num[53];
+        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(first);
+        	                fw.write("\n");
+        	                fw.write(str);
+        	                fw.write("\n");
+        	                fw.write(third);
+        	                fw.write("\n");
+        	                fw.write(fourth);
+        	                fw.close();
+        	                
+        	                player.sendMessage(ChatColor.GOLD + "[System] 새로운 인격이 개방되었습니다.");
+    					}
+    				} else if(rare == 3) {
+    					String[] num = third.split("/");
+    					if(num[order].equals("-1")) {
+    						num[order] = "0";
+            				String str = "";
+            				for(int i = 0 ; i < 53 ; i++) {
+            					str += num[i] + "/";
+            				}
+            				str += num[53];
+        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(first);
+        	                fw.write("\n");
+        	                fw.write(second);
+        	                fw.write("\n");
+        	                fw.write(str);
+        	                fw.write("\n");
+        	                fw.write(fourth);
+        	                fw.close();
+        	                
+        	                player.sendMessage(ChatColor.GOLD + "[System] 새로운 인격이 개방되었습니다.");
+    					}
+    				} else if(rare == 4) {
+    					String[] num = fourth.split("/");
+    					if(num[order].equals("-1")) {
+    						num[order] = "0";
+            				String str = "";
+            				for(int i = 0 ; i < 53 ; i++) {
+            					str += num[i] + "/";
+            				}
+            				str += num[53];
+        					BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(first);
+        	                fw.write("\n");
+        	                fw.write(second);
+        	                fw.write("\n");
+        	                fw.write(third);
+        	                fw.write("\n");
+        	                fw.write(str);
+        	                fw.close();
+        	                
+        	                player.sendMessage(ChatColor.GOLD + "[System] 새로운 인격이 개방되었습니다.");
+    					}
+    				}
+    				
+	                bufReader.close();
+				} catch (IOException e2) {
+					e2.printStackTrace();
+				}
+			}
+		} catch (Exception e2) {
+			
+		}
 	}
 	
 	public String getQuestName(Player player) {

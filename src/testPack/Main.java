@@ -167,6 +167,7 @@ public class Main extends JavaPlugin implements Listener{
 		new RefreshServer();
 		new NPCManager();
 		new QuestBoard().setFolder(getDataFolder());
+		new MobLoot().setFolder(getDataFolder());
 	}
 	
 	@Override
@@ -2238,6 +2239,15 @@ public class Main extends JavaPlugin implements Listener{
 				}
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "혈청-K")) {
 				damageMaxHealth(player, 4);
+			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.RED + "청소부의 액체연료")) {
+				double tmp = 0;
+				tmp = player.getHealth() + 4;
+				if(tmp > player.getMaxHealth()) {
+					player.setHealth(player.getMaxHealth());
+				} else {
+					player.setHealth(tmp);
+				}
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 200, 0, true, false, true));
 			}
 			
 			//음식

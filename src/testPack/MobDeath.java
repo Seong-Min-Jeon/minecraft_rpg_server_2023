@@ -53,6 +53,8 @@ public class MobDeath {
 					mobloot.rat(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
 					mobloot.ratBoss(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "청소부")) {
+					mobloot.cleaner(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 9급 해결사")) {
 					mobloot.fixer9(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "이름없는 8급 해결사")) {
