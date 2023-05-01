@@ -9,6 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import dev.sergiferry.playernpc.api.NPC;
+import dev.sergiferry.playernpc.api.NPCLib;
 import net.md_5.bungee.api.ChatColor;
 
 public class ChangeOffice {
@@ -39,6 +41,11 @@ public class ChangeOffice {
 		
 		//퀘스트 초기화
 		player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
 	}
 	
 }

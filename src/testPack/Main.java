@@ -155,17 +155,12 @@ public class Main extends JavaPlugin implements Listener{
 		NPCLib.getInstance().registerPlugin(this);
 		this.getServer().getPluginManager().registerEvents(this, this);
 		//custom command
-		getCommand("Where").setExecutor(new Cmd4Where());
 		getCommand("ServerChat").setExecutor(new Cmd5ServerChat());
-		getCommand("msg").setExecutor(new Cmd6msg());
 		getCommand("c").setExecutor(new Cmd7c());
 		getCommand("setBiome").setExecutor(new Cmd9SetBiome());
 		getCommand("VilTP").setExecutor(new Cmd10VilTp());
-		getCommand("SpawnVil").setExecutor(new Cmd11SpawnVil());
 		getCommand("k").setExecutor(new Cmd19Kick());
 		getCommand("velocity").setExecutor(new Cmd27velocity());
-		getCommand("target").setExecutor(new Cmd28target());
-		getCommand("t").setExecutor(new Cmd31tp());
 		getCommand("dropQuest").setExecutor(new Cmd32dropQuest());
 		getCommand("mob").setExecutor(new Cmd33mob());
 		
@@ -1149,7 +1144,7 @@ public class Main extends JavaPlugin implements Listener{
 				List<Entity> nearPlayer = ent.getNearbyEntities(5, 5, 5);
 				for(Entity p : nearPlayer) {
 					if(p instanceof Player) {
-						((Player) p).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 200, 0, true, true));
+						((Player) p).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 200, 0, true, false, true));
 					}
 				}
 				return;
@@ -2145,7 +2140,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, false, true));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#CC9933") + "올가의 홍차칵테일")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 2;
@@ -2154,7 +2149,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, false, true));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#993333") + "단테주")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 2.2;
@@ -2163,7 +2158,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 0, true, false, true));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#FFCCCC") + "눈물의 병")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 20;
@@ -2172,7 +2167,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 0, true, false, true));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(net.md_5.bungee.api.ChatColor.of("#0033CC") + "진실의 삼키는 거짓말")) {
 				double tmp = 0;
 				tmp = player.getHealth() + 18;
@@ -2230,7 +2225,7 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
-				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 600, 0, true, true));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 600, 0, true, false, true));
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "혈청K")) {
 				player.setMaxHealth(player.getMaxHealth() + 4);
 				
@@ -2398,7 +2393,7 @@ public class Main extends JavaPlugin implements Listener{
 			}
 			if(!(entity.getType() == EntityType.HORSE || entity.getType() == EntityType.PIG || entity.getType() == EntityType.SHEEP
 					|| entity.getType() == EntityType.COW || entity.getType() == EntityType.CHICKEN)) {
-				((LivingEntity)entity).addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, Integer.MAX_VALUE, 2, true, true, false));
+				((LivingEntity)entity).addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, Integer.MAX_VALUE, 2, true, false, true));
 			}
 			if((entity.getType() != EntityType.HORSE) && (entity.getType() != EntityType.ARMOR_STAND)) {
 				SpawnMob sm = new SpawnMob();
@@ -2640,11 +2635,11 @@ public class Main extends JavaPlugin implements Listener{
 				Player player = (Player) event.getDamager();
 				if (player.getInventory().getBoots() != null) {
 					if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 0, true, true));
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 0, true, false, true));
 					} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 고급 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, true, true));
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, true, false, true));
 					} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 프리미엄 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 2, true, true));
+						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 2, true, false, true));
 					}
 				}
 			}
@@ -8075,26 +8070,68 @@ public class Main extends JavaPlugin implements Listener{
 	 				String exp = ary.get(1).split("\\[")[1].split("/")[0];
 	 				String maxExp = ary.get(1).split("\\]")[0].split("/")[1];
 	 				if(exp.equals(maxExp) && getQuestName(player).equals("N")) {
-	 					if(new PlayerGrade().returnGrade(player) == 9) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq900");
-	 					} else if(new PlayerGrade().returnGrade(player) == 8) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq800");
-	 					} else if(new PlayerGrade().returnGrade(player) == 7) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq700");
-	 					} else if(new PlayerGrade().returnGrade(player) == 6) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq600");
-	 					} else if(new PlayerGrade().returnGrade(player) == 5) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq500");
-	 					} else if(new PlayerGrade().returnGrade(player) == 4) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq400");
-	 					} else if(new PlayerGrade().returnGrade(player) == 3) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq300");
-	 					} else if(new PlayerGrade().returnGrade(player) == 2) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq200");
-	 					} else if(new PlayerGrade().returnGrade(player) == 1) {
-	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq100");
-	 					} else if(new PlayerGrade().returnGrade(player) == 0) {
-	 						new Message().msg(player, "승급 관리원: 특색 해결사이시군요!%승급 관리원: 실물로 영접하다니, 감동이에요.");
+	 					int grade = new PlayerGrade().returnGrade(player);
+	 					int best = 9;
+	 					
+	 					if(player.getInventory().getItem(7) != null && player.getInventory().getItem(7).getType() == Material.NETHER_STAR) {
+	 						String b = player.getInventory().getItem(7).getItemMeta().getLore().get(0).substring(9, 10);
+	 						if(b.equals("특")) {
+	 							b = "1";
+	 						}
+	 						
+	 						try {
+	 							best = Integer.parseInt(b);
+	 						} catch(Exception e) {
+	 							best = 9;
+	 						}
+	 					}
+	 					
+	 					if(grade == 9 && best < 9) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%승급 관리원: 그런데… 이미 서류상에 의뢰를 완료한걸로 되어 있으시네요?%"
+	 								+ "승급 관리원: 그냥 8급으로 올려드릴게요!%uq9SS");
+	 					} else if(grade == 8 && best < 8) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%승급 관리원: 그런데… 이미 서류상에 의뢰를 완료한걸로 되어 있으시네요?%"
+	 								+ "승급 관리원: 그냥 7급으로 올려드릴게요!%uq8SS");
+	 					} else if(grade == 7 && best < 7) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%승급 관리원: 그런데… 이미 서류상에 의뢰를 완료한걸로 되어 있으시네요?%"
+	 								+ "승급 관리원: 그냥 6급으로 올려드릴게요!%uq7SS");
+	 					} else if(grade == 6 && best < 6) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%승급 관리원: 그런데… 이미 서류상에 의뢰를 완료한걸로 되어 있으시네요?%"
+	 								+ "승급 관리원: 그냥 5급으로 올려드릴게요!%uq6SS");
+	 					} else if(grade == 5 && best < 5) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%승급 관리원: 그런데… 이미 서류상에 의뢰를 완료한걸로 되어 있으시네요?%"
+	 								+ "승급 관리원: 그냥 4급으로 올려드릴게요!%uq5SS");
+	 					} else if(grade == 4 && best < 4) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%승급 관리원: 그런데… 이미 서류상에 의뢰를 완료한걸로 되어 있으시네요?%"
+	 								+ "승급 관리원: 그냥 3급으로 올려드릴게요!%uq4SS");
+	 					} else if(grade == 3 && best < 3) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%승급 관리원: 그런데… 이미 서류상에 의뢰를 완료한걸로 되어 있으시네요?%"
+	 								+ "승급 관리원: 그냥 2급으로 올려드릴게요!%uq3SS");
+	 					} else if(grade == 2 && best < 2) {
+	 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%승급 관리원: 그런데… 이미 서류상에 의뢰를 완료한걸로 되어 있으시네요?%"
+	 								+ "승급 관리원: 그냥 1급으로 올려드릴게요!%uq2SS");
+	 					} else {
+	 						if(grade == 9) {
+		 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq900");
+		 					} else if(grade == 8) {
+		 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq800");
+		 					} else if(grade == 7) {
+		 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq700");
+		 					} else if(grade == 6) {
+		 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq600");
+		 					} else if(grade == 5) {
+		 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq500");
+		 					} else if(grade == 4) {
+		 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq400");
+		 					} else if(grade == 3) {
+		 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq300");
+		 					} else if(grade == 2) {
+		 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq200");
+		 					} else if(grade == 1) {
+		 						new Message().msg(player, "승급 관리원: 승급하기에 충분한 평판이시군요!%승급 관리원: 승급 의뢰를 드릴게요!%uq100");
+		 					} else if(grade == 0) {
+		 						new Message().msg(player, "승급 관리원: 특색 해결사이시군요!%승급 관리원: 실물로 영접하다니, 감동이에요.");
+		 					}
 	 					}
 	 				} else if(exp.equals(maxExp)) {
 	 					new Message().msg(player, "승급 관리원: 하고 계신 의뢰는 끝내고 와주세요.");

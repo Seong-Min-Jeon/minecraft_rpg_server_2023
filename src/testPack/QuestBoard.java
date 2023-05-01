@@ -10542,6 +10542,2459 @@ public class QuestBoard {
 		}
 	}
 	
+	public void uq9SS(Player player, int num, boolean start) {
+		player.sendMessage(ChatColor.GOLD + "[System] 8급 해결사가 되었습니다.");
+		
+		levelup(player, "8급", "35");
+		
+		String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+		if(office.equals("윤 사무소")) {
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "어금니 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "어금니 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			player.getInventory().addItem(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep1.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			player.getInventory().addItem(recep2);
+		} else if(office.equals("갈고리 사무소")) {
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			player.getInventory().addItem(recep2);
+		} else if(office.equals("가로등 사무소")) {
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 6과 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 6과 소속");
+			recep1Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			player.getInventory().addItem(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep1.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			player.getInventory().addItem(recep2);
+		} else if(office.equals("무소속")) {
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "어금니 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "어금니 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			player.getInventory().addItem(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 6과 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 6과 소속");
+			recep2Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			player.getInventory().addItem(recep2);
+		} else {
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "어금니 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "어금니 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			player.getInventory().addItem(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep1.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			player.getInventory().addItem(recep2);
+		}
+		
+		TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
+		
+		newPersonality(player, 8);
+		player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+	}
+	
+	public void uq8SS(Player player, int num, boolean start) {
+		player.sendMessage(ChatColor.GOLD + "[System] 7급 해결사가 되었습니다.");
+		
+		levelup(player, "7급", "90");
+		
+		String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+		if(office.equals("무소속")) {
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "어금니 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "어금니 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			player.getInventory().addItem(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 6과 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 6과 소속");
+			recep2Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			player.getInventory().addItem(recep2);
+		} else {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "어금니 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "어금니 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 6과 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 6과 소속");
+			recep2Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        
+	        ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		}
+		
+		TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
+		
+		newPersonality(player, 7);
+		player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+	}
+	
+	public void uq7SS(Player player, int num, boolean start) {
+		player.sendMessage(ChatColor.GOLD + "[System] 6급 해결사가 되었습니다.");
+		
+		levelup(player, "6급", "300");
+		
+		String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+		if(office.equals("어금니 사무소")) {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "마침표 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "마침표 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "새벽 사무소 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "새벽 사무소 소속 해결사가");
+			recep2Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "쐐기 사무소 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "쐐기 사무소 소속 해결사가");
+			recep3Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 5과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 5과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 5과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 5과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 5과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 5과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 5과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 5과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        ary.remove(idx);
+	        idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("갈고리 사무소")) {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "마침표 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "마침표 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "새벽 사무소 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "새벽 사무소 소속 해결사가");
+			recep2Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "쐐기 사무소 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "쐐기 사무소 소속 해결사가");
+			recep3Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 5과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 5과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 5과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 5과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 5과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 5과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 5과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 5과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        
+	        ItemStack recep8 = new ItemStack(Material.PAPER);
+			ItemMeta recep8Im = recep8.getItemMeta();
+			recep8Im.setDisplayName(ChatColor.BOLD + "시선 사무소 초대장");
+			ArrayList<String> recep8Lore = new ArrayList<>();
+			recep8Lore.add(ChatColor.GRAY + "시선 사무소 소속 해결사가");
+			recep8Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep8Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep8Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep8Im.setLore(recep8Lore);
+			recep8.setItemMeta(recep8Im);
+			player.getInventory().addItem(recep8);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("츠바이 협회 6과")) {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "마침표 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "마침표 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "새벽 사무소 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "새벽 사무소 소속 해결사가");
+			recep2Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "쐐기 사무소 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "쐐기 사무소 소속 해결사가");
+			recep3Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시선 사무소 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시선 사무소 소속 해결사가");
+			recep5Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        
+	        ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 5과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 5과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+	        
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("무소속")) {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "마침표 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "마침표 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "새벽 사무소 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "새벽 사무소 소속 해결사가");
+			recep2Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "쐐기 사무소 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "쐐기 사무소 소속 해결사가");
+			recep3Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 5과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 5과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 5과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 5과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 5과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 5과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 5과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 5과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			ItemStack recep8 = new ItemStack(Material.PAPER);
+			ItemMeta recep8Im = recep8.getItemMeta();
+			recep8Im.setDisplayName(ChatColor.BOLD + "시선 사무소 초대장");
+			ArrayList<String> recep8Lore = new ArrayList<>();
+			recep8Lore.add(ChatColor.GRAY + "시선 사무소 소속 해결사가");
+			recep8Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep8Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep8Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep8Im.setLore(recep8Lore);
+			recep8.setItemMeta(recep8Im);
+			
+			ary.add(recep8);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        ary.remove(idx);
+	        idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+		} else {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "마침표 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "마침표 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "새벽 사무소 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "새벽 사무소 소속 해결사가");
+			recep2Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "쐐기 사무소 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "쐐기 사무소 소속 해결사가");
+			recep3Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 5과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 5과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 5과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 5과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 5과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 5과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 5과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 5과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			ItemStack recep8 = new ItemStack(Material.PAPER);
+			ItemMeta recep8Im = recep8.getItemMeta();
+			recep8Im.setDisplayName(ChatColor.BOLD + "시선 사무소 초대장");
+			ArrayList<String> recep8Lore = new ArrayList<>();
+			recep8Lore.add(ChatColor.GRAY + "시선 사무소 소속 해결사가");
+			recep8Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep8Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep8Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep8Im.setLore(recep8Lore);
+			recep8.setItemMeta(recep8Im);
+			
+			ary.add(recep8);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        
+	        ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		}
+		
+		TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
+		
+		newPersonality(player, 6);
+		player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+	}
+	
+	public void uq6SS(Player player, int num, boolean start) {
+		player.sendMessage(ChatColor.GOLD + "[System] 5급 해결사가 되었습니다.");
+		
+		levelup(player, "5급", "720");
+		
+		String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+		if(office.equals("새벽 사무소")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 5과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 5과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("무소속")) {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "마침표 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "마침표 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "새벽 사무소 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "새벽 사무소 소속 해결사가");
+			recep2Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "쐐기 사무소 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "쐐기 사무소 소속 해결사가");
+			recep3Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 5과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 5과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 5과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 5과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 5과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 5과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 5과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 5과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			ItemStack recep8 = new ItemStack(Material.PAPER);
+			ItemMeta recep8Im = recep8.getItemMeta();
+			recep8Im.setDisplayName(ChatColor.BOLD + "시선 사무소 초대장");
+			ArrayList<String> recep8Lore = new ArrayList<>();
+			recep8Lore.add(ChatColor.GRAY + "시선 사무소 소속 해결사가");
+			recep8Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep8Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep8Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep8Im.setLore(recep8Lore);
+			recep8.setItemMeta(recep8Im);
+			
+			ary.add(recep8);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        ary.remove(idx);
+	        idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+		} else {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "마침표 사무소 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "마침표 사무소 소속 해결사가");
+			recep1Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "새벽 사무소 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "새벽 사무소 소속 해결사가");
+			recep2Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "쐐기 사무소 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "쐐기 사무소 소속 해결사가");
+			recep3Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 5과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 5과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 5과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 5과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 5과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 5과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 5과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 5과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			ItemStack recep8 = new ItemStack(Material.PAPER);
+			ItemMeta recep8Im = recep8.getItemMeta();
+			recep8Im.setDisplayName(ChatColor.BOLD + "시선 사무소 초대장");
+			ArrayList<String> recep8Lore = new ArrayList<>();
+			recep8Lore.add(ChatColor.GRAY + "시선 사무소 소속 해결사가");
+			recep8Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep8Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep8Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep8Im.setLore(recep8Lore);
+			recep8.setItemMeta(recep8Im);
+			
+			ary.add(recep8);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        
+	        ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		}
+		
+		TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
+		
+		newPersonality(player, 5);
+		player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+	}
+	
+	public void uq5SS(Player player, int num, boolean start) {
+		player.sendMessage(ChatColor.GOLD + "[System] 4급 해결사가 되었습니다.");
+		
+		levelup(player, "4급", "1730");
+		
+		String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+		if(office.equals("츠바이 협회 5과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 3과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 3과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("시 협회 5과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "시 협회 3과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "시 협회 남부지부 3과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("리우 협회 5과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 3과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 3과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("세븐 협회 5과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "세븐 협회 3과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 3과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("무소속")) {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 3과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 3과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 3과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 3과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 3과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 3과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 3과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 3과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        ary.remove(idx);
+	        idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+		} else {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 3과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 3과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 3과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 3과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 3과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 3과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 3과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 3과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        
+	        ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		}
+		
+		TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
+		
+		newPersonality(player, 4);
+		player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+	}
+	
+	public void uq4SS(Player player, int num, boolean start) {
+		player.sendMessage(ChatColor.GOLD + "[System] 3급 해결사가 되었습니다.");
+		
+		levelup(player, "3급", "4030");
+		
+		String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+		if(office.equals("츠바이 협회 3과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 2과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 2과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("시 협회 3과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "시 협회 2과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "시 협회 남부지부 2과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("리우 협회 3과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 2과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 2과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("세븐 협회 3과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "세븐 협회 2과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 2과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("무소속")) {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 3과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 3과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 3과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 3과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 3과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 3과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 3과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 3과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 2과 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 2과 소속");
+			recep1Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			player.getInventory().addItem(recep1);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "시 협회 2과 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "시 협회 남부지부 2과 소속");
+			recep2Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "리우 협회 2과 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "리우 협회 남부지부 2과 소속");
+			recep3Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep8 = new ItemStack(Material.PAPER);
+			ItemMeta recep8Im = recep8.getItemMeta();
+			recep8Im.setDisplayName(ChatColor.BOLD + "세븐 협회 2과 초대장");
+			ArrayList<String> recep8Lore = new ArrayList<>();
+			recep8Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 2과 소속");
+			recep8Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep8Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep8Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep8Im.setLore(recep8Lore);
+			recep8.setItemMeta(recep8Im);
+			
+			ary.add(recep8);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        ary.remove(idx);
+	        idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+		} else {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 3과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 3과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 3과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 3과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 3과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 3과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 3과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 3과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 2과 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 2과 소속");
+			recep1Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			player.getInventory().addItem(recep1);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "시 협회 2과 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "시 협회 남부지부 2과 소속");
+			recep2Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "리우 협회 2과 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "리우 협회 남부지부 2과 소속");
+			recep3Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep8 = new ItemStack(Material.PAPER);
+			ItemMeta recep8Im = recep8.getItemMeta();
+			recep8Im.setDisplayName(ChatColor.BOLD + "세븐 협회 2과 초대장");
+			ArrayList<String> recep8Lore = new ArrayList<>();
+			recep8Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 2과 소속");
+			recep8Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep8Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep8Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep8Im.setLore(recep8Lore);
+			recep8.setItemMeta(recep8Im);
+			
+			ary.add(recep8);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        
+	        ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		}
+		
+		TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
+		
+		newPersonality(player, 3);
+		player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+	}
+	
+	public void uq3SS(Player player, int num, boolean start) {
+		player.sendMessage(ChatColor.GOLD + "[System] 2급 해결사가 되었습니다.");
+		
+		levelup(player, "2급", "9220");
+		
+		String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+		if(office.equals("츠바이 협회 3과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 2과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 2과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("시 협회 3과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "시 협회 2과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "시 협회 남부지부 2과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("리우 협회 3과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 2과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 2과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("세븐 협회 3과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "세븐 협회 2과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 2과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("츠바이 협회 2과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("시 협회 2과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "시 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "시 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("리우 협회 2과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("세븐 협회 2과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "세븐 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("무소속")) {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 1과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 1과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 1과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 1과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 1과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 1과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 2과 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 2과 소속");
+			recep1Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			player.getInventory().addItem(recep1);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "시 협회 2과 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "시 협회 남부지부 2과 소속");
+			recep2Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "리우 협회 2과 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "리우 협회 남부지부 2과 소속");
+			recep3Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep8 = new ItemStack(Material.PAPER);
+			ItemMeta recep8Im = recep8.getItemMeta();
+			recep8Im.setDisplayName(ChatColor.BOLD + "세븐 협회 2과 초대장");
+			ArrayList<String> recep8Lore = new ArrayList<>();
+			recep8Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 2과 소속");
+			recep8Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep8Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep8Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep8Im.setLore(recep8Lore);
+			recep8.setItemMeta(recep8Im);
+			
+			ary.add(recep8);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        ary.remove(idx);
+	        idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+		} else {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 1과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 1과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 1과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 1과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 1과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 1과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 2과 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 2과 소속");
+			recep1Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			player.getInventory().addItem(recep1);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "시 협회 2과 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "시 협회 남부지부 2과 소속");
+			recep2Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "리우 협회 2과 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "리우 협회 남부지부 2과 소속");
+			recep3Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep8 = new ItemStack(Material.PAPER);
+			ItemMeta recep8Im = recep8.getItemMeta();
+			recep8Im.setDisplayName(ChatColor.BOLD + "세븐 협회 2과 초대장");
+			ArrayList<String> recep8Lore = new ArrayList<>();
+			recep8Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 2과 소속");
+			recep8Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep8Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep8Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep8Im.setLore(recep8Lore);
+			recep8.setItemMeta(recep8Im);
+			
+			ary.add(recep8);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        
+	        ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		}
+		
+		if(rnd.nextInt(6) == 0) {
+			ItemStack recep0 = new ItemStack(Material.PAPER);
+			ItemMeta recep0Im = recep0.getItemMeta();
+			recep0Im.setDisplayName(ChatColor.BOLD + "하나 협회 3과 초대장");
+			ArrayList<String> recep0Lore = new ArrayList<>();
+			recep0Lore.add(ChatColor.GRAY + "하나 협회 남부지부 3과 소속");
+			recep0Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep0Im.setLore(recep0Lore);
+			recep0.setItemMeta(recep0Im);
+			player.getInventory().addItem(recep0);
+		}
+		
+		if(rnd.nextInt(3) == 0) {
+			ItemStack recep0 = new ItemStack(Material.PAPER);
+			ItemMeta recep0Im = recep0.getItemMeta();
+			recep0Im.setDisplayName(ChatColor.BOLD + "베이야드 초대장");
+			ArrayList<String> recep0Lore = new ArrayList<>();
+			recep0Lore.add(ChatColor.GRAY + "베이야드 소속 해결사가");
+			recep0Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep0Im.setLore(recep0Lore);
+			recep0.setItemMeta(recep0Im);
+			player.getInventory().addItem(recep0);
+		}
+		
+		if(rnd.nextInt(3) == 0) {
+			ItemStack recep0 = new ItemStack(Material.PAPER);
+			ItemMeta recep0Im = recep0.getItemMeta();
+			recep0Im.setDisplayName(ChatColor.BOLD + "지팡이 사무소 초대장");
+			ArrayList<String> recep0Lore = new ArrayList<>();
+			recep0Lore.add(ChatColor.GRAY + "지팡이 사무소 소속 해결사가");
+			recep0Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep0Im.setLore(recep0Lore);
+			recep0.setItemMeta(recep0Im);
+			player.getInventory().addItem(recep0);
+		}
+		
+		if(rnd.nextInt(3) == 0) {
+			ItemStack recep0 = new ItemStack(Material.PAPER);
+			ItemMeta recep0Im = recep0.getItemMeta();
+			recep0Im.setDisplayName(ChatColor.BOLD + "우제트 초대장");
+			ArrayList<String> recep0Lore = new ArrayList<>();
+			recep0Lore.add(ChatColor.GRAY + "우제트 소속 해결사가");
+			recep0Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep0Im.setLore(recep0Lore);
+			recep0.setItemMeta(recep0Im);
+			player.getInventory().addItem(recep0);
+		}
+		
+		TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
+		
+		newPersonality(player, 2);
+		player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+	}
+	
+	public void uq2SS(Player player, int num, boolean start) {
+		player.sendMessage(ChatColor.GOLD + "[System] 1급 해결사가 되었습니다.");
+		
+		levelup(player, "1급", "20700");
+		
+		String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+		if(office.equals("츠바이 협회 2과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("시 협회 2과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "시 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "시 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("리우 협회 2과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("세븐 협회 2과")) {
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "세븐 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			player.getInventory().addItem(recep6);
+			
+			ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		} else if(office.equals("무소속")) {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 1과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 1과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 1과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 1과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 1과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 1과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+		} else {
+			ArrayList<ItemStack> ary = new ArrayList<>();
+			
+			ItemStack recep4 = new ItemStack(Material.PAPER);
+			ItemMeta recep4Im = recep4.getItemMeta();
+			recep4Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 1과 초대장");
+			ArrayList<String> recep4Lore = new ArrayList<>();
+			recep4Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 1과 소속");
+			recep4Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep4Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep4Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep4Im.setLore(recep4Lore);
+			recep4.setItemMeta(recep4Im);
+			player.getInventory().addItem(recep4);
+			
+			ary.add(recep4);
+			
+			ItemStack recep5 = new ItemStack(Material.PAPER);
+			ItemMeta recep5Im = recep5.getItemMeta();
+			recep5Im.setDisplayName(ChatColor.BOLD + "시 협회 1과 초대장");
+			ArrayList<String> recep5Lore = new ArrayList<>();
+			recep5Lore.add(ChatColor.GRAY + "시 협회 남부지부 1과 소속");
+			recep5Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep5Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep5Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep5Im.setLore(recep5Lore);
+			recep5.setItemMeta(recep5Im);
+			
+			ary.add(recep5);
+			
+			ItemStack recep6 = new ItemStack(Material.PAPER);
+			ItemMeta recep6Im = recep6.getItemMeta();
+			recep6Im.setDisplayName(ChatColor.BOLD + "리우 협회 1과 초대장");
+			ArrayList<String> recep6Lore = new ArrayList<>();
+			recep6Lore.add(ChatColor.GRAY + "리우 협회 남부지부 1과 소속");
+			recep6Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep6Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep6Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep6Im.setLore(recep6Lore);
+			recep6.setItemMeta(recep6Im);
+			
+			ary.add(recep6);
+			
+			ItemStack recep7 = new ItemStack(Material.PAPER);
+			ItemMeta recep7Im = recep7.getItemMeta();
+			recep7Im.setDisplayName(ChatColor.BOLD + "세븐 협회 1과 초대장");
+			ArrayList<String> recep7Lore = new ArrayList<>();
+			recep7Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 1과 소속");
+			recep7Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep7Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep7Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep7Im.setLore(recep7Lore);
+			recep7.setItemMeta(recep7Im);
+			
+			ary.add(recep7);
+			
+			ItemStack recep1 = new ItemStack(Material.PAPER);
+			ItemMeta recep1Im = recep1.getItemMeta();
+			recep1Im.setDisplayName(ChatColor.BOLD + "츠바이 협회 2과 초대장");
+			ArrayList<String> recep1Lore = new ArrayList<>();
+			recep1Lore.add(ChatColor.GRAY + "츠바이 협회 남부지부 2과 소속");
+			recep1Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep1Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep1Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep1Im.setLore(recep1Lore);
+			recep1.setItemMeta(recep1Im);
+			player.getInventory().addItem(recep1);
+			
+			ary.add(recep1);
+			
+			ItemStack recep2 = new ItemStack(Material.PAPER);
+			ItemMeta recep2Im = recep2.getItemMeta();
+			recep2Im.setDisplayName(ChatColor.BOLD + "시 협회 2과 초대장");
+			ArrayList<String> recep2Lore = new ArrayList<>();
+			recep2Lore.add(ChatColor.GRAY + "시 협회 남부지부 2과 소속");
+			recep2Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep2Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep2Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep2Im.setLore(recep2Lore);
+			recep2.setItemMeta(recep2Im);
+			
+			ary.add(recep2);
+			
+			ItemStack recep3 = new ItemStack(Material.PAPER);
+			ItemMeta recep3Im = recep3.getItemMeta();
+			recep3Im.setDisplayName(ChatColor.BOLD + "리우 협회 2과 초대장");
+			ArrayList<String> recep3Lore = new ArrayList<>();
+			recep3Lore.add(ChatColor.GRAY + "리우 협회 남부지부 2과 소속");
+			recep3Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep3Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep3Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep3Im.setLore(recep3Lore);
+			recep3.setItemMeta(recep3Im);
+			
+			ary.add(recep3);
+			
+			ItemStack recep8 = new ItemStack(Material.PAPER);
+			ItemMeta recep8Im = recep8.getItemMeta();
+			recep8Im.setDisplayName(ChatColor.BOLD + "세븐 협회 2과 초대장");
+			ArrayList<String> recep8Lore = new ArrayList<>();
+			recep8Lore.add(ChatColor.GRAY + "세븐 협회 남부지부 2과 소속");
+			recep8Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep8Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep8Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep8Im.setLore(recep8Lore);
+			recep8.setItemMeta(recep8Im);
+			
+			ary.add(recep8);
+			
+			Random rnd = new Random();
+	        int idx = rnd.nextInt(ary.size());
+	        player.getInventory().addItem(ary.get(idx));
+	        
+	        ItemStack recep9 = new ItemStack(Material.PAPER);
+			ItemMeta recep9Im = recep9.getItemMeta();
+			recep9Im.setDisplayName(ChatColor.BOLD + "사직서");
+			ArrayList<String> recep9Lore = new ArrayList<>();
+			recep9Lore.add(ChatColor.GRAY + "무소속 해결사가 될 수 있는 서류");
+			recep9Lore.add(ChatColor.GRAY + "의뢰를 수주하면 사직서를 사용할 의지가");
+			recep9Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep9Im.setLore(recep9Lore);
+			recep9.setItemMeta(recep9Im);
+			player.getInventory().addItem(recep9);
+		}
+		
+		if(rnd.nextInt(6) == 0) {
+			ItemStack recep0 = new ItemStack(Material.PAPER);
+			ItemMeta recep0Im = recep0.getItemMeta();
+			recep0Im.setDisplayName(ChatColor.BOLD + "하나 협회 3과 초대장");
+			ArrayList<String> recep0Lore = new ArrayList<>();
+			recep0Lore.add(ChatColor.GRAY + "하나 협회 남부지부 3과 소속");
+			recep0Lore.add(ChatColor.GRAY + "해결사가 될 수 있는 초대장");
+			recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep0Im.setLore(recep0Lore);
+			recep0.setItemMeta(recep0Im);
+			player.getInventory().addItem(recep0);
+		}
+		
+		if(rnd.nextInt(3) == 0) {
+			ItemStack recep0 = new ItemStack(Material.PAPER);
+			ItemMeta recep0Im = recep0.getItemMeta();
+			recep0Im.setDisplayName(ChatColor.BOLD + "베이야드 초대장");
+			ArrayList<String> recep0Lore = new ArrayList<>();
+			recep0Lore.add(ChatColor.GRAY + "베이야드 소속 해결사가");
+			recep0Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep0Im.setLore(recep0Lore);
+			recep0.setItemMeta(recep0Im);
+			player.getInventory().addItem(recep0);
+		}
+		
+		if(rnd.nextInt(3) == 0) {
+			ItemStack recep0 = new ItemStack(Material.PAPER);
+			ItemMeta recep0Im = recep0.getItemMeta();
+			recep0Im.setDisplayName(ChatColor.BOLD + "지팡이 사무소 초대장");
+			ArrayList<String> recep0Lore = new ArrayList<>();
+			recep0Lore.add(ChatColor.GRAY + "지팡이 사무소 소속 해결사가");
+			recep0Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep0Im.setLore(recep0Lore);
+			recep0.setItemMeta(recep0Im);
+			player.getInventory().addItem(recep0);
+		}
+		
+		if(rnd.nextInt(3) == 0) {
+			ItemStack recep0 = new ItemStack(Material.PAPER);
+			ItemMeta recep0Im = recep0.getItemMeta();
+			recep0Im.setDisplayName(ChatColor.BOLD + "우제트 초대장");
+			ArrayList<String> recep0Lore = new ArrayList<>();
+			recep0Lore.add(ChatColor.GRAY + "우제트 소속 해결사가");
+			recep0Lore.add(ChatColor.GRAY + "될 수 있는 초대장");
+			recep0Lore.add(ChatColor.GRAY + "의뢰를 수주하면 초대장을 사용할 의지가");
+			recep0Lore.add(ChatColor.GRAY + "없다고 판단되어 사라진다.");
+			recep0Im.setLore(recep0Lore);
+			recep0.setItemMeta(recep0Im);
+			player.getInventory().addItem(recep0);
+		}
+		
+		TTA_Methods.sendTitle(player, null, 20, 40, 20, "새로운 초대장을 얻었다.", 20, 40, 20);
+		
+		newPersonality(player, 1);
+		player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
+	}
+	
+	
 	public void giveExp(Player player, int num) {
 		//인격에 따른 데미지 증폭 계산
 		try {
