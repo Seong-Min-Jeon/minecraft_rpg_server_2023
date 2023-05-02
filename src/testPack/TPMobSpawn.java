@@ -61,6 +61,9 @@ public class TPMobSpawn {
 			if (getQuestName(player).equals("q0106")) {
 				int qNum = qb.getNum(player);
 				qb.q0106(player, qNum + 1, false);
+			} else if (getQuestName(player).equals("q0132")) {
+				int qNum = qb.getNum(player);
+				qb.q0132(player, qNum + 1, false);
 			}
 		}
 		
