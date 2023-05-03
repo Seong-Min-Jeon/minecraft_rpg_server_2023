@@ -2610,7 +2610,20 @@ public class Main extends JavaPlugin implements Listener{
 						player.damage(arrow.getDamage());
 						
 						if(arrow.getDamage() == 0.01) {
-							player.setFireTicks(60);
+							new BukkitRunnable() {
+								int time = 0;
+
+							    @Override
+								public void run() {
+							    	
+							    	if(time == 1) {
+							    		player.setFireTicks(60);
+							    		this.cancel();
+							    	}
+							    	
+									time++;
+								}
+							}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 						} else if(arrow.getDamage() == 0.02) {
 							player.damage(40);
 							new BukkitRunnable() {
@@ -8191,7 +8204,111 @@ public class Main extends JavaPlugin implements Listener{
  							new Message().msg(player, "림포링쿠스: 3과 인원이 여긴 어쩐 일로 오셨습니까?");
  						}
  	 	    		} else {
-	 	    			
+ 	 	    			int num = rnd.nextInt(4);
+ 		 	    		if(num == 0) {
+ 		 	    			new Message().msg(player, "람포링쿠스: 난 물고기가 좋아!%람포링쿠스: 맜있거든!");
+ 		 	    		} else if(num == 1) {
+ 		 	    			new Message().msg(player, "람포링쿠스: 우리 집에 토끼가 있어!%람포링쿠스: 복슬복슬해!%람포링쿠스: 가끔 탈출도 해!");
+ 		 	    		} else if(num == 2) {
+ 		 	    			new Message().msg(player, "람포링쿠스: 나도 어떻게 내가 2과까지 올라왔는지 몰라!%람포링쿠스: 넌 알아?");
+ 		 	    		} else if(num == 3) {
+ 		 	    			new Message().msg(player, "람포링쿠스: 밖에 나와있다보니까 인기가 많은 것 같아!");
+ 		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("프테로닥틸루스")) {
+	 	    		int num = rnd.nextInt(3);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "프테로닥틸루스: 옆에 있는 포탈은 4과와 연결되어있습니다.%프테로닥틸루스: 부장님 외에는 접근 허가가 되어있지 않습니다.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "프테로닥틸루스: 날개는 과연 손가락과 아무 관련이 없을까요?%프테로닥틸루스: 더러운 범죄 조직들은 도시에서 사라져야 하는데 말입니다.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "프테로닥틸루스: 우리는 별을 지게 만들 힘은 없습니다.%프테로닥틸루스: 다만 별을 뜨지 않도록 할 힘은 있습니다.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("타페야라")) {
+	 	    		if(getQuestName(player).equals("N")) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("츠바이 협회 2과")) {
+	 	    				int num = rnd.nextInt(15);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "타페야라: 오늘도 어김없이 뒷골목은 조직에 의해 굴러간다네.%타페야라: 도시를 지키는 방패가 이렇게 버젓이 있는데도 말이지.%타페야라: 자네는 지금의 도시가 옳게 돌아간다고 생각하나?%"
+	 	    							+ "타페야라: 난 아니라네.%타페야라: 가장 훌륭한 방어란 끊임없는 공격이라는 것을 보여주게나.%q0136");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "타페야라: 오늘도 어김없이 뒷골목은 조직에 의해 굴러간다네.%타페야라: 도시를 지키는 방패가 이렇게 버젓이 있는데도 말이지.%타페야라: 자네는 지금의 도시가 옳게 돌아간다고 생각하나?%"
+	 	    							+ "타페야라: 난 아니라네.%타페야라: 가장 훌륭한 방어란 끊임없는 공격이라는 것을 보여주게나.%q0137");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "타페야라: 오늘도 어김없이 뒷골목은 조직에 의해 굴러간다네.%타페야라: 도시를 지키는 방패가 이렇게 버젓이 있는데도 말이지.%타페야라: 자네는 지금의 도시가 옳게 돌아간다고 생각하나?%"
+	 	    							+ "타페야라: 난 아니라네.%타페야라: 가장 훌륭한 방어란 끊임없는 공격이라는 것을 보여주게나.%q0138");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "타페야라: 오늘도 어김없이 뒷골목은 조직에 의해 굴러간다네.%타페야라: 도시를 지키는 방패가 이렇게 버젓이 있는데도 말이지.%타페야라: 자네는 지금의 도시가 옳게 돌아간다고 생각하나?%"
+	 	    							+ "타페야라: 난 아니라네.%타페야라: 가장 훌륭한 방어란 끊임없는 공격이라는 것을 보여주게나.%q0139");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "타페야라: 1과가 파견을 나가서 우리가 도시의 별급 의뢰를 맡게 되었네.%타페야라: 늘 하던데로 한번 버텨보자고.%q0140");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "타페야라: 1과가 파견을 나가서 우리가 도시의 별급 의뢰를 맡게 되었네.%타페야라: 늘 하던데로 한번 버텨보자고.%q0141");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "타페야라: 1과가 파견을 나가서 우리가 도시의 별급 의뢰를 맡게 되었네.%타페야라: 늘 하던데로 한번 버텨보자고.%q0142");
+	 	    				} else if(num == 7) {
+	 	    					new Message().msg(player, "타페야라: 1과가 파견을 나가서 우리가 도시의 별급 의뢰를 맡게 되었네.%타페야라: 늘 하던데로 한번 버텨보자고.%q0143");
+	 	    				} else if(num == 8) {
+	 	    					new Message().msg(player, "타페야라: 1과가 파견을 나가서 우리가 도시의 별급 의뢰를 맡게 되었네.%타페야라: 늘 하던데로 한번 버텨보자고.%q0144");
+	 	    				} else if(num == 9) {
+	 	    					new Message().msg(player, "타페야라: 도시 악몽급 뒤틀림을 해결하라는 지시가 내려왔다.%타페야라: 최근에는 인간보다 뒤틀림으로인한 사망자 수가 많으니%타페야라: 뒤틀림 관련 의뢰가 많은건 어쩔 수 없다네.%q0145");
+	 	    				} else if(num == 10) {
+	 	    					new Message().msg(player, "타페야라: 도시의 별급 뒤틀림을 해결하라는 지시가 내려왔다.%타페야라: 최근에는 인간보다 뒤틀림으로인한 사망자 수가 많으니%타페야라: 뒤틀림 관련 의뢰가 많은건 어쩔 수 없다네.%q0146%"
+	 	    							+ "타페야라: 도시의 별은 원래 2과 관할이 아니다만 시기가 시기인만큼 상부에서도 어쩔 수 없나보군.");
+	 	    				} else if(num < 13) {
+	 	    					new Message().msg(player, "타페야라: 1과에 보고서를 전해주고 오게나.%타페야라: 지금 한가해보이는건 자네뿐인 것 같군.%q0147");
+	 	    				} else if(num < 15) {
+	 	    					new Message().msg(player, "타페야라: 3과에 지시서를 전해주고 오게나.%타페야라: 3과도 요즘들어 많이 힘들텐데, 지시 내용이 많아 미안하다고 전해주게나.%q0148");
+	 	    				}
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 1) && (new PlayerGrade().returnGrade(player) <= 3)) {
+		 	    			int num = rnd.nextInt(11);
+		 	    			if(num == 0) {
+	 	    					new Message().msg(player, "타페야라: 오늘도 어김없이 뒷골목은 조직에 의해 굴러간다네.%타페야라: 도시를 지키는 방패가 이렇게 버젓이 있는데도 말이지.%타페야라: 자네는 지금의 도시가 옳게 돌아간다고 생각하나?%"
+	 	    							+ "타페야라: 난 아니라네.%타페야라: 날카로운 공격이 필요해서 자네를 쓰는 것이네.%타페야라: 방패 옆에는 언제나 검이 있다는 것을 알려주게나.%q0136");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "타페야라: 오늘도 어김없이 뒷골목은 조직에 의해 굴러간다네.%타페야라: 도시를 지키는 방패가 이렇게 버젓이 있는데도 말이지.%타페야라: 자네는 지금의 도시가 옳게 돌아간다고 생각하나?%"
+	 	    							+ "타페야라: 난 아니라네.%타페야라: 날카로운 공격이 필요해서 자네를 쓰는 것이네.%타페야라: 방패 옆에는 언제나 검이 있다는 것을 알려주게나.%q0137");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "타페야라: 오늘도 어김없이 뒷골목은 조직에 의해 굴러간다네.%타페야라: 도시를 지키는 방패가 이렇게 버젓이 있는데도 말이지.%타페야라: 자네는 지금의 도시가 옳게 돌아간다고 생각하나?%"
+	 	    							+ "타페야라: 난 아니라네.%타페야라: 날카로운 공격이 필요해서 자네를 쓰는 것이네.%타페야라: 방패 옆에는 언제나 검이 있다는 것을 알려주게나.%q0138");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "타페야라: 오늘도 어김없이 뒷골목은 조직에 의해 굴러간다네.%타페야라: 도시를 지키는 방패가 이렇게 버젓이 있는데도 말이지.%타페야라: 자네는 지금의 도시가 옳게 돌아간다고 생각하나?%"
+	 	    							+ "타페야라: 난 아니라네.%타페야라: 날카로운 공격이 필요해서 자네를 쓰는 것이네.%타페야라: 방패 옆에는 언제나 검이 있다는 것을 알려주게나.%q0139");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "타페야라: 1과가 파견을 나가서 우리가 도시의 별급 의뢰를 맡게 되었네.%타페야라: 용병이라고 예외는 없다.%q0140");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "타페야라: 1과가 파견을 나가서 우리가 도시의 별급 의뢰를 맡게 되었네.%타페야라: 용병이라고 예외는 없다.%q0141");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "타페야라: 1과가 파견을 나가서 우리가 도시의 별급 의뢰를 맡게 되었네.%타페야라: 용병이라고 예외는 없다.%q0142");
+	 	    				} else if(num == 7) {
+	 	    					new Message().msg(player, "타페야라: 1과가 파견을 나가서 우리가 도시의 별급 의뢰를 맡게 되었네.%타페야라: 용병이라고 예외는 없다.%q0143");
+	 	    				} else if(num == 8) {
+	 	    					new Message().msg(player, "타페야라: 1과가 파견을 나가서 우리가 도시의 별급 의뢰를 맡게 되었네.%타페야라: 용병이라고 예외는 없다.%q0144");
+	 	    				} else if(num == 9) {
+	 	    					new Message().msg(player, "타페야라: 도시 악몽급 뒤틀림을 해결하라는 지시가 내려왔다.%타페야라: 최근에는 인간보다 뒤틀림으로인한 사망자 수가 많으니%타페야라: 뒤틀림 관련 의뢰가 많은건 어쩔 수 없다네.%q0145");
+	 	    				} else if(num == 10) {
+	 	    					new Message().msg(player, "타페야라: 도시의 별급 뒤틀림을 해결하라는 지시가 내려왔다.%타페야라: 최근에는 인간보다 뒤틀림으로인한 사망자 수가 많으니%타페야라: 뒤틀림 관련 의뢰가 많은건 어쩔 수 없다네.%q0146%"
+	 	    							+ "타페야라: 도시의 별은 원래 2과 관할이 아니다만 시기가 시기인만큼 상부에서도 어쩔 수 없나보군.");
+	 	    				}
+		 	    		} else {
+		 	    			new Message().msg(player, "타페야라: 질문을 할 때는 질문을 하는 것에 대한 허락을 먼저 받도록하게.");
+		 	    		}
+	 	    		} else {
+	 	    			if(office.equals("츠바이 협회 2과")) {
+	 	    				if (getQuestName(player).equals("q0147")) {
+	 	    					new Message().msg(player, "타페야라: 급한건 아니니 느긋하게 있다 가게나.");
+		 	    			} else if (getQuestName(player).equals("q0148")) {
+	 	    					new Message().msg(player, "타페야라: 급한건 아니니 느긋하게 있다 가게나.");
+		 	    			} else {
+		 	    				new Message().msg(player, "타페야라: 방패는 깨질 때까지 역할을 다하지 않는다네.");
+		 	    			}
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "타페야라: 방패는 깨질 때까지 역할을 다하지 않는다네.");
+		 	    		} else {
+		 	    			new Message().msg(player, "타페야라: 질문을 할 때는 질문을 하는 것에 대한 허락을 먼저 받도록하게.");
+		 	    		}
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("발렌틴")) {
 	 	    		if (getQuestName(player).equals("q0041")) {
