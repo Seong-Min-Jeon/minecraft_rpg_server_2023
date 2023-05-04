@@ -1245,7 +1245,7 @@ public class Cmd33mob implements CommandExecutor {
 						EntityEquipment chestplate = entity.getEquipment();
 						ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
 						LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
-						chestmeta.setColor(Color.fromRGB(80,80,250));
+						chestmeta.setColor(Color.fromRGB(130,250,250));
 						chestplateItem.setItemMeta(chestmeta);
 						chestplate.setChestplate(chestplateItem);
 						EntityEquipment leggings = entity.getEquipment();

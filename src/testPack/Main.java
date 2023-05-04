@@ -5509,7 +5509,7 @@ public class Main extends JavaPlugin implements Listener{
 							EntityEquipment chestplate = entity.getEquipment();
 							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
 							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
-							chestmeta.setColor(Color.fromRGB(80,80,250));
+							chestmeta.setColor(Color.fromRGB(130,250,250));
 							chestplateItem.setItemMeta(chestmeta);
 							chestplate.setChestplate(chestplateItem);
 							EntityEquipment leggings = entity.getEquipment();
@@ -5964,6 +5964,43 @@ public class Main extends JavaPlugin implements Listener{
 		        			new Message().msg(player, "바다: 수표 발급이군요.%바다: 알겠습니다.");
 		        		} else {
 		        			new Message().msg(player, "바다: 돈이… 부족하시군요.");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					//통조림 아가씨
+					else if (loc.getX() <= -1112 && loc.getY() <= 200 && loc.getZ() <= 1448
+							&& loc.getX() >= -1120 && loc.getY() >= 190 && loc.getZ() >= 1440) {
+						ItemStack clicked = event.getCurrentItem();
+						int exp = 0;
+						try {
+							ItemStack item = player.getInventory().getItem(8);
+							ItemMeta itemIM = item.getItemMeta();
+							ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
+							String expS = ary.get(1).split("\\[")[1].split("/")[0];
+							exp = Integer.parseInt(expS);
+						} catch(Exception e) {
+							
+						}
+						
+		        		if(exp >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				downExp(player, 1);
+		        				player.getInventory().addItem(new Shop14().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				downExp(player, 10);
+		        				player.getInventory().addItem(new Shop14().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				downExp(player, 100);
+		        				player.getInventory().addItem(new Shop14().item3());
+		        			} else if(event.getSlot() == 3) {
+		        				downExp(player, 1000);
+		        				player.getInventory().addItem(new Shop14().item4());
+		        			}
+		        			new Message().msg(player, "통조림 아가씨: 새로운 재료구만… 끌끌.");
+		        		} else {
+		        			new Message().msg(player, "통조림 아가씨: 누가 장사 한두번 하는 줄 알아?");
 		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
 		        		}
 					}
@@ -8870,6 +8907,10 @@ public class Main extends JavaPlugin implements Listener{
 	 	    		//수표 상인
 	 	    		new Shop13(player);
 	 	    		new Message().msg(player, "바다: 수표는 B사에서 직접 발행한 것입니다.%바다: 진품임은 저희가 보장합니다."); 
+	 	    	} else if(npc.getText().get(0).equals("통조림 아가씨")) {
+	 	    		//수표 상인2
+	 	    		new Shop14(player);
+	 	    		new Message().msg(player, "통조림 아가씨: 수표는 진품이라구."); 
 	 	    	} else if(npc.getText().get(0).equals("묘")) {
 	 	    		if(getQuestName(player).equals("N")) {
 	 	    			new Message().msg(player, "묘: 뒤틀림의 정보를 보고 있는 중이야.%묘: 너도 죽기 싫으면 봐두는게 좋을걸?");
@@ -8965,6 +9006,27 @@ public class Main extends JavaPlugin implements Listener{
 		} catch(Exception e) {
 			
 		}
+	}
+	
+	public void downExp(Player player, int num) {
+		try {
+			ItemStack item = player.getInventory().getItem(8);
+			ItemMeta itemIM = item.getItemMeta();
+			ArrayList<String> ary = (ArrayList<String>) itemIM.getLore();
+			String grade = ary.get(1).split("\\[")[0];
+			String exp = ary.get(1).split("\\[")[1].split("/")[0];
+			String maxExp = ary.get(1).split("\\]")[0].split("/")[1];
+			int newExp = Integer.parseInt(exp) - num;
+			if (newExp > Integer.parseInt(maxExp)) {newExp = Integer.parseInt(maxExp);}
+			ary.set(1, ChatColor.GRAY + grade + "[" + String.valueOf(newExp) + "/" + maxExp + "]");
+			itemIM.setLore(ary);
+			item.setItemMeta(itemIM);
+			player.getInventory().setItem(8, item);
+		} catch(Exception e) {
+			
+		}
+		
+		player.sendMessage(ChatColor.GOLD + "[System] 해결사 평판이 "+ num +"만큼 감소했다.");
 	}
 	
 	public void levelup(Player player, String grade, String maxexp) {

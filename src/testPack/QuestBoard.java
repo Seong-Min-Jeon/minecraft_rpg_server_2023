@@ -14350,7 +14350,7 @@ public class QuestBoard {
 	
 	
 	public void giveExp(Player player, int num) {
-		//인격에 따른 데미지 증폭 계산
+		//인격
 		try {
 			double personality = 0;
 			ItemStack item = player.getInventory().getItem(7);
