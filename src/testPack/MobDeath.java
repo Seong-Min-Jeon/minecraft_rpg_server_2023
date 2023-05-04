@@ -109,6 +109,18 @@ public class MobDeath {
 					mobloot.laughB(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "마리아치 간부")) {
 					mobloot.mariachiB(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "엄지 카포")) {
+					mobloot.thumbCP(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "검지 대행자")) {
+					mobloot.indexMS(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "검지 전령")) {
+					mobloot.indexSD(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "콩콩이파 조직원")) {
+					mobloot.kong(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "검계 조직원")) {
+					mobloot.sword(lootPlayer);
+				} else if (name.equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "밤의 송곳 조직원")) {
+					mobloot.awl(lootPlayer);
 				} else if (name.equalsIgnoreCase(ChatColor.WHITE + "" + ChatColor.BOLD + "변이된 나뭇잎")) {
 					mobloot.d1_1(lootPlayer);
 				}

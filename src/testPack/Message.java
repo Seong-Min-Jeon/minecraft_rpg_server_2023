@@ -734,6 +734,82 @@ public class Message {
 						QuestBoard qb = new QuestBoard();
 						qb.q0135(player, 0, true);
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0136")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0136(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0137")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0137(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0138")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0138(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0139")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0139(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0140")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0140(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0141")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0141(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0142")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0142(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0143")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0143(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0144")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0144(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0145")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0145(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0146")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0146(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0147")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0147(player, 0, true);
+						
+						//음식 아이템 주기
+						ItemStack letter = new ItemStack(Material.BOOK);
+						ItemMeta letterIm = letter.getItemMeta();
+						letterIm.setDisplayName(ChatColor.WHITE + "츠바이 협회 2과의 보고서");
+						ArrayList<String> letterLore = new ArrayList<>();
+						letterLore.add(ChatColor.GRAY + "타페야라가 작성한 이번달 2과의 보고서");
+						letterLore.add(ChatColor.GRAY + "1과에 전달해주기로 하였다.");
+						letterIm.setLore(letterLore);
+						letter.setItemMeta(letterIm);
+						player.getInventory().addItem(letter);
+						
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0148")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0148(player, 0, true);
+						
+						//음식 아이템 주기
+						ItemStack letter = new ItemStack(Material.BOOK);
+						ItemMeta letterIm = letter.getItemMeta();
+						letterIm.setDisplayName(ChatColor.WHITE + "츠바이 협회 2과의 지시서");
+						ArrayList<String> letterLore = new ArrayList<>();
+						letterLore.add(ChatColor.GRAY + "타페야라가 보내는 2과의 지시서");
+						letterLore.add(ChatColor.GRAY + "3과가 해야할 의뢰가 적혀있다고 한다.");
+						letterIm.setLore(letterLore);
+						letter.setItemMeta(letterIm);
+						player.getInventory().addItem(letter);
+						
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 5).equals("uq9SS")) {
 						QuestBoard qb = new QuestBoard();
 						qb.uq9SS(player, 0, true);

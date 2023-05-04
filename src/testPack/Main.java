@@ -673,6 +673,32 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0134(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0135")) {
 						qb.q0135(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0136")) {
+						qb.q0136(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0137")) {
+						qb.q0137(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0138")) {
+						qb.q0138(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0139")) {
+						qb.q0139(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0140")) {
+						qb.q0140(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0141")) {
+						qb.q0141(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0142")) {
+						qb.q0142(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0143")) {
+						qb.q0143(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0144")) {
+						qb.q0144(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0145")) {
+						qb.q0145(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0146")) {
+						qb.q0146(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0147")) {
+						qb.q0147(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0148")) {
+						qb.q0148(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq9")) {
 						qb.uq9(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq8")) {
@@ -1564,6 +1590,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0130")) {
 							int qNum = qb.getNum(player);
 							qb.q0130(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0145")) {
+							int qNum = qb.getNum(player);
+							qb.q0145(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "외눈 물고기 성체", 40, 40, 20);
@@ -1643,6 +1672,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0130")) {
 							int qNum = qb.getNum(player);
 							qb.q0130(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0145")) {
+							int qNum = qb.getNum(player);
+							qb.q0145(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "녹아내리는 마음", 40, 40, 20);
@@ -1722,6 +1754,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0130")) {
 							int qNum = qb.getNum(player);
 							qb.q0130(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0145")) {
+							int qNum = qb.getNum(player);
+							qb.q0145(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "쏘아올리는 불꽃", 40, 40, 20);
@@ -1801,6 +1836,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0130")) {
 							int qNum = qb.getNum(player);
 							qb.q0130(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0145")) {
+							int qNum = qb.getNum(player);
+							qb.q0145(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "부패의 조각", 40, 40, 20);
@@ -1880,6 +1918,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0130")) {
 							int qNum = qb.getNum(player);
 							qb.q0130(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0145")) {
+							int qNum = qb.getNum(player);
+							qb.q0145(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "폭주하는 황소", 40, 40, 20);
@@ -1968,6 +2009,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0130")) {
 							int qNum = qb.getNum(player);
 							qb.q0130(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0145")) {
+							int qNum = qb.getNum(player);
+							qb.q0145(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0146")) {
+							int qNum = qb.getNum(player);
+							qb.q0146(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "우는 영혼들의 산", 40, 40, 20);
@@ -2056,6 +2103,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0130")) {
 							int qNum = qb.getNum(player);
 							qb.q0130(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0145")) {
+							int qNum = qb.getNum(player);
+							qb.q0145(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0146")) {
+							int qNum = qb.getNum(player);
+							qb.q0146(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "도망쳐", 40, 40, 20);
@@ -2144,6 +2197,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0130")) {
 							int qNum = qb.getNum(player);
 							qb.q0130(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0145")) {
+							int qNum = qb.getNum(player);
+							qb.q0145(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0146")) {
+							int qNum = qb.getNum(player);
+							qb.q0146(player, qNum + 1, false);
 						}
 					}
 				}
@@ -4955,7 +5014,7 @@ public class Main extends JavaPlugin implements Listener{
 							boots.setBoots(bootsItem);
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0107") || getQuestName(player).equals("q0120")) {
+					} else if (getQuestName(player).equals("q0107") || getQuestName(player).equals("q0120") || getQuestName(player).equals("q0136")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -4998,7 +5057,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 4, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
 						}
-					} else if (getQuestName(player).equals("q0108") || getQuestName(player).equals("q0121")) {
+					} else if (getQuestName(player).equals("q0108") || getQuestName(player).equals("q0121") || getQuestName(player).equals("q0137")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5041,7 +5100,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 5, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0109") || getQuestName(player).equals("q0122")) {
+					} else if (getQuestName(player).equals("q0109") || getQuestName(player).equals("q0122") || getQuestName(player).equals("q0138")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5083,7 +5142,7 @@ public class Main extends JavaPlugin implements Listener{
 							boots.setBoots(bootsItem);
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 6, false, false));
 						}
-					} else if (getQuestName(player).equals("q0110") || getQuestName(player).equals("q0123")) {
+					} else if (getQuestName(player).equals("q0110") || getQuestName(player).equals("q0123") || getQuestName(player).equals("q0139")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5302,6 +5361,257 @@ public class Main extends JavaPlugin implements Listener{
 							boots.setBoots(bootsItem);
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 7, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
+						}
+					} else if (getQuestName(player).equals("q0140")) {
+						qo.returnEntity(player).remove();
+						qo.remove(player);
+						
+						Location chestLoc = new Location(world, -1149, 166, 1467);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						
+						for(int i = 0 ; i < 3 ; i++) {
+							Zombie entity = (Zombie) player.getWorld().spawnEntity(event.getRightClicked().getLocation(), EntityType.ZOMBIE);
+							entity.setCustomName(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "엄지 카포");
+							entity.setCustomNameVisible(true);
+							entity.setPersistent(true);
+							entity.setRemoveWhenFarAway(false);
+							entity.setMaxHealth(400);
+							entity.setHealth(400);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.FIRE_CORAL_BLOCK);
+							weapon.setItemInMainHand(weaponItem);
+							EntityEquipment head = entity.getEquipment();
+							ItemStack headItem = chest.getInventory().getItem(0);
+							head.setHelmet(headItem);
+							EntityEquipment chestplate = entity.getEquipment();
+							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+							chestmeta.setColor(Color.fromRGB(150,0,0));
+							chestplateItem.setItemMeta(chestmeta);
+							chestplate.setChestplate(chestplateItem);
+							EntityEquipment leggings = entity.getEquipment();
+							ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+							LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+							leggingsmeta.setColor(Color.fromRGB(10,10,10));
+							leggingsItem.setItemMeta(leggingsmeta);
+							leggings.setLeggings(leggingsItem);
+							EntityEquipment boots = entity.getEquipment();
+							ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+							LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+							bootsmeta.setColor(Color.fromRGB(0,0,0));
+							bootsItem.setItemMeta(bootsmeta);
+							boots.setBoots(bootsItem);
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 10, false, false));
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
+						}
+					} else if (getQuestName(player).equals("q0141")) {
+						qo.returnEntity(player).remove();
+						qo.remove(player);
+						
+						Location chestLoc = new Location(world, -1149, 166, 1467);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						
+						for(int i = 0 ; i < 2 ; i++) {
+							Zombie entity = (Zombie) player.getWorld().spawnEntity(event.getRightClicked().getLocation(), EntityType.ZOMBIE);
+							entity.setCustomName(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "검지 대행자");
+							entity.setCustomNameVisible(true);
+							entity.setPersistent(true);
+							entity.setRemoveWhenFarAway(false);
+							entity.setMaxHealth(380);
+							entity.setHealth(380);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.SPRUCE_PLANKS);
+							weapon.setItemInMainHand(weaponItem);
+							EntityEquipment head = entity.getEquipment();
+							ItemStack headItem = chest.getInventory().getItem(1);
+							head.setHelmet(headItem);
+							EntityEquipment chestplate = entity.getEquipment();
+							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+							chestmeta.setColor(Color.fromRGB(255,255,255));
+							chestplateItem.setItemMeta(chestmeta);
+							chestplate.setChestplate(chestplateItem);
+							EntityEquipment leggings = entity.getEquipment();
+							ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+							LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+							leggingsmeta.setColor(Color.fromRGB(255,255,255));
+							leggingsItem.setItemMeta(leggingsmeta);
+							leggings.setLeggings(leggingsItem);
+							EntityEquipment boots = entity.getEquipment();
+							ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+							LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+							bootsmeta.setColor(Color.fromRGB(255,255,255));
+							bootsItem.setItemMeta(bootsmeta);
+							boots.setBoots(bootsItem);
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 12, false, false));
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2, false, false));
+						}
+						
+						for(int i = 0 ; i < 1 ; i++) {
+							Zombie entity = (Zombie) player.getWorld().spawnEntity(event.getRightClicked().getLocation(), EntityType.ZOMBIE);
+							entity.setCustomName(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "검지 전령");
+							entity.setCustomNameVisible(true);
+							entity.setPersistent(true);
+							entity.setRemoveWhenFarAway(false);
+							entity.setMaxHealth(250);
+							entity.setHealth(250);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.BIRCH_PLANKS);
+							weapon.setItemInMainHand(weaponItem);
+							EntityEquipment head = entity.getEquipment();
+							ItemStack headItem = chest.getInventory().getItem(2);
+							head.setHelmet(headItem);
+							EntityEquipment chestplate = entity.getEquipment();
+							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+							chestmeta.setColor(Color.fromRGB(255,255,255));
+							chestplateItem.setItemMeta(chestmeta);
+							chestplate.setChestplate(chestplateItem);
+							EntityEquipment leggings = entity.getEquipment();
+							ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+							LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+							leggingsmeta.setColor(Color.fromRGB(255,255,255));
+							leggingsItem.setItemMeta(leggingsmeta);
+							leggings.setLeggings(leggingsItem);
+							EntityEquipment boots = entity.getEquipment();
+							ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+							LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+							bootsmeta.setColor(Color.fromRGB(255,255,255));
+							bootsItem.setItemMeta(bootsmeta);
+							boots.setBoots(bootsItem);
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 8, false, false));
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
+						}
+					} else if (getQuestName(player).equals("q0142")) {
+						qo.returnEntity(player).remove();
+						qo.remove(player);
+						
+						Location chestLoc = new Location(world, -1149, 166, 1467);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						
+						for(int i = 0 ; i < 2 ; i++) {
+							Zombie entity = (Zombie) player.getWorld().spawnEntity(event.getRightClicked().getLocation(), EntityType.ZOMBIE);
+							entity.setCustomName(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "콩콩이파 조직원");
+							entity.setCustomNameVisible(true);
+							entity.setPersistent(true);
+							entity.setRemoveWhenFarAway(false);
+							entity.setMaxHealth(350);
+							entity.setHealth(350);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.DARK_OAK_LOG);
+							weapon.setItemInMainHand(weaponItem);
+							EntityEquipment head = entity.getEquipment();
+							ItemStack headItem = chest.getInventory().getItem(3);
+							head.setHelmet(headItem);
+							EntityEquipment chestplate = entity.getEquipment();
+							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+							chestmeta.setColor(Color.fromRGB(80,80,250));
+							chestplateItem.setItemMeta(chestmeta);
+							chestplate.setChestplate(chestplateItem);
+							EntityEquipment leggings = entity.getEquipment();
+							ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+							LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+							leggingsmeta.setColor(Color.fromRGB(10,10,10));
+							leggingsItem.setItemMeta(leggingsmeta);
+							leggings.setLeggings(leggingsItem);
+							EntityEquipment boots = entity.getEquipment();
+							ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+							LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+							bootsmeta.setColor(Color.fromRGB(0,0,0));
+							bootsItem.setItemMeta(bootsmeta);
+							boots.setBoots(bootsItem);
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 12, false, false));
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
+						}
+					} else if (getQuestName(player).equals("q0143")) {
+						qo.returnEntity(player).remove();
+						qo.remove(player);
+						
+						Location chestLoc = new Location(world, -1149, 166, 1467);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						
+						for(int i = 0 ; i < 2 ; i++) {
+							Zombie entity = (Zombie) player.getWorld().spawnEntity(event.getRightClicked().getLocation(), EntityType.ZOMBIE);
+							entity.setCustomName(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "검계 조직원");
+							entity.setCustomNameVisible(true);
+							entity.setPersistent(true);
+							entity.setRemoveWhenFarAway(false);
+							entity.setMaxHealth(420);
+							entity.setHealth(420);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.OAK_PLANKS);
+							weapon.setItemInMainHand(weaponItem);
+							EntityEquipment head = entity.getEquipment();
+							ItemStack headItem = chest.getInventory().getItem(4);
+							head.setHelmet(headItem);
+							EntityEquipment chestplate = entity.getEquipment();
+							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+							chestmeta.setColor(Color.fromRGB(50,50,50));
+							chestplateItem.setItemMeta(chestmeta);
+							chestplate.setChestplate(chestplateItem);
+							EntityEquipment leggings = entity.getEquipment();
+							ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+							LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+							leggingsmeta.setColor(Color.fromRGB(50,50,50));
+							leggingsItem.setItemMeta(leggingsmeta);
+							leggings.setLeggings(leggingsItem);
+							EntityEquipment boots = entity.getEquipment();
+							ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+							LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+							bootsmeta.setColor(Color.fromRGB(50,50,50));
+							bootsItem.setItemMeta(bootsmeta);
+							boots.setBoots(bootsItem);
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 10, false, false));
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2, false, false));
+						}
+					} else if (getQuestName(player).equals("q0144")) {
+						qo.returnEntity(player).remove();
+						qo.remove(player);
+						
+						Location chestLoc = new Location(world, -1149, 166, 1467);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						
+						for(int i = 0 ; i < 3 ; i++) {
+							Zombie entity = (Zombie) player.getWorld().spawnEntity(event.getRightClicked().getLocation(), EntityType.ZOMBIE);
+							entity.setCustomName(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "밤의 송곳 조직원");
+							entity.setCustomNameVisible(true);
+							entity.setPersistent(true);
+							entity.setRemoveWhenFarAway(false);
+							entity.setMaxHealth(400);
+							entity.setHealth(400);
+							EntityEquipment weapon = entity.getEquipment();
+							ItemStack weaponItem = new ItemStack(Material.SPRUCE_SLAB);
+							weapon.setItemInMainHand(weaponItem);
+							EntityEquipment head = entity.getEquipment();
+							ItemStack headItem = chest.getInventory().getItem(5);
+							head.setHelmet(headItem);
+							EntityEquipment chestplate = entity.getEquipment();
+							ItemStack chestplateItem = new ItemStack(Material.LEATHER_CHESTPLATE);
+							LeatherArmorMeta chestmeta = (LeatherArmorMeta) chestplateItem.getItemMeta();
+							chestmeta.setColor(Color.fromRGB(250,250,250));
+							chestplateItem.setItemMeta(chestmeta);
+							chestplate.setChestplate(chestplateItem);
+							EntityEquipment leggings = entity.getEquipment();
+							ItemStack leggingsItem = new ItemStack(Material.LEATHER_LEGGINGS);
+							LeatherArmorMeta leggingsmeta = (LeatherArmorMeta) leggingsItem.getItemMeta();
+							leggingsmeta.setColor(Color.fromRGB(20,20,20));
+							leggingsItem.setItemMeta(leggingsmeta);
+							leggings.setLeggings(leggingsItem);
+							EntityEquipment boots = entity.getEquipment();
+							ItemStack bootsItem = new ItemStack(Material.LEATHER_BOOTS);
+							LeatherArmorMeta bootsmeta = (LeatherArmorMeta) bootsItem.getItemMeta();
+							bootsmeta.setColor(Color.fromRGB(10,10,10));
+							bootsItem.setItemMeta(bootsmeta);
+							boots.setBoots(bootsItem);
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 9, false, false));
+							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
 					}
 					
@@ -7943,6 +8253,20 @@ public class Main extends JavaPlugin implements Listener{
 		 	    		} else {
 		 	    			new Message().msg(player, "닉토사우루스: 츠바이 협회 3과를 찾아오신 것이라면 잘 오셨습니다만…%닉토사우루스: 이전에 있던 3과는 전멸당해 새롭게 편성되었습니다.");
 		 	    		}
+	 	    		} else if (getQuestName(player).equals("q0148")) {
+	 	    			QuestBoard qb = new QuestBoard();
+	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						ItemStack food = chest.getInventory().getItem(17);
+						if(player.getInventory().contains(food)) {
+							player.getInventory().remove(food);
+							new Message().msg(player, "닉토사우루스: 제가 직접 받으러 가도 되는데… 감사합니다.");
+							int qNum = qb.getNum(player);
+	        				qb.q0148(player, qNum + 1, false);
+						} else {
+							new Message().msg(player, "닉토사우루스: 1과에서 오신 분이군요.");
+						}
 	 	    		} else {
 	 	    			if(office.equals("츠바이 협회 3과")) {
 	 	    				if (getQuestName(player).equals("q0112")) {
@@ -8318,6 +8642,24 @@ public class Main extends JavaPlugin implements Listener{
         				qb.q0041(player, qNum + 1, false);
 	 	    		} else {
 	 	    			
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("랑")) {
+	 	    		if (getQuestName(player).equals("q0147")) {
+ 	 	    			QuestBoard qb = new QuestBoard();
+ 	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+ 						Block block = chestLoc.getBlock();
+ 						Chest chest = (Chest) block.getState();
+ 						ItemStack food = chest.getInventory().getItem(16);
+ 						if(player.getInventory().contains(food)) {
+ 							player.getInventory().remove(food);
+ 							new Message().msg(player, "랑: 치지지직…");
+ 							int qNum = qb.getNum(player);
+ 	        				qb.q0147(player, qNum + 1, false);
+ 						} else {
+ 							new Message().msg(player, "랑: 츠지지직…");
+ 						}
+ 	 	    		} else {
+ 	 	    			
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("우제트")) {
 	 	    		if(getQuestName(player).equals("N")) {
