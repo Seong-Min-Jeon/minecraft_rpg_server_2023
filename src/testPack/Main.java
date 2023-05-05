@@ -723,6 +723,30 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0159(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0160")) {
 						qb.q0160(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0161")) {
+						qb.q0161(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0162")) {
+						qb.q0162(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0163")) {
+						qb.q0163(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0164")) {
+						qb.q0164(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0165")) {
+						qb.q0165(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0166")) {
+						qb.q0166(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0167")) {
+						qb.q0167(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0168")) {
+						qb.q0168(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0169")) {
+						qb.q0169(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0170")) {
+						qb.q0170(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0171")) {
+						qb.q0171(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0172")) {
+						qb.q0172(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq9")) {
 						qb.uq9(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq8")) {
@@ -1620,6 +1644,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0158")) {
 							int qNum = qb.getNum(player);
 							qb.q0158(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0170")) {
+							int qNum = qb.getNum(player);
+							qb.q0170(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "외눈 물고기 성체")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "외눈 물고기 성체", 40, 40, 20);
@@ -1705,6 +1732,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0158")) {
 							int qNum = qb.getNum(player);
 							qb.q0158(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0170")) {
+							int qNum = qb.getNum(player);
+							qb.q0170(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "녹아내리는 마음")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "녹아내리는 마음", 40, 40, 20);
@@ -1790,6 +1820,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0158")) {
 							int qNum = qb.getNum(player);
 							qb.q0158(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0170")) {
+							int qNum = qb.getNum(player);
+							qb.q0170(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "쏘아올리는 불꽃")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "쏘아올리는 불꽃", 40, 40, 20);
@@ -1875,6 +1908,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0158")) {
 							int qNum = qb.getNum(player);
 							qb.q0158(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0170")) {
+							int qNum = qb.getNum(player);
+							qb.q0170(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.RED + "" + ChatColor.BOLD + "부패의 조각")) {
 						TTA_Methods.sendTitle(player, "LEGEND FELLED", 40, 40, 20, "부패의 조각", 40, 40, 20);
@@ -1960,6 +1996,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0158")) {
 							int qNum = qb.getNum(player);
 							qb.q0158(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0170")) {
+							int qNum = qb.getNum(player);
+							qb.q0170(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "폭주하는 황소")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "폭주하는 황소", 40, 40, 20);
@@ -2060,6 +2099,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0159")) {
 							int qNum = qb.getNum(player);
 							qb.q0159(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0170")) {
+							int qNum = qb.getNum(player);
+							qb.q0170(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0171")) {
+							int qNum = qb.getNum(player);
+							qb.q0171(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "우는 영혼들의 산", 40, 40, 20);
@@ -2160,6 +2205,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0159")) {
 							int qNum = qb.getNum(player);
 							qb.q0159(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0170")) {
+							int qNum = qb.getNum(player);
+							qb.q0170(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0171")) {
+							int qNum = qb.getNum(player);
+							qb.q0171(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "도망쳐", 40, 40, 20);
@@ -2260,6 +2311,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0159")) {
 							int qNum = qb.getNum(player);
 							qb.q0159(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0170")) {
+							int qNum = qb.getNum(player);
+							qb.q0170(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0171")) {
+							int qNum = qb.getNum(player);
+							qb.q0171(player, qNum + 1, false);
 						}
 					}
 				}
@@ -5071,7 +5128,8 @@ public class Main extends JavaPlugin implements Listener{
 							boots.setBoots(bootsItem);
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0107") || getQuestName(player).equals("q0120") || getQuestName(player).equals("q0136")) {
+					} else if (getQuestName(player).equals("q0107") || getQuestName(player).equals("q0120") || getQuestName(player).equals("q0136") ||
+							getQuestName(player).equals("q0161")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5114,7 +5172,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 4, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
 						}
-					} else if (getQuestName(player).equals("q0108") || getQuestName(player).equals("q0121") || getQuestName(player).equals("q0137")) {
+					} else if (getQuestName(player).equals("q0108") || getQuestName(player).equals("q0121") || getQuestName(player).equals("q0137") ||
+							getQuestName(player).equals("q0162")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5157,7 +5216,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 5, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0109") || getQuestName(player).equals("q0122") || getQuestName(player).equals("q0138")) {
+					} else if (getQuestName(player).equals("q0109") || getQuestName(player).equals("q0122") || getQuestName(player).equals("q0138") ||
+							getQuestName(player).equals("q0163")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5199,7 +5259,8 @@ public class Main extends JavaPlugin implements Listener{
 							boots.setBoots(bootsItem);
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 6, false, false));
 						}
-					} else if (getQuestName(player).equals("q0110") || getQuestName(player).equals("q0123") || getQuestName(player).equals("q0139")) {
+					} else if (getQuestName(player).equals("q0110") || getQuestName(player).equals("q0123") || getQuestName(player).equals("q0139") ||
+							getQuestName(player).equals("q0164")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5419,7 +5480,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 7, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
 						}
-					} else if (getQuestName(player).equals("q0140")) {
+					} else if (getQuestName(player).equals("q0140") || getQuestName(player).equals("q0165")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5462,7 +5523,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 10, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0141")) {
+					} else if (getQuestName(player).equals("q0141") || getQuestName(player).equals("q0166")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5541,7 +5602,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 8, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0142")) {
+					} else if (getQuestName(player).equals("q0142") || getQuestName(player).equals("q0167")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5584,7 +5645,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 12, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0143")) {
+					} else if (getQuestName(player).equals("q0143") || getQuestName(player).equals("q0168")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5627,7 +5688,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 10, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2, false, false));
 						}
-					} else if (getQuestName(player).equals("q0144")) {
+					} else if (getQuestName(player).equals("q0144") || getQuestName(player).equals("q0169")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -9054,6 +9115,103 @@ public class Main extends JavaPlugin implements Listener{
 		 	    			new Message().msg(player, "유진: 유려하면서도 비범하게 심장을 베어버려라.");
 		 	    		}
 	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("세실")) {
+	 	    		int num = rnd.nextInt(3);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "세실: 로웰하고 1과 부장 샤오는 사실 결혼한 사이야.%세실: 로웰은 불꽃을 잘 다루더니 요리도 잘한다나봐.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "세실: 도시에서 행복하게 살기란 엄청나게 힘들지.%세실: 막대한 부를 가졌거나 엄청난 힘을 가졌거나.%세실: 둘 다 없으면 언제 죽을지 모르는 인생이야.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "세실: 도시의 별은 쉽게 지지 않아.%세실: 하지만 리우는 상대가 누구든 정면돌파하지.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("메이")) {
+	 	    		int num = rnd.nextInt(4);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "메이: 여긴 어떻게 찾은거야?%메이: 아무도 몰래 쉬고 있었는데…");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "메이: 누가 도시에서 스트레스를 받지 않고 살아가겠어.%메이: 전부 끝까지 참고 사는거지.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "메이: 공방 장비들이 비싼건 맞지만 거의 제값을 한다구.%메이: 비싼 장비들에는 특이점 기술도 적용되어 있지.%메이: 우리들이 입고 있는 이 코트도 M사의 특이점인 만월석이 박혔지.");
+	 	    		} else if(num == 3) {
+	 	    			new Message().msg(player, "메이: 강한 불꽃을 일으키는 방법?%메이: 우리의 뜨거운 마음과 리우의 무기가 공명한다면 좋은 불이 타오를거야.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("로웰")) {
+	 	    		if(getQuestName(player).equals("N")) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("리우 협회 2과")) {
+	 	    				int num = rnd.nextInt(12);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "로웰: 3과와 합동으로 하는 조직원 사냥 작전이다.%q0161%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "로웰: 3과와 합동으로 하는 조직원 사냥 작전이다.%q0162%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "로웰: 3과와 합동으로 하는 조직원 사냥 작전이다.%q0163%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "로웰: 3과와 합동으로 하는 조직원 사냥 작전이다.%q0164%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "로웰: 1과와 합동으로 하는 조직원 사냥 작전이다.%q0165%로웰: 도시의 별급이라도 조직원 몇 명 정도는 충분히 상대할 수 있을거야.%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "로웰: 1과와 합동으로 하는 조직원 사냥 작전이다.%q0166%로웰: 도시의 별급이라도 조직원 몇 명 정도는 충분히 상대할 수 있을거야.%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "로웰: 1과와 합동으로 하는 조직원 사냥 작전이다.%q0167%로웰: 도시의 별급이라도 조직원 몇 명 정도는 충분히 상대할 수 있을거야.%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 7) {
+	 	    					new Message().msg(player, "로웰: 1과와 합동으로 하는 조직원 사냥 작전이다.%q0168%로웰: 도시의 별급이라도 조직원 몇 명 정도는 충분히 상대할 수 있을거야.%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 8) {
+	 	    					new Message().msg(player, "로웰: 1과와 합동으로 하는 조직원 사냥 작전이다.%q0169%로웰: 도시의 별급이라도 조직원 몇 명 정도는 충분히 상대할 수 있을거야.%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 9) {
+	 	    					new Message().msg(player, "로웰: 뒤틀림 토벌 작전이야.%로웰: 츠바이 협회와 협력해서 도시 남부의 뒤틀림을 모두 없애버리기로 했어.%로웰: 잠시라도 모두에게 살아갈 자유를 줄 수 있었으면 좋겠구나.%q0170");
+	 	    				} else if(num == 10) {
+	 	    					new Message().msg(player, "로웰: 뒤틀림 토벌 작전이야.%로웰: 츠바이 협회와 협력해서 도시 남부의 뒤틀림을 모두 없애버리기로 했어.%로웰: 잠시라도 모두에게 살아갈 자유를 줄 수 있었으면 좋겠구나.%q0171");
+	 	    				} else if(num == 11) {
+	 	    					new Message().msg(player, "로웰: 외곽에서의 전투 작전이야.%로웰: 각자 워프열차로 외곽까지 이동한 후 각자 맡은 유적을 돌파한다.%로웰: 이게 이번 전투의 핵심이야.%q0172");
+	 	    				}
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) >= 1) && (new PlayerGrade().returnGrade(player) <= 3)) {
+		 	    			int num = rnd.nextInt(12);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "로웰: 3과와 합동으로 하는 조직원 사냥 작전이다.%로웰: 너희 용병들에게는 언제나 감사하고 있어.%q0161%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "로웰: 3과와 합동으로 하는 조직원 사냥 작전이다.%로웰: 너희 용병들에게는 언제나 감사하고 있어.%q0162%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "로웰: 3과와 합동으로 하는 조직원 사냥 작전이다.%로웰: 너희 용병들에게는 언제나 감사하고 있어.%q0163%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "로웰: 3과와 합동으로 하는 조직원 사냥 작전이다.%로웰: 너희 용병들에게는 언제나 감사하고 있어.%q0164%로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "로웰: 1과와 합동으로 하는 조직원 사냥 작전이다.%로웰: 너희 용병들에게는 언제나 감사하고 있어.%q0165%로웰: 도시의 별급이라도 조직원 몇 명 정도는 충분히 상대할 수 있을거야.%"
+	 	    							+ "로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "로웰: 1과와 합동으로 하는 조직원 사냥 작전이다.%로웰: 너희 용병들에게는 언제나 감사하고 있어.%q0166%로웰: 도시의 별급이라도 조직원 몇 명 정도는 충분히 상대할 수 있을거야.%"
+	 	    							+ "로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "로웰: 1과와 합동으로 하는 조직원 사냥 작전이다.%로웰: 너희 용병들에게는 언제나 감사하고 있어.%q0167%로웰: 도시의 별급이라도 조직원 몇 명 정도는 충분히 상대할 수 있을거야.%"
+	 	    							+ "로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 7) {
+	 	    					new Message().msg(player, "로웰: 1과와 합동으로 하는 조직원 사냥 작전이다.%로웰: 너희 용병들에게는 언제나 감사하고 있어.%q0168%로웰: 도시의 별급이라도 조직원 몇 명 정도는 충분히 상대할 수 있을거야.%"
+	 	    							+ "로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 8) {
+	 	    					new Message().msg(player, "로웰: 1과와 합동으로 하는 조직원 사냥 작전이다.%로웰: 너희 용병들에게는 언제나 감사하고 있어.%q0169%로웰: 도시의 별급이라도 조직원 몇 명 정도는 충분히 상대할 수 있을거야.%"
+	 	    							+ "로웰: 행복한 일상을 지키기 위하여 오늘도 힘내자.");
+	 	    				} else if(num == 9) {
+	 	    					new Message().msg(player, "로웰: 뒤틀림 토벌 작전이야.%로웰: 츠바이 협회와 협력해서 도시 남부의 뒤틀림을 모두 없애버리기로 했어.%로웰: 너를 포함한 용병도 다수 참전할거야.%"
+	 	    							+ "로웰: 잠시라도 모두에게 살아갈 자유를 줄 수 있었으면 좋겠구나.%q0170");
+	 	    				} else if(num == 10) {
+	 	    					new Message().msg(player, "로웰: 뒤틀림 토벌 작전이야.%로웰: 츠바이 협회와 협력해서 도시 남부의 뒤틀림을 모두 없애버리기로 했어.%로웰: 너를 포함한 용병도 다수 참전할거야.%"
+	 	    							+ "로웰: 잠시라도 모두에게 살아갈 자유를 줄 수 있었으면 좋겠구나.%q0171");
+	 	    				} else if(num == 11) {
+	 	    					new Message().msg(player, "로웰: 외곽에서의 전투 작전이야.%로웰: 각자 워프열차로 외곽까지 이동한 후 각자 맡은 유적을 돌파한다.%로웰: 이게 이번 전투의 핵심이야.%q0172");
+	 	    				}
+		 	    		} else {
+		 	    			new Message().msg(player, "로웰: 행복한 일상을 지키기 위해 해야 하는 일이야.%로웰: 하고싶어서 하는 일은 그리 많지 않아.%로웰: 가려가며 일을 할 만큼 여유롭지도 않지.");
+		 	    		}
+	 	    		} else {
+	 	    			if(office.equals("리우 협회 2과")) {
+	 	    				new Message().msg(player, "로웰: 협동 작전이라 늦으면 모두가 위험해질 수 있어.");
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "로웰: 협동 작전이라 늦으면 모두가 위험해질 수 있어.");
+		 	    		} else {
+		 	    			new Message().msg(player, "로웰: 행복한 일상을 지키기 위해 해야 하는 일이야.%로웰: 하고싶어서 하는 일은 그리 많지 않아.%로웰: 가려가며 일을 할 만큼 여유롭지도 않지.");
+		 	    		}
+	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("파이")) {
 	 	    		if (getQuestName(player).equals("q0160")) {
 	 	    			QuestBoard qb = new QuestBoard();
@@ -9241,10 +9399,10 @@ public class Main extends JavaPlugin implements Listener{
 	 	    		//광기 상인
 	 	    		new Shop1(player);
 	 	    		new Message().msg(player, "나오: 어서오세요.%나오: 나오의 광기 상점이랍니다.");
-	 	    	} else if(npc.getText().get(0).equals("단테")) {
+	 	    	} else if(npc.getText().get(0).equals("시계머리")) {
 	 	    		//포션1 상인
 	 	    		new Shop2(player);
-	 	    		new Message().msg(player, "단테: 째깍째깍.");
+	 	    		new Message().msg(player, "시계머리: 째깍째깍.");
 	 	    	} else if(npc.getText().get(0).equals("돈키호테")) {
 	 	    		//음식1 상인
 	 	    		new Shop3(player);

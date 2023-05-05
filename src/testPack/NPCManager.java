@@ -1574,7 +1574,7 @@ public class NPCManager {
 		Location loc = new Location(Bukkit.getWorld("world"), -1091.5, 68, 1189.5, 0, 0);
 		
 		NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "shop2", loc);
-		npc.setText("단테");
+		npc.setText("시계머리");
 		npc.setSkin("ewogICJ0aW1lc3RhbXAiIDogMTY3OTU4ODkzODI4OCwKICAicHJvZmlsZUlkIiA6ICIzZmFhZDFiMWYxMzU0MDM2OGY3YjlmMThlM2Y5YzRiZSIsCiAgInByb2ZpbGVOYW1lIiA6ICJKb3NlUGxheTE5IiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2RmZTYwMjVmMDM1M2UyMjk3MWMxOGNlZGE3Y2Q4ZTc0OTgyNzAyOWUxYTgzOTM5MzcxZGU2NWE0MmZhY2I1OWUiCiAgICB9CiAgfQp9"
 				, "NhGCwdU1IsoKyiEYYWzMdl6+00mI1LH1PT3EyyNr3RgYncVzgWZth0iGH0hncXweXfQ5LAtRwzeAz/g/rXgmdtPforJdngOAfJ9Doypw55UTD04CW9TcKrF2YvCowUL4P8KQ/ijBs71aslNsXgyTJtBt0mvclVJms3x5Nm6sthJ+zNQeBXz2zVJ7lU4xJOVQ7L++/MuNuI8OMHZUB5XkP+RepUHdeSO8N25ps6phXJVsQc6lTF4ldR4mrA/1NcfOKvp0ICQkb9hoU6R6CQW0/NnIAI/k7hcANJrGZtQkxosEValkjU9DNMsJUA3+K8besUulxn81r52UnMw9+UKnBEIMwH+WNWrI1IoqJEPJ5jOeqkjrxWlAtqdHDBZ940HqWU+aFDOLUnN6UZE5aEH7f0aF9cEPU/untJmIDxOFoZd4DPCc2kD0M9W9tf/u60ctmZniu7dvfpzHciG7LrFpt0q+o3TyzWTkjW1CED5dYzRC5+5nJPnBJF6WftPNJMY4DrlMLxzUzxa25gBz2/UP/HQiC+0accveDLg+E2HT5zwAJoIgviwuqYxhHXQwTsu6mILKJelDoN4yvj0axHAFpmMjEB7EziJWUoPwlg8VwYWUqPT9WcER3K/BsMFMNPDCyu6GPIKIRJPNwMw9nlVsFod9Wmxmlf8A2V7BEad2hms="
 				);
