@@ -1295,6 +1295,136 @@ public class MobLoot {
 		}
 	}
 	
+	public void thumbCPB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(40000) + 120000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0153")) {
+					int qNum = qb.getNum(p);
+					qb.q0153(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0153")) {
+			int qNum = qb.getNum(player);
+			qb.q0153(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(80) == 0) {
+			fixFile(player, 3, 33);
+		}
+	}
+	
+	public void indexMSB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(70000) + 90000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0154")) {
+					int qNum = qb.getNum(p);
+					qb.q0154(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0154")) {
+			int qNum = qb.getNum(player);
+			qb.q0154(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(80) == 0) {
+			fixFile(player, 3, 35);
+		}
+	}
+	
+	public void kongB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(50000) + 220000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0155")) {
+					int qNum = qb.getNum(p);
+					qb.q0155(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0155")) {
+			int qNum = qb.getNum(player);
+			qb.q0155(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(80) == 0) {
+			fixFile(player, 3, 30);
+		}
+	}
+	
+	public void swordB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(50000) + 90000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0156")) {
+					int qNum = qb.getNum(p);
+					qb.q0156(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0156")) {
+			int qNum = qb.getNum(player);
+			qb.q0156(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(80) == 0) {
+			fixFile(player, 3, 31);
+		}
+	}
+	
+	public void awlB(Player player) {
+		player.setLevel(player.getLevel() + (rnd.nextInt(30000) + 140000));
+		
+		List<Entity> nearPlayer = player.getNearbyEntities(7, 2, 7);
+		for(Entity np : nearPlayer) {
+			if(np instanceof Player) {
+				Player p = (Player) np;
+				QuestBoard qb = new QuestBoard();
+				if (getQuestName(p).equals("q0157")) {
+					int qNum = qb.getNum(p);
+					qb.q0157(p, qNum + 1, false);
+				}
+			}
+		}
+		
+		QuestBoard qb = new QuestBoard();
+		if (getQuestName(player).equals("q0157")) {
+			int qNum = qb.getNum(player);
+			qb.q0157(player, qNum + 1, false);
+		}
+		
+		if(rnd.nextInt(80) == 0) {
+			fixFile(player, 3, 32);
+		}
+	}
+	
 	
 	
 	//============================
