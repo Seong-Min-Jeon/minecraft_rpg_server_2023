@@ -54,7 +54,7 @@ public class Shop4 {
 		ItemStack item = new ItemStack(Material.CHAINMAIL_HELMET);
 		ItemMeta itemIm = item.getItemMeta();
 		itemIm.setDisplayName(ChatColor.GOLD + "두뇌 자극 회로 V1");
-		itemIm.setLocalizedName("90000");
+		itemIm.setLocalizedName("180000");
 		ArrayList<String> itemLore = new ArrayList<>();
 		itemLore.add(ChatColor.GRAY + "두뇌에 작은 칩을 심어 전기 자극에");
 		itemLore.add(ChatColor.GRAY + "더욱 더 용이하게 작용되도록 한다.");
@@ -63,7 +63,7 @@ public class Shop4 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.GRAY + "-치명적인 공격을 받을 확률 -10%");
 		itemLore.add(ChatColor.GRAY + "");
-		itemLore.add(ChatColor.BLUE + "가격: 90000안");
+		itemLore.add(ChatColor.BLUE + "가격: 180000안");
 		itemIm.setLore(itemLore);
 		itemIm.setCustomModelData(0);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -104,7 +104,7 @@ public class Shop4 {
 		ItemStack item = new ItemStack(Material.CHAINMAIL_CHESTPLATE);
 		ItemMeta itemIm = item.getItemMeta();
 		itemIm.setDisplayName(ChatColor.GOLD + "유니온 공방제 슈트");
-		itemIm.setLocalizedName("120000");
+		itemIm.setLocalizedName("240000");
 		ArrayList<String> itemLore = new ArrayList<>();
 		itemLore.add(ChatColor.GRAY + "유니온 공방은 몸에 붙이는 생체장비를 제작하는 공방이다.");
 		itemLore.add(ChatColor.GRAY + "");
@@ -116,7 +116,7 @@ public class Shop4 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.GRAY + "-데미지 경감 2");
 		itemLore.add(ChatColor.GRAY + "");
-		itemLore.add(ChatColor.BLUE + "가격: 120000안");
+		itemLore.add(ChatColor.BLUE + "가격: 240000안");
 		itemIm.setLore(itemLore);
 		itemIm.setCustomModelData(0);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -155,7 +155,7 @@ public class Shop4 {
 		ItemStack item = new ItemStack(Material.CHAINMAIL_LEGGINGS);
 		ItemMeta itemIm = item.getItemMeta();
 		itemIm.setDisplayName(ChatColor.GOLD + "알라스 공방제 팬츠");
-		itemIm.setLocalizedName("80000");
+		itemIm.setLocalizedName("160000");
 		ArrayList<String> itemLore = new ArrayList<>();
 		itemLore.add(ChatColor.GRAY + "알라스 공방에서 만든 제품은 움직임에 빠른 가속도를 준다고 한다.");
 		itemLore.add(ChatColor.GRAY + "");
@@ -165,7 +165,7 @@ public class Shop4 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.GRAY + "-회피 쿨타임 0.2초 감소");
 		itemLore.add(ChatColor.GRAY + "");
-		itemLore.add(ChatColor.BLUE + "가격: 80000안");
+		itemLore.add(ChatColor.BLUE + "가격: 160000안");
 		itemIm.setLore(itemLore);
 		itemIm.setCustomModelData(0);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -204,7 +204,7 @@ public class Shop4 {
 		ItemStack item = new ItemStack(Material.CHAINMAIL_BOOTS);
 		ItemMeta itemIm = item.getItemMeta();
 		itemIm.setDisplayName(ChatColor.GOLD + "나미르 공방제 부츠");
-		itemIm.setLocalizedName("100000");
+		itemIm.setLocalizedName("200000");
 		ArrayList<String> itemLore = new ArrayList<>();
 		itemLore.add(ChatColor.GRAY + "나미르 공방의 제품은 G사의 특이점을 사용한다고 한다.");
 		itemLore.add(ChatColor.GRAY + "");
@@ -214,7 +214,7 @@ public class Shop4 {
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.GRAY + "-전투 중 속도 1");
 		itemLore.add(ChatColor.GRAY + "");
-		itemLore.add(ChatColor.BLUE + "가격: 100000안");
+		itemLore.add(ChatColor.BLUE + "가격: 200000안");
 		itemIm.setLore(itemLore);
 		itemIm.setCustomModelData(0);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);

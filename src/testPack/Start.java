@@ -58,10 +58,19 @@ public class Start {
 			
 		}
 		
+		//인벤 관리
 		ItemStack item = player.getInventory().getItem(0);
+		ItemStack hel = player.getInventory().getHelmet();
+		ItemStack che = player.getInventory().getChestplate();
+		ItemStack leg = player.getInventory().getLeggings();
+		ItemStack bo = player.getInventory().getBoots();
 		player.getInventory().clear();
-		player.setLevel(0);
+		player.getInventory().setHelmet(hel);
+		player.getInventory().setChestplate(che);
+		player.getInventory().setLeggings(leg);
+		player.getInventory().setBoots(bo);
 		player.getInventory().setItem(7, item); //인격 7번칸에 두기
+		player.setLevel(0);
 		
 		//최대체력 설정
 		String name = player.getInventory().getItem(7).getItemMeta().getLocalizedName();

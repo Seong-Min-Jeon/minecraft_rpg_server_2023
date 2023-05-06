@@ -866,7 +866,16 @@ public class Main extends JavaPlugin implements Listener{
 			
 			event.setRespawnLocation(new Location(world,-1844,70,3012));
 			
+			//인벤 관리
+			ItemStack hel = player.getInventory().getHelmet();
+			ItemStack che = player.getInventory().getChestplate();
+			ItemStack leg = player.getInventory().getLeggings();
+			ItemStack bo = player.getInventory().getBoots();
 			player.getInventory().clear(); //인벤 초기화
+			player.getInventory().setHelmet(hel);
+			player.getInventory().setChestplate(che);
+			player.getInventory().setLeggings(leg);
+			player.getInventory().setBoots(bo);
 			
 			ItemStack scroll = new ItemStack(Material.FLOWER_BANNER_PATTERN);
 			ItemMeta scrollIm = scroll.getItemMeta();
@@ -918,7 +927,6 @@ public class Main extends JavaPlugin implements Listener{
 	
 	@EventHandler
 	public void die(PlayerDeathEvent event) {
-		
 		try {
 			Player player = (Player) event.getEntity();
 			double distance = 1000;
