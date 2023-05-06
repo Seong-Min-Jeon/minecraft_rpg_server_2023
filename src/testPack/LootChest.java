@@ -920,6 +920,9 @@ public class LootChest {
 						} else if (getQuestName(player).equals("q0172")) {
 							int qNum = qb.getNum(player);
 							qb.q0172(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0184")) {
+							int qNum = qb.getNum(player);
+							qb.q0184(player, qNum + 1, false);
 						}
 					} catch(Exception e) {
 						

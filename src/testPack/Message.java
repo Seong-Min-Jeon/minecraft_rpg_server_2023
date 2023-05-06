@@ -906,6 +906,70 @@ public class Message {
 						QuestBoard qb = new QuestBoard();
 						qb.q0172(player, 0, true);
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0173")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0173(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0174")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0174(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0175")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0175(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0176")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0176(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0177")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0177(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0178")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0178(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0179")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0179(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0180")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0180(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0181")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0181(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0182")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0182(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0183")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0183(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0184")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0184(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0185")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0185(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0186")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0186(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0187")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0187(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0188")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0188(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 5).equals("uq9SS")) {
 						QuestBoard qb = new QuestBoard();
 						qb.uq9SS(player, 0, true);

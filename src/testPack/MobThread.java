@@ -77,8 +77,6 @@ public class MobThread implements Listener{
 								slum(player, loc);
 								slum(player, loc);
 								slum(player, loc);
-								slum(player, loc);
-								slum(player, loc);
 							}
 						}
 					} 
@@ -105,7 +103,7 @@ public class MobThread implements Listener{
 		Material mat = loc.clone().add(0,-2,0).getBlock().getType();
 		if(mat == Material.STONE || mat == Material.STONE_BRICKS || mat == Material.MOSSY_STONE_BRICKS || mat == Material.POLISHED_ANDESITE ||
 				mat == Material.ANDESITE || mat == Material.SMOOTH_STONE || mat == Material.CHISELED_STONE_BRICKS || mat == Material.GRASS_BLOCK || 
-				mat == Material.SMOOTH_STONE_SLAB) {
+				mat == Material.SMOOTH_STONE_SLAB || mat == Material.GRAVEL) {
 			if (player.getWorld().getTime() >= 21000 && player.getWorld().getTime() <= 23000) {
 				IronGolem golem = (IronGolem) loc.getWorld().spawnEntity(loc, EntityType.IRON_GOLEM);
 				golem.setTarget(player);
