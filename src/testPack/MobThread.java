@@ -77,6 +77,8 @@ public class MobThread implements Listener{
 								slum(player, loc);
 								slum(player, loc);
 								slum(player, loc);
+								slum(player, loc);
+								slum(player, loc);
 							}
 						}
 					} 
