@@ -970,6 +970,64 @@ public class Message {
 						QuestBoard qb = new QuestBoard();
 						qb.q0188(player, 0, true);
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0189")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0189(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0190")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0190(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0191")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0191(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0192")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0192(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0193")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0193(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0194")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0194(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0195")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0195(player, 0, true);
+						
+						//음식 아이템 주기
+						ItemStack letter = new ItemStack(Material.BOOK);
+						ItemMeta letterIm = letter.getItemMeta();
+						letterIm.setDisplayName(ChatColor.WHITE + "츠바이 협회의 보고서");
+						ArrayList<String> letterLore = new ArrayList<>();
+						letterLore.add(ChatColor.GRAY + "츠바이 협회의 각 부서에서의 실적을");
+						letterLore.add(ChatColor.GRAY + "총괄적으로 정리한 문서");
+						letterLore.add(ChatColor.GRAY + "뒤틀림 사건이 발생하면서 사망자 수와");
+						letterLore.add(ChatColor.GRAY + "처리한 의뢰 수가 급증하였다.");
+						letterIm.setLore(letterLore);
+						letter.setItemMeta(letterIm);
+						player.getInventory().addItem(letter);
+						
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0196")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0196(player, 0, true);
+						
+						//음식 아이템 주기
+						ItemStack letter = new ItemStack(Material.BOOK);
+						ItemMeta letterIm = letter.getItemMeta();
+						letterIm.setDisplayName(ChatColor.WHITE + "츠바이 협회 1과의 지시서");
+						ArrayList<String> letterLore = new ArrayList<>();
+						letterLore.add(ChatColor.GRAY + "에드가가 보내는 1과의 지시서");
+						letterLore.add(ChatColor.GRAY + "2과가 해야할 의뢰가 적혀있다고 한다.");
+						letterIm.setLore(letterLore);
+						letter.setItemMeta(letterIm);
+						player.getInventory().addItem(letter);
+						
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 5).equals("uq9SS")) {
 						QuestBoard qb = new QuestBoard();
 						qb.uq9SS(player, 0, true);

@@ -102,6 +102,10 @@ public class MobThread implements Listener{
 				loc.getX() >= -1309 && loc.getY() >= 0 && loc.getZ() >= 1074)) {
 			return;
 		}
+		if(loc.clone().add(0,-1,0).getBlock().getType() != Material.AIR) {
+			return;
+		}
+		
 		Material mat = loc.clone().add(0,-2,0).getBlock().getType();
 		if(mat == Material.STONE || mat == Material.STONE_BRICKS || mat == Material.MOSSY_STONE_BRICKS || mat == Material.POLISHED_ANDESITE ||
 				mat == Material.ANDESITE || mat == Material.SMOOTH_STONE || mat == Material.CHISELED_STONE_BRICKS || mat == Material.GRASS_BLOCK || 

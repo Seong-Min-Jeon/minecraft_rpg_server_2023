@@ -1267,6 +1267,9 @@ public class MobLoot {
 				} else if (getQuestName(p).equals("q0165")) {
 					int qNum = qb.getNum(p);
 					qb.q0165(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0189")) {
+					int qNum = qb.getNum(p);
+					qb.q0189(p, qNum + 1, false);
 				}
 			}
 		}
@@ -1278,6 +1281,9 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0165")) {
 			int qNum = qb.getNum(player);
 			qb.q0165(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0189")) {
+			int qNum = qb.getNum(player);
+			qb.q0189(player, qNum + 1, false);
 		}
 		
 		if(rnd.nextInt(150) == 0) {
@@ -1299,6 +1305,9 @@ public class MobLoot {
 				} else if (getQuestName(p).equals("q0166")) {
 					int qNum = qb.getNum(p);
 					qb.q0166(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0190")) {
+					int qNum = qb.getNum(p);
+					qb.q0190(p, qNum + 1, false);
 				}
 			}
 		}
@@ -1310,6 +1319,9 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0166")) {
 			int qNum = qb.getNum(player);
 			qb.q0166(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0190")) {
+			int qNum = qb.getNum(player);
+			qb.q0190(player, qNum + 1, false);
 		}
 		
 		if(rnd.nextInt(150) == 0) {
@@ -1339,6 +1351,9 @@ public class MobLoot {
 				} else if (getQuestName(p).equals("q0167")) {
 					int qNum = qb.getNum(p);
 					qb.q0167(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0191")) {
+					int qNum = qb.getNum(p);
+					qb.q0191(p, qNum + 1, false);
 				}
 			}
 		}
@@ -1350,6 +1365,9 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0167")) {
 			int qNum = qb.getNum(player);
 			qb.q0167(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0191")) {
+			int qNum = qb.getNum(player);
+			qb.q0191(player, qNum + 1, false);
 		}
 		
 		if(rnd.nextInt(150) == 0) {
@@ -1371,6 +1389,9 @@ public class MobLoot {
 				} else if (getQuestName(p).equals("q0168")) {
 					int qNum = qb.getNum(p);
 					qb.q0168(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0192")) {
+					int qNum = qb.getNum(p);
+					qb.q0192(p, qNum + 1, false);
 				}
 			}
 		}
@@ -1382,6 +1403,9 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0168")) {
 			int qNum = qb.getNum(player);
 			qb.q0168(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0192")) {
+			int qNum = qb.getNum(player);
+			qb.q0192(player, qNum + 1, false);
 		}
 		
 		if(rnd.nextInt(150) == 0) {
@@ -1403,6 +1427,9 @@ public class MobLoot {
 				} else if (getQuestName(p).equals("q0169")) {
 					int qNum = qb.getNum(p);
 					qb.q0169(p, qNum + 1, false);
+				} else if (getQuestName(p).equals("q0193")) {
+					int qNum = qb.getNum(p);
+					qb.q0193(p, qNum + 1, false);
 				}
 			}
 		}
@@ -1414,6 +1441,9 @@ public class MobLoot {
 		} else if (getQuestName(player).equals("q0169")) {
 			int qNum = qb.getNum(player);
 			qb.q0169(player, qNum + 1, false);
+		} else if (getQuestName(player).equals("q0193")) {
+			int qNum = qb.getNum(player);
+			qb.q0193(player, qNum + 1, false);
 		}
 		
 		if(rnd.nextInt(150) == 0) {

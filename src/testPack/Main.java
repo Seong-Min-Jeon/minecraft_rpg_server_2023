@@ -162,6 +162,7 @@ public class Main extends JavaPlugin implements Listener{
 		getCommand("k").setExecutor(new Cmd19Kick());
 		getCommand("velocity").setExecutor(new Cmd27velocity());
 		getCommand("dropQuest").setExecutor(new Cmd32dropQuest());
+		getCommand("d").setExecutor(new Cmd32dropQuest());
 		getCommand("mob").setExecutor(new Cmd33mob());
 		
 		new RefreshServer();
@@ -747,6 +748,54 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0171(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0172")) {
 						qb.q0172(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0173")) {
+						qb.q0173(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0174")) {
+						qb.q0174(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0175")) {
+						qb.q0175(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0176")) {
+						qb.q0176(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0177")) {
+						qb.q0177(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0178")) {
+						qb.q0178(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0179")) {
+						qb.q0179(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0180")) {
+						qb.q0180(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0181")) {
+						qb.q0181(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0182")) {
+						qb.q0182(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0183")) {
+						qb.q0183(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0184")) {
+						qb.q0184(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0185")) {
+						qb.q0185(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0186")) {
+						qb.q0186(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0187")) {
+						qb.q0187(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0188")) {
+						qb.q0188(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0189")) {
+						qb.q0189(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0190")) {
+						qb.q0190(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0191")) {
+						qb.q0191(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0192")) {
+						qb.q0192(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0193")) {
+						qb.q0193(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0194")) {
+						qb.q0194(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0195")) {
+						qb.q0195(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0196")) {
+						qb.q0196(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq9")) {
 						qb.uq9(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq8")) {
@@ -2134,6 +2183,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0183")) {
 							int qNum = qb.getNum(player);
 							qb.q0183(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0194")) {
+							int qNum = qb.getNum(player);
+							qb.q0194(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "우는 영혼들의 산", 40, 40, 20);
@@ -2246,6 +2298,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0183")) {
 							int qNum = qb.getNum(player);
 							qb.q0183(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0194")) {
+							int qNum = qb.getNum(player);
+							qb.q0194(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "도망쳐", 40, 40, 20);
@@ -2358,6 +2413,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0183")) {
 							int qNum = qb.getNum(player);
 							qb.q0183(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0194")) {
+							int qNum = qb.getNum(player);
+							qb.q0194(player, qNum + 1, false);
 						}
 					}
 				}
@@ -5533,7 +5591,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 7, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
 						}
-					} else if (getQuestName(player).equals("q0140") || getQuestName(player).equals("q0165")) {
+					} else if (getQuestName(player).equals("q0140") || getQuestName(player).equals("q0165") || getQuestName(player).equals("q0189")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5576,7 +5634,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 10, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0141") || getQuestName(player).equals("q0166")) {
+					} else if (getQuestName(player).equals("q0141") || getQuestName(player).equals("q0166") || getQuestName(player).equals("q0190")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5655,7 +5713,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 8, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0142") || getQuestName(player).equals("q0167")) {
+					} else if (getQuestName(player).equals("q0142") || getQuestName(player).equals("q0167") || getQuestName(player).equals("q0191")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5698,7 +5756,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 12, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0143") || getQuestName(player).equals("q0168")) {
+					} else if (getQuestName(player).equals("q0143") || getQuestName(player).equals("q0168") || getQuestName(player).equals("q0192")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5741,7 +5799,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 10, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2, false, false));
 						}
-					} else if (getQuestName(player).equals("q0144") || getQuestName(player).equals("q0169")) {
+					} else if (getQuestName(player).equals("q0144") || getQuestName(player).equals("q0169") || getQuestName(player).equals("q0193")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -6094,9 +6152,9 @@ public class Main extends JavaPlugin implements Listener{
 		        			} else if(event.getSlot() == 2) {
 		        				player.getInventory().addItem(new Shop2().item3());
 		        			}
-		        			new Message().msg(player, "단테: 째깍째깍!");
+		        			new Message().msg(player, "시계머리: 째깍째깍!");
 		        		} else {
-		        			new Message().msg(player, "단테: 째깍…");
+		        			new Message().msg(player, "시계머리: 째깍…");
 		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
 		        		}
 					}
@@ -7053,7 +7111,7 @@ public class Main extends JavaPlugin implements Listener{
 			} catch(Exception e) {
 				getLogger().info(ChatColor.DARK_PURPLE + "콘솔 이벤트 오류");
 			}
-		} else if(event.getCommand().split(" ")[0].equalsIgnoreCase("consoleExp")) {
+		} else if(event.getCommand().split(" ")[0].equalsIgnoreCase("consoleExp") || event.getCommand().split(" ")[0].equalsIgnoreCase("ce")) {
 			try {
 				String[] ary = event.getCommand().split(" ");
 				Player player = Bukkit.getPlayer(ary[1]);
@@ -9042,7 +9100,21 @@ public class Main extends JavaPlugin implements Listener{
 		 	    		} else {
 		 	    			new Message().msg(player, "타페야라: 질문을 할 때는 질문을 하는 것에 대한 허락을 먼저 받도록하게.");
 		 	    		}
-	 	    		} else {
+	 	    		} else if (getQuestName(player).equals("q0196")) {
+ 	 	    			QuestBoard qb = new QuestBoard();
+ 	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+ 						Block block = chestLoc.getBlock();
+ 						Chest chest = (Chest) block.getState();
+ 						ItemStack food = chest.getInventory().getItem(20);
+ 						if(player.getInventory().contains(food)) {
+ 							player.getInventory().remove(food);
+ 							new Message().msg(player, "타페야라: 이번에도 도시의 별급 의뢰가 있습니까…");
+ 							int qNum = qb.getNum(player);
+ 	        				qb.q0196(player, qNum + 1, false);
+ 						} else {
+ 							new Message().msg(player, "타페야라: 필승! 무슨 일로 오셨습니까?");
+ 						}
+ 	 	    		} else {
 	 	    			if(office.equals("츠바이 협회 2과")) {
 	 	    				if (getQuestName(player).equals("q0147")) {
 	 	    					new Message().msg(player, "타페야라: 급한건 아니니 느긋하게 있다 가게나.");
@@ -9393,7 +9465,66 @@ public class Main extends JavaPlugin implements Listener{
  							new Message().msg(player, "랑: 츠지지직…");
  						}
  	 	    		} else {
- 	 	    			
+ 	 	    			int num = rnd.nextInt(4);
+ 		 	    		if(num == 0) {
+ 		 	    			new Message().msg(player, "랑: 치지지직.");
+ 		 	    		} else if(num == 1) {
+ 		 	    			new Message().msg(player, "랑: 치지지지직.");
+ 		 	    		} else if(num == 2) {
+ 		 	    			new Message().msg(player, "랑: 츠지지직.");
+ 		 	    		} else if(num == 3) {
+ 		 	    			new Message().msg(player, "랑: 츠지지지직.");
+ 		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("에드가")) {
+	 	    		if(getQuestName(player).equals("N")) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("츠바이 협회 1과")) {
+	 	    				int num = rnd.nextInt(8);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "에드가: 정의 집행의 시간이다.%q0189%에드가: 도시의 정의는 아직 건재하다는 것을 보여주자.");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "에드가: 정의 집행의 시간이다.%q0190%에드가: 도시의 정의는 아직 건재하다는 것을 보여주자.");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "에드가: 정의 집행의 시간이다.%q0191%에드가: 도시의 정의는 아직 건재하다는 것을 보여주자.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "에드가: 정의 집행의 시간이다.%q0192%에드가: 도시의 정의는 아직 건재하다는 것을 보여주자.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "에드가: 정의 집행의 시간이다.%q0193%에드가: 도시의 정의는 아직 건재하다는 것을 보여주자.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "에드가: 도시 제일의 방패로서 시민들을 지킨다.%에드가: 뒷골목의 쥐든 둥지의 고위층이든 모두 같은 인간이니까.%에드가: 그리고 그것이 곧 정의니까.%q0194");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "에드가: 하나 협회 3과에 가서 츠바이 협회 실적을 보고 하고 와.%에드가: 바로 옆이니까 금방 다녀올 수 있을거야.%q0195");
+	 	    				} else if(num == 7) {
+	 	    					new Message().msg(player, "에드가: 2과에 가서 지시서를 전달하고 와.%에드가: 일거리가 많아서 2과 애들도 도시의 별급 의뢰를 처리해야될거야.%에드가: 미안하지만 고생해달라고 전해줘.%q0196");
+	 	    				}
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) <= 2)) {
+		 	    			int num = rnd.nextInt(6);
+		 	    			if(num == 0) {
+	 	    					new Message().msg(player, "에드가: 정의 집행의 시간이다.%q0189%에드가: 도시의 정의는 아직 건재하다는 것을 보여주자.");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "에드가: 정의 집행의 시간이다.%q0190%에드가: 도시의 정의는 아직 건재하다는 것을 보여주자.");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "에드가: 정의 집행의 시간이다.%q0191%에드가: 도시의 정의는 아직 건재하다는 것을 보여주자.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "에드가: 정의 집행의 시간이다.%q0192%에드가: 도시의 정의는 아직 건재하다는 것을 보여주자.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "에드가: 정의 집행의 시간이다.%q0193%에드가: 도시의 정의는 아직 건재하다는 것을 보여주자.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "에드가: 도시 제일의 방패로서 시민들을 지킨다.%에드가: 뒷골목의 쥐든 둥지의 고위층이든 모두 같은 인간이니까.%에드가: 그리고 그것이 곧 정의니까.%q0194");
+	 	    				}
+		 	    		} else {
+		 	    			new Message().msg(player, "에드가: 돈이면 뭐든 한다는 해결사라고 해도, 손가락 밑에서 아양떠는 녀셕들은 해결사 자격이 없어.");
+		 	    		}
+	 	    		} else {
+	 	    			if(office.equals("츠바이 협회 1과")) {
+	 	    				new Message().msg(player, "에드가: 1과는 그렇게 여유로울 시간이 없어.");
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "에드가: 그렇게 느긋하게 있을거면 다음부터는 의뢰를 주지 않을거야.");
+		 	    		} else {
+		 	    			new Message().msg(player, "에드가: 돈이면 뭐든 한다는 해결사라고 해도, 손가락 밑에서 아양떠는 녀셕들은 해결사 자격이 없어.");
+		 	    		}
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("올리비에")) {
 	 	    		if (getQuestName(player).equals("q0188")) {
@@ -9428,7 +9559,23 @@ public class Main extends JavaPlugin implements Listener{
 								n.forceUpdate();
 							}
 						}
-	 	    		}
+	 	    		} else if (getQuestName(player).equals("q0195")) {
+ 	 	    			QuestBoard qb = new QuestBoard();
+ 	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+ 						Block block = chestLoc.getBlock();
+ 						Chest chest = (Chest) block.getState();
+ 						ItemStack food = chest.getInventory().getItem(19);
+ 						if(player.getInventory().contains(food)) {
+ 							player.getInventory().remove(food);
+ 							new Message().msg(player, "올리비에: 사망자 수가 많아 인원 보충이 필요하겠군요.");
+ 							int qNum = qb.getNum(player);
+ 	        				qb.q0195(player, qNum + 1, false);
+ 						} else {
+ 							new Message().msg(player, "올리비에: 여기는 하나 협회입니다.%올리비에: 협회를 총괄하는 하나의 협회지요.");
+ 						}
+ 	 	    		} else {
+ 	 	    			
+ 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("우제트")) {
 	 	    		if(getQuestName(player).equals("N")) {
 	 	    			

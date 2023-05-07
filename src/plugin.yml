@@ -24,6 +24,9 @@ commands:
   dropQuest:
    description: drop quest
    usage: /dropQuest
+  d:
+   description: drop quest
+   usage: /d
   mob:
    description: mob summon
    usage: /mob
