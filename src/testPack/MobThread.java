@@ -77,8 +77,6 @@ public class MobThread implements Listener{
 								slum(player, loc);
 								slum(player, loc);
 								slum(player, loc);
-								slum(player, loc);
-								slum(player, loc);
 							}
 						}
 					} 
@@ -143,6 +141,7 @@ public class MobThread implements Listener{
 				}, 0, 1);
 				
 			} else {
+				loc.getWorld().spawnEntity(loc, EntityType.SKELETON);
 				loc.getWorld().spawnEntity(loc, EntityType.SKELETON);
 			}
 		}

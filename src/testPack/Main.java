@@ -3186,52 +3186,56 @@ public class Main extends JavaPlugin implements Listener{
 		//플레이어 피격 데미지 계산식
 		try {
 			if(event.getEntity() instanceof Player) {
-				Player player = (Player) event.getEntity();
-				double damage = event.getDamage();
-				
-				int personality = 0; //1이면 5% 경감
-				int chestplate = 0; 
-				int arti = 0; //10이면 10% 경감
-				
-				try {
-					ItemStack item = player.getInventory().getItem(7);
-					String name = item.getItemMeta().getDisplayName();
-					personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
-				} catch(Exception e2) {
+				if(event.getCause() != DamageCause.FIRE_TICK && event.getCause() != DamageCause.FIRE && event.getCause() != DamageCause.HOT_FLOOR &&
+						event.getCause() != DamageCause.POISON && event.getCause() != DamageCause.WITHER && event.getCause() != DamageCause.BLOCK_EXPLOSION &&
+						event.getCause() != DamageCause.ENTITY_EXPLOSION && event.getCause() != DamageCause.STARVATION) {
+					Player player = (Player) event.getEntity();
+					double damage = event.getDamage();
 					
-				}
-				
-				if (player.getInventory().getChestplate() != null) {
-					if (player.getInventory().getChestplate().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "유니온 공방제 슈트")) {
-						chestplate = 2;
-					} else if (player.getInventory().getChestplate().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "유니온 공방제 고급 슈트")) {
-						chestplate = 5;
-					} else if (player.getInventory().getChestplate().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "유니온 공방제 프리미엄 슈트")) {
-						chestplate = 10;
+					int personality = 0; //1이면 5% 경감
+					int chestplate = 0; 
+					int arti = 0; //10이면 10% 경감
+					
+					try {
+						ItemStack item = player.getInventory().getItem(7);
+						String name = item.getItemMeta().getDisplayName();
+						personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+					} catch(Exception e2) {
+						
 					}
-				}
-				
-				if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
-					if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 보호 반지")) {
-						arti = 5;
-					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 보호 반지")) {
-						arti = 10;
-					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 보호 반지")) {
-						arti = 15;
-					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 보호 반지")) {
-						arti = 20;
-					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 보호 반지")) {
-						arti = 25;
-					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 보호 반지")) {
-						arti = 30;
-					} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 보호 반지")) {
-						arti = 35;
+					
+					if (player.getInventory().getChestplate() != null) {
+						if (player.getInventory().getChestplate().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "유니온 공방제 슈트")) {
+							chestplate = 2;
+						} else if (player.getInventory().getChestplate().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "유니온 공방제 고급 슈트")) {
+							chestplate = 5;
+						} else if (player.getInventory().getChestplate().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "유니온 공방제 프리미엄 슈트")) {
+							chestplate = 10;
+						}
 					}
+					
+					if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+						if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 보호 반지")) {
+							arti = 5;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 보호 반지")) {
+							arti = 10;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 보호 반지")) {
+							arti = 15;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 보호 반지")) {
+							arti = 20;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 보호 반지")) {
+							arti = 25;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 보호 반지")) {
+							arti = 30;
+						} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 보호 반지")) {
+							arti = 35;
+						}
+					}
+					
+					damage = (damage - chestplate) * (100 - (personality*5 + arti)) * 0.01;
+					
+					event.setDamage(damage);
 				}
-				
-				damage = (damage - chestplate) * (100 - (personality*5 + arti)) * 0.01;
-				
-				event.setDamage(damage);
 			}
 		} catch(Exception e) {
 			
@@ -3274,7 +3278,7 @@ public class Main extends JavaPlugin implements Listener{
 			if (event.getCause() == DamageCause.FIRE_TICK || event.getCause() == DamageCause.FIRE || event.getCause() == DamageCause.HOT_FLOOR) {
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
-					int num = rnd.nextInt(10);
+					int num = rnd.nextInt(6);
 					if (num == 0) {
 						int item = 0;
 						if (player.getInventory().getHelmet() != null) {
@@ -3369,7 +3373,7 @@ public class Main extends JavaPlugin implements Listener{
 			} else if (event.getCause() == DamageCause.WITHER) {
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
-					int num = rnd.nextInt(7);
+					int num = rnd.nextInt(5);
 					if (num == 0) {
 						int item = 0;
 						if (player.getInventory().getHelmet() != null) {
