@@ -2981,24 +2981,6 @@ public class Main extends JavaPlugin implements Listener{
 		} catch (Exception e) {
 
 		}
-
-		//장비버프
-		try {
-			if (event.getDamager() instanceof Player) {
-				Player player = (Player) event.getDamager();
-				if (player.getInventory().getBoots() != null) {
-					if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 0, true, false, true));
-					} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 고급 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, true, false, true));
-					} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 프리미엄 부츠")) {
-						player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 2, true, false, true));
-					}
-				}
-			}
-		} catch (Exception e) {
-
-		}		
 		
 		//몹이 공격한 경우 디버프 부여
 		try {
@@ -3529,7 +3511,7 @@ public class Main extends JavaPlugin implements Listener{
 
 		}
 		
-		//브금
+		//브금 + 부츠
 		try {
 			if(event.getEntity() instanceof Mob && event.getDamage() > 1.9) {
 				Mob mob = (Mob) event.getEntity();
@@ -3630,6 +3612,21 @@ public class Main extends JavaPlugin implements Listener{
 						}
 						player.setTicksLived(1);
 					}
+					
+					//장비버프
+					try {
+						if (player.getInventory().getBoots() != null) {
+							if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 부츠")) {
+								player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 0, true, false, true));
+							} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 고급 부츠")) {
+								player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, true, false, true));
+							} else if (player.getInventory().getBoots().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나미르 공방제 프리미엄 부츠")) {
+								player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 2, true, false, true));
+							}
+						}
+					} catch (Exception e) {
+
+					}	
 					
 				}
 			}
