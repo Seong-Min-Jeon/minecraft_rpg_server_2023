@@ -724,6 +724,8 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0159(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0160")) {
 						qb.q0160(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0160_1")) {
+						qb.q0160_1(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0161")) {
 						qb.q0161(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0162")) {
@@ -796,6 +798,22 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0195(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0196")) {
 						qb.q0196(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0197")) {
+						qb.q0197(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0198")) {
+						qb.q0198(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0199")) {
+						qb.q0199(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0200")) {
+						qb.q0200(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0201")) {
+						qb.q0201(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0202")) {
+						qb.q0202(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0203")) {
+						qb.q0203(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0203_1")) {
+						qb.q0203_1(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq9")) {
 						qb.uq9(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq8")) {
@@ -2186,6 +2204,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0194")) {
 							int qNum = qb.getNum(player);
 							qb.q0194(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0202")) {
+							int qNum = qb.getNum(player);
+							qb.q0202(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "우는 영혼들의 산", 40, 40, 20);
@@ -2301,6 +2322,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0194")) {
 							int qNum = qb.getNum(player);
 							qb.q0194(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0202")) {
+							int qNum = qb.getNum(player);
+							qb.q0202(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "도망쳐", 40, 40, 20);
@@ -2416,6 +2440,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0194")) {
 							int qNum = qb.getNum(player);
 							qb.q0194(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0202")) {
+							int qNum = qb.getNum(player);
+							qb.q0202(player, qNum + 1, false);
 						}
 					}
 				}
@@ -5843,7 +5870,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 9, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0153") || getQuestName(player).equals("q0177")) {
+					} else if (getQuestName(player).equals("q0153") || getQuestName(player).equals("q0177") || getQuestName(player).equals("q0197")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5886,7 +5913,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 12, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0154") || getQuestName(player).equals("q0178")) {
+					} else if (getQuestName(player).equals("q0154") || getQuestName(player).equals("q0178") || getQuestName(player).equals("q0198")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5929,7 +5956,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 14, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2, false, false));
 						}
-					} else if (getQuestName(player).equals("q0155") || getQuestName(player).equals("q0179")) {
+					} else if (getQuestName(player).equals("q0155") || getQuestName(player).equals("q0179") || getQuestName(player).equals("q0199")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5972,7 +5999,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 14, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0156") || getQuestName(player).equals("q0180")) {
+					} else if (getQuestName(player).equals("q0156") || getQuestName(player).equals("q0180") || getQuestName(player).equals("q0200")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -6015,7 +6042,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 12, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2, false, false));
 						}
-					} else if (getQuestName(player).equals("q0157") || getQuestName(player).equals("q0181")) {
+					} else if (getQuestName(player).equals("q0157") || getQuestName(player).equals("q0181") || getQuestName(player).equals("q0201")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -9526,6 +9553,107 @@ public class Main extends JavaPlugin implements Listener{
 		 	    		} else {
 		 	    			new Message().msg(player, "에드가: 돈이면 뭐든 한다는 해결사라고 해도, 손가락 밑에서 아양떠는 녀셕들은 해결사 자격이 없어.");
 		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("제라툴")) {
+	 	    		int num = rnd.nextInt(3);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "제라툴: 도시의 대호수에는 낭만이 있다네.%제라툴: 해수욕을 하다보면 가끔 해달이 애교를 부리러 오지.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "제라툴: 가끔 일이 많을 때면 어둠 속에 숨어보게나.%제라툴: 아무도 찾지 못하는 곳으로 말이야.%제라툴: 그곳이 설령 외곽이라고 할지라도…");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "제라툴: 1과의 1급 해결사 정도면 불합리한 도시의 운명을 바꿀 힘이 있다네.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("알라라크")) {
+	 	    		int num = rnd.nextInt(3);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "알라라크: 뒷골목 조직들이 사라지면 우리 일거리도 끝나는거야.%알라라크: 하나가 적당히 조율하면서 의뢰를 배분하고 있는거지.%알라라크: 마음만 먹으면 하루사이에도 조직이란 단어가 사라질걸.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "알라라크: 모든 해결사들이 이타적인건 아니야.%알라라크: 돈으로만 움직이는 것도 아니고.%알라라크: 어린 시절의 복수를 꿈꾸며 힘을 키워가는 사람도 많아.%알라라크: 나도 그렇고.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "알라라크: 그대는 평소에 자유시간을 이렇게 보내는 모양이지.%알라라크: 의뢰를 해결하는 시간이 그처럼 오래 걸리는 이유를 알겠군.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("아킬레")) {
+	 	    		if(getQuestName(player).equals("N")) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("시 협회 1과")) {
+	 	    				int num = rnd.nextInt(7);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "아킬레: 별의 죽음을 알고 있음?%아킬레: 별은 일반적으로 에너지를 모두 소모하면서 죽음.%아킬레: 하지만 또다른 방법도 있음.%아킬레: 바로 막대한 힘으로 부수는거임.%"
+	 	    							+ "아킬레: 우리 시 1과의 검은 단칼에 별을 벨 수 있으셈.%q0197%아킬레: 님도 인정받고 싶으면 열심히 해보셈.");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "아킬레: 별의 죽음을 알고 있음?%아킬레: 별은 일반적으로 에너지를 모두 소모하면서 죽음.%아킬레: 하지만 또다른 방법도 있음.%아킬레: 바로 막대한 힘으로 부수는거임.%"
+	 	    							+ "아킬레: 우리 시 1과의 검은 단칼에 별을 벨 수 있으셈.%q0198%아킬레: 님도 인정받고 싶으면 열심히 해보셈.");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "아킬레: 별의 죽음을 알고 있음?%아킬레: 별은 일반적으로 에너지를 모두 소모하면서 죽음.%아킬레: 하지만 또다른 방법도 있음.%아킬레: 바로 막대한 힘으로 부수는거임.%"
+	 	    							+ "아킬레: 우리 시 1과의 검은 단칼에 별을 벨 수 있으셈.%q0199%아킬레: 님도 인정받고 싶으면 열심히 해보셈.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "아킬레: 별의 죽음을 알고 있음?%아킬레: 별은 일반적으로 에너지를 모두 소모하면서 죽음.%아킬레: 하지만 또다른 방법도 있음.%아킬레: 바로 막대한 힘으로 부수는거임.%"
+	 	    							+ "아킬레: 우리 시 1과의 검은 단칼에 별을 벨 수 있으셈.%q0200%아킬레: 님도 인정받고 싶으면 열심히 해보셈.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "아킬레: 별의 죽음을 알고 있음?%아킬레: 별은 일반적으로 에너지를 모두 소모하면서 죽음.%아킬레: 하지만 또다른 방법도 있음.%아킬레: 바로 막대한 힘으로 부수는거임.%"
+	 	    							+ "아킬레: 우리 시 1과의 검은 단칼에 별을 벨 수 있으셈.%q0201%아킬레: 님도 인정받고 싶으면 열심히 해보셈.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "아킬레: 하나에서 내린 결론은 뒤틀림이 인간이라는거임.%아킬레: 인간이 아닌게 저러고 다니면 머리가 처리하잖음.%아킬레: 그러니 인간이라는거임.%"
+	 	    							+ "아킬레: 우리 시의 검은 인간을 베기 위한 검임.%아킬레: 그러니까 뒤틀림도 똑같이 베어버리셈.%q0202");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "아킬레: 세븐 협회 1과가서 정보 받아오셈.%아킬레: 돈은 미리 냈으니까 받아만오셈.%아킬레: 바로 옆인데 못하면 바보임.%q0203");
+	 	    				}
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) <= 2)) {
+		 	    			int num = rnd.nextInt(6);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "아킬레: 별의 죽음을 알고 있음?%아킬레: 별은 일반적으로 에너지를 모두 소모하면서 죽음.%아킬레: 하지만 또다른 방법도 있음.%아킬레: 바로 막대한 힘으로 부수는거임.%"
+	 	    							+ "아킬레: 우리 시 1과의 검은 단칼에 별을 벨 수 있으셈.%q0197%아킬레: 용병이라고 못한다고 하면 죽일거임.");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "아킬레: 별의 죽음을 알고 있음?%아킬레: 별은 일반적으로 에너지를 모두 소모하면서 죽음.%아킬레: 하지만 또다른 방법도 있음.%아킬레: 바로 막대한 힘으로 부수는거임.%"
+	 	    							+ "아킬레: 우리 시 1과의 검은 단칼에 별을 벨 수 있으셈.%q0198%아킬레: 용병이라고 못한다고 하면 죽일거임.");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "아킬레: 별의 죽음을 알고 있음?%아킬레: 별은 일반적으로 에너지를 모두 소모하면서 죽음.%아킬레: 하지만 또다른 방법도 있음.%아킬레: 바로 막대한 힘으로 부수는거임.%"
+	 	    							+ "아킬레: 우리 시 1과의 검은 단칼에 별을 벨 수 있으셈.%q0199%아킬레: 용병이라고 못한다고 하면 죽일거임.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "아킬레: 별의 죽음을 알고 있음?%아킬레: 별은 일반적으로 에너지를 모두 소모하면서 죽음.%아킬레: 하지만 또다른 방법도 있음.%아킬레: 바로 막대한 힘으로 부수는거임.%"
+	 	    							+ "아킬레: 우리 시 1과의 검은 단칼에 별을 벨 수 있으셈.%q0200%아킬레: 용병이라고 못한다고 하면 죽일거임.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "아킬레: 별의 죽음을 알고 있음?%아킬레: 별은 일반적으로 에너지를 모두 소모하면서 죽음.%아킬레: 하지만 또다른 방법도 있음.%아킬레: 바로 막대한 힘으로 부수는거임.%"
+	 	    							+ "아킬레: 우리 시 1과의 검은 단칼에 별을 벨 수 있으셈.%q0201%아킬레: 용병이라고 못한다고 하면 죽일거임.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "아킬레: 하나에서 내린 결론은 뒤틀림이 인간이라는거임.%아킬레: 인간이 아닌게 저러고 다니면 머리가 처리하잖음.%아킬레: 그러니 인간이라는거임.%"
+	 	    							+ "아킬레: 우리 시의 검은 인간을 베기 위한 검임.%아킬레: 그러니까 뒤틀림도 똑같이 베어버리셈.%q0202%아킬레: 용병이라고 못한다고 하면 죽일거임.");
+	 	    				}
+		 	    		} else {
+		 	    			new Message().msg(player, "아킬레: 독수리처럼 날아서 목표물만 죽이는거임.");
+		 	    		}
+	 	    		} else if (getQuestName(player).equals("q0203_1")) {
+ 	 	    			QuestBoard qb = new QuestBoard();
+ 	 	    			Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+ 						Block block = chestLoc.getBlock();
+ 						Chest chest = (Chest) block.getState();
+ 						ItemStack food = chest.getInventory().getItem(21);
+ 						if(player.getInventory().contains(food)) {
+ 							player.getInventory().remove(food);
+ 							new Message().msg(player, "아킬레: ㄳㄳ.");
+ 							int qNum = qb.getNum(player);
+ 	        				qb.q0203_1(player, qNum + 1, false);
+ 						} else {
+ 							new Message().msg(player, "아킬레: 지금 뭐하자는 거임?");
+ 						}
+ 	 	    		} else {
+	 	    			if(office.equals("시 협회 1과")) {
+	 	    				new Message().msg(player, "아킬레: 빨리 안나가고 뭐하고 있음?");
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "아킬레: 빨리 안나가고 뭐하고 있음?");
+		 	    		} else {
+		 	    			new Message().msg(player, "아킬레: 독수리처럼 날아서 목표물만 죽이는거임.");
+		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("미드나")) {
+	 	    		if (getQuestName(player).equals("q0203")) {
+	 	    			QuestBoard qb = new QuestBoard();
+	 	    			new Message().msg(player, "미드나: 이거 가지러 온거지?");
+						int qNum = qb.getNum(player);
+        				qb.q0203(player, qNum + 1, false);
+	 	    		} else {
+	 	    			
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("올리비에")) {
 	 	    		if (getQuestName(player).equals("q0188")) {
