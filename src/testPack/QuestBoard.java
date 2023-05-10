@@ -12725,6 +12725,798 @@ public class QuestBoard {
 			n.forceUpdate();
 		}
 	}
+
+	public void q0204(Player player, int num, boolean start) {
+		if(num>=3) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("리우 협회 1과")) {
+				player.setLevel(player.getLevel() + 3300000);
+				giveExp(player, 500);
+				player.sendMessage(ChatColor.GOLD + "[System] 3300000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1100000);
+				giveExp(player, 160);
+				player.sendMessage(ChatColor.GOLD + "[System] 1100000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -1001, 62, 1182, -1119, 62, 1092).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0204", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("엄지 카포 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/3)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0204", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("엄지 카포 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/3)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+		
+	}
+	
+	public void q0205(Player player, int num, boolean start) {
+		if(num>=2) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("리우 협회 1과")) {
+				player.setLevel(player.getLevel() + 3300000);
+				giveExp(player, 500);
+				player.sendMessage(ChatColor.GOLD + "[System] 3300000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1100000);
+				giveExp(player, 160);
+				player.sendMessage(ChatColor.GOLD + "[System] 1100000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -919, 62, 1455, -985, 62, 1349).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0205", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("검지 대행자 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/2)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0205", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("검지 대행자 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/2)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+	}
+	
+	public void q0206(Player player, int num, boolean start) {
+		if(num>=2) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("리우 협회 1과")) {
+				player.setLevel(player.getLevel() + 3300000);
+				giveExp(player, 500);
+				player.sendMessage(ChatColor.GOLD + "[System] 3300000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1100000);
+				giveExp(player, 160);
+				player.sendMessage(ChatColor.GOLD + "[System] 1100000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0206", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("콩콩이파 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/2)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0206", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("콩콩이파 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/2)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+	}
+	
+	public void q0207(Player player, int num, boolean start) {
+		if(num>=2) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("리우 협회 1과")) {
+				player.setLevel(player.getLevel() + 3300000);
+				giveExp(player, 500);
+				player.sendMessage(ChatColor.GOLD + "[System] 3300000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1100000);
+				giveExp(player, 160);
+				player.sendMessage(ChatColor.GOLD + "[System] 1100000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0207", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("검계 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/2)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0207", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("검계 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/2)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+	}
+	
+	public void q0208(Player player, int num, boolean start) {
+		if(num>=3) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("리우 협회 1과")) {
+				player.setLevel(player.getLevel() + 3300000);
+				giveExp(player, 500);
+				player.sendMessage(ChatColor.GOLD + "[System] 3300000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1100000);
+				giveExp(player, 160);
+				player.sendMessage(ChatColor.GOLD + "[System] 1100000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0208", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("밤의 송곳 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/3)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0208", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("밤의 송곳 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/3)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+	}
+	
+	public void q0209(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("리우 협회 1과")) {
+				player.setLevel(player.getLevel() + 4000000);
+				giveExp(player, 550);
+				player.sendMessage(ChatColor.GOLD + "[System] 4000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1300000);
+				giveExp(player, 180);
+				player.sendMessage(ChatColor.GOLD + "[System] 1300000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0209", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("도시의 별급 이상 뒤틀림 사냥");
+		score.setScore(1);
+		Score score2 = obj.getScore("(" + num + "/1)");
+		score2.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0210(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("리우 협회 1과")) {
+				player.setLevel(player.getLevel() + 4000000);
+				giveExp(player, 420);
+				player.sendMessage(ChatColor.GOLD + "[System] 4000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1300000);
+				giveExp(player, 140);
+				player.sendMessage(ChatColor.GOLD + "[System] 1300000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0210", Criteria.DUMMY, ChatColor.GOLD + "[리우 협회 1과의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("외곽의 유적 조사");
+		score.setScore(1);
+		Score score2 = obj.getScore("(" + num + "/1)");
+		score2.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0211(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("세븐 협회 1과")) {
+				player.setLevel(player.getLevel() + 5000000);
+				giveExp(player, 350);
+				player.sendMessage(ChatColor.GOLD + "[System] 5000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1600000);
+				giveExp(player, 110);
+				player.sendMessage(ChatColor.GOLD + "[System] 1600000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -1001, 62, 1182, -1119, 62, 1092).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0211", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 엄지 카포 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0211", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 엄지 카포 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+		
+	}
+	
+	public void q0212(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("세븐 협회 1과")) {
+				player.setLevel(player.getLevel() + 5000000);
+				giveExp(player, 350);
+				player.sendMessage(ChatColor.GOLD + "[System] 5000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1600000);
+				giveExp(player, 110);
+				player.sendMessage(ChatColor.GOLD + "[System] 1600000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -919, 62, 1455, -985, 62, 1349).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0212", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 검지 대행자 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0212", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 1과의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 검지 대행자 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+	}
+	
+	public void q0213(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("세븐 협회 1과")) {
+				player.setLevel(player.getLevel() + 6000000);
+				giveExp(player, 400);
+				player.sendMessage(ChatColor.GOLD + "[System] 6000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 2000000);
+				giveExp(player, 130);
+				player.sendMessage(ChatColor.GOLD + "[System] 2000000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0213", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 1과의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("도시의 별급 이상 뒤틀림 사냥");
+		score.setScore(1);
+		Score score2 = obj.getScore("(" + num + "/1)");
+		score2.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0214(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("세븐 협회 1과")) {
+				player.setLevel(player.getLevel() + 6000000);
+				giveExp(player, 400);
+				player.sendMessage(ChatColor.GOLD + "[System] 6000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 2000000);
+				giveExp(player, 130);
+				player.sendMessage(ChatColor.GOLD + "[System] 2000000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0214", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 1과의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("외곽의 유적 조사");
+		score.setScore(1);
+		Score score2 = obj.getScore("(" + num + "/1)");
+		score2.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0215(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("세븐 협회 1과")) {
+				player.setLevel(player.getLevel() + 2000000);
+				giveExp(player, 150);
+				player.sendMessage(ChatColor.GOLD + "[System] 2000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 700000);
+				giveExp(player, 50);
+				player.sendMessage(ChatColor.GOLD + "[System] 700000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0215", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 1과의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("우제트의 정보 수집하기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1262, 62, 1453"); //우제트
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0216(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("세븐 협회 1과")) {
+				player.setLevel(player.getLevel() + 2000000);
+				giveExp(player, 150);
+				player.sendMessage(ChatColor.GOLD + "[System] 2000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 700000);
+				giveExp(player, 50);
+				player.sendMessage(ChatColor.GOLD + "[System] 700000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0216", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 1과의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("베이야드의 정보 수집하기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1011, 66, 1184"); //바야르
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0217(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("세븐 협회 1과")) {
+				player.setLevel(player.getLevel() + 2000000);
+				giveExp(player, 150);
+				player.sendMessage(ChatColor.GOLD + "[System] 2000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 700000);
+				giveExp(player, 50);
+				player.sendMessage(ChatColor.GOLD + "[System] 700000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0217", Criteria.DUMMY, ChatColor.GOLD + "[세븐 협회 1과의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("하나 협회의 정보 수집하기");
+		score.setScore(2);
+		Score score2 = obj.getScore("-1087, 186, 1462"); //올리비에
+		score2.setScore(1);
+		Score score3 = obj.getScore("(" + num + "/1)");
+		score3.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
 	
 	
 	

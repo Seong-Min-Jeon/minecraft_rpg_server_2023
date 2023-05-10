@@ -814,6 +814,34 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0203(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0203_1")) {
 						qb.q0203_1(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0204")) {
+						qb.q0204(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0205")) {
+						qb.q0205(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0206")) {
+						qb.q0206(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0207")) {
+						qb.q0207(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0208")) {
+						qb.q0208(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0209")) {
+						qb.q0209(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0210")) {
+						qb.q0210(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0211")) {
+						qb.q0211(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0212")) {
+						qb.q0212(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0213")) {
+						qb.q0213(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0214")) {
+						qb.q0214(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0215")) {
+						qb.q0215(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0216")) {
+						qb.q0216(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0217")) {
+						qb.q0217(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq9")) {
 						qb.uq9(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq8")) {
@@ -2207,6 +2235,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0202")) {
 							int qNum = qb.getNum(player);
 							qb.q0202(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0209")) {
+							int qNum = qb.getNum(player);
+							qb.q0209(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0213")) {
+							int qNum = qb.getNum(player);
+							qb.q0213(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "우는 영혼들의 산", 40, 40, 20);
@@ -2325,6 +2359,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0202")) {
 							int qNum = qb.getNum(player);
 							qb.q0202(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0209")) {
+							int qNum = qb.getNum(player);
+							qb.q0209(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0213")) {
+							int qNum = qb.getNum(player);
+							qb.q0213(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "도망쳐", 40, 40, 20);
@@ -2443,6 +2483,12 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0202")) {
 							int qNum = qb.getNum(player);
 							qb.q0202(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0209")) {
+							int qNum = qb.getNum(player);
+							qb.q0209(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0213")) {
+							int qNum = qb.getNum(player);
+							qb.q0213(player, qNum + 1, false);
 						}
 					}
 				}
@@ -5619,7 +5665,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 7, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false));
 						}
-					} else if (getQuestName(player).equals("q0140") || getQuestName(player).equals("q0165") || getQuestName(player).equals("q0189")) {
+					} else if (getQuestName(player).equals("q0140") || getQuestName(player).equals("q0165") || getQuestName(player).equals("q0189") ||
+							getQuestName(player).equals("q0204")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5662,7 +5709,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 10, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0141") || getQuestName(player).equals("q0166") || getQuestName(player).equals("q0190")) {
+					} else if (getQuestName(player).equals("q0141") || getQuestName(player).equals("q0166") || getQuestName(player).equals("q0190") ||
+							getQuestName(player).equals("q0205")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5741,7 +5789,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 8, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0142") || getQuestName(player).equals("q0167") || getQuestName(player).equals("q0191")) {
+					} else if (getQuestName(player).equals("q0142") || getQuestName(player).equals("q0167") || getQuestName(player).equals("q0191") ||
+							getQuestName(player).equals("q0206")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5784,7 +5833,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 12, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0143") || getQuestName(player).equals("q0168") || getQuestName(player).equals("q0192")) {
+					} else if (getQuestName(player).equals("q0143") || getQuestName(player).equals("q0168") || getQuestName(player).equals("q0192") ||
+							getQuestName(player).equals("q0207")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5827,7 +5877,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 10, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2, false, false));
 						}
-					} else if (getQuestName(player).equals("q0144") || getQuestName(player).equals("q0169") || getQuestName(player).equals("q0193")) {
+					} else if (getQuestName(player).equals("q0144") || getQuestName(player).equals("q0169") || getQuestName(player).equals("q0193") ||
+							getQuestName(player).equals("q0208")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5870,7 +5921,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 9, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0153") || getQuestName(player).equals("q0177") || getQuestName(player).equals("q0197")) {
+					} else if (getQuestName(player).equals("q0153") || getQuestName(player).equals("q0177") || getQuestName(player).equals("q0197") ||
+							getQuestName(player).equals("q0211")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -5913,7 +5965,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 12, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0154") || getQuestName(player).equals("q0178") || getQuestName(player).equals("q0198")) {
+					} else if (getQuestName(player).equals("q0154") || getQuestName(player).equals("q0178") || getQuestName(player).equals("q0198") ||
+							getQuestName(player).equals("q0212")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -9646,6 +9699,79 @@ public class Main extends JavaPlugin implements Listener{
 		 	    			new Message().msg(player, "아킬레: 독수리처럼 날아서 목표물만 죽이는거임.");
 		 	    		}
 	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("미리스")) {
+	 	    		int num = rnd.nextInt(3);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "미리스: 죽는 것을 두려워 하지 말라…%미리스: 부장님께서 제게 주신 명령입니다.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "미리스: 부장님은 저와 리우 동기인 동시에 제가 제일 존경하는 인물입니다.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "미리스: 최근에 일이 이렇게 많아진건 뒤틀림 때문이겠지요.%미리스: 샤오 부장님도 고민이 많을겁니다.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("춘")) {
+	 	    		int num = rnd.nextInt(3);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "춘: 협회에 한번 발을 들인 이상 일을 그만두는 것도 쉽지는 않을거다.%춘: 협회의 신뢰가 깨지면 후에 사무소를 차려도 이 판에서 배제될 것이고.%춘: 그뿐이겠냐, 앞으로 해결사로서는 일을 하지 못할 낙인이 찍힐 것이다.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "춘: 부장님은 후에 색을 부여받으실 것이다.%춘: 너도 부장님만큼 성장하면 특색에 도전할 수 있을 것이다.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "춘: 리우의 불꽃은 꺼지지 않는다.%춘: 꺼진 불꽃이 된다면 리우에서 다시 볼 일은 없겠지.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("샤오")) {
+	 	    		if(getQuestName(player).equals("N")) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("리우 협회 1과")) {
+	 	    				int num = rnd.nextInt(7);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "샤오: 우리는 2과와 함께 도시의 별을 막으러 간다.%샤오: 도시를 주무르는 손가락이든 뭐든 상관없다.%샤오: 우리는 리우의 최고 전력이니까.%q0204%샤오: 오늘도 도시의 별 하나가 지게될 것이다.");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "샤오: 우리는 2과와 함께 도시의 별을 막으러 간다.%샤오: 도시를 주무르는 손가락이든 뭐든 상관없다.%샤오: 우리는 리우의 최고 전력이니까.%q0205%샤오: 오늘도 도시의 별 하나가 지게될 것이다.");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "샤오: 우리는 2과와 함께 도시의 별을 막으러 간다.%샤오: 도시를 주무르는 손가락이든 뭐든 상관없다.%샤오: 우리는 리우의 최고 전력이니까.%q0206%샤오: 오늘도 도시의 별 하나가 지게될 것이다.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "샤오: 우리는 2과와 함께 도시의 별을 막으러 간다.%샤오: 도시를 주무르는 손가락이든 뭐든 상관없다.%샤오: 우리는 리우의 최고 전력이니까.%q0207%샤오: 오늘도 도시의 별 하나가 지게될 것이다.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "샤오: 우리는 2과와 함께 도시의 별을 막으러 간다.%샤오: 도시를 주무르는 손가락이든 뭐든 상관없다.%샤오: 우리는 리우의 최고 전력이니까.%q0208%샤오: 오늘도 도시의 별 하나가 지게될 것이다.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "샤오: 도시 남부에 출현한 뒤틀림을 막는다.%샤오: 그것들이 우리의 소중한 사람들을 해치기 전에.%샤오: 목표는 대상의 죽음이다.%"
+	 	    							+ "샤오: 뒤틀림에 대한 표본은 차후에 전문가가 추출하여 V사로 전달할 예정이다.%q0209");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "샤오: 1과의 전 인원은 각자 유적을 돌파하라는 명령이다.%샤오: 일에 방해가 되지 않도록 교대로 다녀올 예정이니 먼저 다녀오도록.%샤오: 목적은 유물 획득으로 인한 전력 강화다.%q0210");
+	 	    				}
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) <= 2)) {
+		 	    			int num = rnd.nextInt(7);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "샤오: 우리는 2과와 함께 도시의 별을 막으러 간다.%샤오: 도시를 주무르는 손가락이든 뭐든 상관없다.%샤오: 우리는 리우의 최고 전력이니까.%"
+	 	    							+ "샤오: 그리고 협회에서 알아주는 너같은 용병들도 있고 말이지.%q0204%샤오: 오늘도 도시의 별 하나가 지게될 것이다.");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "샤오: 우리는 2과와 함께 도시의 별을 막으러 간다.%샤오: 도시를 주무르는 손가락이든 뭐든 상관없다.%샤오: 우리는 리우의 최고 전력이니까.%"
+	 	    							+ "샤오: 그리고 협회에서 알아주는 너같은 용병들도 있고 말이지.%q0205%샤오: 오늘도 도시의 별 하나가 지게될 것이다.");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "샤오: 우리는 2과와 함께 도시의 별을 막으러 간다.%샤오: 도시를 주무르는 손가락이든 뭐든 상관없다.%샤오: 우리는 리우의 최고 전력이니까.%"
+	 	    							+ "샤오: 그리고 협회에서 알아주는 너같은 용병들도 있고 말이지.%q0206%샤오: 오늘도 도시의 별 하나가 지게될 것이다.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "샤오: 우리는 2과와 함께 도시의 별을 막으러 간다.%샤오: 도시를 주무르는 손가락이든 뭐든 상관없다.%샤오: 우리는 리우의 최고 전력이니까.%"
+	 	    							+ "샤오: 그리고 협회에서 알아주는 너같은 용병들도 있고 말이지.%q0207%샤오: 오늘도 도시의 별 하나가 지게될 것이다.");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "샤오: 우리는 2과와 함께 도시의 별을 막으러 간다.%샤오: 도시를 주무르는 손가락이든 뭐든 상관없다.%샤오: 우리는 리우의 최고 전력이니까.%"
+	 	    							+ "샤오: 그리고 협회에서 알아주는 너같은 용병들도 있고 말이지.%q0208%샤오: 오늘도 도시의 별 하나가 지게될 것이다.");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "샤오: 도시 남부에 출현한 뒤틀림을 막는다.%샤오: 그것들이 우리의 소중한 사람들을 해치기 전에.%샤오: 목표는 대상의 죽음이다.%"
+	 	    							+ "샤오: 뒤틀림에 대한 표본은 차후에 전문가가 추출하여 V사로 전달할 예정이다.%q0209");
+	 	    				}
+		 	    		} else {
+		 	    			new Message().msg(player, "샤오: 비록 혼자여도 밤은 찾아온다.%샤오: 그리고 새벽이 오지 않는 밤은 없지…%샤오: 한낯 사라질 별 따위가 떠오르는 태양의 빛을 이길 수 있을까.");
+		 	    		}
+	 	    		} else {
+	 	    			if(office.equals("리우 협회 1과")) {
+	 	    				new Message().msg(player, "샤오: 우리는 의뢰를 포기할만큼 약한 사람은 뽑지 않았을텐데?");
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "샤오: 자네는 리우 1과에 적합한 용병이 아닌가보군.");
+		 	    		} else {
+		 	    			new Message().msg(player, "샤오: 비록 혼자여도 밤은 찾아온다.%샤오: 그리고 새벽이 오지 않는 밤은 없지…%샤오: 한낯 사라질 별 따위가 떠오르는 태양의 빛을 이길 수 있을까.");
+		 	    		}
+	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("미드나")) {
 	 	    		if (getQuestName(player).equals("q0203")) {
 	 	    			QuestBoard qb = new QuestBoard();
@@ -9653,10 +9779,67 @@ public class Main extends JavaPlugin implements Listener{
 						int qNum = qb.getNum(player);
         				qb.q0203(player, qNum + 1, false);
 	 	    		} else {
-	 	    			
+	 	    			int num = rnd.nextInt(3);
+		 	    		if(num == 0) {
+		 	    			new Message().msg(player, "미드나: 필요에 따라서는 다른 차원으로 넘어가기도 한단다.%미드나: 그림자의 세계에서 빛의 세계를 엿보는거지.");
+		 	    		} else if(num == 1) {
+		 	    			new Message().msg(player, "미드나: 도시의 별급 뒤틀림은 혼자 잡기 까다롭지.%미드나: 하지만 그것도 해결사 나름이야.%미드나: 색을 부여받을 정도의 실력이라면 혼자서도 사냥할 수 있다구.");
+		 	    		} else if(num == 2) {
+		 	    			new Message().msg(player, "미드나: 머리에 관한 정보는 어떻게 해도 얻을 수가 없어.%미드나: A사는 조율자라고 불리는 직원을 대리고 있다고 해.%미드나: 우리가 조사한 바로는 조율자를 실제로 본 목격담은 존재하지 않아.%"
+		 	    					+ "미드나: 정확히 말하자면 조율자가 목격자를 남기지 않는 것이겠지.");
+		 	    		}
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("링크")) {
+	 	    		int num = rnd.nextInt(3);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "링크: 뒤틀림은 3일 동안 빛이 비춰진 이후로 생겨났잖아?%링크: 그럼 그 빛을 발산한 곳이 뒤틀림의 원인이라는 추측이 가능해져.%링크: 우리는 그곳을 조사하고 있어.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "링크: 뒤틀림은 인간에 있어서 재앙이고 도시의 필요없는 불순물이야.%링크: 그런데 머리에서는 뒤틀림도 인간이라면서 딱히 처리를 하지 않지.%링크: 뒤틀림과 머리는 서로 연관이 있을 수도 있겠어.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "링크: 무기에는 영혼이 담겨있어.%링크: 올바른 길로 가고자 할 때 가장 강한 힘을 보여줄거야.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("울링")) {
+	 	    		if(getQuestName(player).equals("N")) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("세븐 협회 1과")) {
+	 	    				int num = rnd.nextInt(7);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "울링: 손가락은 뒷골목 쓰레기들의 협회같은 존재지.%울링: 그들만 꺾으면 아래 있는 녀석들은 자연스럽게 없어지지 않겠어?%q0211");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "울링: 손가락은 뒷골목 쓰레기들의 협회같은 존재지.%울링: 그들만 꺾으면 아래 있는 녀석들은 자연스럽게 없어지지 않겠어?%q0212");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "울링: 빌어먹을 뒤틀림과의 전쟁은 끝나질 않는군.%울링: 하나에서 우리 세븐에 의뢰를 넣었다.%울링: 도시의 별급 뒤틀림에 대한 정보를 요청했어.%q0213%"
+	 	    							+ "울링: 직접 싸워본 데이터를 기반으로 자료를 만들거야.");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "울링: 새로운 유적들이 발견되었고.%울링: W사에서 외곽으로 향하는 워프열차를 개통했지만.%울링: 외곽은 아직도 미지의 세계이지.%"
+	 	    							+ "울링: 세븐 최고의 전력인 우리가 모르는 정보가 있으면 안되지 않겠나.%q0214");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "울링: 우제트라는 정체불명의 사무소를 들어봤나?%울링: 뒷골목의 사무소치고는 도시의 별급 의뢰 위주로 하고 있는 모양이야.%"
+	 	    							+ "울링: 모두 같은 가면을 쓰고 돈을 모아서 어딘가로 보내는 것 같아.%울링: 해결사 일을 하는게 아니라면 조직이나 다름없지.%울링: 그들의 정보를 가져와줘.%q0215");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "울링: 베이야드라는 집단을 들어봤나?%울링: 겉으로 보기에는 해결사 사무소 같지만 갈 곳 없는 쥐같은 떠돌이들의 집단이다.%울링: 그런 녀석들이 도시의 별급 의뢰를 하고 다닌다고 해.%"
+	 	    							+ "울링: 떠돌아 다니는 실력자들의 집단이라니.%울링: 도시에서 가능할거라 생각하나?%울링: 자네가 한번 조사해보게.%q0216");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "울링: 하나 협회의 올리비에에게 향후 계획들을 물어보고 와라.%울링: 하나에서 우리들에게 미리 언질을 줄 필요는 없으니까 그냥 알려주진 않을거야.%"
+	 	    							+ "울링: 한번 잘 구슬려보라고.%q0217");
+	 	    				}
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "울링: 우린 외부 인력을 쓰지 않아.");
+		 	    		} else {
+		 	    			new Message().msg(player, "울링: 으르릉 컹컹 왈왈 깽깽 낑낑 그르릉 멍멍.");
+		 	    		}
+	 	    		} else {
+	 	    			if(office.equals("세븐 협회 1과")) {
+	 	    				new Message().msg(player, "울링: 같은 정보라도 시기에 따라 값어치가 달라진다.%울링: 너가 소모한 시간으로 값이 떨어지면 보수에서 깔 수도 있어.");
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "울링: 같은 정보라도 시기에 따라 값어치가 달라진다.%울링: 너가 소모한 시간으로 값이 떨어지면 보수에서 깔 수도 있어.");
+		 	    		} else {
+		 	    			new Message().msg(player, "울링: 으르릉 컹컹 왈왈 깽깽 낑낑 그르릉 멍멍.");
+		 	    		}
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("올리비에")) {
-	 	    		if (getQuestName(player).equals("q0188")) {
+	 	    		if (getQuestName(player).equals("q0188") || getQuestName(player).equals("q0217")) {
 	 	    			int persent = 30;
 						
 						persent += (6 - new PlayerGrade().returnGrade(player)) * 3;
@@ -9674,6 +9857,8 @@ public class Main extends JavaPlugin implements Listener{
 							int qNum = qb.getNum(player);
 							if(getQuestName(player).equals("q0188")) {
 								qb.q0188(player, qNum + 1, false);
+							} else if(getQuestName(player).equals("q0217")) {
+								qb.q0217(player, qNum + 1, false);
 							}
     						player.sendMessage(ChatColor.GOLD + "[System] 올리비에에게 협회들의 향후 계획을 들었습니다. (성공확률: " + persent + "%)");
 						} else {
@@ -9705,10 +9890,21 @@ public class Main extends JavaPlugin implements Listener{
  	 	    		} else {
  	 	    			
  	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("네모")) {
+	 	    		if(getQuestName(player).equals("N")) {
+	 	    			
+	 	    		} else if (getQuestName(player).equals("q0071")) {
+	 	    			QuestBoard qb = new QuestBoard();
+	 	    			new Message().msg(player, "네모: 시선 사무소에서 오셨군요!%네모: 여기 관측 장치입니다㨒%네모: 이런 푼돈 벌려고 발버둥치는 모습이 정말 보기 좋네요㨒");
+						int qNum = qb.getNum(player);
+        				qb.q0071(player, qNum + 1, false);
+	 	    		} else {
+	 	    			
+	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("우제트")) {
 	 	    		if(getQuestName(player).equals("N")) {
 	 	    			
-	 	    		} else if (getQuestName(player).equals("q0134") || getQuestName(player).equals("q0186")) {
+	 	    		} else if (getQuestName(player).equals("q0134") || getQuestName(player).equals("q0186") || getQuestName(player).equals("q0215")) {
 	 	    			int persent = 10;
 						
 						persent += (6 - new PlayerGrade().returnGrade(player)) * 5;
@@ -9728,6 +9924,8 @@ public class Main extends JavaPlugin implements Listener{
 								qb.q0134(player, qNum + 1, false);
 							} else if(getQuestName(player).equals("q0186")) {
 								qb.q0186(player, qNum + 1, false);
+							} else if(getQuestName(player).equals("q0215")) {
+								qb.q0215(player, qNum + 1, false);
 							}
     						player.sendMessage(ChatColor.GOLD + "[System] 우제트에게 은밀한 이야기를 들었습니다. (성공확률: " + persent + "%)");
 						} else {
@@ -9748,7 +9946,7 @@ public class Main extends JavaPlugin implements Listener{
 	 	    	} else if(npc.getText().get(0).equals("바야르")) {
 	 	    		if(getQuestName(player).equals("N")) {
 	 	    			
-	 	    		} else if (getQuestName(player).equals("q0135") || getQuestName(player).equals("q0187")) {
+	 	    		} else if (getQuestName(player).equals("q0135") || getQuestName(player).equals("q0187") || getQuestName(player).equals("q0216")) {
 	 	    			int persent = 30;
 						
 						persent += (6 - new PlayerGrade().returnGrade(player)) * 4;
@@ -9768,6 +9966,8 @@ public class Main extends JavaPlugin implements Listener{
 								qb.q0135(player, qNum + 1, false);
 							} else if(getQuestName(player).equals("q0187")) {
 								qb.q0187(player, qNum + 1, false);
+							} else if(getQuestName(player).equals("q0216")) {
+								qb.q0216(player, qNum + 1, false);
 							}
     						player.sendMessage(ChatColor.GOLD + "[System] 바야르에게 향이 깊은 차를 대접받았습니다. (성공확률: " + persent + "%)");
 						} else {
@@ -9782,15 +9982,6 @@ public class Main extends JavaPlugin implements Listener{
 								n.forceUpdate();
 							}
 						}
-	 	    		} else {
-	 	    			
-	 	    		}
-	 	    	} else if(npc.getText().get(0).equals("네모")) {
-	 	    		if (getQuestName(player).equals("q0071")) {
-	 	    			QuestBoard qb = new QuestBoard();
-	 	    			new Message().msg(player, "네모: 시선 사무소에서 오셨군요!%네모: 여기 관측 장치입니다㨒%네모: 이런 푼돈 벌려고 발버둥치는 모습이 정말 보기 좋네요㨒");
-						int qNum = qb.getNum(player);
-        				qb.q0071(player, qNum + 1, false);
 	 	    		} else {
 	 	    			
 	 	    		}
