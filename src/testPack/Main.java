@@ -1048,7 +1048,7 @@ public class Main extends JavaPlugin implements Listener{
 	public void die(PlayerDeathEvent event) {
 		try {
 			Player player = (Player) event.getEntity();
-			double distance = 1000;
+			double distance = 10000;
 			LivingEntity ent = null;
 			List<Entity> near = player.getNearbyEntities(10, 10, 10);
 			for(Entity entity : near) {
@@ -1175,6 +1175,28 @@ public class Main extends JavaPlugin implements Listener{
 					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 웃는 얼굴들에게 포가 떠져죽었습니다.");
 				} else if (name.equals(ChatColor.RED + "" + ChatColor.BOLD + "마리아치 간부")) {
 					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 마라카스에 머리가 깨져 죽었습니다.");
+				} else if (name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "엄지 카포")) {
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 손가락이 부러지고 혀가 잘리면서 천천히 죽었습니다.");
+				} else if (name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "검지 대행자")) {
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 도시의 의지로 사라졌습니다.");
+				} else if (name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "검지 전령")) {
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 도시의 의지로 사라졌습니다.");
+				} else if (name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "콩콩이파 조직원")) {
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 밑장빼기를 하다걸려 죽었습니다.");
+				} else if (name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "검계 조직원")) {
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 유려하게 베어 갈갈이 찢어져 버렸습니다.");
+				} else if (name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "밤의 송곳 조직원")) {
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 온 몸에 구멍이 뚫리며 죽었습니다.");
+				} else if (name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "처형 집행자 엄지 카포")) {
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 손가락이 부러지고 혀가 잘리면서 천천히 죽었습니다.");
+				} else if (name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "해금된 검지 대행자")) {
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 도시의 의지로 사라졌습니다.");
+				} else if (name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "콩콩이파 간부")) {
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 밑장빼기를 하다걸려 죽었습니다.");
+				} else if (name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "무명의 검계 삿갓")) {
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 유려하게 베어 갈갈이 찢어져 버렸습니다.");
+				} else if (name.equals(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "밤의 송곳 간부")) {
+					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 온 몸에 구멍이 뚫리며 죽었습니다.");
 				} else if (name.equals(ChatColor.WHITE + "" + ChatColor.BOLD + "변이된 나뭇잎")) {
 					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 외곽의 유적에서 잊혀졌습니다.");
 				} else if (name.equals(ChatColor.WHITE + "" + ChatColor.BOLD + "나태한 수호령")) {

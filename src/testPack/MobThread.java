@@ -152,7 +152,7 @@ public class MobThread implements Listener{
 		int x = rnd.nextInt(10) - 5;
 		int z = rnd.nextInt(10) - 5;
 		loc.add(x, 0, z);
-		loc.add(0, 1, 0);
+		loc.add(-0.5, 1, 0.5);
 		return loc;
 	}
 

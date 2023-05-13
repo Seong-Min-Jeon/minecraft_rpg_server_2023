@@ -276,7 +276,7 @@ public class RefreshServer {
 			 				
 			 				Zombie entity = (Zombie) world.spawnEntity(loc, EntityType.ZOMBIE);
 			 				
-			 				int tmp = rnd.nextInt(15);
+			 				int tmp = rnd.nextInt(14);
 			 				if(tmp == 0) {
 			 					Location chestLoc = new Location(world, -1147, 166, 1467);
 								Block block = chestLoc.getBlock();
