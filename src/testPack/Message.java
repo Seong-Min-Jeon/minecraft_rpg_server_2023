@@ -8,6 +8,8 @@ import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.block.Block;
+import org.bukkit.block.Chest;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -1111,6 +1113,66 @@ public class Message {
 					} else if(ary[cnt].substring(0, 5).equals("q0217")) {
 						QuestBoard qb = new QuestBoard();
 						qb.q0217(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0218")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0218(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0219")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0219(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0220")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0220(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0221")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0221(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0222")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0222(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0223")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0223(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0224")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0224(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0225")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0225(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0226")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0226(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0227")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0227(player, 0, true);
+						
+						//퀘스트 아이템 주기
+						Location chestLoc = new Location(player.getWorld(), -1140, 166, 1468);
+						Block block = chestLoc.getBlock();
+						Chest chest = (Chest) block.getState();
+						ItemStack item = chest.getInventory().getItem(10);
+						player.getInventory().addItem(item);
+						
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0228")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0228(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0229")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0229(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0225")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0225(player, 0, true);
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
 					} else if(ary[cnt].substring(0, 5).equals("uq9SS")) {
 						QuestBoard qb = new QuestBoard();
