@@ -27,6 +27,7 @@ import org.bukkit.entity.Illusioner;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Rabbit;
 import org.bukkit.entity.Stray;
+import org.bukkit.entity.Villager;
 import org.bukkit.entity.Wolf;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -6849,7 +6850,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -7316,7 +7317,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -7656,7 +7657,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -8027,7 +8028,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -8560,7 +8561,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -8853,7 +8854,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -9379,7 +9380,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -9672,7 +9673,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -10202,7 +10203,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -10495,7 +10496,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -10978,7 +10979,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -11271,7 +11272,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -11918,7 +11919,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -12405,7 +12406,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -12896,7 +12897,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -13541,7 +13542,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -14025,7 +14026,7 @@ public class QuestBoard {
 			return;
 		}
 		if(start) {
-			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			String[] loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
 			
 			//퀘스트 엔티티 소환
 			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
@@ -14148,6 +14149,396 @@ public class QuestBoard {
 		}
 	}
 	
+	public void q0230(Player player, int num, boolean start) {
+		if(num>=2) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("베이야드")) {
+				player.setLevel(player.getLevel() + 2700000);
+				giveExp(player, 300);
+				player.sendMessage(ChatColor.GOLD + "[System] 2700000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 900000);
+				giveExp(player, 100);
+				player.sendMessage(ChatColor.GOLD + "[System] 900000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0230", Criteria.DUMMY, ChatColor.GOLD + "[베이야드의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("검계 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/2)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0230", Criteria.DUMMY, ChatColor.GOLD + "[베이야드의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("검계 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/2)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+	}
+	
+	public void q0231(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("베이야드")) {
+				player.setLevel(player.getLevel() + 2700000);
+				giveExp(player, 300);
+				player.sendMessage(ChatColor.GOLD + "[System] 2700000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 900000);
+				giveExp(player, 100);
+				player.sendMessage(ChatColor.GOLD + "[System] 900000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			
+			//퀘스트 엔티티 소환
+			Illusioner illusioner = (Illusioner) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.ILLUSIONER);
+			illusioner.setCustomName(ChatColor.WHITE + "" + player.getDisplayName() + "의 목표물");
+			illusioner.setCustomNameVisible(true);
+			illusioner.setAI(false);
+			illusioner.setInvulnerable(true);
+			illusioner.setCollidable(false);
+			illusioner.setPersistent(true); 
+			illusioner.setSilent(true); 
+			illusioner.setRemoveWhenFarAway(false);
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, illusioner);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0231", Criteria.DUMMY, ChatColor.GOLD + "[베이야드의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 검계 처리");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0231", Criteria.DUMMY, ChatColor.GOLD + "[베이야드의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+			Score score = obj.getScore("[정예] 검계 처리");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+		}
+	}
+	
+	public void q0232(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("베이야드")) {
+				player.setLevel(player.getLevel() + 4000000);
+				giveExp(player, 500);
+				player.sendMessage(ChatColor.GOLD + "[System] 4000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1300000);
+				giveExp(player, 160);
+				player.sendMessage(ChatColor.GOLD + "[System] 1300000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0232", Criteria.DUMMY, ChatColor.GOLD + "[베이야드의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("도시의 별급 이상 뒤틀림 사냥");
+		score.setScore(1);
+		Score score2 = obj.getScore("(" + num + "/1)");
+		score2.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0233(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("베이야드")) {
+				player.setLevel(player.getLevel() + 4000000);
+				giveExp(player, 500);
+				player.sendMessage(ChatColor.GOLD + "[System] 4000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 1300000);
+				giveExp(player, 160);
+				player.sendMessage(ChatColor.GOLD + "[System] 1300000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		//퀘스트 스코어보드에 적용
+		ScoreboardManager manager = Bukkit.getScoreboardManager();
+		Scoreboard board = manager.getNewScoreboard();
+		Objective obj = board.registerNewObjective("q0233", Criteria.DUMMY, ChatColor.GOLD + "[베이야드의 의뢰]");
+		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+		Score score = obj.getScore("외곽의 유적 조사");
+		score.setScore(1);
+		Score score2 = obj.getScore("(" + num + "/1)");
+		score2.setScore(0);
+		player.setScoreboard(board);
+		
+		for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+			n.update();
+			n.forceUpdate();
+		}
+	}
+	
+	public void q0234(Player player, int num, boolean start) {
+		if(num>=1) {
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			QuestOwner qo = new QuestOwner();
+			qo.returnEntity(player).remove();
+			qo.remove(player);
+			
+			int tmp = rnd.nextInt(11);
+			if(tmp == 0) {
+				player.sendMessage(ChatColor.WHITE + "길 잃은 해결사: 후에에엥.");
+			} else if(tmp == 1) {
+				player.sendMessage(ChatColor.WHITE + "길 잃은 해결사: 이히히히힝욀왈월월꼬끼오.");
+			} else if(tmp == 2) {
+				player.sendMessage(ChatColor.WHITE + "길 잃은 해결사: 냐옹㨒");
+			} else if(tmp == 3) {
+				player.sendMessage(ChatColor.WHITE + "길 잃은 해결사: 햄햄팡팡 예약했단 말이야.");
+			} else if(tmp == 4) {
+				player.sendMessage(ChatColor.WHITE + "길 잃은 해결사: 거던으로㨒!");
+			} else if(tmp == 5) {
+				player.sendMessage(ChatColor.WHITE + "길 잃은 해결사: 나는 분명 도서관에서…");
+			} else if(tmp == 6) {
+				player.sendMessage(ChatColor.WHITE + "길 잃은 해결사: 아아… 왔어… 부디 저를…!");
+			} else if(tmp == 7) {
+				player.sendMessage(ChatColor.WHITE + "길 잃은 해결사: 우리는 모두의 고향인 푸른 별로 돌아가야해!!");
+			} else if(tmp == 8) {
+				player.sendMessage(ChatColor.WHITE + "길 잃은 해결사: 몰래 림버스 컴퍼니 하고 있었는데 들켰잖아?");
+			} else if(tmp == 9) {
+				player.sendMessage(ChatColor.WHITE + "길 잃은 해결사: 나 또한 사라지오.");
+			} else if(tmp == 10) {
+				player.sendMessage(ChatColor.WHITE + "길 잃은 해결사: 알아서 뭐하게.");
+			}
+			
+			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
+			if(office.equals("베이야드")) {
+				player.setLevel(player.getLevel() + 1000000);
+				giveExp(player, 100);
+				player.sendMessage(ChatColor.GOLD + "[System] 1000000안을 획득했다.");
+			} else {
+				player.setLevel(player.getLevel() + 300000);
+				giveExp(player, 30);
+				player.sendMessage(ChatColor.GOLD + "[System] 300000안을 획득했다.");
+			}
+			player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+			return;
+		}
+		if(start) {
+			String[] loc = getLocation(player, -1142, 62, 1301, -1190, 62, 1134).split("/");
+			
+			int tmp = rnd.nextInt(5);
+			if(tmp == 0) {
+				loc = getLocation(player, -1142, 62, 1301, -1190, 62, 1134).split("/");
+			} else if(tmp == 1) {
+				loc = getLocation(player, -1001, 62, 1182, -1119, 62, 1092).split("/");
+			} else if(tmp == 2) {
+				loc = getLocation(player, -919, 62, 1455, -985, 62, 1349).split("/");
+			} else if(tmp == 3) {
+				loc = getLocation(player, -1206, 62, 1449, -1292, 62, 1307).split("/");
+			} else if(tmp == 4) {
+				loc = getLocation(player, -964, 62, 1348, -1034, 62, 1200).split("/");
+			}
+			
+			//퀘스트 엔티티 소환
+			Villager vil = (Villager) player.getWorld().spawnEntity(new Location(player.getWorld(), Integer.parseInt(loc[0])-0.5, Integer.parseInt(loc[1]), Integer.parseInt(loc[2])+0.5, rnd.nextInt(360), 0), EntityType.VILLAGER);
+			vil.setCustomName(ChatColor.WHITE + "길 잃은 해결사");
+			vil.setCustomNameVisible(true);
+			vil.setAI(false);
+			vil.setInvulnerable(true);
+			vil.setCollidable(false);
+			int tmp2 = rnd.nextInt(7);
+			if(tmp2 == 0) {
+				vil.setVillagerType(Villager.Type.DESERT);
+			} else if(tmp2 == 1) {
+				vil.setVillagerType(Villager.Type.JUNGLE);
+			} else if(tmp2 == 2) {
+				vil.setVillagerType(Villager.Type.PLAINS);
+			} else if(tmp2 == 3) {
+				vil.setVillagerType(Villager.Type.SAVANNA);
+			} else if(tmp2 == 4) {
+				vil.setVillagerType(Villager.Type.SNOW);
+			} else if(tmp2 == 5) {
+				vil.setVillagerType(Villager.Type.SWAMP);
+			} else if(tmp2 == 6) {
+				vil.setVillagerType(Villager.Type.TAIGA);
+			}
+			
+			int tmp3 = rnd.nextInt(15);
+			if(tmp3 == 0) {
+				vil.setProfession(Villager.Profession.ARMORER);
+			} else if(tmp3 == 1) {
+				vil.setProfession(Villager.Profession.BUTCHER);
+			} else if(tmp3 == 2) {
+				vil.setProfession(Villager.Profession.CARTOGRAPHER);
+			} else if(tmp3 == 3) {
+				vil.setProfession(Villager.Profession.CLERIC);
+			} else if(tmp3 == 4) {
+				vil.setProfession(Villager.Profession.FARMER);
+			} else if(tmp3 == 5) {
+				vil.setProfession(Villager.Profession.FISHERMAN);
+			} else if(tmp3 == 6) {
+				vil.setProfession(Villager.Profession.FLETCHER);
+			} else if(tmp3 == 7) {
+				vil.setProfession(Villager.Profession.LEATHERWORKER);
+			} else if(tmp3 == 8) {
+				vil.setProfession(Villager.Profession.LIBRARIAN);
+			} else if(tmp3 == 9) {
+				vil.setProfession(Villager.Profession.MASON);
+			} else if(tmp3 == 10) {
+				vil.setProfession(Villager.Profession.NITWIT);
+			} else if(tmp3 == 11) {
+				vil.setProfession(Villager.Profession.SHEPHERD);
+			} else if(tmp3 == 12) {
+				vil.setProfession(Villager.Profession.TOOLSMITH);
+			} else if(tmp3 == 13) {
+				vil.setProfession(Villager.Profession.WEAPONSMITH);
+			} else if(tmp3 == 14) {
+				vil.setProfession(Villager.Profession.NONE);
+			}
+			
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
+			qo.put(player, vil);
+			
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0234", Criteria.DUMMY, ChatColor.GOLD + "[베이야드의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
+			Score score = obj.getScore("사라진 해결사를 찾기");
+			score.setScore(2);
+			Score score2 = obj.getScore(loc[0] + ", " + loc[1] + ", " + loc[2]);
+			score2.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		} else {
+			//퀘스트 스코어보드에 적용
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard board = manager.getNewScoreboard();
+			Objective obj = board.registerNewObjective("q0234", Criteria.DUMMY, ChatColor.GOLD + "[베이야드의 의뢰]");
+			obj.setDisplaySlot(DisplaySlot.SIDEBAR);		
+			Score score = obj.getScore("사라진 해결사를 찾기");
+			score.setScore(1);
+			Score score3 = obj.getScore("(" + num + "/1)");
+			score3.setScore(0);
+			player.setScoreboard(board);
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			}
+		}
+		
+	}
 	
 	
 	

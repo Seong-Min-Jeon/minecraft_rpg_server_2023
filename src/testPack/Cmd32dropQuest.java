@@ -34,7 +34,7 @@ public class Cmd32dropQuest implements CommandExecutor {
 					String grade = ary.get(1).split("\\[")[0];
 					String exp = ary.get(1).split("\\[")[1].split("/")[0];
 					String maxExp = ary.get(1).split("\\]")[0].split("/")[1];
-					int newExp = Integer.parseInt(exp) - (Integer.parseInt(maxExp) / 10);
+					int newExp = Integer.parseInt(exp) - fixDecr(player, Integer.parseInt(maxExp));
 					//if (newExp < 0) {newExp = 0;}
 					ary.set(1, ChatColor.GRAY + grade + "[" + String.valueOf(newExp) + "/" + maxExp + "]");
 					itemIM.setLore(ary);
@@ -65,6 +65,94 @@ public class Cmd32dropQuest implements CommandExecutor {
 			}
 		}	
 		return true;
+	}
+	
+	public int fixDecr(Player player, int num) {
+		if (getQuestName(player).equals("uq8")) {
+			return 1;
+		} else if (getQuestName(player).equals("uq7")) {
+			return 1;
+		} else if (getQuestName(player).equals("uq6")) {
+			return 1;
+		} else if (getQuestName(player).equals("uq5")) {
+			return 1;
+		} else if (getQuestName(player).equals("uq4")) {
+			return 1;
+		} else if (getQuestName(player).equals("uq3")) {
+			return 1;
+		} else if (getQuestName(player).equals("uq2")) {
+			return 1;
+		} else if (getQuestName(player).equals("uq1")) {
+			return 1;
+		} else if (getQuestName(player).equals("q0025")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0031")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0039")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0048")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0054")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0062")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0068")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0072")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0082")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0090")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0096")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0097")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0103")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0111")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0119")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0124")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0125")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0130")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0145")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0146")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0158")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0159")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0170")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0171")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0182")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0183")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0194")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0202")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0209")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0213")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0220")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0226")) {
+			return num/20;
+		} else if (getQuestName(player).equals("q0232")) {
+			return num/20;
+		}
+		
+		return num/10;
 	}
 
 	public String getQuestName(Player player) {

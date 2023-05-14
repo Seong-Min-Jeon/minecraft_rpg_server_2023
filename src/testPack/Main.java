@@ -1052,7 +1052,7 @@ public class Main extends JavaPlugin implements Listener{
 			LivingEntity ent = null;
 			List<Entity> near = player.getNearbyEntities(10, 10, 10);
 			for(Entity entity : near) {
-				if(entity instanceof LivingEntity) {
+				if(entity instanceof LivingEntity && !(entity instanceof ArmorStand)) {
 					if(player.getLocation().distance(entity.getLocation()) < distance) {
 						distance = player.getLocation().distance(entity.getLocation());
 						ent = (LivingEntity) entity;
@@ -1230,6 +1230,18 @@ public class Main extends JavaPlugin implements Listener{
 		try {
 			Player player = (Player)event.getEntity();
 			TTA_Methods.sendTitle(player, ChatColor.RED + "Game Over", 20, 60, 20, "", 20, 60, 20);
+		} catch(Exception e) {
+			
+		}
+		
+		//퀘스트 엔티티 제거
+		try {
+			Player player = (Player)event.getEntity();
+			QuestOwner qo = new QuestOwner();
+			if(qo.returnEntity(player) != null) {
+				qo.returnEntity(player).remove();
+				qo.remove(player);
+			}
 		} catch(Exception e) {
 			
 		}
@@ -2293,6 +2305,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0226")) {
 							int qNum = qb.getNum(player);
 							qb.q0226(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0232")) {
+							int qNum = qb.getNum(player);
+							qb.q0232(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "우는 영혼들의 산", 40, 40, 20);
@@ -2423,6 +2438,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0226")) {
 							int qNum = qb.getNum(player);
 							qb.q0226(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0232")) {
+							int qNum = qb.getNum(player);
+							qb.q0232(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "도망쳐", 40, 40, 20);
@@ -2553,6 +2571,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0226")) {
 							int qNum = qb.getNum(player);
 							qb.q0226(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0232")) {
+							int qNum = qb.getNum(player);
+							qb.q0232(player, qNum + 1, false);
 						}
 					}
 				}
@@ -5898,7 +5919,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
 					} else if (getQuestName(player).equals("q0143") || getQuestName(player).equals("q0168") || getQuestName(player).equals("q0192") ||
-							getQuestName(player).equals("q0207")) {
+							getQuestName(player).equals("q0207") || getQuestName(player).equals("q0230")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -6116,7 +6137,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 14, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
-					} else if (getQuestName(player).equals("q0156") || getQuestName(player).equals("q0180") || getQuestName(player).equals("q0200")) {
+					} else if (getQuestName(player).equals("q0156") || getQuestName(player).equals("q0180") || getQuestName(player).equals("q0200") ||
+							getQuestName(player).equals("q0231")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -6202,6 +6224,9 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 11, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
+					} else if (getQuestName(player).equals("q0234")) {
+						int qNum = qb.getNum(player);
+						qb.q0234(player, qNum + 1, false);
 					}
 					
 				}
@@ -10098,6 +10123,92 @@ public class Main extends JavaPlugin implements Listener{
 		 	    			new Message().msg(player, "네모: 돈만 주신다면 의뢰를 대신 해드리죠.%네모: 100억안 정도면 되겠네요!");
 		 	    		}
 	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("르노")) {
+	 	    		int num = rnd.nextInt(3);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "르노: 마우그리스만 아니었으면 이런 곳에서 고생하진 않았을텐데 말이지!");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "르노: 사실 베이야드를 실질적으로 이끄는건 나야.%르노: 바야르는 그냥 나이만 많은 바지사장이라고.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "르노: 일을 구하고 싶으면 바야르한테 가봐.%르노: 이래뵈도 우리는 도시의 별 의뢰를 받고있으니 실력이 안되면 나가주고.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("바야르")) {
+	 	    		if(getQuestName(player).equals("N")) {
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("베이야드")) {
+	 	    				int num = rnd.nextInt(4);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "바야르: 세상에는 검을 쓰는 자도 있고, 우리처럼 창을 사용하는 사람도 있고,%바야르: 또다른 무기를 사용하는 자들이 있지.%바야르: 그런데 말일세.%"
+	 	    							+ "바야르: 검을 사용하는 자들 중에서 검만이 옳다고 여기는 자들이 있네.%바야르: 그들은 우리를 이단이라고 여기며 암살 시도도 했다네.%바야르: 그들의 처리를 부탁하네.%"
+	 	    							+ "바야르: 자네가 검을 사용한다면 그들에게 접근하기 쉬울걸세.%q0230");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "바야르: 세상에는 검을 쓰는 자도 있고, 우리처럼 창을 사용하는 사람도 있고,%바야르: 또다른 무기를 사용하는 자들이 있지.%바야르: 그런데 말일세.%"
+	 	    							+ "바야르: 검을 사용하는 자들 중에서 검만이 옳다고 여기는 자들이 있네.%바야르: 그들은 우리를 이단이라고 여기며 암살 시도도 했다네.%바야르: 그들의 처리를 부탁하네.%"
+	 	    							+ "바야르: 자네가 검을 사용한다면 그들에게 접근하기 쉬울걸세.%q0231");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "바야르: 뒤틀림을 처리하고 오게.%바야르: 소중한 우리 가족을 잃고 싶지 않으니 죽지 말게.%바야르: 혹여나 죽을 것 같으면 의뢰를 포기하게.%"
+	 	    							+ "바야르: 자네 대신 다른 강한 해결사도 많으니…%q0232");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "바야르: 이 세계에는 낭만이 넘치는 곳이 있지 않겠나?%바야르: 난 외곽에서 그것을 보았다네.%바야르: 넓고 웅장한 유적과 반짝이는 유물들…%"
+	 	    							+ "바야르: 자네도 그걸 한번 느끼고 오게나.%바야르: 쉬는 시간이라고 생각해도 좋아.%q0233");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "바야르: 또 우리 소속 해결사가 사무소를 나갔다네.%바야르: 왜 이렇게 가출하는 애들이 많은지 영…%바야르: 자네가 잘 설득해서 좀 찾아와주게나.%q0234");
+	 	    				} 
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) <= 2)) {
+		 	    			new Message().msg(player, "바야르: 자네도 우리 소속이 되고 싶은겐가?%바야르: 좋네.%바야르: 우리 가족이 하나 늘었구만.%바야르: 축하하네.%beiyad");
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "바야르: 허허허.%바야르: 꼬마는 하던 일이나 열심히 하게.%바야르: 우리 사무소는 더 강한 해결사들이 오는 곳이란다.");
+		 	    		} else {
+		 	    			new Message().msg(player, "바야르: 각지에서 모인 떠돌이 해결사들을 받아주고 있다네.%바야르: 그래서 나도 우리 소속 해결사를 구분 못한다네!");
+		 	    		}
+	 	    		} else if (getQuestName(player).equals("q0135") || getQuestName(player).equals("q0187") || getQuestName(player).equals("q0216")) {
+	 	    			int persent = 30;
+						
+						persent += (6 - new PlayerGrade().returnGrade(player)) * 4;
+						
+						try {
+							ItemStack item = player.getInventory().getItem(7);
+							String name = item.getItemMeta().getDisplayName();
+							persent += Integer.parseInt(name.substring(name.length()-1, name.length())) * 5;
+						} catch(Exception e2) {
+							
+						}
+						
+						if(rnd.nextInt(100) < persent) {
+							QuestBoard qb = new QuestBoard();
+							int qNum = qb.getNum(player);
+							if(getQuestName(player).equals("q0135")) {
+								qb.q0135(player, qNum + 1, false);
+							} else if(getQuestName(player).equals("q0187")) {
+								qb.q0187(player, qNum + 1, false);
+							} else if(getQuestName(player).equals("q0216")) {
+								qb.q0216(player, qNum + 1, false);
+							}
+    						player.sendMessage(ChatColor.GOLD + "[System] 바야르에게 향이 깊은 차를 대접받았습니다. (성공확률: " + persent + "%)");
+						} else {
+							player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+							player.sendMessage(ChatColor.GOLD + "[System] 바야르가 당신과 세대차이를 느낍니다. (성공확률: " + persent + "%)");
+							player.sendMessage(ChatColor.GOLD + "[System] 바야르의 쐐기 찌르기로 최대체력이 2만큼 감소합니다.");
+							damageMaxHealth(player, 2);
+							player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_HURT, 1.0f, 1.0f);
+							
+							for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+								n.update();
+								n.forceUpdate();
+							}
+						}
+	 	    		} else {
+	 	    			if(office.equals("베이야드")) {
+	 	    				new Message().msg(player, "바야르: 실적을 내는 해결사라면 내가 기억을 해주지.%바야르: 우리 소속 해결사가 너무 많아서 말이야…");
+		 	    		} else if(office.equals("무소속") && (new PlayerGrade().returnGrade(player) <= 2)) {
+		 	    			new Message().msg(player, "바야르: 일이 없을 때 나에게 오게.%바야르: 실력도 좋아보이고, 우리 가족이 되었으면 하는구만.");
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "바야르: 허허허.%바야르: 꼬마는 하던 일이나 열심히 하게.%바야르: 우리 사무소는 더 강한 해결사들이 오는 곳이란다.");
+		 	    		} else {
+		 	    			new Message().msg(player, "바야르: 각지에서 모인 떠돌이 해결사들을 받아주고 있다네.%바야르: 그래서 나도 우리 소속 해결사를 구분 못한다네!");
+		 	    		}
+	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("우제트")) {
 	 	    		if(getQuestName(player).equals("N")) {
 	 	    			
@@ -10129,48 +10240,6 @@ public class Main extends JavaPlugin implements Listener{
 							player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 							player.sendMessage(ChatColor.GOLD + "[System] 우제트는 이 일을 기억할 것입니다. (성공확률: " + persent + "%)");
 							player.sendMessage(ChatColor.GOLD + "[System] 우제트의 모래 베기로 최대체력이 2만큼 감소합니다.");
-							damageMaxHealth(player, 2);
-							player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_HURT, 1.0f, 1.0f);
-							
-							for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
-								n.update();
-								n.forceUpdate();
-							}
-						}
-	 	    		} else {
-	 	    			
-	 	    		}
-	 	    	} else if(npc.getText().get(0).equals("바야르")) {
-	 	    		if(getQuestName(player).equals("N")) {
-	 	    			
-	 	    		} else if (getQuestName(player).equals("q0135") || getQuestName(player).equals("q0187") || getQuestName(player).equals("q0216")) {
-	 	    			int persent = 30;
-						
-						persent += (6 - new PlayerGrade().returnGrade(player)) * 4;
-						
-						try {
-							ItemStack item = player.getInventory().getItem(7);
-							String name = item.getItemMeta().getDisplayName();
-							persent += Integer.parseInt(name.substring(name.length()-1, name.length())) * 5;
-						} catch(Exception e2) {
-							
-						}
-						
-						if(rnd.nextInt(100) < persent) {
-							QuestBoard qb = new QuestBoard();
-							int qNum = qb.getNum(player);
-							if(getQuestName(player).equals("q0135")) {
-								qb.q0135(player, qNum + 1, false);
-							} else if(getQuestName(player).equals("q0187")) {
-								qb.q0187(player, qNum + 1, false);
-							} else if(getQuestName(player).equals("q0216")) {
-								qb.q0216(player, qNum + 1, false);
-							}
-    						player.sendMessage(ChatColor.GOLD + "[System] 바야르에게 향이 깊은 차를 대접받았습니다. (성공확률: " + persent + "%)");
-						} else {
-							player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
-							player.sendMessage(ChatColor.GOLD + "[System] 바야르가 당신과 세대차이를 느낍니다. (성공확률: " + persent + "%)");
-							player.sendMessage(ChatColor.GOLD + "[System] 바야르의 쐐기 찌르기로 최대체력이 2만큼 감소합니다.");
 							damageMaxHealth(player, 2);
 							player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_HURT, 1.0f, 1.0f);
 							

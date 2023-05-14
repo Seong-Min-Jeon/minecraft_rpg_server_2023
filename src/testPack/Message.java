@@ -1170,10 +1170,40 @@ public class Message {
 						QuestBoard qb = new QuestBoard();
 						qb.q0229(player, 0, true);
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
-					} else if(ary[cnt].substring(0, 5).equals("q0225")) {
+					} else if(ary[cnt].substring(0, 5).equals("q0230")) {
 						QuestBoard qb = new QuestBoard();
-						qb.q0225(player, 0, true);
+						qb.q0230(player, 0, true);
 						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0231")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0231(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0232")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0232(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0233")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0233(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					} else if(ary[cnt].substring(0, 5).equals("q0234")) {
+						QuestBoard qb = new QuestBoard();
+						qb.q0234(player, 0, true);
+						player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 3.0f);
+					}
+					
+					
+					 else if(ary[cnt].substring(0, 5).equals("beiya")) {
+						String office = "베이야드";
+							
+						ItemStack license = player.getInventory().getItem(8);
+						ItemMeta licenseMeta = license.getItemMeta();
+						ArrayList<String> lore = (ArrayList<String>) licenseMeta.getLore();
+						lore.set(2, ChatColor.GRAY + "소속: " + office);
+						licenseMeta.setLore(lore);
+						license.setItemMeta(licenseMeta);
+							
+						player.sendMessage(ChatColor.GOLD + "[System] " + office + "에 가입되었습니다.");
 					} else if(ary[cnt].substring(0, 5).equals("uq9SS")) {
 						QuestBoard qb = new QuestBoard();
 						qb.uq9SS(player, 0, true);
