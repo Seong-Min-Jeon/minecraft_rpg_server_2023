@@ -10137,7 +10137,7 @@ public class Main extends JavaPlugin implements Listener{
 	 	    			player.getInventory().remove(Material.PAPER);
 	 	    			player.getEnderChest().remove(Material.PAPER);
 	 	    			if(office.equals("베이야드")) {
-	 	    				int num = rnd.nextInt(4);
+	 	    				int num = rnd.nextInt(5);
 	 	    				if(num == 0) {
 	 	    					new Message().msg(player, "바야르: 세상에는 검을 쓰는 자도 있고, 우리처럼 창을 사용하는 사람도 있고,%바야르: 또다른 무기를 사용하는 자들이 있지.%바야르: 그런데 말일세.%"
 	 	    							+ "바야르: 검을 사용하는 자들 중에서 검만이 옳다고 여기는 자들이 있네.%바야르: 그들은 우리를 이단이라고 여기며 암살 시도도 했다네.%바야르: 그들의 처리를 부탁하네.%"

@@ -25,6 +25,9 @@ public class Cmd32dropQuest implements CommandExecutor {
 			Player player = (Player) sender;
 			
 			if(!getQuestName(player).equals("N")) {
+				
+				String quest = getQuestName(player);
+				
 				//퀘스트 제거
 				player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 				try {
@@ -34,7 +37,7 @@ public class Cmd32dropQuest implements CommandExecutor {
 					String grade = ary.get(1).split("\\[")[0];
 					String exp = ary.get(1).split("\\[")[1].split("/")[0];
 					String maxExp = ary.get(1).split("\\]")[0].split("/")[1];
-					int newExp = Integer.parseInt(exp) - fixDecr(player, Integer.parseInt(maxExp));
+					int newExp = Integer.parseInt(exp) - fixDecr(quest, Integer.parseInt(maxExp));
 					//if (newExp < 0) {newExp = 0;}
 					ary.set(1, ChatColor.GRAY + grade + "[" + String.valueOf(newExp) + "/" + maxExp + "]");
 					itemIM.setLore(ary);
@@ -67,88 +70,88 @@ public class Cmd32dropQuest implements CommandExecutor {
 		return true;
 	}
 	
-	public int fixDecr(Player player, int num) {
-		if (getQuestName(player).equals("uq8")) {
+	public int fixDecr(String quest, int num) {
+		if (quest.equals("uq8")) {
 			return 1;
-		} else if (getQuestName(player).equals("uq7")) {
+		} else if (quest.equals("uq7")) {
 			return 1;
-		} else if (getQuestName(player).equals("uq6")) {
+		} else if (quest.equals("uq6")) {
 			return 1;
-		} else if (getQuestName(player).equals("uq5")) {
+		} else if (quest.equals("uq5")) {
 			return 1;
-		} else if (getQuestName(player).equals("uq4")) {
+		} else if (quest.equals("uq4")) {
 			return 1;
-		} else if (getQuestName(player).equals("uq3")) {
+		} else if (quest.equals("uq3")) {
 			return 1;
-		} else if (getQuestName(player).equals("uq2")) {
+		} else if (quest.equals("uq2")) {
 			return 1;
-		} else if (getQuestName(player).equals("uq1")) {
+		} else if (quest.equals("uq1")) {
 			return 1;
-		} else if (getQuestName(player).equals("q0025")) {
+		} else if (quest.equals("q0025")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0031")) {
+		} else if (quest.equals("q0031")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0039")) {
+		} else if (quest.equals("q0039")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0048")) {
+		} else if (quest.equals("q0048")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0054")) {
+		} else if (quest.equals("q0054")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0062")) {
+		} else if (quest.equals("q0062")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0068")) {
+		} else if (quest.equals("q0068")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0072")) {
+		} else if (quest.equals("q0072")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0082")) {
+		} else if (quest.equals("q0082")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0090")) {
+		} else if (quest.equals("q0090")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0096")) {
+		} else if (quest.equals("q0096")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0097")) {
+		} else if (quest.equals("q0097")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0103")) {
+		} else if (quest.equals("q0103")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0111")) {
+		} else if (quest.equals("q0111")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0119")) {
+		} else if (quest.equals("q0119")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0124")) {
+		} else if (quest.equals("q0124")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0125")) {
+		} else if (quest.equals("q0125")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0130")) {
+		} else if (quest.equals("q0130")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0145")) {
+		} else if (quest.equals("q0145")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0146")) {
+		} else if (quest.equals("q0146")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0158")) {
+		} else if (quest.equals("q0158")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0159")) {
+		} else if (quest.equals("q0159")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0170")) {
+		} else if (quest.equals("q0170")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0171")) {
+		} else if (quest.equals("q0171")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0182")) {
+		} else if (quest.equals("q0182")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0183")) {
+		} else if (quest.equals("q0183")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0194")) {
+		} else if (quest.equals("q0194")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0202")) {
+		} else if (quest.equals("q0202")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0209")) {
+		} else if (quest.equals("q0209")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0213")) {
+		} else if (quest.equals("q0213")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0220")) {
+		} else if (quest.equals("q0220")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0226")) {
+		} else if (quest.equals("q0226")) {
 			return num/20;
-		} else if (getQuestName(player).equals("q0232")) {
+		} else if (quest.equals("q0232")) {
 			return num/20;
 		}
 		
