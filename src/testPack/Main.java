@@ -866,6 +866,30 @@ public class Main extends JavaPlugin implements Listener{
 						qb.q0228(player, Integer.parseInt(num), true);
 					} else if (name.equals("q0229")) {
 						qb.q0229(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0230")) {
+						qb.q0230(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0231")) {
+						qb.q0231(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0232")) {
+						qb.q0232(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0233")) {
+						qb.q0233(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0234")) {
+						qb.q0234(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0235")) {
+						qb.q0235(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0236")) {
+						qb.q0236(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0237")) {
+						qb.q0237(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0238")) {
+						qb.q0238(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0239")) {
+						qb.q0239(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0240")) {
+						qb.q0240(player, Integer.parseInt(num), true);
+					} else if (name.equals("q0241")) {
+						qb.q0241(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq9")) {
 						qb.uq9(player, Integer.parseInt(num), true);
 					} else if (name.equals("uq8")) {
@@ -2308,6 +2332,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0232")) {
 							int qNum = qb.getNum(player);
 							qb.q0232(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0240")) {
+							int qNum = qb.getNum(player);
+							qb.q0240(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "우는 영혼들의 산")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "우는 영혼들의 산", 40, 40, 20);
@@ -2441,6 +2468,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0232")) {
 							int qNum = qb.getNum(player);
 							qb.q0232(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0240")) {
+							int qNum = qb.getNum(player);
+							qb.q0240(player, qNum + 1, false);
 						}
 					} else if(ent.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
 						TTA_Methods.sendTitle(player, "DEMIGOD FELLED", 40, 40, 20, "도망쳐", 40, 40, 20);
@@ -2574,6 +2604,9 @@ public class Main extends JavaPlugin implements Listener{
 						} else if (getQuestName(player).equals("q0232")) {
 							int qNum = qb.getNum(player);
 							qb.q0232(player, qNum + 1, false);
+						} else if (getQuestName(player).equals("q0240")) {
+							int qNum = qb.getNum(player);
+							qb.q0240(player, qNum + 1, false);
 						}
 					}
 				}
@@ -2954,7 +2987,8 @@ public class Main extends JavaPlugin implements Listener{
 							|| item.getType() == Material.CREEPER_BANNER_PATTERN || item.getType() == Material.FLOWER_BANNER_PATTERN || item.getType() == Material.GLOBE_BANNER_PATTERN 
 							|| item.getType() == Material.MOJANG_BANNER_PATTERN || item.getType() == Material.PIGLIN_BANNER_PATTERN || item.getType() == Material.SKULL_BANNER_PATTERN 
 							
-							|| item.getType() == Material.SLIME_BALL || item.getType() == Material.MAGMA_CREAM || item.getType() == Material.SHULKER_SHELL)) {
+							|| item.getType() == Material.SLIME_BALL || item.getType() == Material.MAGMA_CREAM || item.getType() == Material.SHULKER_SHELL
+							|| item.getType() == Material.ACACIA_DOOR)) {
 				event.setCancelled(true);
 				return;
 			}
@@ -3764,6 +3798,12 @@ public class Main extends JavaPlugin implements Listener{
 							} else if (getQuestName(player).equals("q0104")) {
 								int qNum = qb.getNum(player);
 								qb.q0104(player, qNum + 1, false);
+							}
+						} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "약쟁이 소녀")) {
+							new BGM(player, "전투");
+							
+							if(mob.getHealth() < 120) {
+								event.setDamage(999);
 							}
 						} else {
 							new BGM(player, "전투");
@@ -6007,7 +6047,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
 					} else if (getQuestName(player).equals("q0153") || getQuestName(player).equals("q0177") || getQuestName(player).equals("q0197") ||
-							getQuestName(player).equals("q0211")) {
+							getQuestName(player).equals("q0211") || getQuestName(player).equals("q0235")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -6051,7 +6091,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
 					} else if (getQuestName(player).equals("q0154") || getQuestName(player).equals("q0178") || getQuestName(player).equals("q0198") ||
-							getQuestName(player).equals("q0212")) {
+							getQuestName(player).equals("q0212") || getQuestName(player).equals("q0236")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -6094,7 +6134,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 14, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2, false, false));
 						}
-					} else if (getQuestName(player).equals("q0155") || getQuestName(player).equals("q0179") || getQuestName(player).equals("q0199")) {
+					} else if (getQuestName(player).equals("q0155") || getQuestName(player).equals("q0179") || getQuestName(player).equals("q0199") ||
+							getQuestName(player).equals("q0237")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -6138,7 +6179,7 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
 						}
 					} else if (getQuestName(player).equals("q0156") || getQuestName(player).equals("q0180") || getQuestName(player).equals("q0200") ||
-							getQuestName(player).equals("q0231")) {
+							getQuestName(player).equals("q0231") || getQuestName(player).equals("q0238")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -6181,7 +6222,8 @@ public class Main extends JavaPlugin implements Listener{
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 12, false, false));
 							entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2, false, false));
 						}
-					} else if (getQuestName(player).equals("q0157") || getQuestName(player).equals("q0181") || getQuestName(player).equals("q0201")) {
+					} else if (getQuestName(player).equals("q0157") || getQuestName(player).equals("q0181") || getQuestName(player).equals("q0201") ||
+							getQuestName(player).equals("q0239")) {
 						qo.returnEntity(player).remove();
 						qo.remove(player);
 						
@@ -10211,7 +10253,30 @@ public class Main extends JavaPlugin implements Listener{
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("우제트")) {
 	 	    		if(getQuestName(player).equals("N")) {
-	 	    			
+	 	    			player.getInventory().remove(Material.PAPER);
+	 	    			player.getEnderChest().remove(Material.PAPER);
+	 	    			if(office.equals("우제트")) {
+	 	    				int num = rnd.nextInt(7);
+	 	    				if(num == 0) {
+	 	    					new Message().msg(player, "우제트: …%q0235");
+	 	    				} else if(num == 1) {
+	 	    					new Message().msg(player, "우제트: …%q0236");
+	 	    				} else if(num == 2) {
+	 	    					new Message().msg(player, "우제트: …%q0237");
+	 	    				} else if(num == 3) {
+	 	    					new Message().msg(player, "우제트: …%q0238");
+	 	    				} else if(num == 4) {
+	 	    					new Message().msg(player, "우제트: …%q0239");
+	 	    				} else if(num == 5) {
+	 	    					new Message().msg(player, "우제트: …%q0240");
+	 	    				} else if(num == 6) {
+	 	    					new Message().msg(player, "우제트: …%q0241");
+	 	    				} 
+		 	    		} else if(office.equals("무소속")) {
+		 	    			new Message().msg(player, "우제트: …");
+		 	    		} else {
+		 	    			new Message().msg(player, "우제트: …");
+		 	    		}
 	 	    		} else if (getQuestName(player).equals("q0134") || getQuestName(player).equals("q0186") || getQuestName(player).equals("q0215")) {
 	 	    			int persent = 10;
 						
@@ -10249,7 +10314,7 @@ public class Main extends JavaPlugin implements Listener{
 							}
 						}
 	 	    		} else {
-	 	    			
+	 	    			new Message().msg(player, "우제트: …");
 	 	    		}
 	 	    	} else if(npc.getText().get(0).equals("승급 관리원")) {
 	 	    		ItemStack item = player.getInventory().getItem(8);
