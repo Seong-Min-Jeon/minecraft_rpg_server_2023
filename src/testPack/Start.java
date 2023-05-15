@@ -82,6 +82,28 @@ public class Start {
 			player.setMaxHealth(12);
 		} else if(name.equals("가로등 사무소 해결사의 인격")) {
 			player.setMaxHealth(12);
+		} else if(name.equals("어금니 사무소 해결사의 인격")) {
+			player.setMaxHealth(12);
+		} else if(name.equals("마침표 사무소 해결사의 인격")) {
+			player.setMaxHealth(14);
+		} else if(name.equals("새벽 사무소 해결사의 인격")) {
+			player.setMaxHealth(14);
+		} else if(name.equals("쐐기 사무소 해결사의 인격")) {
+			player.setMaxHealth(14);
+		} else if(name.equals("시선 사무소 해결사의 인격")) {
+			player.setMaxHealth(14);
+		} else if(name.equals("쥐의 인격")) {
+			player.setMaxHealth(2);
+		} else if(name.equals("철의 형제의 인격")) {
+			player.setMaxHealth(14);
+		} else if(name.equals("버림받은 개의 인격")) {
+			player.setMaxHealth(12);
+		} else if(name.equals("꿀꿀이네 조직원의 인격")) {
+			player.setMaxHealth(12);
+		} else if(name.equals("도끼파 조직원의 인격")) {
+			player.setMaxHealth(12);
+		} else if(name.equals("정육점파 조직원의 인격")) {
+			player.setMaxHealth(12);
 		}
 		
 		player.setHealth(player.getMaxHealth());
@@ -195,6 +217,167 @@ public class Start {
 			ArrayList<String> weaponLore = new ArrayList<>();
 			weaponLore.add(ChatColor.GRAY + "9급 사무소 해결사도 적당하게 쓸 수 있는 무기");
 			weaponLore.add(ChatColor.GRAY + "어느 공방에서 만들었는지 적혀있지도 않다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("어금니 사무소 해결사의 인격")) {
+			weapon = new ItemStack(Material.OAK_LEAVES);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "어금니 사무소의 톱");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "어금니 사무소에서 주문 제작해 만든 톱");
+			weaponLore.add(ChatColor.GRAY + "처음 사무소에 입사하면 모두에게 나눠준다고 한다.");
+			weaponLore.add(ChatColor.GRAY + "-무기 리소스 임시 적용 중");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("마침표 사무소 해결사의 인격")) {
+			weapon = new ItemStack(Material.TUBE_CORAL_BLOCK);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "그나마 싼 권총");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "로직 아틀리에에서 저가용으로 만든 총");
+			weaponLore.add(ChatColor.GRAY + "마침표 사무소의 말단 해결사들이 주로 사용한다고 한다.");
+			weaponLore.add(ChatColor.GRAY + "목적에 맞도록 호환되는 탄환도 저가이다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("새벽 사무소 해결사의 인격")) {
+			weapon = new ItemStack(Material.ACACIA_PLANKS);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "불꽃을 일으키는 검");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "스티그마 공방에서 제작된 검");
+			weaponLore.add(ChatColor.GRAY + "잘만 사용하면 리우의 불꽃만큼 강한");
+			weaponLore.add(ChatColor.GRAY + "불꽃을 운용할 수도 있다고 한다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("쐐기 사무소 해결사의 인격")) {
+			weapon = new ItemStack(Material.DARK_OAK_SLAB);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "파이크");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "특히 자루가 긴 장창");
+			weaponLore.add(ChatColor.GRAY + "멀리서 찌르는 데에 특화가 되었으며");
+			weaponLore.add(ChatColor.GRAY + "근접 무기 중에서는 공격 범위가 꽤나 길다.");
+			weaponLore.add(ChatColor.GRAY + "말에 탄 적에게도 유용하지만");
+			weaponLore.add(ChatColor.GRAY + "좁은 곳에서는 매우 다루기 힘들다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("시선 사무소 해결사의 인격")) {
+			weapon = new ItemStack(Material.MUSIC_DISC_CAT);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "암흑 군주의 눈");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "도시를 지켜보는 눈이라는 이명을 가진 막대기");
+			weaponLore.add(ChatColor.GRAY + "달록이 시선 사무소에 어울리는 무기를 고민하다가");
+			weaponLore.add(ChatColor.GRAY + "탄생하게 되었다.");
+			weaponLore.add(ChatColor.GRAY + "전문가가 아닌 사람이 만들었기에 딱히 특이점이");
+			weaponLore.add(ChatColor.GRAY + "사용되었거나 하지 않은 그냥 예쁜 막대기이다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("쥐의 인격")) {
+			weapon = new ItemStack(Material.OAK_LEAVES);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "쇠파이프");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "하! 뒷골목의 쓰레기가 이 나랑 결투라고?");
+			weaponLore.add(ChatColor.GRAY + "무기도 없는 주제에 웃기지 마라.");
+			weaponLore.add(ChatColor.GRAY + "");
+			weaponLore.add(ChatColor.GRAY + "-무기는 주웠다.");
+			weaponLore.add(ChatColor.GRAY + "-무기 리소스 임시 적용 중");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("철의 형제의 인격")) {
+			weapon = new ItemStack(Material.GRAY_WOOL);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "황금골든해머");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "근거리 전투");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("버림받은 개의 인격")) {
+			weapon = new ItemStack(Material.STONE_SLAB);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "프로미스");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "약속의 소중함을 깨닫게 해주는 무기");
+			weaponLore.add(ChatColor.GRAY + "무기의 이름에 맞게 여성용이다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("꿀꿀이네 조직원의 인격")) {
+			weapon = new ItemStack(Material.SPRUCE_LOG);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "파이 손질용 칼");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "고기파이의 재료를 손질하는 칼");
+			weaponLore.add(ChatColor.GRAY + "파이는 신선도가 생명인 음식이기 때문에");
+			weaponLore.add(ChatColor.GRAY + "살육에 최적화 되어 있는 디자인이 아니다.");
+			weaponLore.add(ChatColor.GRAY + "오래 사용되어 피로 부식되었다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("도끼파 조직원의 인격")) {
+			weapon = new ItemStack(Material.GREEN_CARPET);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "배틀 액스");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "자루 끝에 두껍고 무거운 날을 단 전투 도끼");
+			weaponLore.add(ChatColor.GRAY + "범용성이 높은 표준 속성 무기이다.");
+			weaponLore.add(ChatColor.GRAY + "무거운 칼날을 내려치는 공격은 위력이 높고");
+			weaponLore.add(ChatColor.GRAY + "도끼의 차지 공격은 특히 강력하다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("정육점파 조직원의 인격")) {
+			weapon = new ItemStack(Material.BIRCH_LOG);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "집 잃은 조직원의 대검");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "옛 장식이 새겨진 질 좋은 대검");
+			weaponLore.add(ChatColor.GRAY + "어떠한 이유, 혹은 죄로");
+			weaponLore.add(ChatColor.GRAY + "고향을 잃은 이들에게 주어졌다.");
+			weaponLore.add(ChatColor.GRAY + "그들 중 대부분은 변방으로 보내져");
+			weaponLore.add(ChatColor.GRAY + "실의와 함께 그 땅에 자리 잡았다고 한다.");
 			weaponIm.setLore(weaponLore);
 			weaponIm.setUnbreakable(true);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
