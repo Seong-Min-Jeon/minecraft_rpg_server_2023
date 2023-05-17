@@ -155,6 +155,7 @@ public class Main extends JavaPlugin implements Listener{
 		NPCLib.getInstance().registerPlugin(this);
 		this.getServer().getPluginManager().registerEvents(this, this);
 		//custom command
+		getCommand("killme").setExecutor(new Cmd1killme());
 		getCommand("ServerChat").setExecutor(new Cmd5ServerChat());
 		getCommand("c").setExecutor(new Cmd7c());
 		getCommand("setBiome").setExecutor(new Cmd9SetBiome());
@@ -3507,17 +3508,17 @@ public class Main extends JavaPlugin implements Listener{
 			} else if (event.getCause() == DamageCause.VOID) {
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
-					event.setDamage(player.getMaxHealth());
+					event.setDamage(9999);
 				}
 			} else if (event.getCause() == DamageCause.FREEZE) {
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
-					event.setDamage(player.getMaxHealth());
+					event.setDamage(9999);
 				}
 			} else if (event.getCause() == DamageCause.DROWNING) {
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
-					event.setDamage(player.getMaxHealth());
+					event.setDamage(9999);
 				}
 			} else if (event.getCause() == DamageCause.POISON) {
 				if (event.getEntity() instanceof Player) {

@@ -106,6 +106,20 @@ public class Skill {
 							skill8(player);
 						}
 					}
+				} else if(name.equals("어금니 사무소 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 600);
+						if (bool) {
+							sendPacket(player, "도박수");
+							skill9(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 20000);
+						if (bool) {
+							sendPacket(player, "신속보법");
+							skill10(player);
+						}
+					}
 				}
 				
 			}
@@ -141,7 +155,7 @@ public class Skill {
 		}
 		
 		player.setNoDamageTicks(15 + (personality*1));
-		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10 + (personality*1), 0, true, false, true));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 15 + (personality*1), 0, true, false, true));
 		world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 	}
 	
@@ -292,6 +306,36 @@ public class Skill {
 
 			}
 		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void skill9(Player player) {
+		new ParticleEffect(player).pS005();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, rnd.nextInt(10)*0.1*rnd.nextInt(6)+0.1); 
+			}
+		}
+	}
+	
+	public void skill10(Player player) {
+		int personality = 0;
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200 + (personality*10), 1, true, false, true));
+		world.playSound(player.getLocation(), Sound.ENTITY_HORSE_GALLOP, 3.0f, 1.0f);
 	}
 	
 	
