@@ -20,6 +20,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Pose;
 import org.bukkit.entity.Snowball;
@@ -38,6 +39,7 @@ public class Skill {
 	Player player = null;
 	World world = null;
 	Random rnd = new Random();
+	int personality = 0;
 	private static Map<Player, Integer> timer = new HashMap<>();
 	private static Map<Player, Integer> timer2 = new HashMap<>();
 
@@ -120,6 +122,34 @@ public class Skill {
 							skill10(player);
 						}
 					}
+				} else if(name.equals("마침표 사무소 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1000);
+						if (bool) {
+							sendPacket(player, "발사");
+							skill11(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 2000);
+						if (bool) {
+							sendPacket(player, "무차별 사격");
+							skill12(player);
+						}
+					}
+				} else if(name.equals("새벽 사무소 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 800);
+						if (bool) {
+							sendPacket(player, "노을빛 검");
+							skill13(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 20000);
+						if (bool) {
+							sendPacket(player, "쌍화차 보충");
+							skill14(player);
+						}
+					}
 				}
 				
 			}
@@ -141,7 +171,6 @@ public class Skill {
 	}
 	
 	public void skill2(Player player) {
-		int personality = 0;
 		try {
 			ItemStack item = player.getInventory().getItem(7);
 			String name = item.getItemMeta().getDisplayName();
@@ -192,7 +221,6 @@ public class Skill {
 	}
 	
 	public void skill4(Player player) {
-		int personality = 0;
 		try {
 			ItemStack item = player.getInventory().getItem(7);
 			String name = item.getItemMeta().getDisplayName();
@@ -321,7 +349,6 @@ public class Skill {
 	}
 	
 	public void skill10(Player player) {
-		int personality = 0;
 		try {
 			ItemStack item = player.getInventory().getItem(7);
 			String name = item.getItemMeta().getDisplayName();
@@ -336,6 +363,190 @@ public class Skill {
 		
 		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200 + (personality*10), 1, true, false, true));
 		world.playSound(player.getLocation(), Sound.ENTITY_HORSE_GALLOP, 3.0f, 1.0f);
+	}
+	
+	public void skill11(Player player) {
+		if(player.getLevel() < 1000) {
+			player.sendMessage(ChatColor.RED + "탄환값이 부족합니다.");
+			return;
+		} 
+		player.setLevel(player.getLevel() - 1000);
+		
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		new BukkitRunnable() {
+			
+			int time = 0;
+			Arrow arrow;
+			World world = player.getWorld();
+
+		    @Override
+			public void run() {
+				
+				if (time == 0) {
+					arrow = player.launchProjectile(Arrow.class);
+					arrow.setShooter(player);
+					arrow.setDamage(2 + (2*0.1*personality));
+					arrow.setVelocity(player.getLocation().getDirection().multiply(0.9f));	
+					arrow.setGravity(false);
+					
+					world.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.6f, 1.5f);
+					world.playSound(player.getLocation(), Sound.ENTITY_ARMOR_STAND_HIT, 3.0f, 1.0f);
+				}
+				
+				if (time >= 1) {
+					world.spawnParticle(Particle.CRIT, arrow.getLocation(), 0);
+				}
+				
+				if (time >= 6) {
+					arrow.remove();
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+	}
+	
+	public void skill12(Player player) {
+		if(player.getLevel() < 5000) {
+			player.sendMessage(ChatColor.RED + "탄환값이 부족합니다.");
+			return;
+		} 
+		player.setLevel(player.getLevel() - 5000);
+		
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		new BukkitRunnable() {
+			
+			int time = 0;
+			int repeat = 0;
+			Arrow arrow;
+			World world = player.getWorld();
+
+		    @Override
+			public void run() {
+				
+				if (time == 0) {
+					Location normal = player.getEyeLocation();
+					
+					double arrowAngle1 = rnd.nextInt(91) + 45;
+			        double totalAngle1 = normal.getYaw() + arrowAngle1;
+			        double arrowDirX1 = Math.cos(Math.toRadians(totalAngle1));
+			        double arrowDirZ1 = Math.sin(Math.toRadians(totalAngle1));
+			        Vector arrowDir1 = new Vector(arrowDirX1, normal.getDirection().getY(), arrowDirZ1).multiply(1.2f);
+					arrow = player.launchProjectile(Arrow.class, arrowDir1);
+					arrow.setShooter(player);
+					arrow.setDamage(2 + (2*0.1*personality));
+					arrow.setVelocity(arrowDir1.multiply(0.9f));	
+					arrow.setGravity(false);
+					
+					world.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.6f, 1.5f);
+					world.playSound(player.getLocation(), Sound.ENTITY_ARMOR_STAND_HIT, 3.0f, 1.0f);
+				}
+				
+				if (time >= 1) {
+					world.spawnParticle(Particle.CRIT, arrow.getLocation(), 0);
+				}
+				
+				if (time >= 6) {
+					arrow.remove();
+				}
+				
+				if(repeat == 5 && time >= 6) {
+					this.cancel();
+				}
+				
+				time++;
+				
+				if(time >= 7) {
+					time = 0;
+					repeat++;
+				}
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+	}
+	
+	public void skill13(Player player) {
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		new ParticleEffect(player).pS006();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.5, 0.6, 1, 0.6);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 1); 
+				
+				if(nearMob instanceof Mob || nearMob instanceof Player) {
+					new BukkitRunnable() {
+						int time = 0;
+
+					    @Override
+						public void run() {
+					    	
+					    	if(time == 1) {
+					    		nearMob.setFireTicks(100);
+					    		this.cancel();
+					    	}
+					    	
+							time++;
+						}
+					}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+					
+					new FireDamageList().putMap(nearMob, 0.5+(personality*0.05));
+				}
+			}
+		}
+	}
+	
+	public void skill14(Player player) {
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 200 + (personality*10), 0, true, false, true));
+		world.playSound(player.getLocation(), Sound.ENTITY_GENERIC_DRINK, 1.0f, 1.0f);
 	}
 	
 	
@@ -415,53 +626,59 @@ public class Skill {
 		if(num < crit) {
 			mob.damage(dam * 2);
 			
-			ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
-			damageSign.setVisible(false);
-			damageSign.setSmall(true);
-			damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ede900") + Integer.toString((int) Math.round(dam*2*10)));
-			damageSign.setCustomNameVisible(true);
-			damageSign.setGravity(false);
-			damageSign.setRemoveWhenFarAway(true);
-			
-			new BukkitRunnable() {
-				int time = 0;
+			if(mob instanceof Mob) {
+				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
+				damageSign.setVisible(false);
+				damageSign.setSmall(true);
+				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ede900") + Integer.toString((int) Math.round(dam*2*10)));
+				damageSign.setCustomNameVisible(true);
+				damageSign.setGravity(false);
+				damageSign.setRemoveWhenFarAway(true);
 				
-				@Override
-				public void run() {
-					time++;
-					damageSign.teleport(damageSign.getLocation().add(0,0.02,0));
+				new BukkitRunnable() {
+					int time = 0;
 					
-					if(time >= 30) {
-						damageSign.remove();
-						this.cancel();
+					@Override
+					public void run() {
+						time++;
+						damageSign.teleport(damageSign.getLocation().add(0,0.02,0));
+						
+						if(time >= 30) {
+							damageSign.remove();
+							this.cancel();
+						}
 					}
-				}
-			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+			
 		} else {
 			mob.damage(dam);
 			
-			ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
-			damageSign.setVisible(false);
-			damageSign.setSmall(true);
-			damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ebebeb") + Integer.toString((int) Math.round(dam*10)));
-			damageSign.setCustomNameVisible(true);
-			damageSign.setGravity(false);
-			damageSign.setRemoveWhenFarAway(true);
-			
-			new BukkitRunnable() {
-				int time = 0;
+			if(mob instanceof Mob) {
+				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
+				damageSign.setVisible(false);
+				damageSign.setSmall(true);
+				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ebebeb") + Integer.toString((int) Math.round(dam*10)));
+				damageSign.setCustomNameVisible(true);
+				damageSign.setGravity(false);
+				damageSign.setRemoveWhenFarAway(true);
 				
-				@Override
-				public void run() {
-					time++;
-					damageSign.teleport(damageSign.getLocation().add(0,0.02,0));
+				new BukkitRunnable() {
+					int time = 0;
 					
-					if(time >= 30) {
-						damageSign.remove();
-						this.cancel();
+					@Override
+					public void run() {
+						time++;
+						damageSign.teleport(damageSign.getLocation().add(0,0.02,0));
+						
+						if(time >= 30) {
+							damageSign.remove();
+							this.cancel();
+						}
 					}
-				}
-			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+			
 		}
 	}
 	

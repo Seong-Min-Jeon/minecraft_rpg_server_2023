@@ -3072,9 +3072,55 @@ public class Main extends JavaPlugin implements Listener{
 					if(event.getEntity() instanceof Player) {
 						event.setCancelled(true);
 						((Player) (event.getEntity())).damage(arrow.getDamage());
+						
+						ArmorStand damageSign = (ArmorStand) world.spawnEntity(event.getEntity().getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
+						damageSign.setVisible(false);
+						damageSign.setSmall(true);
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ebebeb") + Integer.toString((int) Math.round(arrow.getDamage()*10)));
+						damageSign.setCustomNameVisible(true);
+						damageSign.setGravity(false);
+						damageSign.setRemoveWhenFarAway(true);
+						
+						new BukkitRunnable() {
+							int time = 0;
+							
+							@Override
+							public void run() {
+								time++;
+								damageSign.teleport(damageSign.getLocation().add(0,0.02,0));
+								
+								if(time >= 30) {
+									damageSign.remove();
+									this.cancel();
+								}
+							}
+						}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 					} else if(event.getEntity() instanceof Mob) {
 						event.setCancelled(true);
 						((Mob) (event.getEntity())).damage(arrow.getDamage());
+						
+						ArmorStand damageSign = (ArmorStand) world.spawnEntity(event.getEntity().getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
+						damageSign.setVisible(false);
+						damageSign.setSmall(true);
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ebebeb") + Integer.toString((int) Math.round(arrow.getDamage()*10)));
+						damageSign.setCustomNameVisible(true);
+						damageSign.setGravity(false);
+						damageSign.setRemoveWhenFarAway(true);
+						
+						new BukkitRunnable() {
+							int time = 0;
+							
+							@Override
+							public void run() {
+								time++;
+								damageSign.teleport(damageSign.getLocation().add(0,0.02,0));
+								
+								if(time >= 30) {
+									damageSign.remove();
+									this.cancel();
+								}
+							}
+						}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 					}
 				} else if(arrow.getShooter() instanceof Mob) {
 					if(event.getEntity() instanceof Player) {
@@ -3257,9 +3303,11 @@ public class Main extends JavaPlugin implements Listener{
 	public void skillDamage(EntityDamageEvent event) {
 		//오류 제거
 		if(!(event.getEntity() instanceof Player)) {
-			if(event.getDamage() - 1.0 < 0.001) {
-				event.setCancelled(true);
-				return;
+			if(event.getCause() == DamageCause.ENTITY_ATTACK || event.getCause() == DamageCause.ENTITY_SWEEP_ATTACK) {
+				if(event.getDamage() - 1.0 < 0.001) {
+					event.setCancelled(true);
+					return;
+				}
 			}
 		}
 		
@@ -3504,10 +3552,45 @@ public class Main extends JavaPlugin implements Listener{
 					} catch (Exception e2) {
 						event.setDamage(1);
 					}
+				} else {
+					event.setCancelled(true);
+					if(event.getEntity() instanceof Mob) {
+						Mob mob = (Mob) event.getEntity();
+						if(mob.getHealth() - new FireDamageList().getMap(event.getEntity()) <= 0) {
+							mob.setHealth(0);
+						} else {
+							mob.setHealth(mob.getHealth() - new FireDamageList().getMap(event.getEntity()));
+						}
+						
+						ArmorStand damageSign = (ArmorStand) world.spawnEntity(event.getEntity().getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
+						damageSign.setVisible(false);
+						damageSign.setSmall(true);
+						damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ebebeb") + Integer.toString((int) (new FireDamageList().getMap(event.getEntity())*10)));
+						damageSign.setCustomNameVisible(true);
+						damageSign.setGravity(false);
+						damageSign.setRemoveWhenFarAway(true);
+						
+						new BukkitRunnable() {
+							int time = 0;
+							
+							@Override
+							public void run() {
+								time++;
+								damageSign.teleport(damageSign.getLocation().add(0,0.02,0));
+								
+								if(time >= 30) {
+									damageSign.remove();
+									this.cancel();
+								}
+							}
+						}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+					}
 				}
 			} else if (event.getCause() == DamageCause.VOID) {
 				if (event.getEntity() instanceof Player) {
 					Player player = (Player) event.getEntity();
+					event.setDamage(9999);
+				} else {
 					event.setDamage(9999);
 				}
 			} else if (event.getCause() == DamageCause.FREEZE) {

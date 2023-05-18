@@ -685,9 +685,9 @@ public class MobLoot {
 			if(np instanceof Player) {
 				Player p = (Player) np;
 				QuestBoard qb = new QuestBoard();
-				if (getQuestName(p).equals("q0035")) {
+				if (getQuestName(p).equals("q0044")) {
 					int qNum = qb.getNum(p);
-					qb.q0035(p, qNum + 1, false);
+					qb.q0044(p, qNum + 1, false);
 				} else if (getQuestName(p).equals("q0050")) {
 					int qNum = qb.getNum(p);
 					qb.q0050(p, qNum + 1, false);
@@ -708,9 +708,9 @@ public class MobLoot {
 		}
 		
 		QuestBoard qb = new QuestBoard();
-		if (getQuestName(player).equals("q0035")) {
+		if (getQuestName(player).equals("q0044")) {
 			int qNum = qb.getNum(player);
-			qb.q0035(player, qNum + 1, false);
+			qb.q0044(player, qNum + 1, false);
 		} else if (getQuestName(player).equals("q0050")) {
 			int qNum = qb.getNum(player);
 			qb.q0050(player, qNum + 1, false);
@@ -741,9 +741,9 @@ public class MobLoot {
 			if(np instanceof Player) {
 				Player p = (Player) np;
 				QuestBoard qb = new QuestBoard();
-				if (getQuestName(p).equals("q0036")) {
+				if (getQuestName(p).equals("q0045")) {
 					int qNum = qb.getNum(p);
-					qb.q0036(p, qNum + 1, false);
+					qb.q0045(p, qNum + 1, false);
 				} else if (getQuestName(p).equals("q0051")) {
 					int qNum = qb.getNum(p);
 					qb.q0051(p, qNum + 1, false);
@@ -764,9 +764,9 @@ public class MobLoot {
 		}
 		
 		QuestBoard qb = new QuestBoard();
-		if (getQuestName(player).equals("q0036")) {
+		if (getQuestName(player).equals("q0045")) {
 			int qNum = qb.getNum(player);
-			qb.q0036(player, qNum + 1, false);
+			qb.q0045(player, qNum + 1, false);
 		} else if (getQuestName(player).equals("q0051")) {
 			int qNum = qb.getNum(player);
 			qb.q0051(player, qNum + 1, false);
@@ -797,9 +797,9 @@ public class MobLoot {
 			if(np instanceof Player) {
 				Player p = (Player) np;
 				QuestBoard qb = new QuestBoard();
-				if (getQuestName(p).equals("q0037")) {
+				if (getQuestName(p).equals("q0046")) {
 					int qNum = qb.getNum(p);
-					qb.q0037(p, qNum + 1, false);
+					qb.q0046(p, qNum + 1, false);
 				} else if (getQuestName(p).equals("q0052")) {
 					int qNum = qb.getNum(p);
 					qb.q0052(p, qNum + 1, false);
@@ -820,9 +820,9 @@ public class MobLoot {
 		}
 		
 		QuestBoard qb = new QuestBoard();
-		if (getQuestName(player).equals("q0037")) {
+		if (getQuestName(player).equals("q0046")) {
 			int qNum = qb.getNum(player);
-			qb.q0037(player, qNum + 1, false);
+			qb.q0046(player, qNum + 1, false);
 		} else if (getQuestName(player).equals("q0052")) {
 			int qNum = qb.getNum(player);
 			qb.q0052(player, qNum + 1, false);
@@ -853,9 +853,9 @@ public class MobLoot {
 			if(np instanceof Player) {
 				Player p = (Player) np;
 				QuestBoard qb = new QuestBoard();
-				if (getQuestName(p).equals("q0038")) {
+				if (getQuestName(p).equals("q0047")) {
 					int qNum = qb.getNum(p);
-					qb.q0038(p, qNum + 1, false);
+					qb.q0047(p, qNum + 1, false);
 				} else if (getQuestName(p).equals("q0053")) {
 					int qNum = qb.getNum(p);
 					qb.q0053(p, qNum + 1, false);
@@ -876,9 +876,9 @@ public class MobLoot {
 		}
 		
 		QuestBoard qb = new QuestBoard();
-		if (getQuestName(player).equals("q0038")) {
+		if (getQuestName(player).equals("q0047")) {
 			int qNum = qb.getNum(player);
-			qb.q0038(player, qNum + 1, false);
+			qb.q0047(player, qNum + 1, false);
 		} else if (getQuestName(player).equals("q0053")) {
 			int qNum = qb.getNum(player);
 			qb.q0053(player, qNum + 1, false);

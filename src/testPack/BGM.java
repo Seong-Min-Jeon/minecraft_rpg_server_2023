@@ -9,10 +9,13 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+
+import oshi.hardware.SoundCard;
 
 public class BGM {
 
@@ -40,7 +43,8 @@ public class BGM {
 
 					if (time == 10) {
 						for(int i = 0 ; i < bgm.size() ; i++) {
-							player.stopSound(Sound.valueOf(bgm.get(i)));
+							player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+							player.stopSound(SoundCategory.RECORDS);
 						}
 					}
 
@@ -62,7 +66,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 10) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_AMBIENT, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_AMBIENT, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -79,7 +83,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -96,7 +101,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DASH, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DASH, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -111,7 +116,8 @@ public class BGM {
 		} else if(b.equals("전투")) {
 			if(!battle.containsKey(player)) {
 				for(int i = 0 ; i < bgm.size() ; i++) {
-					player.stopSound(Sound.valueOf(bgm.get(i)));
+					player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+					player.stopSound(SoundCategory.RECORDS);
 				}
 				
 				if(now.containsKey(player)) {now.remove(player);}
@@ -128,7 +134,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DASH_READY, 1.0f, 1.0f);
+				    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DASH_READY, SoundCategory.RECORDS, 1.0f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -147,7 +153,8 @@ public class BGM {
 		} else if(b.equals("폭주하는 황소")) {
 			if(!battle.containsKey(player) || battle.get(player) < 10) {
 				for(int i = 0 ; i < bgm.size() ; i++) {
-					player.stopSound(Sound.valueOf(bgm.get(i)));
+					player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+					player.stopSound(SoundCategory.RECORDS);
 				}
 				
 				if(now.containsKey(player)) {now.remove(player);}
@@ -164,7 +171,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_FLY, 1.0f, 1.0f);
+				    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_FLY, SoundCategory.RECORDS, 1.0f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -183,7 +190,8 @@ public class BGM {
 		} else if(b.equals("우는 영혼들의 산")) {
 			if(!battle.containsKey(player) || battle.get(player) < 10) {
 				for(int i = 0 ; i < bgm.size() ; i++) {
-					player.stopSound(Sound.valueOf(bgm.get(i)));
+					player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+					player.stopSound(SoundCategory.RECORDS);
 				}
 				
 				if(now.containsKey(player)) {now.remove(player);}
@@ -200,7 +208,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DEATH, 1.0f, 1.0f);
+				    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DEATH, SoundCategory.RECORDS, 1.0f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -219,7 +227,8 @@ public class BGM {
 		} else if(b.equals("도망쳐")) {
 			if(!battle.containsKey(player) || battle.get(player) < 11) {
 				for(int i = 0 ; i < bgm.size() ; i++) {
-					player.stopSound(Sound.valueOf(bgm.get(i)));
+					player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+					player.stopSound(SoundCategory.RECORDS);
 				}
 				
 				if(now.containsKey(player)) {now.remove(player);}
@@ -236,7 +245,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_SIT, 1.2f, 1.0f);
+				    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_SIT, SoundCategory.RECORDS, 1.2f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -256,7 +265,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -273,7 +283,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_AMBIENT, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_AMBIENT, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -289,7 +299,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -306,7 +317,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_EAT, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_EAT, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -322,7 +333,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -339,7 +351,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_HURT, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_HURT, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -355,7 +367,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -372,7 +385,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_DEATH, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_DEATH, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -388,7 +401,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -405,7 +419,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_HURT, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_HURT, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -421,7 +435,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -438,7 +453,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_STEP, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_STEP, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -454,7 +469,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -471,7 +487,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_AMBIENT, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_AMBIENT, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -487,7 +503,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -500,7 +517,7 @@ public class BGM {
 				public void run() {
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -516,7 +533,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -533,7 +551,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_DEATH, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_DEATH, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -549,7 +567,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -566,7 +585,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_DIGGING_STOP, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_DIGGING_STOP, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -582,7 +601,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -599,7 +619,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_EAT, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_EAT, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -615,7 +635,8 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)));
+				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
 			}
 			
 			if(now.containsKey(player)) {now.remove(player);}
@@ -632,7 +653,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HAPPY, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HAPPY, SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
