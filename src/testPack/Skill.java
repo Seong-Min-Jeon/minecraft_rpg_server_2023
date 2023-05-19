@@ -150,6 +150,20 @@ public class Skill {
 							skill14(player);
 						}
 					}
+				} else if(name.equals("쐐기 사무소 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1000);
+						if (bool) {
+							sendPacket(player, "쾌속 찌르기");
+							skill15(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 5000);
+						if (bool) {
+							sendPacket(player, "섬광의 창");
+							skill16(player);
+						}
+					}
 				}
 				
 			}
@@ -549,6 +563,113 @@ public class Skill {
 		world.playSound(player.getLocation(), Sound.ENTITY_GENERIC_DRINK, 1.0f, 1.0f);
 	}
 	
+	public void skill15(Player player) {
+		new ParticleEffect(player).pS007();
+		
+		double rotation = (player.getLocation().getYaw() - 90) % 360;
+        if (rotation < 0) {
+            rotation += 360.0;
+        }
+        
+        List<Entity> entitylist;
+        
+        if (0 <= rotation && rotation < 45) {
+        	entitylist = near4RotsEntities(player, 3.5, 0.3, 1, 1.2);
+        } else if (45 <= rotation && rotation < 135) {
+        	entitylist = near4RotsEntities(player, 3.5, 1.2, 1, 0.3);
+        } else if (135 <= rotation && rotation < 225) {
+        	entitylist = near4RotsEntities(player, 3.5, 0.3, 1, 1.2);
+        } else if (225 <= rotation && rotation < 315) {
+        	entitylist = near4RotsEntities(player, 3.5, 1.2, 1, 0.3);
+        } else if (315 <= rotation && rotation < 360) {
+        	entitylist = near4RotsEntities(player, 3.5, 0.3, 1, 1.2);
+        } else {
+        	entitylist = near4RotsEntities(player, 0.1, 0.1, 0.1, 0.1);
+        }
+		
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 3); 
+			}
+		}
+	}
+	
+	public void skill16(Player player) {
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.6,0,1.6).add(new Vector(0,0.2,0))));
+		
+		new ParticleEffect(player).pS008();
+		
+		new BukkitRunnable() {
+			int time = 0;
+
+		    @Override
+			public void run() {
+		    	
+		    	if(time == 5) {
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.5, 1, 0.5);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 0.5); 
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 10) {
+		    		new ParticleEffect(player).pS008_1();
+		    		
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.5, 1, 0.5);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 0.5); 
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 15) {
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.5, 1, 0.5);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 0.5); 
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time >= 20) {
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.5, 1, 0.5);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 0.5); 
+		    			}
+		    		}
+		    		this.cancel();
+		    	}
+		    	
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+		player.setNoDamageTicks(20);
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 20, 0, true, false, true));
+	}
+	
+	
 	
 	public void damage(Player player, LivingEntity mob, double dam) {
 		if(mob instanceof ArmorStand) {
@@ -688,6 +809,60 @@ public class Skill {
 		
 		double arrowAngle1 = 90;
 		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*dist, 1, dirZ1*dist);
+		
+		ArmorStand as = (ArmorStand) world.spawnEntity(e1, EntityType.ARMOR_STAND);
+		as.setVisible(false);
+		as.setSmall(true);
+		as.setGravity(false);
+		as.setRemoveWhenFarAway(true);
+		new BukkitRunnable() {
+			int time = 0;
+			
+			@Override
+			public void run() {
+				time++;
+				
+				if(time >= 3) {
+					as.remove();
+					this.cancel();
+				}
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+		return as.getNearbyEntities(x, y, z);
+	}
+	
+	public List<Entity> near4RotsEntities(Player player, double dist, double x, double y, double z) {
+		Location normal = player.getLocation();
+		Location e1;
+		
+		double rotation = (player.getLocation().getYaw() - 90) % 360;
+        if (rotation < 0) {
+            rotation += 360.0;
+        }
+        
+        Float yaw;
+        
+        if (0 <= rotation && rotation < 45) {
+        	yaw = (float) 0;
+        } else if (45 <= rotation && rotation < 135) {
+        	yaw = (float) 90;
+        } else if (135 <= rotation && rotation < 225) {
+        	yaw = (float) 180;
+        } else if (225 <= rotation && rotation < 315) {
+        	yaw = (float) 270;
+        } else if (315 <= rotation && rotation < 360) {
+        	yaw = (float) 0;
+        } else {
+        	yaw = (float) 0;
+        }
+		
+		double arrowAngle1 = 180;
+		double totalAngle1 = yaw + arrowAngle1;
 		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
 		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
 		

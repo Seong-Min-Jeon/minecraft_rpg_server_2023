@@ -496,6 +496,239 @@ public class ParticleEffect {
 		
 	}
 	
+	public void pS007() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+		
+		double rotation = (player.getLocation().getYaw() - 90) % 360;
+        if (rotation < 0) {
+            rotation += 360.0;
+        }
+        
+        Float yaw;
+        
+        if (0 <= rotation && rotation < 45) {
+        	yaw = (float) 0;
+        } else if (45 <= rotation && rotation < 135) {
+        	yaw = (float) 90;
+        } else if (135 <= rotation && rotation < 225) {
+        	yaw = (float) 180;
+        } else if (225 <= rotation && rotation < 315) {
+        	yaw = (float) 270;
+        } else if (315 <= rotation && rotation < 360) {
+        	yaw = (float) 0;
+        } else {
+        	yaw = (float) 0;
+        }
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(150, 150, 150), 1);
+        
+		double arrowAngle1 = 180;
+		double totalAngle1 = yaw + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX1*(2+i*0.4-Math.abs(j)*0.2), 1.1+j*0.1, dirZ1*(2+i*0.4-Math.abs(j)*0.2));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle2 = 182;
+		double totalAngle2 = yaw + arrowAngle2;
+		double dirX2 = Math.cos(Math.toRadians(totalAngle2));
+		double dirZ2 = Math.sin(Math.toRadians(totalAngle2));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX2*(2+i*0.3-Math.abs(j)*0.15), 1.1+j*0.07, dirZ2*(2+i*0.3-Math.abs(j)*0.15));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle3 = 184;
+		double totalAngle3 = yaw + arrowAngle3;
+		double dirX3 = Math.cos(Math.toRadians(totalAngle3));
+		double dirZ3 = Math.sin(Math.toRadians(totalAngle3));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX3*(2+i*0.2-Math.abs(j)*0.1), 1.1+j*0.04, dirZ3*(2+i*0.2-Math.abs(j)*0.1));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle4 = 178;
+		double totalAngle4 = yaw + arrowAngle4;
+		double dirX4 = Math.cos(Math.toRadians(totalAngle4));
+		double dirZ4 = Math.sin(Math.toRadians(totalAngle4));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX4*(2+i*0.3-Math.abs(j)*0.15), 1.1+j*0.07, dirZ4*(2+i*0.3-Math.abs(j)*0.15));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle5 = 176;
+		double totalAngle5 = yaw + arrowAngle5;
+		double dirX5 = Math.cos(Math.toRadians(totalAngle5));
+		double dirZ5 = Math.sin(Math.toRadians(totalAngle5));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX5*(2+i*0.2-Math.abs(j)*0.1), 1.1+j*0.04, dirZ5*(2+i*0.2-Math.abs(j)*0.1));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		world.playSound(normal, Sound.ITEM_TRIDENT_THROW, 1.5f, 2.0f);
+	}
+	
+	public void pS008() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(150, 150, 150), 1);
+        
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX1*(2+i*0.4-Math.abs(j)*0.2), 1.1+j*0.1, dirZ1*(2+i*0.4-Math.abs(j)*0.2));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle2 = 92;
+		double totalAngle2 = normal.getYaw() + arrowAngle2;
+		double dirX2 = Math.cos(Math.toRadians(totalAngle2));
+		double dirZ2 = Math.sin(Math.toRadians(totalAngle2));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX2*(2+i*0.3-Math.abs(j)*0.15), 1.1+j*0.07, dirZ2*(2+i*0.3-Math.abs(j)*0.15));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle3 = 94;
+		double totalAngle3 = normal.getYaw() + arrowAngle3;
+		double dirX3 = Math.cos(Math.toRadians(totalAngle3));
+		double dirZ3 = Math.sin(Math.toRadians(totalAngle3));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX3*(2+i*0.2-Math.abs(j)*0.1), 1.1+j*0.04, dirZ3*(2+i*0.2-Math.abs(j)*0.1));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle4 = 88;
+		double totalAngle4 = normal.getYaw() + arrowAngle4;
+		double dirX4 = Math.cos(Math.toRadians(totalAngle4));
+		double dirZ4 = Math.sin(Math.toRadians(totalAngle4));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX4*(2+i*0.3-Math.abs(j)*0.15), 1.1+j*0.07, dirZ4*(2+i*0.3-Math.abs(j)*0.15));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle5 = 86;
+		double totalAngle5 = normal.getYaw() + arrowAngle5;
+		double dirX5 = Math.cos(Math.toRadians(totalAngle5));
+		double dirZ5 = Math.sin(Math.toRadians(totalAngle5));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX5*(2+i*0.2-Math.abs(j)*0.1), 1.1+j*0.04, dirZ5*(2+i*0.2-Math.abs(j)*0.1));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		world.playSound(normal, Sound.ENTITY_GENERIC_EXPLODE, 1.5f, 2.0f);
+	}
+	
+	public void pS008_1() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(150, 150, 150), 1);
+        
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX1*(2+i*0.4-Math.abs(j)*0.2), 1.1+j*0.1, dirZ1*(2+i*0.4-Math.abs(j)*0.2));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle2 = 92;
+		double totalAngle2 = normal.getYaw() + arrowAngle2;
+		double dirX2 = Math.cos(Math.toRadians(totalAngle2));
+		double dirZ2 = Math.sin(Math.toRadians(totalAngle2));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX2*(2+i*0.3-Math.abs(j)*0.15), 1.1+j*0.07, dirZ2*(2+i*0.3-Math.abs(j)*0.15));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle3 = 94;
+		double totalAngle3 = normal.getYaw() + arrowAngle3;
+		double dirX3 = Math.cos(Math.toRadians(totalAngle3));
+		double dirZ3 = Math.sin(Math.toRadians(totalAngle3));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX3*(2+i*0.2-Math.abs(j)*0.1), 1.1+j*0.04, dirZ3*(2+i*0.2-Math.abs(j)*0.1));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle4 = 88;
+		double totalAngle4 = normal.getYaw() + arrowAngle4;
+		double dirX4 = Math.cos(Math.toRadians(totalAngle4));
+		double dirZ4 = Math.sin(Math.toRadians(totalAngle4));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX4*(2+i*0.3-Math.abs(j)*0.15), 1.1+j*0.07, dirZ4*(2+i*0.3-Math.abs(j)*0.15));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		double arrowAngle5 = 86;
+		double totalAngle5 = normal.getYaw() + arrowAngle5;
+		double dirX5 = Math.cos(Math.toRadians(totalAngle5));
+		double dirZ5 = Math.sin(Math.toRadians(totalAngle5));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			for(int j = -2 ; j < 2 ; j++) {
+				e1 = normal.clone().add(dirX5*(2+i*0.2-Math.abs(j)*0.1), 1.1+j*0.04, dirZ5*(2+i*0.2-Math.abs(j)*0.1));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+	}
+	
 	
 	//===========================================================================
 	
