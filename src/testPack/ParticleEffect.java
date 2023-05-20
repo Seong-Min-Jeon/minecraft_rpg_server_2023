@@ -729,6 +729,56 @@ public class ParticleEffect {
 		
 	}
 	
+	public void pS009() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(255, 180, 255), 1);
+        
+        double var = 0;
+		
+		for(int i = 0 ; i < 16 ; i++) {
+			e1 = normal.clone().add(Math.cos(var)*0.8, 0.1, Math.sin(var)*0.8);
+			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			
+			e1 = normal.clone().add(Math.cos(var)*1.5, 0.1, Math.sin(var)*1.5);
+			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			
+			var += Math.PI / 8;
+		}
+		
+		world.playSound(normal, Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 1.5f, 3.0f);
+		
+	}
+	
+	public void pS010() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(255, 180, 255), 1);
+        
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			if(i%2 == 0) {
+				e1 = normal.clone().add(dirX1*(1+i*0.3), 1.2, dirZ1*(1+i*0.3));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			} else {
+				e1 = normal.clone().add(dirX1*(1+i*0.3), 1, dirZ1*(1+i*0.3));
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			}
+		}
+		
+		world.playSound(normal, Sound.BLOCK_ENDER_CHEST_OPEN, 1.5f, 2.0f);
+	}
+	
 	
 	//===========================================================================
 	
@@ -773,7 +823,7 @@ public class ParticleEffect {
         
         double var = 0;
 		
-		for(int i = 0 ; i < 8 ; i++) {
+		for(int i = 0 ; i < 16 ; i++) {
 			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
 			world.spawnParticle(Particle.REDSTONE, e1, 2, dustOptions1);
 			
@@ -1010,7 +1060,7 @@ public class ParticleEffect {
         
         double var = 0;
 		
-		for(int i = 0 ; i < 8 ; i++) {
+		for(int i = 0 ; i < 16 ; i++) {
 			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
 			world.playEffect(e1, Effect.STEP_SOUND, e1.clone().add(0,-1,0).getBlock().getType());
 			
@@ -1034,7 +1084,7 @@ public class ParticleEffect {
         
         double var = 0;
 		
-		for(int i = 0 ; i < 8 ; i++) {
+		for(int i = 0 ; i < 16 ; i++) {
 			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
 			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
 			
@@ -1205,7 +1255,7 @@ public class ParticleEffect {
         
         double var = 0;
 		
-		for(int i = 0 ; i < 8 ; i++) {
+		for(int i = 0 ; i < 16 ; i++) {
 			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
 			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
 			

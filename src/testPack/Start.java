@@ -296,6 +296,8 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weaponIm.addItemFlags(ItemFlag.HIDE_DYE);
+			weaponIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
 			weapon.setItemMeta(weaponIm);
 		} else if(name.equals("쥐의 인격")) {
 			weapon = new ItemStack(Material.OAK_LEAVES);

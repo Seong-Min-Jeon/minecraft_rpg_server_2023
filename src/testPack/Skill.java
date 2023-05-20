@@ -164,6 +164,20 @@ public class Skill {
 							skill16(player);
 						}
 					}
+				} else if(name.equals("시선 사무소 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 800);
+						if (bool) {
+							sendPacket(player, "전기 충격");
+							skill17(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 1600);
+						if (bool) {
+							sendPacket(player, "피할 수 없는 시선");
+							skill18(player);
+						}
+					}
 				}
 				
 			}
@@ -669,6 +683,49 @@ public class Skill {
 		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 20, 0, true, false, true));
 	}
 	
+	public void skill17(Player player) {
+		new ParticleEffect(player).pS009();
+		
+		List<Entity> entitylist = player.getNearbyEntities(1.5, 1.5, 1.5);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 2.5);
+			}
+		}
+	}
+	
+	public void skill18(Player player) {
+		new ParticleEffect(player).pS010();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 1);
+				
+				if(nearMob instanceof Player) {
+					player.sendMessage(ChatColor.DARK_AQUA + "ㆍ이름: " + nearMob.getCustomName());
+					player.sendMessage(ChatColor.DARK_AQUA + "ㆍ체력: " + nearMob.getHealth());
+				} else if(nearMob instanceof Mob && !(nearMob instanceof ArmorStand)) {
+					player.sendMessage(ChatColor.DARK_AQUA + "ㆍ이름: " + nearMob.getCustomName());
+					player.sendMessage(ChatColor.DARK_AQUA + "ㆍ체력: " + nearMob.getHealth()*10);
+					if(nearMob.getCustomName().substring(0, 2).equals("§a")) {
+						player.sendMessage(ChatColor.DARK_AQUA + "ㆍ재해등급: 도시 전설이나 그 이하");						
+					} else if(nearMob.getCustomName().substring(0, 2).equals("§e")) {
+						player.sendMessage(ChatColor.DARK_AQUA + "ㆍ재해등급: 도시 질병");
+					} else if(nearMob.getCustomName().substring(0, 2).equals("§c")) {
+						player.sendMessage(ChatColor.DARK_AQUA + "ㆍ재해등급: 도시 악몽");
+					} else if(nearMob.getCustomName().substring(0, 2).equals("§5")) {
+						player.sendMessage(ChatColor.DARK_AQUA + "ㆍ재해등급: 도시의 별이나 그 이상");
+					} else if(nearMob.getCustomName().substring(0, 2).equals("§f")) {
+						player.sendMessage(ChatColor.DARK_AQUA + "ㆍ재해등급: 측정된 자료 없음");
+					}
+				}
+				
+			}
+		}
+	}
 	
 	
 	public void damage(Player player, LivingEntity mob, double dam) {

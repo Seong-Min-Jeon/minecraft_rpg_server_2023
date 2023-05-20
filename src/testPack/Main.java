@@ -6854,8 +6854,10 @@ public class Main extends JavaPlugin implements Listener{
 							
 							|| clicked.getType() == Material.BRAIN_CORAL_BLOCK || clicked.getType() == Material.HORN_CORAL_BLOCK || clicked.getType() == Material.TUBE_CORAL_BLOCK 
 							|| clicked.getType() == Material.BUBBLE_CORAL_BLOCK || clicked.getType() == Material.FIRE_CORAL_BLOCK)) {
-		        		event.setCancelled(true);
-			            return;
+		        		if(clicked.hasItemMeta()) {
+		        			event.setCancelled(true);
+				            return;
+		        		}
     				}
 		        }
 			} catch(Exception e) {
