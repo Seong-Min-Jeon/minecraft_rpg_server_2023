@@ -2751,6 +2751,9 @@ public class Main extends JavaPlugin implements Listener{
 				} else {
 					player.setHealth(tmp);
 				}
+				player.removePotionEffect(PotionEffectType.POISON);
+				player.removePotionEffect(PotionEffectType.WITHER);
+				player.removePotionEffect(PotionEffectType.FAST_DIGGING);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "혈청-K")) {
 				damageMaxHealth(player, 4);
 			} else if(event.getItem().getItemMeta().getDisplayName().equals(ChatColor.RED + "청소부의 액체연료")) {
@@ -2762,6 +2765,9 @@ public class Main extends JavaPlugin implements Listener{
 					player.setHealth(tmp);
 				}
 				player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 200, 0, true, false, true));
+				player.removePotionEffect(PotionEffectType.POISON);
+				player.removePotionEffect(PotionEffectType.WITHER);
+				player.removePotionEffect(PotionEffectType.FAST_DIGGING);
 			}
 			
 			//음식

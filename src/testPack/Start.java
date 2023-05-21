@@ -224,13 +224,12 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
 		} else if(name.equals("어금니 사무소 해결사의 인격")) {
-			weapon = new ItemStack(Material.OAK_LEAVES);
+			weapon = new ItemStack(Material.CUT_RED_SANDSTONE);
 			ItemMeta weaponIm = weapon.getItemMeta();
 			weaponIm.setDisplayName(ChatColor.BOLD + "어금니 사무소의 톱");
 			ArrayList<String> weaponLore = new ArrayList<>();
 			weaponLore.add(ChatColor.GRAY + "어금니 사무소에서 주문 제작해 만든 톱");
 			weaponLore.add(ChatColor.GRAY + "처음 사무소에 입사하면 모두에게 나눠준다고 한다.");
-			weaponLore.add(ChatColor.GRAY + "-무기 리소스 임시 적용 중");
 			weaponIm.setLore(weaponLore);
 			weaponIm.setUnbreakable(true);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -300,7 +299,7 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
 			weapon.setItemMeta(weaponIm);
 		} else if(name.equals("쥐의 인격")) {
-			weapon = new ItemStack(Material.OAK_LEAVES);
+			weapon = new ItemStack(Material.SMOOTH_RED_SANDSTONE);
 			ItemMeta weaponIm = weapon.getItemMeta();
 			weaponIm.setDisplayName(ChatColor.BOLD + "쇠파이프");
 			ArrayList<String> weaponLore = new ArrayList<>();
@@ -308,7 +307,6 @@ public class Start {
 			weaponLore.add(ChatColor.GRAY + "무기도 없는 주제에 웃기지 마라.");
 			weaponLore.add(ChatColor.GRAY + "");
 			weaponLore.add(ChatColor.GRAY + "-무기는 주웠다.");
-			weaponLore.add(ChatColor.GRAY + "-무기 리소스 임시 적용 중");
 			weaponIm.setLore(weaponLore);
 			weaponIm.setUnbreakable(true);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);

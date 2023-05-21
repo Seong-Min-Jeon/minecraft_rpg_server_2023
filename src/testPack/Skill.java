@@ -1,6 +1,7 @@
 package testPack;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Pose;
 import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -176,6 +178,20 @@ public class Skill {
 						if (bool) {
 							sendPacket(player, "피할 수 없는 시선");
 							skill18(player);
+						}
+					}
+				} else if(name.equals("쥐의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1000);
+						if (bool) {
+							sendPacket(player, "쥐의 생존법");
+							skill19(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 1000);
+						if (bool) {
+							sendPacket(player, "내장담기");
+							skill20(player);
 						}
 					}
 				}
@@ -705,7 +721,7 @@ public class Skill {
 				damage(player, nearMob, 1);
 				
 				if(nearMob instanceof Player) {
-					player.sendMessage(ChatColor.DARK_AQUA + "ㆍ이름: " + nearMob.getCustomName());
+					player.sendMessage(ChatColor.DARK_AQUA + "ㆍ이름: " + ((Player) nearMob).getDisplayName());
 					player.sendMessage(ChatColor.DARK_AQUA + "ㆍ체력: " + nearMob.getHealth());
 				} else if(nearMob instanceof Mob && !(nearMob instanceof ArmorStand)) {
 					player.sendMessage(ChatColor.DARK_AQUA + "ㆍ이름: " + nearMob.getCustomName());
@@ -726,6 +742,80 @@ public class Skill {
 			}
 		}
 	}
+	
+	public void skill19(Player player) {
+		new BukkitRunnable() {
+			int time = 0;
+
+			@Override
+			public void run() {
+				
+				if(time == 0) {
+					player.setNoDamageTicks(12);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 12, 0, true, false, true));
+					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
+				}
+
+				if(time >= 10) {
+					new ParticleEffect(player).pS001();
+					
+					List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 1.5);
+						}
+					}
+					
+					this.cancel();
+				}
+
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void skill20(Player player) {
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		new ParticleEffect(player).pS011();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				double hel = nearMob.getHealth();
+				double dam = damage(player, nearMob, 2, true);
+				
+				if(hel <= dam) {
+					ItemStack food = new ItemStack(Material.BEEF);
+					ItemMeta foodIm = food.getItemMeta();
+					foodIm.setDisplayName(ChatColor.RED + "누군가의 살점");
+					ArrayList<String> foodLore = new ArrayList<>();
+					foodLore.add(ChatColor.GRAY + "뒷골목에서 채취한 신선한 고기");
+					foodLore.add(ChatColor.GRAY + "");
+					foodLore.add(ChatColor.GRAY + "호사유피 인사유명이라 하였소.");
+					foodLore.add(ChatColor.GRAY + "혈에는 말갛게 꽃이 피었소.");
+					foodLore.add(ChatColor.GRAY + "이런 척박한 도시에서도 결국");
+					foodLore.add(ChatColor.GRAY + "봉오리는 피우는구려.");
+					foodIm.setLore(foodLore);
+					food.setItemMeta(foodIm);
+					player.getInventory().addItem(food);
+				}
+			}
+		}
+	}
+	
 	
 	
 	public void damage(Player player, LivingEntity mob, double dam) {
@@ -828,7 +918,6 @@ public class Skill {
 					}
 				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 			}
-			
 		} else {
 			mob.damage(dam);
 			
@@ -856,7 +945,138 @@ public class Skill {
 					}
 				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 			}
+		}
+	}
+	
+	public double damage(Player player, LivingEntity mob, double dam, boolean ret) {
+		if(mob instanceof ArmorStand) {
+			return 0;
+		}
+		
+		int personality = 0;
+		//인격에 따른 데미지 증폭 계산
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
 			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		dam = dam + (dam*0.1*personality);
+		
+		int damUP = 0; //10이면 10%증가
+		//유물에 따른 데미지 증폭 계산
+		try {
+			if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+				if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 기량 반지")) {
+					damUP = 10;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 기량 반지")) {
+					damUP = 20;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 기량 반지")) {
+					damUP = 30;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 기량 반지")) {
+					damUP = 40;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 기량 반지")) {
+					damUP = 50;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 기량 반지")) {
+					damUP = 60;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 기량 반지")) {
+					damUP = 70;
+				}
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		dam = dam * (100+damUP) * 0.01;
+		
+		//크리티컬 계산
+		int crit = 10;
+		//유물에 따른 크리티컬 확률 계산
+		try {
+			if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+				if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 신비 반지")) {
+					crit += 10;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 신비 반지")) {
+					crit += 20;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 신비 반지")) {
+					crit += 30;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 신비 반지")) {
+					crit += 40;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 신비 반지")) {
+					crit += 50;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 신비 반지")) {
+					crit += 60;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 신비 반지")) {
+					crit += 70;
+				}
+			}
+		} catch (Exception e2) {
+
+		}
+		
+		int num = rnd.nextInt(100);
+		if(num < crit) {
+			mob.damage(dam * 2);
+			
+			if(mob instanceof Mob) {
+				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
+				damageSign.setVisible(false);
+				damageSign.setSmall(true);
+				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ede900") + Integer.toString((int) Math.round(dam*2*10)));
+				damageSign.setCustomNameVisible(true);
+				damageSign.setGravity(false);
+				damageSign.setRemoveWhenFarAway(true);
+				
+				new BukkitRunnable() {
+					int time = 0;
+					
+					@Override
+					public void run() {
+						time++;
+						damageSign.teleport(damageSign.getLocation().add(0,0.02,0));
+						
+						if(time >= 30) {
+							damageSign.remove();
+							this.cancel();
+						}
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+			return dam*2;
+		} else {
+			mob.damage(dam);
+			
+			if(mob instanceof Mob) {
+				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
+				damageSign.setVisible(false);
+				damageSign.setSmall(true);
+				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ebebeb") + Integer.toString((int) Math.round(dam*10)));
+				damageSign.setCustomNameVisible(true);
+				damageSign.setGravity(false);
+				damageSign.setRemoveWhenFarAway(true);
+				
+				new BukkitRunnable() {
+					int time = 0;
+					
+					@Override
+					public void run() {
+						time++;
+						damageSign.teleport(damageSign.getLocation().add(0,0.02,0));
+						
+						if(time >= 30) {
+							damageSign.remove();
+							this.cancel();
+						}
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+			return dam;
 		}
 	}
 	
