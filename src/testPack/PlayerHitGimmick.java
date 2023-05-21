@@ -36,6 +36,7 @@ import org.bukkit.entity.Zombie;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -73,6 +74,7 @@ public class PlayerHitGimmick {
 			indexB(mob);
 			laughB(mob);
 			mariachiB(mob);
+			kong(mob);
 		}
 	}
 
@@ -2504,6 +2506,79 @@ public class PlayerHitGimmick {
 		}
 	}
 	
+	public void kong(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "콩콩이파 조직원")) {
+			int num = rnd.nextInt(5);
+			
+			//후비기
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					
+				    @Override
+					public void run() {
+						
+						if (time == 0) {
+							mob.setGlowing(true);
+						}
+						
+						if (time == 5) {
+							mob.setVelocity(mob.getFacing().getDirection().multiply(1.5f));
+						}
+						
+						if (time >= 15) {
+							summonEffect(mob, 0.2, 0, 1000, 1005, 2);
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 2, 2, 1.5, 2);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(60);
+									
+									int num = rnd.nextInt(1);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 1);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 1);
+											}
+										}
+									}
+								}
+							}
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
 	
 	public List<Entity> nearFrontEntities(Entity mob, double dist, double x, double y, double z) {
 		Location normal = mob.getLocation();
@@ -2536,6 +2611,49 @@ public class PlayerHitGimmick {
 		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 		
 		return as.getNearbyEntities(x, y, z);
+	}
+	
+	public void summonEffect(Entity mob, double dist, int y, int sF, int eF, int speed) {
+		Location normal = mob.getLocation();
+		Location e1;
+		
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*dist, y, dirZ1*dist);
+		
+		ArmorStand as = (ArmorStand) mob.getWorld().spawnEntity(e1, EntityType.ARMOR_STAND);
+		as.setVisible(false);
+		as.setGravity(false);
+		as.setRemoveWhenFarAway(true);
+		new BukkitRunnable() {
+			int time = 0;
+			int cnt = eF - sF + 1;
+			int cur = 0;
+			
+			@Override
+			public void run() {
+				if(time >= speed*cnt+speed) {
+					as.remove();
+					this.cancel();
+				}
+				
+				if(time % speed == 0) {
+					EntityEquipment effect = as.getEquipment();
+					ItemStack effectItem = new ItemStack(Material.MUSIC_DISC_5);
+					ItemMeta effectmeta = effectItem.getItemMeta();
+					effectmeta.setCustomModelData(sF + cur);
+					effectItem.setItemMeta(effectmeta);
+					effect.setHelmet(effectItem);
+					
+					cur++;
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 	}
 	
 	public void damageMaxHealth(Player player, int num) {

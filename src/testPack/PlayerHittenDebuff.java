@@ -1541,7 +1541,7 @@ public class PlayerHittenDebuff {
 				
 				Location loc = player.getLocation();
 				if(loc.getY() < 128) {
-					player.teleport(new Location(player.getWorld(), 3464.5, 18, 3740));
+					player.teleport(new Location(player.getWorld(), -1839.5, 13.5, 3039.5));
 					new BGM(player, "유적1");
 				} else if(loc.getY() < 149) {
 					//유적2 이동

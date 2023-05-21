@@ -3321,8 +3321,8 @@ public class Main extends JavaPlugin implements Listener{
 		if(event.getEntity() instanceof Player) {
 			//-1820 100 2996  -1885 30 3069
 			Location loc = event.getEntity().getLocation();
-			if (loc.getX() <= -1820 && loc.getY() <= 100 && loc.getZ() <= 3069 
-					&& loc.getX() >= -1885 && loc.getY() >= 0 && loc.getZ() >= 2996) {
+			if (loc.getX() <= -1700 && loc.getY() <= 100 && loc.getZ() <= 3100 
+					&& loc.getX() >= -2000 && loc.getY() >= 0 && loc.getZ() >= 2800) {
 				event.setCancelled(true);
 				return;
 			}

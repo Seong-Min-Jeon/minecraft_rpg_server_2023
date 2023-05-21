@@ -1793,7 +1793,6 @@ public class ParticleEffect {
 		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 	}
 	
-	
 	//===========================================================================
 	
 	// 토템
