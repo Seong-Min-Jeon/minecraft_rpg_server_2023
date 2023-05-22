@@ -314,9 +314,9 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
 		} else if(name.equals("철의 형제의 인격")) {
-			weapon = new ItemStack(Material.GRAY_WOOL);
+			weapon = new ItemStack(Material.CUT_RED_SANDSTONE);
 			ItemMeta weaponIm = weapon.getItemMeta();
-			weaponIm.setDisplayName(ChatColor.BOLD + "황금골든해머");
+			weaponIm.setDisplayName(ChatColor.BOLD + "황금골든소우");
 			ArrayList<String> weaponLore = new ArrayList<>();
 			weaponLore.add(ChatColor.GRAY + "근거리 전투");
 			weaponIm.setLore(weaponLore);

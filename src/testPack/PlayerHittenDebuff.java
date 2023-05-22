@@ -42,6 +42,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.EulerAngle;
 import org.bukkit.util.Vector;
 
+import de.Herbystar.TTA.TTA_Methods;
+
 public class PlayerHittenDebuff {
 	
 	Random rnd = new Random();
@@ -1543,24 +1545,31 @@ public class PlayerHittenDebuff {
 				if(loc.getY() < 128) {
 					player.teleport(new Location(player.getWorld(), -1839.5, 13.5, 3039.5));
 					new BGM(player, "유적1");
+					TTA_Methods.sendTitle(player, "§e§l나태를 벌하는 유적", 20, 40, 20, null, 20, 40, 20);
 				} else if(loc.getY() < 149) {
 					//유적2 이동
 					new BGM(player, "유적2");
+					TTA_Methods.sendTitle(player, "§c§l분노를 꿈꾸는 유적", 20, 40, 20, null, 20, 40, 20);
 				} else if(loc.getY() < 170) {
 					//유적3 이동
 					new BGM(player, "유적3");
+					TTA_Methods.sendTitle(player, "§6§l색욕을 감추는 유적", 20, 40, 20, null, 20, 40, 20);
 				} else if(loc.getY() < 191) {
 					//유적4 이동
 					new BGM(player, "유적4");
+					TTA_Methods.sendTitle(player, "§a§l탐식을 꾀하는 유적", 20, 40, 20, null, 20, 40, 20);
 				} else if(loc.getY() < 212) {
 					//유적5 이동
 					new BGM(player, "유적5");
+					TTA_Methods.sendTitle(player, "§b§l우울을 비추는 유적", 20, 40, 20, null, 20, 40, 20);
 				} else if(loc.getY() < 233) {
 					//유적6 이동
 					new BGM(player, "유적6");
+					TTA_Methods.sendTitle(player, "§5§l질투를 부르는 유적", 20, 40, 20, null, 20, 40, 20);
 				} else if(loc.getY() < 254) {
 					//유적7 이동
 					new BGM(player, "유적7");
+					TTA_Methods.sendTitle(player, "§1§l오만을 행하는 유적", 20, 40, 20, null, 20, 40, 20);
 				}
 				
 			}
