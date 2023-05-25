@@ -3310,10 +3310,12 @@ public class Main extends JavaPlugin implements Listener{
 		//오류 제거
 		if(!(event.getEntity() instanceof Player)) {
 			if(event.getCause() == DamageCause.ENTITY_ATTACK || event.getCause() == DamageCause.ENTITY_SWEEP_ATTACK) {
-				if(event.getDamage() - 1.0 < 0.001) {
-					event.setCancelled(true);
-					return;
-				}
+//				if(event.getDamage() - 1.0 < 0.001) {
+//					event.setCancelled(true);
+//					return;
+//				}
+				event.setCancelled(true);
+				return;
 			}
 		}
 		
@@ -3406,8 +3408,14 @@ public class Main extends JavaPlugin implements Listener{
 		if(event.getEntity().getType() == EntityType.PIG || event.getEntity().getType() == EntityType.COW || event.getEntity().getType() == EntityType.RABBIT
 				|| event.getEntity().getType() == EntityType.CHICKEN || event.getEntity().getType() == EntityType.SHEEP || event.getEntity().getType() == EntityType.VILLAGER
 				|| event.getEntity().getType() == EntityType.HORSE || event.getEntity().getType() == EntityType.SKELETON_HORSE || event.getEntity().getType() == EntityType.ZOMBIE_HORSE
-				|| event.getEntity().getType() == EntityType.WOLF || event.getEntity().getType() == EntityType.CAT || event.getEntity().getType() == EntityType.DONKEY
-				|| event.getEntity().getType() == EntityType.ITEM_FRAME || event.getEntity().getType() == EntityType.DROPPED_ITEM) {
+				|| event.getEntity().getType() == EntityType.WOLF || event.getEntity().getType() == EntityType.CAT || event.getEntity().getType() == EntityType.DONKEY) {
+			if(event.getEntity().isCustomNameVisible()) {
+				event.setCancelled(true);
+				return;
+			} else {
+				event.getEntity().remove();
+			}
+		} else if(event.getEntity().getType() == EntityType.ITEM_FRAME || event.getEntity().getType() == EntityType.DROPPED_ITEM) {
 			event.setCancelled(true);
 			return;
 		}
@@ -4535,6 +4543,38 @@ public class Main extends JavaPlugin implements Listener{
 		} catch(Exception e) {
 			
 		}
+		
+		//음식 허기 조절
+		try {
+			EquipmentSlot e = event.getHand(); 
+	        if (e.equals (EquipmentSlot.HAND)) {
+	        	Player player = event.getPlayer();
+	        	try {	    
+	        		if(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+        				ItemStack item = player.getInventory().getItemInMainHand();
+        				if((item.getType() == Material.APPLE || item.getType() == Material.GOLDEN_APPLE || item.getType() == Material.MELON_SLICE
+    							|| item.getType() == Material.SWEET_BERRIES || item.getType() == Material.GLOW_BERRIES || item.getType() == Material.CHORUS_FRUIT
+    							|| item.getType() == Material.CARROT || item.getType() == Material.POTATO || item.getType() == Material.BEETROOT
+    							|| item.getType() == Material.DRIED_KELP || item.getType() == Material.BEEF || item.getType() == Material.COOKED_BEEF
+    							|| item.getType() == Material.PORKCHOP || item.getType() == Material.COOKED_PORKCHOP || item.getType() == Material.MUTTON
+    							|| item.getType() == Material.COOKED_MUTTON || item.getType() == Material.CHICKEN || item.getType() == Material.COOKED_CHICKEN
+    							|| item.getType() == Material.RABBIT || item.getType() == Material.COOKED_RABBIT || item.getType() == Material.COD
+    							|| item.getType() == Material.COOKED_COD || item.getType() == Material.SALMON || item.getType() == Material.COOKED_SALMON
+    							|| item.getType() == Material.TROPICAL_FISH || item.getType() == Material.PUFFERFISH || item.getType() == Material.BREAD
+    							|| item.getType() == Material.COOKIE || item.getType() == Material.PUMPKIN_PIE || item.getType() == Material.ROTTEN_FLESH
+    							|| item.getType() == Material.MUSHROOM_STEW || item.getType() == Material.RABBIT_STEW || item.getType() == Material.SUSPICIOUS_STEW
+    							|| item.getType() == Material.BEETROOT_SOUP || item.getType() == Material.HONEY_BOTTLE)) {
+        					player.setFoodLevel(player.getFoodLevel() - 1);
+        				}
+        			}
+	    		} catch(Exception e1) {
+	    			
+	    		}
+	        }
+		} catch(Exception e) {
+			
+		}
+		
 		//밭 보호 이벤트
 		try { 
 			if(event.getAction()==Action.PHYSICAL && event.getClickedBlock().getType() == Material.FARMLAND) {

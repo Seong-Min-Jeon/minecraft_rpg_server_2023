@@ -194,6 +194,34 @@ public class Skill {
 							skill20(player);
 						}
 					}
+				} else if(name.equals("철의 형제의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 900);
+						if (bool) {
+							sendPacket(player, "저절단");
+							skill21(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 2000);
+						if (bool) {
+							sendPacket(player, "이인생 한방");
+							skill22(player);
+						}
+					}
+				} else if(name.equals("버림받은 개의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1500);
+						if (bool) {
+							sendPacket(player, "충격 강타");
+							skill23(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 2700);
+						if (bool) {
+							sendPacket(player, "됐고!");
+							skill24(player);
+						}
+					}
 				}
 				
 			}
@@ -440,7 +468,7 @@ public class Skill {
 				if (time == 0) {
 					arrow = player.launchProjectile(Arrow.class);
 					arrow.setShooter(player);
-					arrow.setDamage(2 + (2*0.1*personality));
+					arrow.setDamage(damage(player, 2, true, true));
 					arrow.setVelocity(player.getLocation().getDirection().multiply(0.9f));	
 					arrow.setGravity(false);
 					
@@ -502,7 +530,7 @@ public class Skill {
 			        Vector arrowDir1 = new Vector(arrowDirX1, normal.getDirection().getY(), arrowDirZ1).multiply(1.2f);
 					arrow = player.launchProjectile(Arrow.class, arrowDir1);
 					arrow.setShooter(player);
-					arrow.setDamage(2 + (2*0.1*personality));
+					arrow.setDamage(damage(player, 2, true, true));
 					arrow.setVelocity(arrowDir1.multiply(0.9f));	
 					arrow.setGravity(false);
 					
@@ -816,11 +844,120 @@ public class Skill {
 		}
 	}
 	
+	public void skill21(Player player) {
+		new ParticleEffect(player).pS012();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 2, 1, 1, 1);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 2.5);
+			}
+		}
+	}
+	
+	public void skill22(Player player) {
+		new ParticleEffect(player).pS013();
+		
+		List<Entity> entitylist = player.getNearbyEntities(3, 3, 3);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, player.getHealth()-0.9);
+			}
+		}
+		
+		player.setHealth(1);
+	}
+	
+	public void skill23(Player player) {
+		new ParticleEffect(player).pS014();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.5, 0.8, 1, 0.8);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 3);
+				nearMob.setVelocity(new Vector(0,0.9,0));
+			}
+		}
+	}
+	
+	public void skill24(Player player) {
+		
+		new BukkitRunnable() {
+			int time = 0;
+
+			@Override
+			public void run() {
+				
+				if(time == 0) {
+					new ParticleEffect(player).pS015();
+					
+					List<Entity> entitylist = nearFrontEntities(player, 1.5, 0.9, 1, 0.9);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 1.5);
+							nearMob.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.2,0,1.2).add(new Vector(0,0.2,0))));
+						}
+					}
+				}
+				
+				if(time == 20) {
+					new ParticleEffect(player).pS015();
+					
+					List<Entity> entitylist = nearFrontEntities(player, 1.5, 0.9, 1, 0.9);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 1.5);
+							nearMob.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.2,0,1.2).add(new Vector(0,0.2,0))));
+						}
+					}
+				}
+
+				if(time >= 40) {
+					new ParticleEffect(player).pS015();
+					
+					List<Entity> entitylist = nearFrontEntities(player, 1.5, 0.9, 1, 0.9);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 1.5);
+							nearMob.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.2,0,1.2).add(new Vector(0,0.2,0))));
+						}
+					}
+					
+					this.cancel();
+				}
+
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+	}
+	
+	
+	
+	
 	
 	
 	public void damage(Player player, LivingEntity mob, double dam) {
 		if(mob instanceof ArmorStand) {
 			return;
+		}
+		
+		double finalDamage = 0;
+		finalDamage += dam;
+		
+		//힘 버프 증폭 계산
+		try {
+			if(player.hasPotionEffect(PotionEffectType.INCREASE_DAMAGE)) {
+				finalDamage += player.getPotionEffect(PotionEffectType.INCREASE_DAMAGE).getAmplifier() + 1;
+			}
+		} catch(Exception e2) {
+					
 		}
 		
 		int personality = 0;
@@ -837,7 +974,7 @@ public class Skill {
 			
 		}
 		
-		dam = dam + (dam*0.1*personality);
+		finalDamage += dam*0.1*personality;
 		
 		int damUP = 0; //10이면 10%증가
 		//유물에 따른 데미지 증폭 계산
@@ -863,7 +1000,8 @@ public class Skill {
 			
 		}
 		
-		dam = dam * (100+damUP) * 0.01;
+		finalDamage += dam * damUP * 0.01;
+		
 		
 		//크리티컬 계산
 		int crit = 10;
@@ -892,7 +1030,7 @@ public class Skill {
 		
 		int num = rnd.nextInt(100);
 		if(num < crit) {
-			mob.damage(dam * 2);
+			mob.damage(finalDamage * 2);
 			
 			if(mob instanceof Mob) {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
@@ -919,7 +1057,7 @@ public class Skill {
 				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 			}
 		} else {
-			mob.damage(dam);
+			mob.damage(finalDamage);
 			
 			if(mob instanceof Mob) {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
@@ -953,6 +1091,18 @@ public class Skill {
 			return 0;
 		}
 		
+		double finalDamage = 0;
+		finalDamage += dam;
+		
+		//힘 버프 증폭 계산
+		try {
+			if (player.hasPotionEffect(PotionEffectType.INCREASE_DAMAGE)) {
+				finalDamage += player.getPotionEffect(PotionEffectType.INCREASE_DAMAGE).getAmplifier() + 1;
+			}
+		} catch (Exception e2) {
+
+		}
+		
 		int personality = 0;
 		//인격에 따른 데미지 증폭 계산
 		try {
@@ -967,7 +1117,7 @@ public class Skill {
 			
 		}
 		
-		dam = dam + (dam*0.1*personality);
+		finalDamage += dam*0.1*personality;
 		
 		int damUP = 0; //10이면 10%증가
 		//유물에 따른 데미지 증폭 계산
@@ -993,7 +1143,7 @@ public class Skill {
 			
 		}
 		
-		dam = dam * (100+damUP) * 0.01;
+		finalDamage += dam * damUP * 0.01;
 		
 		//크리티컬 계산
 		int crit = 10;
@@ -1022,7 +1172,7 @@ public class Skill {
 		
 		int num = rnd.nextInt(100);
 		if(num < crit) {
-			mob.damage(dam * 2);
+			mob.damage(finalDamage * 2);
 			
 			if(mob instanceof Mob) {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
@@ -1050,7 +1200,7 @@ public class Skill {
 			}
 			return dam*2;
 		} else {
-			mob.damage(dam);
+			mob.damage(finalDamage);
 			
 			if(mob instanceof Mob) {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
@@ -1078,6 +1228,64 @@ public class Skill {
 			}
 			return dam;
 		}
+	}
+	
+	public double damage(Player player, double dam, boolean ret, boolean proj) {
+		double finalDamage = 0;
+		finalDamage += dam;
+		
+		//힘 버프 증폭 계산
+		try {
+			if (player.hasPotionEffect(PotionEffectType.INCREASE_DAMAGE)) {
+				finalDamage += player.getPotionEffect(PotionEffectType.INCREASE_DAMAGE).getAmplifier() + 1;
+			}
+		} catch (Exception e2) {
+			
+		}
+		
+		int personality = 0;
+		//인격에 따른 데미지 증폭 계산
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		finalDamage += dam*0.1*personality;
+		
+		int damUP = 0; //10이면 10%증가
+		//유물에 따른 데미지 증폭 계산
+		try {
+			if (player.getInventory().getItemInOffHand().getItemMeta() != null) {
+				if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "나태의 기량 반지")) {
+					damUP = 10;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "분노의 기량 반지")) {
+					damUP = 20;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "색욕의 기량 반지")) {
+					damUP = 30;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "탐식의 기량 반지")) {
+					damUP = 40;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "우울의 기량 반지")) {
+					damUP = 50;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "질투의 기량 반지")) {
+					damUP = 60;
+				} else if (player.getInventory().getItemInOffHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "오만의 기량 반지")) {
+					damUP = 70;
+				}
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		finalDamage += dam * damUP * 0.01;
+		
+		return finalDamage;
 	}
 	
 	public List<Entity> nearFrontEntities(Player player, double dist, double x, double y, double z) {
