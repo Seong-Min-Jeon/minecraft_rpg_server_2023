@@ -1036,7 +1036,7 @@ public class Skill {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
 				damageSign.setVisible(false);
 				damageSign.setSmall(true);
-				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ede900") + Integer.toString((int) Math.round(dam*2*10)));
+				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ede900") + Integer.toString((int) Math.round(finalDamage*2*10)));
 				damageSign.setCustomNameVisible(true);
 				damageSign.setGravity(false);
 				damageSign.setRemoveWhenFarAway(true);
@@ -1063,7 +1063,7 @@ public class Skill {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
 				damageSign.setVisible(false);
 				damageSign.setSmall(true);
-				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ebebeb") + Integer.toString((int) Math.round(dam*10)));
+				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ebebeb") + Integer.toString((int) Math.round(finalDamage*10)));
 				damageSign.setCustomNameVisible(true);
 				damageSign.setGravity(false);
 				damageSign.setRemoveWhenFarAway(true);
@@ -1178,7 +1178,7 @@ public class Skill {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
 				damageSign.setVisible(false);
 				damageSign.setSmall(true);
-				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ede900") + Integer.toString((int) Math.round(dam*2*10)));
+				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ede900") + Integer.toString((int) Math.round(finalDamage*2*10)));
 				damageSign.setCustomNameVisible(true);
 				damageSign.setGravity(false);
 				damageSign.setRemoveWhenFarAway(true);
@@ -1206,7 +1206,7 @@ public class Skill {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
 				damageSign.setVisible(false);
 				damageSign.setSmall(true);
-				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ebebeb") + Integer.toString((int) Math.round(dam*10)));
+				damageSign.setCustomName(ChatColor.BOLD + "" + net.md_5.bungee.api.ChatColor.of("#ebebeb") + Integer.toString((int) Math.round(finalDamage*10)));
 				damageSign.setCustomNameVisible(true);
 				damageSign.setGravity(false);
 				damageSign.setRemoveWhenFarAway(true);
