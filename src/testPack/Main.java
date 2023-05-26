@@ -68,6 +68,7 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
+import org.bukkit.event.entity.EntityDamageEvent.DamageModifier;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.EntityRegainHealthEvent;
@@ -3307,18 +3308,6 @@ public class Main extends JavaPlugin implements Listener{
 	
 	@EventHandler
 	public void skillDamage(EntityDamageEvent event) {
-		//오류 제거
-		if(!(event.getEntity() instanceof Player)) {
-			if(event.getCause() == DamageCause.ENTITY_ATTACK || event.getCause() == DamageCause.ENTITY_SWEEP_ATTACK) {
-//				if(event.getDamage() - 1.0 < 0.001) {
-//					event.setCancelled(true);
-//					return;
-//				}
-				event.setCancelled(true);
-				return;
-			}
-		}
-		
 		//로비는 무적
 		if(event.getEntity() instanceof Player) {
 			//-1820 100 2996  -1885 30 3069

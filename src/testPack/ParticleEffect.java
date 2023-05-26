@@ -979,7 +979,138 @@ public class ParticleEffect {
 		
 	}
 	
+	public void pS016() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+        
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*2, 0.8, dirZ1*2);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle2 = 95;
+		double totalAngle2 = normal.getYaw() + arrowAngle2;
+		double dirX2 = Math.cos(Math.toRadians(totalAngle2));
+		double dirZ2 = Math.sin(Math.toRadians(totalAngle2));
+		
+		e1 = normal.clone().add(dirX2*1.8, 0.9, dirZ2*1.8);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle3 = 100;
+		double totalAngle3 = normal.getYaw() + arrowAngle3;
+		double dirX3 = Math.cos(Math.toRadians(totalAngle3));
+		double dirZ3 = Math.sin(Math.toRadians(totalAngle3));
+		
+		e1 = normal.clone().add(dirX3*1.6, 1.0, dirZ3*1.6);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle4 = 105;
+		double totalAngle4 = normal.getYaw() + arrowAngle4;
+		double dirX4 = Math.cos(Math.toRadians(totalAngle4));
+		double dirZ4 = Math.sin(Math.toRadians(totalAngle4));
+		
+		e1 = normal.clone().add(dirX4*1.4, 1.1, dirZ4*1.4);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle5 = 85;
+		double totalAngle5 = normal.getYaw() + arrowAngle5;
+		double dirX5 = Math.cos(Math.toRadians(totalAngle5));
+		double dirZ5 = Math.sin(Math.toRadians(totalAngle5));
+		
+		e1 = normal.clone().add(dirX5*1.8, 0.7, dirZ5*1.8);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle6 = 80;
+		double totalAngle6 = normal.getYaw() + arrowAngle6;
+		double dirX6 = Math.cos(Math.toRadians(totalAngle6));
+		double dirZ6 = Math.sin(Math.toRadians(totalAngle6));
+		
+		e1 = normal.clone().add(dirX6*1.6, 0.6, dirZ6*1.6);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle7 = 75;
+		double totalAngle7 = normal.getYaw() + arrowAngle7;
+		double dirX7 = Math.cos(Math.toRadians(totalAngle7));
+		double dirZ7 = Math.sin(Math.toRadians(totalAngle7));
+		
+		e1 = normal.clone().add(dirX7*1.4, 0.5, dirZ7*1.4);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		double arrowAngle8 = 70;
+		double totalAngle8 = normal.getYaw() + arrowAngle8;
+		double dirX8 = Math.cos(Math.toRadians(totalAngle8));
+		double dirZ8 = Math.sin(Math.toRadians(totalAngle8));
+		
+		e1 = normal.clone().add(dirX8*1.2, 0.4, dirZ8*1.2);
+		world.spawnParticle(Particle.VILLAGER_ANGRY, e1, 2);
+		
+		world.playSound(normal, Sound.ENTITY_ZOMBIE_DEATH, 1.0f, 1.0f);
+		
+	}
 	
+	public void pS017() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+        
+        Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(255, 0, 0), 1);
+        Particle.DustOptions dustOptions2 = new Particle.DustOptions(Color.fromRGB(255, 50, 50), 1);
+        
+		new BukkitRunnable() {
+			int time = 0;
+			int size = 0;
+			
+		    Location e1;
+
+			@Override
+			public void run() {
+				
+				if(time % 1 == 0) {
+					double var = 0;
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						if(size % 2 == 0) {
+							e1 = normal.clone().add(Math.cos(var)*size, 0.7, Math.sin(var)*size);
+						} else {
+							e1 = normal.clone().add(Math.cos(var)*size, 0.2, Math.sin(var)*size);
+						}
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var += Math.PI / 8;
+					}
+					
+					if(size == 3) {
+						size = -1;
+					}
+					size++;
+				}
+				
+				if(time % 3 == 0) {
+					double var = 0;
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var)*3, 0.2, Math.sin(var)*3);
+						world.spawnParticle(Particle.REDSTONE, e1, 2, dustOptions1);
+						
+						var += Math.PI / 8;
+					}
+				}
+
+				if(time >= 20) {
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+		world.playSound(normal, Sound.ENTITY_SKELETON_HORSE_AMBIENT_WATER, 1.0f, 2.0f);
+	}
 	
 	
 	
