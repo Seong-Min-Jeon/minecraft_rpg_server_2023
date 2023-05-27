@@ -1112,6 +1112,129 @@ public class ParticleEffect {
 		world.playSound(normal, Sound.ENTITY_SKELETON_HORSE_AMBIENT_WATER, 1.0f, 2.0f);
 	}
 	
+	public void pS018() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+        
+        double var = 0;
+		
+		for(int i = 0 ; i < 16 ; i++) {
+			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
+			world.playEffect(e1, Effect.STEP_SOUND, e1.clone().add(0,-1,0).getBlock().getType(), 1);
+			
+			e1 = normal.clone().add(Math.cos(var)*2, 0.1, Math.sin(var)*2);
+			world.playEffect(e1, Effect.STEP_SOUND, e1.clone().add(0,-1,0).getBlock().getType(), 1);
+			
+			var += Math.PI / 8;
+		}
+		
+		world.playSound(normal, Sound.ENTITY_GENERIC_EXPLODE, 0.7f, 2.0f);
+		
+	}
+	
+	public void pS019() {
+
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(102, 51, 0), 2);
+		
+		 double var = 0;
+			
+			for(int i = 0 ; i < 16 ; i++) {
+				e1 = normal.clone().add(Math.cos(var)*1, 0.1, Math.sin(var)*1);
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+				
+				e1 = normal.clone().add(Math.cos(var)*2, 0.1, Math.sin(var)*2);
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+				
+				e1 = normal.clone().add(Math.cos(var)*3, 0.1, Math.sin(var)*3);
+				world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+				
+				var += Math.PI / 8;
+			}
+			
+			world.playSound(normal, Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
+	}
+	
+	public void pS019_1() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+        
+		if(!player.isInWater()) {
+			Location loc = player.getLocation();
+			Location loc2;
+			FallingBlock fb;
+			loc2 = loc.clone().add(new Vector(3, 0, 0));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+			
+			loc2 = loc.clone().add(new Vector(2, 0, 1));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+			
+			loc2 = loc.clone().add(new Vector(1, 0, 2));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+			fb.setPersistent(false);
+			
+			loc2 = loc.clone().add(new Vector(0, 0, 3));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+			
+			loc2 = loc.clone().add(new Vector(-3, 0, 0));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+			
+			loc2 = loc.clone().add(new Vector(-2, 0, 1));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+			
+			loc2 = loc.clone().add(new Vector(-1, 0, 2));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+			
+			loc2 = loc.clone().add(new Vector(-2, 0, -1));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+			
+			loc2 = loc.clone().add(new Vector(-1, 0, -2));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+			
+			loc2 = loc.clone().add(new Vector(0, 0, -3));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+			
+			loc2 = loc.clone().add(new Vector(1, 0, -2));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+			
+			loc2 = loc.clone().add(new Vector(2, 0, -1));
+			fb = (FallingBlock) player.getWorld().spawnFallingBlock(loc2, loc2.clone().add(0,-1,0).getBlock().getType(), (byte) 0);
+			fb.setVelocity(new Vector(0, 0.5, 0));
+			fb.setDropItem(false);
+		}
+		
+		world.playSound(normal, Sound.ENTITY_GENERIC_EXPLODE, 1.0f, 0.5f);
+		
+	}
+	
 	
 	
 	//===========================================================================

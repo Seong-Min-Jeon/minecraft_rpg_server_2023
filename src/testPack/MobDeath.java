@@ -1,5 +1,6 @@
 package testPack;
 
+import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
@@ -17,11 +18,9 @@ public class MobDeath {
 		
 	}
 	
-	public MobDeath(Player playerArg, Entity mobArg, double damageArg) {
+	public MobDeath(Entity mobArg) {
 		Entity mob = mobArg;
-		double damage = damageArg;
-		this.player = playerArg;
-		death(mob, damage);
+		death(mob, 9999999);
 	}
 
 	public MobDeath(Entity mobArg, double damageArg) {
@@ -32,17 +31,24 @@ public class MobDeath {
 
 	public void death(Entity mob, double damage) {
 		Player lootPlayer;
-		if (this.player == null) {
+		if (player == null) {
 			if(((Mob) mob).getTarget() instanceof Player) {
 				lootPlayer = (Player) (((Mob) mob).getTarget());				
 			} else {
-				lootPlayer = (Player) (((Mob) mob).getTarget());	
+				List<Entity> near = mob.getNearbyEntities(5, 5, 5);
+				for(Entity ent : near) {
+					if(ent instanceof Player) {
+						player = (Player) ent;
+						break;
+					}
+				}
+				lootPlayer = player;
 			}
 		} else {
 			lootPlayer = this.player;
 		}
 		
-		MobLoot mobloot = new MobLoot(lootPlayer);
+		MobLoot mobloot = new MobLoot();
 		
 		if (((LivingEntity) mob).getHealth() - damage <= 0) {
 			

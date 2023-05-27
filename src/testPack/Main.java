@@ -15,6 +15,7 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
+import org.bukkit.FluidCollisionMode;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -2644,6 +2645,18 @@ public class Main extends JavaPlugin implements Listener{
 	}
 	
 	@EventHandler
+	public void mobDeath(EntityDeathEvent event) {
+		//몹 루트
+		try {
+			if (event.getEntity() instanceof Mob) {				
+				new MobDeath(event.getEntity());
+			}
+		} catch (Exception e) {
+
+		}
+	}
+	
+	@EventHandler
 	public void consumeItem(PlayerItemConsumeEvent event) {
 		Player player = event.getPlayer();
 		try {
@@ -3752,17 +3765,6 @@ public class Main extends JavaPlugin implements Listener{
 
 				PlayerHitGimmick debuff = new PlayerHitGimmick();
 				debuff.playerHitGimmick(entity);
-			}
-		} catch (Exception e) {
-
-		}
-		
-		//몹 루트
-		try {
-			if (event.getEntity() instanceof Mob) {				
-				Entity mob = event.getEntity();
-				double damage = event.getFinalDamage();
-				MobDeath md = new MobDeath(mob, damage);
 			}
 		} catch (Exception e) {
 

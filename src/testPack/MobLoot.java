@@ -31,6 +31,8 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scoreboard.Objective;
 
 public class MobLoot {
@@ -1756,6 +1758,9 @@ public class MobLoot {
 	//변이된 나뭇잎
 	public void d1_1(Player player) {
 		World world = player.getWorld();
+		
+		List<Entity> entitylist = player.getNearbyEntities(30, 12, 30);
+		
 		int num2 = rnd.nextInt(5);
 		if (num2 == 0) {
 			player.teleport(new Location(world, 3464.5, 18, 3740));
@@ -1774,13 +1779,17 @@ public class MobLoot {
 			sendMessage(player, "유적 어딘가로 이동했다.");
 		}
 		
-		List<Entity> entitylist = player.getNearbyEntities(30, 12, 30);
 		for (Entity nearEntity : entitylist) {
 			if (nearEntity.getType() == EntityType.PLAYER) {
 				Player nearPlayer = (Player) nearEntity;
 				nearPlayer.teleport(player.getLocation());
+				nearPlayer.setNoDamageTicks(10);
+				nearPlayer.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false, true));
 			}
 		}
+		
+		player.setNoDamageTicks(10);
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false, true));
 	}
 
 	// 보스 스켈이

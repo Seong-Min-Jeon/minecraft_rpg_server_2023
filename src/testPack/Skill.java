@@ -10,6 +10,7 @@ import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.FluidCollisionMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -234,6 +235,20 @@ public class Skill {
 						if (bool) {
 							sendPacket(player, "요리 준비");
 							skill26(player);
+						}
+					}
+				} else if(name.equals("도끼파 조직원의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1000);
+						if (bool) {
+							sendPacket(player, "으깨기");
+							skill27(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 5000);
+						if (bool) {
+							sendPacket(player, "땅 흔들기");
+							skill28(player);
 						}
 					}
 				}
@@ -959,7 +974,7 @@ public class Skill {
 		for (Entity nearEntity : entitylist) {
 			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 				LivingEntity nearMob = (LivingEntity) nearEntity;
-				damage(player, nearMob, 2);
+				damageMax(player, nearMob, 2);
 			}
 		}
 	}
@@ -979,12 +994,78 @@ public class Skill {
 		player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "맛있는 재료를 발견했습니다. [위력 +1]");
 	}
 	
+	public void skill27(Player player) {
+		new ParticleEffect(player).pS018();
+		
+		List<Entity> entitylist = player.getNearbyEntities(2, 1, 2);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 2);
+			}
+		}
+	}
+	
+	public void skill28(Player player) {
+		
+		player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 255, true, false, true));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 40, 255, true, false, true));
+		
+		new BukkitRunnable() {
+			int time = 0;
+
+			@Override
+			public void run() {
+				
+				if(time == 0) {
+					new ParticleEffect(player).pS019();
+					
+					List<Entity> entitylist = player.getNearbyEntities(3, 1, 3);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 0.5);
+							nearMob.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 255, true, false, true));
+						}
+					}
+				}
+				
+				if(time >= 40) {
+					new ParticleEffect(player).pS019_1();
+					
+					List<Entity> entitylist = player.getNearbyEntities(3, 1, 3);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 2.5);
+							nearMob.setVelocity(new Vector(0, 0.8, 0));
+						}
+					}
+					
+					this.cancel();
+				}
+
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 	
 	
 	public void damage(Player player, LivingEntity mob, double dam) {
 		if(mob instanceof ArmorStand) {
+			return;
+		}
+		
+		//몹 벽에 끼우고 때리는거 금지
+		if(mob.getTargetBlockExact(2, FluidCollisionMode.SOURCE_ONLY) != null) {
 			return;
 		}
 		
@@ -1131,6 +1212,11 @@ public class Skill {
 			return;
 		}
 		
+		//몹 벽에 끼우고 때리는거 금지
+		if(mob.getTargetBlockExact(2, FluidCollisionMode.SOURCE_ONLY) != null) {
+			return;
+		}
+		
 		double finalDamage = 0;
 		finalDamage += dam;
 		
@@ -1215,7 +1301,11 @@ public class Skill {
 		if(num < crit) {
 			mob.damage(finalDamage * 2);
 			if(mob.getMaxHealth() > finalDamage*2) {
-				mob.setMaxHealth(mob.getMaxHealth() - finalDamage*2);
+				if(mob instanceof Player) {
+					damageMaxHealth(player, 1);
+				} else {
+					mob.setMaxHealth(mob.getMaxHealth() - finalDamage*2);
+				}
 			}
 			
 			if(mob instanceof Mob) {
@@ -1245,7 +1335,11 @@ public class Skill {
 		} else {
 			mob.damage(finalDamage);
 			if(mob.getMaxHealth() > finalDamage) {
-				mob.setMaxHealth(mob.getMaxHealth() - finalDamage);
+				if(mob instanceof Player) {
+					damageMaxHealth(player, 1);
+				} else {
+					mob.setMaxHealth(mob.getMaxHealth() - finalDamage);
+				}
 			}
 			
 			if(mob instanceof Mob) {
@@ -1277,6 +1371,11 @@ public class Skill {
 	
 	public double damageRet(Player player, LivingEntity mob, double dam) {
 		if(mob instanceof ArmorStand) {
+			return 0;
+		}
+		
+		//몹 벽에 끼우고 때리는거 금지
+		if(mob.getTargetBlockExact(2, FluidCollisionMode.SOURCE_ONLY) != null) {
 			return 0;
 		}
 		
@@ -1478,6 +1577,7 @@ public class Skill {
 	}
 	
 	public List<Entity> nearFrontEntities(Player player, double dist, double x, double y, double z) {
+		
 		Location normal = player.getLocation();
 		Location e1;
 		
@@ -1610,6 +1710,31 @@ public class Skill {
 	 		return true;
 		}
 		return false;
+	}
+	
+	public void damageMaxHealth(Player player, int num) {
+		if(!player.hasPotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE)) {
+			if(num == 1) {
+				if(player.hasPotionEffect(PotionEffectType.FAST_DIGGING)) {
+					if(player.getMaxHealth() <= 2) {
+						player.setMaxHealth(1);
+						player.setHealth(0);
+					} else {
+						player.setMaxHealth(player.getMaxHealth() - 2);
+					}
+					player.removePotionEffect(PotionEffectType.FAST_DIGGING);
+				} else {
+					player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0, true, false, true));
+				}
+			} else {
+				if(player.getMaxHealth() <= num) {
+					player.setMaxHealth(1);
+					player.setHealth(0);
+				} else {
+					player.setMaxHealth(player.getMaxHealth() - num);
+				}
+			}
+		}
 	}
 	
 	public void sendPacket(Player player, String message) {
