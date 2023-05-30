@@ -251,6 +251,20 @@ public class Skill {
 							skill28(player);
 						}
 					}
+				} else if(name.equals("정육점파 조직원의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1100);
+						if (bool) {
+							sendPacket(player, "잔혹함");
+							skill29(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 3000);
+						if (bool) {
+							sendPacket(player, "무엇이든 도축할 수 있지");
+							skill30(player);
+						}
+					}
 				}
 				
 			}
@@ -706,7 +720,7 @@ public class Skill {
 			public void run() {
 		    	
 		    	if(time == 5) {
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.5, 1, 0.5);
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -718,7 +732,7 @@ public class Skill {
 		    	if(time == 10) {
 		    		new ParticleEffect(player).pS008_1();
 		    		
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.5, 1, 0.5);
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -728,7 +742,7 @@ public class Skill {
 		    	}
 		    	
 		    	if(time == 15) {
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.5, 1, 0.5);
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -738,7 +752,7 @@ public class Skill {
 		    	}
 		    	
 		    	if(time >= 20) {
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.5, 1, 0.5);
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -995,15 +1009,35 @@ public class Skill {
 	}
 	
 	public void skill27(Player player) {
-		new ParticleEffect(player).pS018();
 		
-		List<Entity> entitylist = player.getNearbyEntities(2, 1, 2);
-		for (Entity nearEntity : entitylist) {
-			if (nearEntity instanceof LivingEntity && nearEntity != player) {
-				LivingEntity nearMob = (LivingEntity) nearEntity;
-				damage(player, nearMob, 2);
+		new BukkitRunnable() {
+			int time = 0;
+
+		    @Override
+			public void run() {
+				
+		    	if (time == 0) {
+		    		player.setVelocity(new Vector(0,0.6,0));
+				}
+				
+				if (time >= 10 && player.isOnGround()) {
+					new ParticleEffect(player).pS018();
+					
+					List<Entity> entitylist = player.getNearbyEntities(2, 1, 2);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 3);
+						}
+					}
+					this.cancel();
+				}
+				
+				time++;
+
 			}
-		}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
 	}
 	
 	public void skill28(Player player) {
@@ -1051,9 +1085,107 @@ public class Skill {
 		
 	}
 	
+	public void skill29(Player player) {
+		new ParticleEffect(player).pS020();
+		
+		List<Entity> entitylist = player.getNearbyEntities(2, 2, 2);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 2);
+			}
+		}
+	}
 	
-	
-	
+	public void skill30(Player player) {
+		new BukkitRunnable() {
+			int time = 0;
+
+		    @Override
+			public void run() {
+		    	
+		    	if(time == 0) {
+		    		player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.4,0,1.4).add(new Vector(0,0.2,0))));
+		    		new ParticleEffect(player).pS021();
+		    	}
+		    	
+		    	if(time == 5) {
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damageMax(player, nearMob, 0.5); 
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 10) {
+		    		new ParticleEffect(player).pS021();
+		    		
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damageMax(player, nearMob, 0.5); 
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 15) {
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damageMax(player, nearMob, 0.5); 
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 20) {
+		    		player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.4,0,1.4).add(new Vector(0,0.2,0))));
+		    		new ParticleEffect(player).pS021();
+		    	}
+		    	
+		    	if(time == 25) {
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damageMax(player, nearMob, 0.5); 
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 30) {
+		    		new ParticleEffect(player).pS021();
+		    		
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damageMax(player, nearMob, 0.5); 
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 35) {
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damageMax(player, nearMob, 0.5); 
+		    			}
+		    		}
+		    		this.cancel();
+		    	}
+		    	
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+		player.setNoDamageTicks(35);
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 35, 0, true, false, true));
+	}
 	
 	
 	
@@ -1676,7 +1808,34 @@ public class Skill {
 	 			timer.remove(player);
 		 		timer.put(player, time);
 		 		return true;
-	 		}			
+	 		} else {
+	 			try {
+	 				String remain = Integer.toString(reload - Math.abs(time-lastTime));
+		 			int remainmm = 0;
+		 			int remainss = 0;
+		 			int remainS = 0;
+		 			
+		 			if(remain.length() > 5) {
+		 				remainmm = Integer.parseInt(remain.substring(0, remain.length()-5));
+		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3)) - remainmm*100;
+		 			} else if(remain.length() > 3) {
+		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3));
+		 				remainS = Integer.parseInt(remain.substring(0, remain.length()-2)) - remainss*10;
+		 			} else {
+		 				remainS = Integer.parseInt(remain.substring(0, remain.length()-2));
+		 			}
+		 			
+		 			if(remainmm != 0) {
+		 				sendPacket(player, ".." + remainmm + "분 " + remainss + "초");
+		 			} else if(remainss != 0) {
+		 				sendPacket(player, ".." + remainss + "." + remainS + "초");
+		 			} else {
+		 				sendPacket(player, ".." + remainss + "." + remainS + "초");
+		 			}
+	 			} catch(Exception e) {
+	 				
+	 			}
+	 		}
 		} else {
 			long dayTime = System.currentTimeMillis(); 
 	 		SimpleDateFormat hms = new SimpleDateFormat("hhmmssSSS");
@@ -1700,7 +1859,34 @@ public class Skill {
 	 			timer2.remove(player);
 		 		timer2.put(player, time);
 		 		return true;
-	 		}			
+	 		} else {
+	 			try {
+	 				String remain = Integer.toString(reload - Math.abs(time-lastTime));
+		 			int remainmm = 0;
+		 			int remainss = 0;
+		 			int remainS = 0;
+		 			
+		 			if(remain.length() > 5) {
+		 				remainmm = Integer.parseInt(remain.substring(0, remain.length()-5));
+		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3)) - remainmm*100;
+		 			} else if(remain.length() > 3) {
+		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3));
+		 				remainS = Integer.parseInt(remain.substring(0, remain.length()-2)) - remainss*10;
+		 			} else {
+		 				remainS = Integer.parseInt(remain.substring(0, remain.length()-2));
+		 			}
+		 			
+		 			if(remainmm != 0) {
+		 				sendPacket(player, ".." + remainmm + "분 " + remainss + "초");
+		 			} else if(remainss != 0) {
+		 				sendPacket(player, ".." + remainss + "." + remainS + "초");
+		 			} else {
+		 				sendPacket(player, ".." + remainss + "." + remainS + "초");
+		 			}
+	 			} catch(Exception e) {
+	 				
+	 			}
+	 		}
 		} else {
 			long dayTime = System.currentTimeMillis(); 
 	 		SimpleDateFormat hms = new SimpleDateFormat("hhmmssSSS");

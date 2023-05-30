@@ -1235,6 +1235,49 @@ public class ParticleEffect {
 		
 	}
 	
+	public void pS020() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(255,50,50), 1);
+        
+        double var = 0;
+		
+		for(int i = 0 ; i < 16 ; i++) {
+			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
+			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			
+			e1 = normal.clone().add(Math.cos(var)*2, 0.1, Math.sin(var)*2);
+			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			
+			var += Math.PI / 8;
+		}
+		
+		world.playSound(normal, Sound.ENTITY_GENERIC_EXPLODE, 1.0f, 2.0f);
+	}
+	
+	public void pS021() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(255, 0, 0), 1);
+        
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		for(int i = 0 ; i < 5 ; i++) {
+			e1 = normal.clone().add(dirX1*(i*0.2), 0.8, dirZ1*(i*0.2));
+			world.spawnParticle(Particle.REDSTONE, e1, 2, dustOptions1);
+		}
+		
+		world.playSound(normal, Sound.ENTITY_ZOMBIE_HURT, 1.0f, 2.0f);
+	}
 	
 	
 	//===========================================================================
