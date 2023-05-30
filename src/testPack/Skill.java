@@ -265,6 +265,20 @@ public class Skill {
 							skill30(player);
 						}
 					}
+				} else if(name.equals("윤의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 800);
+						if (bool) {
+							sendPacket(player, "느려");
+							skill31(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 10000);
+						if (bool) {
+							sendPacket(player, "진두지휘");
+							skill32(player);
+						}
+					}
 				}
 				
 			}
@@ -1187,7 +1201,54 @@ public class Skill {
 		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 35, 0, true, false, true));
 	}
 	
+	public void skill31(Player player) {
+		
+		new BukkitRunnable() {
+			int time = 0;
+
+			@Override
+			public void run() {
+				
+				if(time == 0) {
+					new ParticleEffect(player).pS001();
+					
+					List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 2.5);
+						}
+					}
+				}
+
+				if(time >= 10) {
+					player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.1,0,1.1).add(new Vector(0,0.1,0))));
+					
+					this.cancel();
+				}
+
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+	}
 	
+	public void skill32(Player player) {
+		new ParticleEffect(player).pS022();
+		
+		List<Entity> entitylist = player.getNearbyEntities(3.5, 3.5, 3.5);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof Player && nearEntity != player) {
+				Player p = (Player) nearEntity;
+				p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 100, 0, true, false, true));
+				p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 100, 0, true, false, true));
+				p.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "윤의 지휘로 사기가 증가합니다. [위력 +1] [보호 +1]");
+			}
+		}
+		player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 100, 0, true, false, true));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 100, 0, true, false, true));
+		player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "사기가 증가합니다. [위력 +1] [보호 +1]");
+	}
 	
 	
 	

@@ -11,7 +11,15 @@ public class PlayerGrade {
 		} catch(Exception e) {
 			
 		}
-		return 0;
+		try {
+			String gradeTmp = player.getInventory().getItem(8).getItemMeta().getLore().get(1);
+			if(gradeTmp.substring(6, 7).equals("특")) {
+				return 0;
+			}
+		} catch(Exception e) {
+			
+		}
+		return 9;
 	}
 	
 }

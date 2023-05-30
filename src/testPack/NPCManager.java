@@ -122,8 +122,12 @@ public class NPCManager {
 		shop12();
 		shop14();
 		myo();
+		guard1();
+		guard2();
+		guard3();
 		
 		yumehama();
+		why9196();
 	}
 	
 	public NPC yoon() {
@@ -1786,6 +1790,80 @@ public class NPCManager {
 		npc.setGazeTrackingType(GazeTrackingType.PLAYER);
 		npc.setShowOnTabList(false);
 		npc.show(); 
+		npc.update();
+		
+		return npc;
+	}
+	
+	public NPC guard1() {
+		Location loc = new Location(Bukkit.getWorld("world"), -1115.5, 78, 1267.5, 180, 0);
+		
+		NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "guard1", loc);
+		npc.setText("일하기 귀찮은 경비원");
+		npc.setSkin("ewogICJ0aW1lc3RhbXAiIDogMTY4NTQ0ODY5MTk3NiwKICAicHJvZmlsZUlkIiA6ICIxZGQ4YmU5YTljMDc0OGU4OTZjZjgwNDNjNTMxMWEzNCIsCiAgInByb2ZpbGVOYW1lIiA6ICJHaWdhQ2F0VG95IiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2IyOWJlMzJiMDU5NmQ0MjZiZTU0ZTNjNzc1OGZmOGYxZDQ3MzAyYzk1NGZmMDc3Y2M0ZjZjYjAwNmJhYWJjYzUiCiAgICB9CiAgfQp9"
+				, "fUUm8/x/u7XjRlJUYLpqoWDT9UQgkz1L9lV2uMNt9UP1V3Uzf6os+V82FHNOqjtCsjXE36daN5OqBN9ISLcAmrrmfDhj9iJ5EX4GfhGGTcJy55PvYSPGrKclf5y/KXufojMTV29rLpB41NtQ5nEqJZtb01Tgk0df+pVc6gBAh/wXjF2oeIrTfFSU9DcICeJaXKgOTTuyw9xZlImxnPgZuaYkxx1izBECa/bXQuNZMU/fYHvj9moK0osSP5POq7IK7HrRyVjwQG/EpJ5DoKQPpxjl++MmmzBeJ0vjfGFAK6zn5TaE2HD13h7FOdL6IwL886BIdct3DJmAAyA2odXP0F+pM3sdit5Ikx1kWQX+RxE1ntEiWq31oRWuBIkh4CBw0HB1mli9IywCjetJ6XawDnjGcLOH/pB7xthBZ2G5oIfCQpU3Mt5zN3DwqgJKCdzDHkicqA3fHiz3x7QRvdlaceOfKQx0KwaagcZFC7Z7knInq7R8MlH5ZKTveiDpJ4sHiQGYcdL7t+XpWaZ6GHSugQPoMPkc80eu6qNJ2xtKETe6ataiLzv/oLv0uOd/qTOPxYwMkyVwNzhOaSy7tVPUAVhLMYmoiAXv4RoQxsfE2MbQ604HuKVogG/0wJMoUqqlEk1/7NRWnBl4K/F8NJP2ffTq4AoNP5327c1RBFz6mVQ="
+				);
+		npc.setCollidable(false);
+		npc.setGazeTrackingType(GazeTrackingType.PLAYER);
+		npc.setShowOnTabList(false);
+		npc.setItem(Slot.MAINHAND, new ItemStack(Material.CUT_SANDSTONE));
+		npc.show(); 
+		npc.update();
+		
+		return npc;
+	}
+	
+	public NPC guard2() {
+		Location loc = new Location(Bukkit.getWorld("world"), -1108.5, 78, 1267.5, 180, 0);
+		
+		NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "guard2", loc);
+		npc.setText("뒷골목 출신 경비원");
+		npc.setSkin("ewogICJ0aW1lc3RhbXAiIDogMTY4NTQ0ODY5MTk3NiwKICAicHJvZmlsZUlkIiA6ICIxZGQ4YmU5YTljMDc0OGU4OTZjZjgwNDNjNTMxMWEzNCIsCiAgInByb2ZpbGVOYW1lIiA6ICJHaWdhQ2F0VG95IiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2IyOWJlMzJiMDU5NmQ0MjZiZTU0ZTNjNzc1OGZmOGYxZDQ3MzAyYzk1NGZmMDc3Y2M0ZjZjYjAwNmJhYWJjYzUiCiAgICB9CiAgfQp9"
+				, "fUUm8/x/u7XjRlJUYLpqoWDT9UQgkz1L9lV2uMNt9UP1V3Uzf6os+V82FHNOqjtCsjXE36daN5OqBN9ISLcAmrrmfDhj9iJ5EX4GfhGGTcJy55PvYSPGrKclf5y/KXufojMTV29rLpB41NtQ5nEqJZtb01Tgk0df+pVc6gBAh/wXjF2oeIrTfFSU9DcICeJaXKgOTTuyw9xZlImxnPgZuaYkxx1izBECa/bXQuNZMU/fYHvj9moK0osSP5POq7IK7HrRyVjwQG/EpJ5DoKQPpxjl++MmmzBeJ0vjfGFAK6zn5TaE2HD13h7FOdL6IwL886BIdct3DJmAAyA2odXP0F+pM3sdit5Ikx1kWQX+RxE1ntEiWq31oRWuBIkh4CBw0HB1mli9IywCjetJ6XawDnjGcLOH/pB7xthBZ2G5oIfCQpU3Mt5zN3DwqgJKCdzDHkicqA3fHiz3x7QRvdlaceOfKQx0KwaagcZFC7Z7knInq7R8MlH5ZKTveiDpJ4sHiQGYcdL7t+XpWaZ6GHSugQPoMPkc80eu6qNJ2xtKETe6ataiLzv/oLv0uOd/qTOPxYwMkyVwNzhOaSy7tVPUAVhLMYmoiAXv4RoQxsfE2MbQ604HuKVogG/0wJMoUqqlEk1/7NRWnBl4K/F8NJP2ffTq4AoNP5327c1RBFz6mVQ="
+				);
+		npc.setCollidable(false);
+		npc.setGazeTrackingType(GazeTrackingType.PLAYER);
+		npc.setShowOnTabList(false);
+		npc.setItem(Slot.MAINHAND, new ItemStack(Material.CUT_SANDSTONE));
+		npc.show(); 
+		npc.update();
+		
+		return npc;
+	}
+	
+	public NPC guard3() {
+		Location loc = new Location(Bukkit.getWorld("world"), -1018.5, 80, 1345.5, 0, 0);
+		
+		NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "guard3", loc);
+		npc.setText("심심한 경비원");
+		npc.setSkin("ewogICJ0aW1lc3RhbXAiIDogMTY4NTQ0ODY5MTk3NiwKICAicHJvZmlsZUlkIiA6ICIxZGQ4YmU5YTljMDc0OGU4OTZjZjgwNDNjNTMxMWEzNCIsCiAgInByb2ZpbGVOYW1lIiA6ICJHaWdhQ2F0VG95IiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2IyOWJlMzJiMDU5NmQ0MjZiZTU0ZTNjNzc1OGZmOGYxZDQ3MzAyYzk1NGZmMDc3Y2M0ZjZjYjAwNmJhYWJjYzUiCiAgICB9CiAgfQp9"
+				, "fUUm8/x/u7XjRlJUYLpqoWDT9UQgkz1L9lV2uMNt9UP1V3Uzf6os+V82FHNOqjtCsjXE36daN5OqBN9ISLcAmrrmfDhj9iJ5EX4GfhGGTcJy55PvYSPGrKclf5y/KXufojMTV29rLpB41NtQ5nEqJZtb01Tgk0df+pVc6gBAh/wXjF2oeIrTfFSU9DcICeJaXKgOTTuyw9xZlImxnPgZuaYkxx1izBECa/bXQuNZMU/fYHvj9moK0osSP5POq7IK7HrRyVjwQG/EpJ5DoKQPpxjl++MmmzBeJ0vjfGFAK6zn5TaE2HD13h7FOdL6IwL886BIdct3DJmAAyA2odXP0F+pM3sdit5Ikx1kWQX+RxE1ntEiWq31oRWuBIkh4CBw0HB1mli9IywCjetJ6XawDnjGcLOH/pB7xthBZ2G5oIfCQpU3Mt5zN3DwqgJKCdzDHkicqA3fHiz3x7QRvdlaceOfKQx0KwaagcZFC7Z7knInq7R8MlH5ZKTveiDpJ4sHiQGYcdL7t+XpWaZ6GHSugQPoMPkc80eu6qNJ2xtKETe6ataiLzv/oLv0uOd/qTOPxYwMkyVwNzhOaSy7tVPUAVhLMYmoiAXv4RoQxsfE2MbQ604HuKVogG/0wJMoUqqlEk1/7NRWnBl4K/F8NJP2ffTq4AoNP5327c1RBFz6mVQ="
+				);
+		npc.setCollidable(false);
+		npc.setGazeTrackingType(GazeTrackingType.PLAYER);
+		npc.setShowOnTabList(false);
+		npc.setItem(Slot.MAINHAND, new ItemStack(Material.CUT_SANDSTONE));
+		npc.show(); 
+		npc.update();
+		
+		return npc;
+	}
+	
+	public NPC why9196() {
+		Location loc = new Location(Bukkit.getWorld("world"), -1850.5, 70, 3027.5, 180, 0);
+		NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "why9196", loc);
+		String[] name = getSkin("why9196");
+		npc.setText("다른 차원의 세계를 구한 영웅");
+		npc.setSkin(name[0], name[1]);
+		npc.setCollidable(false);
+		npc.setGazeTrackingType(GazeTrackingType.PLAYER);
+		npc.setShowOnTabList(false);
+		npc.setItem(Slot.MAINHAND, new ItemStack(Material.JUNGLE_LOG));
+		npc.setItem(Slot.HEAD, new ItemStack(Material.NETHERITE_HELMET));
+		npc.setItem(Slot.CHEST, new ItemStack(Material.NETHERITE_CHESTPLATE));
+		npc.setItem(Slot.LEGS, new ItemStack(Material.NETHERITE_LEGGINGS));
+		npc.setItem(Slot.FEET, new ItemStack(Material.NETHERITE_BOOTS));
+		npc.show();
 		npc.update();
 		
 		return npc;

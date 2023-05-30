@@ -104,6 +104,62 @@ public class Start {
 			player.setMaxHealth(12);
 		} else if(name.equals("정육점파 조직원의 인격")) {
 			player.setMaxHealth(12);
+		} else if(name.equals("윤의 인격")) {
+			player.setMaxHealth(14);
+		} else if(name.equals("맥컬린의 인격")) {
+			player.setMaxHealth(14);
+		} else if(name.equals("산의 인격")) {
+			player.setMaxHealth(14);
+		} else if(name.equals("태인의 인격")) {
+			player.setMaxHealth(16);
+		} else if(name.equals("레인의 인격")) {
+			player.setMaxHealth(14);
+		} else if(name.equals("올가의 인격")) {
+			player.setMaxHealth(16);
+		} else if(name.equals("츠바이 협회 6과 해결사의 인격")) {
+			player.setMaxHealth(16);
+		} else if(name.equals("츠바이 협회 5과 해결사의 인격")) {
+			player.setMaxHealth(18);
+		} else if(name.equals("시 협회 5과 해결사의 인격")) {
+			player.setMaxHealth(14);
+		} else if(name.equals("리우 협회 5과 해결사의 인격")) {
+			player.setMaxHealth(16);
+		} else if(name.equals("세븐 협회 5과 해결사의 인격")) {
+			player.setMaxHealth(16);
+		} else if(name.equals("스테판의 인격")) {
+			player.setMaxHealth(18);
+		} else if(name.equals("유나의 인격")) {
+			player.setMaxHealth(18);
+		} else if(name.equals("파멜리의 인격")) {
+			player.setMaxHealth(18);
+		} else if(name.equals("달록의 인격")) {
+			player.setMaxHealth(20);
+		} else if(name.equals("츠바이 협회 3과 해결사의 인격")) {
+			player.setMaxHealth(20);
+		} else if(name.equals("시 협회 3과 해결사의 인격")) {
+			player.setMaxHealth(16);
+		} else if(name.equals("리우 협회 3과 해결사의 인격")) {
+			player.setMaxHealth(18);
+		} else if(name.equals("세븐 협회 3과 해결사의 인격")) {
+			player.setMaxHealth(18);
+		} else if(name.equals("W사 정리요원의 인격")) {
+			player.setMaxHealth(20);
+		} else if(name.equals("K사 진압요원의 인격")) {
+			player.setMaxHealth(24);
+		} else if(name.equals("녹슨 사슬파 조직원의 인격")) {
+			player.setMaxHealth(18);
+		} else if(name.equals("흑운회 와카슈의 인격")) {
+			player.setMaxHealth(16);
+		} else if(name.equals("사육제의 인격")) {
+			player.setMaxHealth(22);
+		} else if(name.equals("철공회 조직원의 인격")) {
+			player.setMaxHealth(18);
+		} else if(name.equals("하바네로파 조직원의 인격")) {
+			player.setMaxHealth(18);
+		} else if(name.equals("엄지 솔다토의 인격")) {
+			player.setMaxHealth(20);
+		} else if(name.equals("검지 수행자의 인격")) {
+			player.setMaxHealth(18);
 		}
 		
 		player.setHealth(player.getMaxHealth());
@@ -378,6 +434,20 @@ public class Start {
 			weaponLore.add(ChatColor.GRAY + "고향을 잃은 이들에게 주어졌다.");
 			weaponLore.add(ChatColor.GRAY + "그들 중 대부분은 변방으로 보내져");
 			weaponLore.add(ChatColor.GRAY + "실의와 함께 그 땅에 자리 잡았다고 한다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("윤의 인격")) {
+			weapon = new ItemStack(Material.SMOOTH_RED_SANDSTONE);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "급하게 주운 파이프");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "윤 사무소 앞 하수구에서 주운 파이프");
+			weaponLore.add(ChatColor.GRAY + "맨 주먹도 강한 윤이기에 이런 고철로도");
+			weaponLore.add(ChatColor.GRAY + "꽤나 싸울 수 있는 것 같다.");
 			weaponIm.setLore(weaponLore);
 			weaponIm.setUnbreakable(true);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);

@@ -3760,7 +3760,7 @@ public class Main extends JavaPlugin implements Listener{
 		
 		//몹을 공격한 경우 기믹 발생
 		try {
-			if (event.getEntity() instanceof Entity && event.getDamage() > 0 && !event.isCancelled()) {
+			if (event.getEntity() instanceof Entity && event.getDamage() > 0 && !event.isCancelled() && event.getCause() != DamageCause.ENTITY_ATTACK && event.getCause() != DamageCause.ENTITY_SWEEP_ATTACK) {
 				Entity entity = (Entity) event.getEntity();
 
 				PlayerHitGimmick debuff = new PlayerHitGimmick();
@@ -10629,6 +10629,50 @@ public class Main extends JavaPlugin implements Listener{
 						}
 	 	    		} else {
 	 	    			new Message().msg(player, "묘: 뒤틀림의 정보를 보고 있는 중이야.%묘: 너도 죽기 싫으면 봐두는게 좋을걸?");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("일하기 귀찮은 경비원")) {
+	 	    		int num = rnd.nextInt(4);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "경비원: 쥐들이 둥지로 올라간다고?%경비원: 몰라. 알게 뭐야…");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "경비원: 이단심문관?%경비원: 그게 뭔데.%경비원: 출장 나와서 경비나 서고 있는데 귀찮게 하지 마.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "경비원: 흐아아암.");
+	 	    		} else if(num == 3) {
+	 	    			new Message().msg(player, "경비원: 귀찮게 하면 망치로 대가리를 깰거야.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("뒷골목 출신 경비원")) {
+	 	    		int num = rnd.nextInt(4);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "경비원: 우리는 N사의 망치란다.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "경비원: 쥐들이 둥지로 올라간다고?%경비원: 다들 먹고 살려고 하는건데 어때.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "경비원: 이단심문관?%경비원: 듣기로는 그런 녀석들도 있다고 하더라고.");
+	 	    		} else if(num == 3) {
+	 	    			new Message().msg(player, "경비원: 어떻게 신분 상승한건데.%경비원: 열심히 살아야지.");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("심심한 경비원")) {
+	 	    		int num = rnd.nextInt(4);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "경비원: 심심행.%경비원: ᕙ(⇀‸↼‶)ᕗ");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "경비원: 놀아줘요.%경비원: 彡໒(⊙ᴗ⊙)७彡");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "경비원: 뒤틀림이 주변에 나타난다고?%경비원: 난 그런거 못봐썽.%경비원: ٩(＾◡＾)۶");
+	 	    		} else if(num == 3) {
+	 	    			new Message().msg(player, "경비원: 재미있는 소식 없니.%경비원: (*ΦωΦ*)");
+	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("다른 차원의 세계를 구한 영웅")) {
+	 	    		int num = rnd.nextInt(4);
+	 	    		if(num == 0) {
+	 	    			new Message().msg(player, "영웅: 알아서 뭐하게.");
+	 	    		} else if(num == 1) {
+	 	    			new Message().msg(player, "영웅: 뭐.");
+	 	    		} else if(num == 2) {
+	 	    			new Message().msg(player, "영웅: 아… 게임 개노잼 할거 존나 없네.%영웅: 컨텐츠가 부족하네.");
+	 	    		} else if(num == 3) {
+	 	    			new Message().msg(player, "영웅: 네모네모한 와이의 세계 많은 사랑 부탁드려요.");
 	 	    		}
 	 	    	}
 	 	    	

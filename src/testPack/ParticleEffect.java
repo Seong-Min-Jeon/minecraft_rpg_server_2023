@@ -1279,6 +1279,29 @@ public class ParticleEffect {
 		world.playSound(normal, Sound.ENTITY_ZOMBIE_HURT, 1.0f, 2.0f);
 	}
 	
+	public void pS022() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(255,50,255), 1);
+        
+        double var = 0;
+		
+		for(int i = 0 ; i < 16 ; i++) {
+			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
+			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			
+			e1 = normal.clone().add(Math.cos(var)*2, 0.1, Math.sin(var)*2);
+			world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+			
+			var += Math.PI / 8;
+		}
+		
+		world.playSound(normal, Sound.ENTITY_WARDEN_EMERGE, 1.0f, 2.0f);
+	}
+	
 	
 	//===========================================================================
 	
