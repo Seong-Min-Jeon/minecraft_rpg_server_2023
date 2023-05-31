@@ -279,6 +279,20 @@ public class Skill {
 							skill32(player);
 						}
 					}
+				} else if(name.equals("맥컬린의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1000);
+						if (bool) {
+							sendPacket(player, "광란");
+							skill33(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 300000);
+						if (bool) {
+							sendPacket(player, "추적");
+							skill34(player);
+						}
+					}
 				}
 				
 			}
@@ -1250,6 +1264,58 @@ public class Skill {
 		player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "사기가 증가합니다. [위력 +1] [보호 +1]");
 	}
 	
+	public void skill33(Player player) {
+		int rot = rnd.nextInt(150) + 15;
+		
+		new ParticleEffect(player).pS023(rot);
+		
+		List<Entity> entitylist = nearFrontEntitiesDirection(player, 1.8, 0.8, 1, 0.8, rot);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 3.5);
+			}
+		}
+	}
+	
+	public void skill34(Player player) {
+		
+		new BukkitRunnable() {
+			int time = 0;
+			Location target = null;
+
+			@Override
+			public void run() {
+				
+				if(time == 0) {
+					List<Entity> entitylist = player.getNearbyEntities(20, 15, 20);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof Player) {
+							target = nearEntity.getLocation();
+							break;
+						}
+					}
+					player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 30, 0, true, false, true));
+				}
+
+				if(time >= 20) {
+					if(target != null) {
+						player.teleport(target);
+					} else {
+						player.sendMessage(ChatColor.RED + "대상이 존재하지 않습니다.");
+
+					}
+					this.cancel();
+				}
+
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+	}
+	
+	
+	
 	
 	
 	public void damage(Player player, LivingEntity mob, double dam) {
@@ -1857,6 +1923,40 @@ public class Skill {
 		return as.getNearbyEntities(x, y, z);
 	}
 	
+	public List<Entity> nearFrontEntitiesDirection(Player player, double dist, double x, double y, double z, int rot) {
+		
+		Location normal = player.getLocation();
+		Location e1;
+		
+		double arrowAngle1 = rot;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*dist, 1, dirZ1*dist);
+		
+		ArmorStand as = (ArmorStand) world.spawnEntity(e1, EntityType.ARMOR_STAND);
+		as.setVisible(false);
+		as.setSmall(true);
+		as.setGravity(false);
+		as.setRemoveWhenFarAway(true);
+		new BukkitRunnable() {
+			int time = 0;
+			
+			@Override
+			public void run() {
+				time++;
+				
+				if(time >= 3) {
+					as.remove();
+					this.cancel();
+				}
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+		return as.getNearbyEntities(x, y, z);
+	}
+	
 	public boolean reload(Player playerArg, int reload) {
 		player = playerArg;
 		if(timer.containsKey(player)) {
@@ -1879,6 +1979,10 @@ public class Skill {
 		 			if(remain.length() > 5) {
 		 				remainmm = Integer.parseInt(remain.substring(0, remain.length()-5));
 		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3)) - remainmm*100;
+		 				
+		 				if(remainss >= 10) {
+		 					remainss -= 40;
+		 				}
 		 			} else if(remain.length() > 3) {
 		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3));
 		 				remainS = Integer.parseInt(remain.substring(0, remain.length()-2)) - remainss*10;
@@ -1930,6 +2034,10 @@ public class Skill {
 		 			if(remain.length() > 5) {
 		 				remainmm = Integer.parseInt(remain.substring(0, remain.length()-5));
 		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3)) - remainmm*100;
+		 				
+		 				if(remainss >= 10) {
+		 					remainss -= 40;
+		 				}
 		 			} else if(remain.length() > 3) {
 		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3));
 		 				remainS = Integer.parseInt(remain.substring(0, remain.length()-2)) - remainss*10;

@@ -454,6 +454,25 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("맥컬린의 인격")) {
+			weapon = new ItemStack(Material.GREEN_CARPET);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "어리석은 도끼");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "조직에 몸을 담갔던 놈이 해결사 일을 한다거나,");
+			weaponLore.add(ChatColor.GRAY + "해결사 일을 하던 놈이 조직에 몸을 담그는 것이");
+			weaponLore.add(ChatColor.GRAY + "아예 불가능한 건 아니야.");
+			weaponLore.add(ChatColor.GRAY + "실제로 꽤 있는 일이라고 할 수 있지.");
+			weaponLore.add(ChatColor.GRAY + "실력만 확실하다면 여러 곳에서 꽤 쏠쏠한 제안을 받기도 해.");
+			weaponLore.add(ChatColor.GRAY + "중요한 건 원한 관계지.");
+			weaponLore.add(ChatColor.GRAY + "지금까지 해 온 일들, 그러니까 이 사람이");
+			weaponLore.add(ChatColor.GRAY + "쌓아 온 업보에 따라 결정하는 거야.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
 		}
 		
 		if(weapon != null) {player.getInventory().setItem(0, weapon);}
