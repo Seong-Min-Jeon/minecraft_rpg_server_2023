@@ -121,6 +121,7 @@ public class NPCManager {
 		shop11();
 		shop12();
 		shop14();
+		shop15();
 		myo();
 		guard1();
 		guard2();
@@ -1768,6 +1769,23 @@ public class NPCManager {
 		npc.setText("통조림 아가씨");
 		npc.setSkin("ewogICJ0aW1lc3RhbXAiIDogMTY4MzIwMjcxODcxNCwKICAicHJvZmlsZUlkIiA6ICJiMGQ0YjI4YmMxZDc0ODg5YWYwZTg2NjFjZWU5NmFhYiIsCiAgInByb2ZpbGVOYW1lIiA6ICJNaW5lU2tpbl9vcmciLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmY2MzgzYTVhNDlkYjJjOWZkMDdkYWY4MWUyZTk4ZjZjNzA1ODEzZjcwOThiNGQzODgxYjQ1ZTQ4YWQ3ODkzNSIsCiAgICAgICJtZXRhZGF0YSIgOiB7CiAgICAgICAgIm1vZGVsIiA6ICJzbGltIgogICAgICB9CiAgICB9CiAgfQp9"
 				, "Jo3rzJJ/mIYiJHTF1on1yQJCt3cIC7rHWu9iWEX/Hg1IybpMfKjTBrZq0KJeJSTINHyGTqL/A0wQPdBIpTMZhb7k3kUImt1QRuTl4+CUYvHxf7iAQXv/KBgO/u4QMIewyeJUskbLPYTOtTiS90ilaQpuLQ+U0J65PBZFUQmqKK3p6PSeBk0K638bdIKVydJUvlJELTDrZ3MKrs8KfbTjpu+zGyt3Iu62zbg7mtlwL/621S1MHVN5+oXat17eLBve8jzE4xNSyjlLld3wK4Oa0y7oE/d5D7atMhwnUv85GQlBSDVVwMD8lgctKqjQ9IhuOWvNiWH0xj0PwRr2gJIFca5CZ+KPndzLfidl+5Fgt3jm1TD3Y45XXEcVfnoQhhWaQWBzijkYYGu6Smiv0BGcJLqlnIR7zPRqszj5bmyJsVxJTX/Bt0PlLS8mHpbfYDq+bJx4ztATKssBJrUrwUrRgLa7RF14krtjyxpeLTlcH6Udf2Fsj1CzLQxlaMnAFzYPXuFg7fTp6MerL5UbhK400ZClijfz9AvIlXED9SFfSKWY5/XYkuV400i6BKfR7lBzdnB4FMGpvXc/dSW9PxI1oxzhK5eDmAEOfCo6TNZWGqZuIczZzBafrGoSpgadPVvgSk0xHB51dfApWRAVsvkLZYLecmh/9v2ispaRKO+5zD4="
+				);
+		npc.setCollidable(false);
+		npc.setGazeTrackingType(GazeTrackingType.PLAYER);
+		npc.setShowOnTabList(false);
+		npc.show(); 
+		npc.update();
+		
+		return npc;
+	}
+	
+	public NPC shop15() {
+		Location loc = new Location(Bukkit.getWorld("world"), -1080.5, 120, 1328.5, 270, 0);
+		
+		NPC.Global npc = NPCLib.getInstance().generateGlobalNPC(NPCLib.getInstance().getRegisteredPlugins().get(0), "shop15", loc);
+		npc.setText("의문의 사서");
+		npc.setSkin("ewogICJ0aW1lc3RhbXAiIDogMTY4NTUwODcyMzg2MywKICAicHJvZmlsZUlkIiA6ICJkMTE4NTk0MWE5OTY0OGQ1OGVhNzNhNTZkZTZkYjllYyIsCiAgInByb2ZpbGVOYW1lIiA6ICJOZWthU2hhbmRyYSIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kYjkwNjJiNTU1ZDE4ZTgyZDFkNzI0YWU2Njk3ZDFmYjNiMTgxZTQ2YTkwYTYzN2Q4NmRjM2Q0ZWI3NjFkZmMwIgogICAgfQogIH0KfQ=="
+				, "WtUOxnMQwEnC0LepnhWNmVViE/Tq8/vXQ9xnE1dItO7uZZdNVuu4rjRLhD4v4CXFStaS08RggQDue330qC8VnP+Pll3a0dIpO851h2DlVEjYDmIBtwaa70eJJG+1byf/FqGnNYvuXOw89joIrkZwdMfr/1ncr94oF3LsKl3lwqhyqfa1WHRvz0BtRmFpl8TS6FPZFL8ahH/Rw/eqcP9asGxqc9+poAJLLI6wgxrnR2iHigMQIhWCUvYvKt3Fk1BuD5j0ZjkWW8Czst/Wpmd185KGGrN+CF4yO4D+x/YMRHJp3/ShRa7+PyMrVnz8vsQIhg9+jEsIlsbW6GIwNyTQoAHmky7HzlXrej7ETg9W2mK/SFbtl/3a0+vDczYSojPAbRMEprHe4xiV5/kFbjDJF8/8RX7LAPSXqrIENd1mWELtdDgvx4RX53H7VcWeWlEve8zLnxvB48Kg3D5wXm/607ujpKx8HrhIGMGp9ZtMDxUzIKtjp7Cb0b2T3ExnrPnD65/5MimOyc190DNOadhXeUXz0FmJpFIaz3Tm6Fv58y8S9y6na3CFSvz9FFQhE4XOw2+3WFEHd3uUuJPwv6pgn5n5mfUOQAto8go69N9AjpACXCYBHyM2OAi0HvOOxUAbzPBbN0seY397mA8YsPsWDHQE1pfdCbSFwibO+gLNTgY="
 				);
 		npc.setCollidable(false);
 		npc.setGazeTrackingType(GazeTrackingType.PLAYER);

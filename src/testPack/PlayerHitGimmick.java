@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Effect;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -2788,7 +2789,6 @@ public class PlayerHitGimmick {
 		as.setVisible(false);
 		as.setGravity(false);
 		as.setRemoveWhenFarAway(true);
-		as.setSmall(true);
 		mob.addPassenger(as);
 		new BukkitRunnable() {
 			int time = 0;
@@ -2819,7 +2819,7 @@ public class PlayerHitGimmick {
 	}
 	
 	public void damageMaxHealth(Player player, int num) {
-		if(!player.hasPotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE)) {
+		if(!player.hasPotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE) && player.getGameMode() != GameMode.SPECTATOR && player.getGameMode() != GameMode.CREATIVE) {
 			if(num == 1) {
 				if(player.hasPotionEffect(PotionEffectType.FAST_DIGGING)) {
 					if(player.getMaxHealth() <= 2) {

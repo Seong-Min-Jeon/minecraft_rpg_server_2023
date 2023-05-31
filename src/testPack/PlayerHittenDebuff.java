@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Effect;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -6639,7 +6640,7 @@ public class PlayerHittenDebuff {
 	}
 	
 	public void damageMaxHealth(Player player, int num) {
-		if(!player.hasPotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE)) {
+		if(!player.hasPotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE) && player.getGameMode() != GameMode.SPECTATOR && player.getGameMode() != GameMode.CREATIVE) {
 			if(num == 1) {
 				if(player.hasPotionEffect(PotionEffectType.FAST_DIGGING)) {
 					if(player.getMaxHealth() <= 2) {

@@ -20,6 +20,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
@@ -3117,7 +3118,85 @@ public class Main extends JavaPlugin implements Listener{
 						}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 					} else if(event.getEntity() instanceof Mob) {
 						event.setCancelled(true);
-						((Mob) (event.getEntity())).damage(arrow.getDamage());
+						
+						if(arrow.getDamage() == 0.001) {
+							if(event.getEntity() instanceof Skeleton) {
+								Mob mob = (Mob) (event.getEntity());
+								if(mob.getCustomName().equals(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐") 
+										|| mob.getCustomName().equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
+									int num = rnd.nextInt(3);
+									if(num == 0) {world.spawnEntity(mob.getLocation(), EntityType.SPIDER);}
+									else if(num == 1) {world.spawnEntity(mob.getLocation(), EntityType.GUARDIAN);}
+									else if(num == 2) {world.spawnEntity(mob.getLocation(), EntityType.VINDICATOR);}
+									for(Player player : Bukkit.getOnlinePlayers()) {
+										player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "뒤틀림이 감지되었습니다. (" 
+												+ mob.getLocation().getBlockX() + ", " + mob.getLocation().getBlockY() + ", " 
+												+ mob.getLocation().getBlockZ() + ")");
+										player.playSound(mob.getLocation(), Sound.ENTITY_SKELETON_HORSE_STEP_WATER, 1.0f, 1.0f);
+									}
+									mob.remove();
+								}
+							}
+						} else if(arrow.getDamage() == 0.002) {
+							if(event.getEntity() instanceof Skeleton) {
+								Mob mob = (Mob) (event.getEntity());
+								if(mob.getCustomName().equals(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐") 
+										|| mob.getCustomName().equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
+									int num = rnd.nextInt(4);
+									if(num == 0) {world.spawnEntity(mob.getLocation(), EntityType.SLIME);}
+									else if(num == 1) {world.spawnEntity(mob.getLocation(), EntityType.SILVERFISH);}
+									else if(num == 2) {world.spawnEntity(mob.getLocation(), EntityType.WITCH);}
+									else if(num == 3) {world.spawnEntity(mob.getLocation(), EntityType.CAVE_SPIDER);}
+									for(Player player : Bukkit.getOnlinePlayers()) {
+										player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "거대한 뒤틀림이 감지되었습니다. (" 
+												+ mob.getLocation().getBlockX() + ", " + mob.getLocation().getBlockY() + ", " 
+												+ mob.getLocation().getBlockZ() + ")");
+										player.playSound(mob.getLocation(), Sound.ENTITY_SKELETON_HORSE_STEP_WATER, 1.0f, 1.0f);
+									}
+									mob.remove();
+								}
+							}
+						} else if(arrow.getDamage() == 0.003) {
+							if(event.getEntity() instanceof Skeleton) {
+								Mob mob = (Mob) (event.getEntity());
+								if(mob.getCustomName().equals(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐") 
+										|| mob.getCustomName().equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
+									int num = rnd.nextInt(5);
+									if(num == 0) {world.spawnEntity(mob.getLocation(), EntityType.ENDERMAN);}
+									else if(num == 1) {world.spawnEntity(mob.getLocation(), EntityType.ELDER_GUARDIAN);}
+									else if(num == 2) {world.spawnEntity(mob.getLocation(), EntityType.MAGMA_CUBE);}
+									else if(num == 3) {world.spawnEntity(mob.getLocation(), EntityType.BLAZE);}
+									else if(num == 4) {world.spawnEntity(mob.getLocation(), EntityType.ENDERMITE);}
+									for(Player player : Bukkit.getOnlinePlayers()) {
+										player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "전설의 뒤틀림이 감지되었습니다. (" 
+												+ mob.getLocation().getBlockX() + ", " + mob.getLocation().getBlockY() + ", " 
+												+ mob.getLocation().getBlockZ() + ")");
+										player.playSound(mob.getLocation(), Sound.ENTITY_SKELETON_HORSE_STEP_WATER, 1.0f, 1.0f);
+									}
+									mob.remove();
+								}
+							}
+						} else if(arrow.getDamage() == 0.004) {
+							if(event.getEntity() instanceof Skeleton) {
+								Mob mob = (Mob) (event.getEntity());
+								if(mob.getCustomName().equals(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐") 
+										|| mob.getCustomName().equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
+									int num = rnd.nextInt(3);
+									if(num == 0) {world.spawnEntity(mob.getLocation(), EntityType.RAVAGER);}
+									else if(num == 1) {world.spawnEntity(mob.getLocation(), EntityType.GHAST);}
+									else if(num == 2) {world.spawnEntity(mob.getLocation(), EntityType.WARDEN);}
+									for(Player player : Bukkit.getOnlinePlayers()) {
+										player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "신화의 뒤틀림이 감지되었습니다. (" 
+												+ mob.getLocation().getBlockX() + ", " + mob.getLocation().getBlockY() + ", " 
+												+ mob.getLocation().getBlockZ() + ")");
+										player.playSound(mob.getLocation(), Sound.ENTITY_SKELETON_HORSE_STEP_WATER, 1.0f, 1.0f);
+									}
+									mob.remove();
+								}
+							}
+						} else {
+							((Mob) (event.getEntity())).damage(arrow.getDamage());
+						}
 						
 						ArmorStand damageSign = (ArmorStand) world.spawnEntity(event.getEntity().getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
 						damageSign.setVisible(false);
@@ -3992,6 +4071,41 @@ public class Main extends JavaPlugin implements Listener{
 							new ChangeOffice(player, item.getItemMeta().getDisplayName().substring(0, name.length()-4));
 						} else if(name.equals(ChatColor.BOLD + "사직서")) {
 							new ChangeOffice(player, "12무소속");
+						}
+					} else if(type == Material.BREWING_STAND) {
+						String localName = item.getItemMeta().getLocalizedName();
+						if(localName.equals("1")) {
+							item.setAmount(item.getAmount()-1);
+							Arrow arrow = player.launchProjectile(Arrow.class);
+							arrow.setShooter(player);
+							arrow.setDamage(0.001);
+							arrow.setVelocity(player.getLocation().getDirection().multiply(1.5f));	
+							arrow.setGravity(false);
+							world.playSound(player.getLocation(), Sound.ENTITY_ENDER_PEARL_THROW, 3.0f, 1.0f);
+						} else if(localName.equals("2")) {
+							item.setAmount(item.getAmount()-1);
+							Arrow arrow = player.launchProjectile(Arrow.class);
+							arrow.setShooter(player);
+							arrow.setDamage(0.002);
+							arrow.setVelocity(player.getLocation().getDirection().multiply(1.5f));	
+							arrow.setGravity(false);
+							world.playSound(player.getLocation(), Sound.ENTITY_ENDER_PEARL_THROW, 3.0f, 1.0f);
+						} else if(localName.equals("3")) {
+							item.setAmount(item.getAmount()-1);
+							Arrow arrow = player.launchProjectile(Arrow.class);
+							arrow.setShooter(player);
+							arrow.setDamage(0.003);
+							arrow.setVelocity(player.getLocation().getDirection().multiply(1.5f));	
+							arrow.setGravity(false);
+							world.playSound(player.getLocation(), Sound.ENTITY_ENDER_PEARL_THROW, 3.0f, 1.0f);
+						} else if(localName.equals("4")) {
+							item.setAmount(item.getAmount()-1);
+							Arrow arrow = player.launchProjectile(Arrow.class);
+							arrow.setShooter(player);
+							arrow.setDamage(0.004);
+							arrow.setVelocity(player.getLocation().getDirection().multiply(1.5f));	
+							arrow.setGravity(false);
+							world.playSound(player.getLocation(), Sound.ENTITY_ENDER_PEARL_THROW, 3.0f, 1.0f);
 						}
 					}
 				}
@@ -6778,6 +6892,30 @@ public class Main extends JavaPlugin implements Listener{
 		        			new Message().msg(player, "통조림 아가씨: 새로운 재료구만… 끌끌.");
 		        		} else {
 		        			new Message().msg(player, "통조림 아가씨: 누가 장사 한두번 하는 줄 알아?");
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+		        		}
+					}
+					//앤젤라
+					else if (loc.getX() <= -1078 && loc.getY() <= 125 && loc.getZ() <= 1332
+							&& loc.getX() >= -1084 && loc.getY() >= 115 && loc.getZ() >= 1324) {
+						ItemStack clicked = event.getCurrentItem();
+		        		if(player.getLevel() >= Integer.parseInt(clicked.getItemMeta().getLocalizedName())) {
+		        			player.setLevel(player.getLevel() - Integer.parseInt(clicked.getItemMeta().getLocalizedName()));
+		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+		        			
+		        			if(event.getSlot() == 0) {
+		        				player.getInventory().addItem(new Shop15().item1());
+		        			} else if(event.getSlot() == 1) {
+		        				player.getInventory().addItem(new Shop15().item2());
+		        			} else if(event.getSlot() == 2) {
+		        				player.getInventory().addItem(new Shop15().item3());
+		        			} else if(event.getSlot() == 3) {
+		        				player.getInventory().addItem(new Shop15().item4());
+		        			}
+		        			new Message().msg(player, "의문의 사서: 당신의 미래를 찾으실 수 있기를…");
+		        		} else {
+		        			new Message().msg(player, "의문의 사서: 돈이 없다고?%의문의 사서: 앞으로도 또 그런 개소리를 하면 그 말대로 팝콘 기계 인간이라는 것으로 만들어 줄게.%"
+		        					+ "의문의 사서: 난 말 같지도 않은 소리에 일일이 반응하는 개짓거리를 너무나도 오래 반복해왔거든.");
 		        			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
 		        		}
 					}
@@ -10576,6 +10714,10 @@ public class Main extends JavaPlugin implements Listener{
 	 	    			new Message().msg(player, "통조림 아가씨: 뭐야, 너 " + office + " 소속이잖아?%통조림 아가씨: 미안하지만 뒷배가 있는 해결사는 받지 않아.%"
 	 	    					+ "통조림 아가씨: 까딱하면 우리도 위험해진다고.");
 	 	    		}
+	 	    	} else if(npc.getText().get(0).equals("의문의 사서")) {
+	 	    		//빛 상인
+	 	    		new Shop15(player);
+	 	    		new Message().msg(player, "의문의 사서: 환영합니다.");
 	 	    	} else if(npc.getText().get(0).equals("묘")) {
 	 	    		if(getQuestName(player).equals("N")) {
 	 	    			new Message().msg(player, "묘: 뒤틀림의 정보를 보고 있는 중이야.%묘: 너도 죽기 싫으면 봐두는게 좋을걸?");
