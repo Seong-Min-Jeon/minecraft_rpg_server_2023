@@ -1265,7 +1265,19 @@ public class Skill {
 	}
 	
 	public void skill33(Player player) {
-		int rot = rnd.nextInt(150) + 15;
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		int rot = rnd.nextInt(150 - personality*14) + 15 + personality*7;
 		
 		new ParticleEffect(player).pS023(rot);
 		
