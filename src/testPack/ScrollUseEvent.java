@@ -37,7 +37,7 @@ public class ScrollUseEvent {
 			@Override
 			public void run() {
 				time++;
-				if (time >= 20) {
+				if (time >= 10) {
 					try {
 						lock.remove(player);
 					} catch(Exception e) {

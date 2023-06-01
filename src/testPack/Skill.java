@@ -1990,11 +1990,6 @@ public class Skill {
 		 			
 		 			if(remain.length() > 5) {
 		 				remainmm = Integer.parseInt(remain.substring(0, remain.length()-5));
-		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3)) - remainmm*100;
-		 				
-		 				if(remainss >= 10) {
-		 					remainss -= 40;
-		 				}
 		 			} else if(remain.length() > 3) {
 		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3));
 		 				remainS = Integer.parseInt(remain.substring(0, remain.length()-2)) - remainss*10;
@@ -2003,7 +1998,7 @@ public class Skill {
 		 			}
 		 			
 		 			if(remainmm != 0) {
-		 				sendPacket(player, ".." + remainmm + "분 " + remainss + "초");
+		 				sendPacket(player, ".." + remainmm + "분");
 		 			} else if(remainss != 0) {
 		 				sendPacket(player, ".." + remainss + "." + remainS + "초");
 		 			} else {
