@@ -1067,7 +1067,13 @@ public class Main extends JavaPlugin implements Listener{
 			startIm.setUnbreakable(true);
 			start.setItemMeta(startIm);	
 			player.getInventory().setItem(8, start); //시작버튼
-		} catch(Exception e11) {
+			
+			try {
+				new Skill().resetCoolTime(player);
+			} catch(Exception e) {
+				
+			}
+		} catch(Exception e) {
 
 		}
 	}

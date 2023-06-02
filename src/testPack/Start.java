@@ -473,6 +473,25 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("산의 인격")) {
+			weapon = new ItemStack(Material.COBBLESTONE_SLAB);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "산의 침착한 검");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "협회 직속 해결사는 안정적인 봉급이 나오기 때문에");
+			weaponLore.add(ChatColor.GRAY + "다른 사무소에 비해 굶어 죽지 않을 가능성이 높다.");
+			weaponLore.add(ChatColor.GRAY + "우리 같은 치안 의뢰 사무소는 해당 구역만 잘 지키는");
+			weaponLore.add(ChatColor.GRAY + "일을 맡고 있어 일거리가 떨어질 일은 없다.");
+			weaponLore.add(ChatColor.GRAY + "그렇다면 지루함을 견뎌야 하는 것이 단점이냐고?");
+			weaponLore.add(ChatColor.GRAY + "우리는 협회의 명령에 따라 움직이는 만큼, 받고");
+			weaponLore.add(ChatColor.GRAY + "싶지 않은 일도 강제로 처리해야만 한다.");
+			weaponLore.add(ChatColor.GRAY + "설령 사무소가 다 전멸할 수 있다 해도…");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
 		}
 		
 		if(weapon != null) {player.getInventory().setItem(0, weapon);}

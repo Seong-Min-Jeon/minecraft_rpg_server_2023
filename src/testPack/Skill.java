@@ -11,6 +11,7 @@ import java.util.Random;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.FluidCollisionMode;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -33,6 +34,8 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
+import dev.sergiferry.playernpc.api.NPC;
+import dev.sergiferry.playernpc.api.NPCLib;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 
@@ -291,6 +294,20 @@ public class Skill {
 						if (bool) {
 							sendPacket(player, "추적");
 							skill34(player);
+						}
+					}
+				} else if(name.equals("산의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 400);
+						if (bool) {
+							sendPacket(player, "속공");
+							skill35(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 1000000);
+						if (bool) {
+							sendPacket(player, "업무처리");
+							skill36(player);
 						}
 					}
 				}
@@ -1303,8 +1320,10 @@ public class Skill {
 					List<Entity> entitylist = player.getNearbyEntities(20, 15, 20);
 					for (Entity nearEntity : entitylist) {
 						if (nearEntity instanceof Player) {
-							target = nearEntity.getLocation();
-							break;
+							if(((Player) nearEntity).getGameMode() != GameMode.SPECTATOR) {
+								target = nearEntity.getLocation();
+								break;
+							}
 						}
 					}
 					player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 30, 0, true, false, true));
@@ -1324,6 +1343,46 @@ public class Skill {
 			}
 		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 		
+	}
+	
+	public void skill35(Player player) {
+		new ParticleEffect(player).pS001();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 1.8);
+			}
+		}
+	}
+	
+	public void skill36(Player player) {
+		if(!new QuestBoard().getQuestName(player).equals("N")) {
+			
+			//퀘스트 제거
+			player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+			
+			//퀘스트 엔티티 제거
+			try {
+				QuestOwner qo = new QuestOwner();
+				if(qo.returnEntity(player) != null) {
+					qo.returnEntity(player).remove();
+					qo.remove(player);
+				}
+			} catch(Exception e) {
+				
+			}
+			
+			for(NPC.Personal n : NPCLib.getInstance().getAllPersonalNPCs(player)) {
+				n.update();
+				n.forceUpdate();
+			} 
+			
+			player.sendMessage(ChatColor.BOLD + "퀘스트가 처리되었습니다.");
+		} else {
+			player.sendMessage(ChatColor.RED + "퀘스트가 없습니다.");
+		}
 	}
 	
 	
@@ -1984,21 +2043,38 @@ public class Skill {
 	 		} else {
 	 			try {
 	 				String remain = Integer.toString(reload - Math.abs(time-lastTime));
+	 				
+	 				int num = lastTime;
+	 				num /= 1000;
+	 				int s2 = num%10;
+	 				num /= 10;
+	 				int s1 = num%10;
+	 				int ss = s1*10 + s2;
+	 				
 		 			int remainmm = 0;
 		 			int remainss = 0;
 		 			int remainS = 0;
 		 			
 		 			if(remain.length() > 5) {
 		 				remainmm = Integer.parseInt(remain.substring(0, remain.length()-5));
+		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3)) - remainmm*100;
+		 				
+		 				if(remainss > ss) {
+		 					remainss -= 40;
+		 				}
 		 			} else if(remain.length() > 3) {
 		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3));
 		 				remainS = Integer.parseInt(remain.substring(0, remain.length()-2)) - remainss*10;
+		 				
+		 				if(remainss > ss && reload > 100000) {
+		 					remainss -= 40;
+		 				}
 		 			} else {
 		 				remainS = Integer.parseInt(remain.substring(0, remain.length()-2));
 		 			}
 		 			
 		 			if(remainmm != 0) {
-		 				sendPacket(player, ".." + remainmm + "분");
+		 				sendPacket(player, ".." + remainmm + "분 " + remainss + "초");
 		 			} else if(remainss != 0) {
 		 				sendPacket(player, ".." + remainss + "." + remainS + "초");
 		 			} else {
@@ -2034,6 +2110,14 @@ public class Skill {
 	 		} else {
 	 			try {
 	 				String remain = Integer.toString(reload - Math.abs(time-lastTime));
+	 				
+	 				int num = lastTime;
+	 				num /= 1000;
+	 				int s2 = num%10;
+	 				num /= 10;
+	 				int s1 = num%10;
+	 				int ss = s1*10 + s2;
+	 				
 		 			int remainmm = 0;
 		 			int remainss = 0;
 		 			int remainS = 0;
@@ -2042,12 +2126,16 @@ public class Skill {
 		 				remainmm = Integer.parseInt(remain.substring(0, remain.length()-5));
 		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3)) - remainmm*100;
 		 				
-		 				if(remainss >= 10) {
+		 				if(remainss > ss) {
 		 					remainss -= 40;
 		 				}
 		 			} else if(remain.length() > 3) {
 		 				remainss = Integer.parseInt(remain.substring(0, remain.length()-3));
 		 				remainS = Integer.parseInt(remain.substring(0, remain.length()-2)) - remainss*10;
+		 				
+		 				if(remainss > ss && reload > 100000) {
+		 					remainss -= 40;
+		 				}
 		 			} else {
 		 				remainS = Integer.parseInt(remain.substring(0, remain.length()-2));
 		 			}
@@ -2072,6 +2160,15 @@ public class Skill {
 	 		return true;
 		}
 		return false;
+	}
+	
+	public void resetCoolTime(Player player) {
+		if(timer.containsKey(player)) {
+			timer.remove(player);
+		}
+		if(timer2.containsKey(player)) {
+			timer2.remove(player);
+		}
 	}
 	
 	public void damageMaxHealth(Player player, int num) {
@@ -2150,5 +2247,7 @@ public class Skill {
 			
 		}, 0, 1);
 	}
+	
+	
 	
 }
