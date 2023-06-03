@@ -55,6 +55,18 @@ public class Skill {
 		
 		try {
 			if(!player.isSwimming()) {
+				try {
+					ItemStack item = player.getInventory().getItem(7);
+					String name = item.getItemMeta().getDisplayName();
+					personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+					
+					if(personality == 9) {
+						personality = 10;
+					}
+				} catch(Exception e2) {
+					
+				}
+				
 				String name = player.getInventory().getItem(7).getItemMeta().getLocalizedName();
 				world = player.getWorld();
 				
@@ -234,7 +246,7 @@ public class Skill {
 							skill25(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 10000);
+						bool = reload2(player, 10000 - personality*400);
 						if (bool) {
 							sendPacket(player, "요리 준비");
 							skill26(player);
@@ -276,7 +288,7 @@ public class Skill {
 							skill31(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 10000);
+						bool = reload2(player, 10000 - personality*400);
 						if (bool) {
 							sendPacket(player, "진두지휘");
 							skill32(player);
@@ -290,7 +302,7 @@ public class Skill {
 							skill33(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 300000);
+						bool = reload2(player, 300000 - personality*20000);
 						if (bool) {
 							sendPacket(player, "추적");
 							skill34(player);
@@ -304,10 +316,24 @@ public class Skill {
 							skill35(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 1000000);
+						bool = reload2(player, 1000000 - personality*50000);
 						if (bool) {
 							sendPacket(player, "업무처리");
 							skill36(player);
+						}
+					}
+				} else if(name.equals("태인의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 5500);
+						if (bool) {
+							sendPacket(player, "받아내보시지");
+							skill37(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 3000 - personality*150);
+						if (bool) {
+							sendPacket(player, "먼저간다");
+							skill38(player);
 						}
 					}
 				}
@@ -422,7 +448,6 @@ public class Skill {
 					
 					player.setNoDamageTicks(10);
 					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false, true));
-					world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 				}
 				
 				if(time >= 40 && player.isOnGround()) {
@@ -1385,7 +1410,70 @@ public class Skill {
 		}
 	}
 	
+	public void skill37(Player player) {
+		player.setVelocity(player.getFacing().getDirection().multiply(-0.3f));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 40, 0, true, false, true));
+		
+		new BukkitRunnable() {
+			int time = 0;
+			boolean lock1 = false;
+			boolean lock2 = false;
+
+		    @Override
+			public void run() {
+		    	
+				if(time == 40 && lock1 == false) {
+					player.setVelocity(player.getFacing().getDirection().add(new Vector(0,-0.5,0)).multiply(2.0f));
+					
+					player.setNoDamageTicks(10);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false, true));
+				}
+				
+				if(time >= 40 && player.isOnGround() && lock1 == false) {
+					new ParticleEffect(player).pS024();
+					
+					List<Entity> entitylist = player.getNearbyEntities(1.5, 1, 1.5);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 4);
+						}
+					}
+					
+					lock1 = true;
+					time = 0;
+				}
+				
+				
+				if(time == 10 && lock1 == true && lock2 == false) {
+					player.setVelocity(player.getFacing().getDirection().add(new Vector(0,0.2,0)).multiply(1.5f));
+					
+					player.setNoDamageTicks(10);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 10, 0, true, false, true));
+				}
+				
+				if(time >= 15 && lock1 == true && lock2 == false) {
+					new ParticleEffect(player).pS024();
+					
+					List<Entity> entitylist = player.getNearbyEntities(1.5, 1, 1.5);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 4);
+						}
+					}
+					this.cancel();
+				}
+				
+				time++;
+
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
 	
+	public void skill38(Player player) {
+		player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.7,0,1.7).add(new Vector(0,0.2,0))));
+	}
 	
 	
 	

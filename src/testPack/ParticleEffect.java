@@ -249,7 +249,7 @@ public class ParticleEffect {
         
         double var = 0;
 		
-		for(int i = 0 ; i < 8 ; i++) {
+		for(int i = 0 ; i < 16 ; i++) {
 			e1 = normal.clone().add(Math.cos(var), 0.1, Math.sin(var));
 			world.spawnParticle(Particle.REDSTONE, e1, 2, dustOptions1);
 			
@@ -1367,6 +1367,112 @@ public class ParticleEffect {
 		
 		world.playSound(normal, Sound.ENTITY_ZOMBIE_HURT, 1.0f, 1.0f);
 	}
+	
+	public void pS024() {
+		new BukkitRunnable() {
+			int time = 0;
+			World world = player.getWorld(); 
+			Location e1;
+
+			@Override
+			public void run() {
+				
+				if(time == 0) {
+					Location normal = player.getLocation();
+					
+					double var = 0;
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var)*1.5, 0.8, Math.sin(var)*1.5);
+						world.spawnParticle(Particle.SWEEP_ATTACK, e1, 2);
+						
+						var += Math.PI / 8;
+					}
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var), 1.2, Math.sin(var));
+						world.spawnParticle(Particle.SWEEP_ATTACK, e1, 2);
+						
+						var += Math.PI / 8;
+					}
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var), 0.4, Math.sin(var));
+						world.spawnParticle(Particle.SWEEP_ATTACK, e1, 2);
+						
+						var += Math.PI / 8;
+					}
+					
+					world.playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
+				}
+				
+				if(time == 5) {
+					Location normal = player.getLocation();
+					
+					double var = 0;
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var)*1.5, 0.8, Math.sin(var)*1.5);
+						world.spawnParticle(Particle.SWEEP_ATTACK, e1, 2);
+						
+						var += Math.PI / 8;
+					}
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var), 1.2, Math.sin(var));
+						world.spawnParticle(Particle.SWEEP_ATTACK, e1, 2);
+						
+						var += Math.PI / 8;
+					}
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var), 0.4, Math.sin(var));
+						world.spawnParticle(Particle.SWEEP_ATTACK, e1, 2);
+						
+						var += Math.PI / 8;
+					}
+					
+					world.playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
+				}
+				
+				if(time == 10) {
+					Location normal = player.getLocation();
+					
+					double var = 0;
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var)*1.5, 0.8, Math.sin(var)*1.5);
+						world.spawnParticle(Particle.SWEEP_ATTACK, e1, 2);
+						
+						var += Math.PI / 8;
+					}
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var), 1.2, Math.sin(var));
+						world.spawnParticle(Particle.SWEEP_ATTACK, e1, 2);
+						
+						var += Math.PI / 8;
+					}
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var), 0.4, Math.sin(var));
+						world.spawnParticle(Particle.SWEEP_ATTACK, e1, 2);
+						
+						var += Math.PI / 8;
+					}
+					
+					world.playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
+				}
+
+				if(time >= 21) {
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
 	
 	
 	//===========================================================================

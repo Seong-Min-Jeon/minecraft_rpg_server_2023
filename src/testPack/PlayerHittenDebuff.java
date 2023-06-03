@@ -2120,7 +2120,7 @@ public class PlayerHittenDebuff {
 	//도망쳐
 	public void warden(Player player, Entity mob) {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "도망쳐")) {
-			int num = rnd.nextInt(3);
+			int num = rnd.nextInt(2);
 			if (num == 0) {
 				int item = 0;
 				if (player.getInventory().getHelmet() != null) {
@@ -2135,18 +2135,18 @@ public class PlayerHittenDebuff {
 				
 				int num2 = rnd.nextInt(10);
 				if(item == 0) {
-					damageMaxHealth(player, 1);
+					damageMaxHealth(player, 2);
 				} else if(item == 1) {
 					if(num2 >= 1) {
-						damageMaxHealth(player, 1);
+						damageMaxHealth(player, 2);
 					}
 				} else if(item == 2) {
 					if(num2 >= 3) {
-						damageMaxHealth(player, 1);
+						damageMaxHealth(player, 2);
 					}
 				} else if(item == 3) {
 					if(num2 >= 5) {
-						damageMaxHealth(player, 1);
+						damageMaxHealth(player, 2);
 					}
 				}
 			} 
