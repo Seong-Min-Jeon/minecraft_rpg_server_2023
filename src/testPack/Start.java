@@ -507,6 +507,22 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("레인의 인격")) {
+			weapon = new ItemStack(Material.CUT_RED_SANDSTONE);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "R사에서 버려진 톱");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "R사 입구에서 올가가 주워온 톱");
+			weaponLore.add(ChatColor.GRAY + "혈연 학연 지연이 좋은 것처럼 올가가");
+			weaponLore.add(ChatColor.GRAY + "묘를 친구로 둔 덕분에 구한 무기이다.");
+			weaponLore.add(ChatColor.GRAY + "날개에서 사용하기엔 부족한 성능이지만");
+			weaponLore.add(ChatColor.GRAY + "뒷골목의 해결사에게는 과분하다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
 		}
 		
 		if(weapon != null) {player.getInventory().setItem(0, weapon);}

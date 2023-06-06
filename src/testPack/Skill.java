@@ -336,6 +336,20 @@ public class Skill {
 							skill38(player);
 						}
 					}
+				} else if(name.equals("레인의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 800);
+						if (bool) {
+							sendPacket(player, "도박수");
+							skill39(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 10000 - personality*200);
+						if (bool) {
+							sendPacket(player, "침착하게");
+							skill40(player);
+						}
+					}
 				}
 				
 			}
@@ -1475,6 +1489,23 @@ public class Skill {
 		player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.7,0,1.7).add(new Vector(0,0.2,0))));
 	}
 	
+	public void skill39(Player player) {
+		new ParticleEffect(player).pS025();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, (rnd.nextInt(5)+3)*(rnd.nextInt(6)+2)*0.1); 
+			}
+		}
+	}
+	
+	public void skill40(Player player) {
+		player.setNoDamageTicks(20);
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 20, 0, true, false, true));
+		world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
+	}
 	
 	
 	public void damage(Player player, LivingEntity mob, double dam) {
