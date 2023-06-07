@@ -41,6 +41,11 @@ public class AnotherScroll {
 		personalityOpen(player, itemArg, folder);
 		
 		check(player, itemArg, folder);
+		
+		warpMarker1(player, itemArg, folder);
+		warpMarker2(player, itemArg, folder);
+		warpMarker3(player, itemArg, folder);
+		warpMarker4(player, itemArg, folder);
 	}
 	
 	public void personalityUpgrade1(Player player, ItemStack itemArg, File folder) {	
@@ -598,6 +603,240 @@ public class AnotherScroll {
 			player.sendMessage(ChatColor.GOLD + "[System] 10000000안을 획득했다.");
 			player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
 		}
+	}
+	
+	public void warpMarker1(Player player, ItemStack itemArg, File folder) {	
+		if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "워프마커 슬롯 확장권 1단계")) {
+			
+			try {
+				File dataFolder = folder;
+	            if(!dataFolder.exists()) {
+	                dataFolder.mkdir();
+	            } else {
+	            	File dir = new File(dataFolder + "/" + player.getUniqueId().toString());
+	            	if(!dir.exists()) {
+	            		try{
+	            		    dir.mkdir(); 
+	            		} catch(Exception e2) {
+	            		    e2.getStackTrace();
+	            		}
+					}
+					File file = new File(dir, "warp.dat");
+					try {
+						FileReader filereader = new FileReader(file);
+	    				BufferedReader bufReader = new BufferedReader(filereader);
+	    				bufReader.mark(1000);
+
+	    				int length = 0;
+	    				while (bufReader.readLine() != null) {
+	    		            length++;
+	    		        }
+	    				
+	    				if(length == 1 || length == 0) {
+	    					bufReader.reset();
+	    					String first = bufReader.readLine();
+		    				
+		    				BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(first);
+        	                fw.write("\n");
+        	                fw.write("미사용 슬롯");
+        	                fw.close();
+	    					
+	    					itemArg.setAmount(itemArg.getAmount()-1);
+	    				} else {
+	    					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "워프마커 슬롯이 최대 1개인 플레이어만 사용할 수 있습니다.");
+	    				}
+	    				
+		                bufReader.close();
+					} catch (IOException e2) {
+						e2.printStackTrace();
+					}
+				}
+			} catch (Exception e2) {
+				
+			}
+			
+		}	
+	}
+	
+	public void warpMarker2(Player player, ItemStack itemArg, File folder) {	
+		if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "워프마커 슬롯 확장권 2단계")) {
+			
+			try {
+				File dataFolder = folder;
+	            if(!dataFolder.exists()) {
+	                dataFolder.mkdir();
+	            } else {
+	            	File dir = new File(dataFolder + "/" + player.getUniqueId().toString());
+	            	if(!dir.exists()) {
+	            		try{
+	            		    dir.mkdir(); 
+	            		} catch(Exception e2) {
+	            		    e2.getStackTrace();
+	            		}
+					}
+					File file = new File(dir, "warp.dat");
+					try {
+						FileReader filereader = new FileReader(file);
+	    				BufferedReader bufReader = new BufferedReader(filereader);
+	    				bufReader.mark(1000);
+
+	    				int length = 0;
+	    				while (bufReader.readLine() != null) {
+	    		            length++;
+	    		        }
+	    				
+	    				if(length == 2) {
+	    					bufReader.reset();
+	    					String first = bufReader.readLine();
+	    					String second = bufReader.readLine();
+		    				
+		    				BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(first);
+        	                fw.write("\n");
+        	                fw.write(second);
+        	                fw.write("\n");
+        	                fw.write("미사용 슬롯");
+        	                fw.close();
+	    					
+	    					itemArg.setAmount(itemArg.getAmount()-1);
+	    				} else {
+	    					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "워프마커 슬롯이 최대 2개인 플레이어만 사용할 수 있습니다.");
+	    				}
+	    				
+		                bufReader.close();
+					} catch (IOException e2) {
+						e2.printStackTrace();
+					}
+				}
+			} catch (Exception e2) {
+				
+			}
+			
+		}	
+	}
+	
+	public void warpMarker3(Player player, ItemStack itemArg, File folder) {	
+		if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "워프마커 슬롯 확장권 3단계")) {
+			
+			try {
+				File dataFolder = folder;
+	            if(!dataFolder.exists()) {
+	                dataFolder.mkdir();
+	            } else {
+	            	File dir = new File(dataFolder + "/" + player.getUniqueId().toString());
+	            	if(!dir.exists()) {
+	            		try{
+	            		    dir.mkdir(); 
+	            		} catch(Exception e2) {
+	            		    e2.getStackTrace();
+	            		}
+					}
+					File file = new File(dir, "warp.dat");
+					try {
+						FileReader filereader = new FileReader(file);
+	    				BufferedReader bufReader = new BufferedReader(filereader);
+	    				bufReader.mark(1000);
+
+	    				int length = 0;
+	    				while (bufReader.readLine() != null) {
+	    		            length++;
+	    		        }
+	    				
+	    				if(length == 3) {
+	    					bufReader.reset();
+	    					String first = bufReader.readLine();
+	    					String second = bufReader.readLine();
+	    					String third = bufReader.readLine();
+		    				
+		    				BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(first);
+        	                fw.write("\n");
+        	                fw.write(second);
+        	                fw.write("\n");
+        	                fw.write(third);
+        	                fw.write("\n");
+        	                fw.write("미사용 슬롯");
+        	                fw.close();
+	    					
+	    					itemArg.setAmount(itemArg.getAmount()-1);
+	    				} else {
+	    					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "워프마커 슬롯이 최대 3개인 플레이어만 사용할 수 있습니다.");
+	    				}
+	    				
+		                bufReader.close();
+					} catch (IOException e2) {
+						e2.printStackTrace();
+					}
+				}
+			} catch (Exception e2) {
+				
+			}
+			
+		}	
+	}
+	
+	public void warpMarker4(Player player, ItemStack itemArg, File folder) {	
+		if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "워프마커 슬롯 확장권 4단계")) {
+			
+			try {
+				File dataFolder = folder;
+	            if(!dataFolder.exists()) {
+	                dataFolder.mkdir();
+	            } else {
+	            	File dir = new File(dataFolder + "/" + player.getUniqueId().toString());
+	            	if(!dir.exists()) {
+	            		try{
+	            		    dir.mkdir(); 
+	            		} catch(Exception e2) {
+	            		    e2.getStackTrace();
+	            		}
+					}
+					File file = new File(dir, "warp.dat");
+					try {
+						FileReader filereader = new FileReader(file);
+	    				BufferedReader bufReader = new BufferedReader(filereader);
+	    				bufReader.mark(1000);
+
+	    				int length = 0;
+	    				while (bufReader.readLine() != null) {
+	    		            length++;
+	    		        }
+	    				
+	    				if(length == 4) {
+	    					bufReader.reset();
+	    					String first = bufReader.readLine();
+	    					String second = bufReader.readLine();
+	    					String third = bufReader.readLine();
+	    					String fourth = bufReader.readLine();
+		    				
+		    				BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+        	                fw.write(first);
+        	                fw.write("\n");
+        	                fw.write(second);
+        	                fw.write("\n");
+        	                fw.write(third);
+        	                fw.write("\n");
+        	                fw.write(fourth);
+        	                fw.write("\n");
+        	                fw.write("미사용 슬롯");
+        	                fw.close();
+	    					
+	    					itemArg.setAmount(itemArg.getAmount()-1);
+	    				} else {
+	    					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "워프마커 슬롯이 최대 4개인 플레이어만 사용할 수 있습니다.");
+	    				}
+	    				
+		                bufReader.close();
+					} catch (IOException e2) {
+						e2.printStackTrace();
+					}
+				}
+			} catch (Exception e2) {
+				
+			}
+			
+		}	
 	}
 	
 	public void personalityUpgrade(Player player, int order, int grade, int rare, File folder) {
