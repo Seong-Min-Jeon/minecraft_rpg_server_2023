@@ -523,6 +523,37 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("올가의 인격")) {
+			weapon = new ItemStack(Material.CUT_RED_SANDSTONE);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "묘가 구해준 톱");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "묘가 사비를 들여 제작한 톱");
+			weaponLore.add(ChatColor.GRAY + "날개의 전투 요원이 사용하는 수준의");
+			weaponLore.add(ChatColor.GRAY + "성능을 지녔다고 한다.");
+			weaponLore.add(ChatColor.GRAY + "다만 올가가 술을 흘리는 바람에");
+			weaponLore.add(ChatColor.GRAY + "녹슬어버려 본래의 성능은 나오지 않는다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("츠바이 협회 6과 해결사의 인격")) {
+			weapon = new ItemStack(Material.OAK_LEAVES);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "츠바이핸더");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "츠바이 협회 입사 기념으로 주어지는");
+			weaponLore.add(ChatColor.GRAY + "철로 만든 츠바이핸더");
+			weaponLore.add(ChatColor.GRAY + "지키기 위한 검이기 때문에 강직도를");
+			weaponLore.add(ChatColor.GRAY + "높이는데 집중되었다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
 		}
 		
 		if(weapon != null) {player.getInventory().setItem(0, weapon);}

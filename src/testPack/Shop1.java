@@ -31,6 +31,10 @@ public class Shop1 {
 		inv.setItem(10, item11D());
 		inv.setItem(11, item12D());
 		inv.setItem(12, item13D());
+		inv.setItem(13, item14D());
+		inv.setItem(14, item15D());
+		inv.setItem(15, item16D());
+		inv.setItem(16, item17D());
 		
 		player.openInventory(inv);
 	}
@@ -508,6 +512,162 @@ public class Shop1 {
 		itemLore.add(ChatColor.GRAY + "N사 쥐는 자 인격에 동화될 수 있게 해주는 문서");
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.BLUE + "가격: 13000광기");
+		itemIm.setLore(itemLore);
+		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		item.setItemMeta(itemIm);
+		return item;
+	}
+	
+	public ItemStack item14() {
+		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemMeta itemIm = item.getItemMeta();
+		itemIm.setDisplayName(ChatColor.AQUA + "워프마커 슬롯 확장권 1단계");
+		ArrayList<String> itemLore = new ArrayList<>();
+		itemLore.add(ChatColor.RED + "WARNING: 이 문서를 구입 후 사용하지 않고 인격에");
+		itemLore.add(ChatColor.RED + "동화되면 소멸합니다. 구입 즉시 사용바랍니다.");
+		itemLore.add(ChatColor.RED + "워프마커 슬롯이 최대 1개인 플레이어만 사용할 수 있습니다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.GRAY + "사용하면 워프마커 슬롯이 하나 증가한다.");
+		itemIm.setLore(itemLore);
+		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		item.setItemMeta(itemIm);
+		return item;
+	}
+	
+	public ItemStack item14D() {
+		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemMeta itemIm = item.getItemMeta();
+		itemIm.setDisplayName(ChatColor.AQUA + "워프마커 슬롯 확장권 1단계");
+		itemIm.setLocalizedName("100");
+		ArrayList<String> itemLore = new ArrayList<>();
+		itemLore.add(ChatColor.RED + "WARNING: 이 문서를 구입 후 사용하지 않고 인격에");
+		itemLore.add(ChatColor.RED + "동화되면 소멸합니다. 구입 즉시 사용바랍니다.");
+		itemLore.add(ChatColor.RED + "워프마커 슬롯이 최대 1개인 플레이어만 사용할 수 있습니다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.GRAY + "사용하면 워프마커 슬롯이 하나 증가한다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.BLUE + "가격: 100광기");
+		itemIm.setLore(itemLore);
+		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		item.setItemMeta(itemIm);
+		return item;
+	}
+	
+	public ItemStack item15() {
+		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemMeta itemIm = item.getItemMeta();
+		itemIm.setDisplayName(ChatColor.AQUA + "워프마커 슬롯 확장권 2단계");
+		ArrayList<String> itemLore = new ArrayList<>();
+		itemLore.add(ChatColor.RED + "WARNING: 이 문서를 구입 후 사용하지 않고 인격에");
+		itemLore.add(ChatColor.RED + "동화되면 소멸합니다. 구입 즉시 사용바랍니다.");
+		itemLore.add(ChatColor.RED + "워프마커 슬롯이 최대 2개인 플레이어만 사용할 수 있습니다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.GRAY + "사용하면 워프마커 슬롯이 하나 증가한다.");
+		itemIm.setLore(itemLore);
+		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		item.setItemMeta(itemIm);
+		return item;
+	}
+	
+	public ItemStack item15D() {
+		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemMeta itemIm = item.getItemMeta();
+		itemIm.setDisplayName(ChatColor.AQUA + "워프마커 슬롯 확장권 2단계");
+		itemIm.setLocalizedName("1000");
+		ArrayList<String> itemLore = new ArrayList<>();
+		itemLore.add(ChatColor.RED + "WARNING: 이 문서를 구입 후 사용하지 않고 인격에");
+		itemLore.add(ChatColor.RED + "동화되면 소멸합니다. 구입 즉시 사용바랍니다.");
+		itemLore.add(ChatColor.RED + "워프마커 슬롯이 최대 2개인 플레이어만 사용할 수 있습니다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.GRAY + "사용하면 워프마커 슬롯이 하나 증가한다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.BLUE + "가격: 1000광기");
+		itemIm.setLore(itemLore);
+		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		item.setItemMeta(itemIm);
+		return item;
+	}
+	
+	public ItemStack item16() {
+		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemMeta itemIm = item.getItemMeta();
+		itemIm.setDisplayName(ChatColor.AQUA + "워프마커 슬롯 확장권 3단계");
+		ArrayList<String> itemLore = new ArrayList<>();
+		itemLore.add(ChatColor.RED + "WARNING: 이 문서를 구입 후 사용하지 않고 인격에");
+		itemLore.add(ChatColor.RED + "동화되면 소멸합니다. 구입 즉시 사용바랍니다.");
+		itemLore.add(ChatColor.RED + "워프마커 슬롯이 최대 3개인 플레이어만 사용할 수 있습니다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.GRAY + "사용하면 워프마커 슬롯이 하나 증가한다.");
+		itemIm.setLore(itemLore);
+		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		item.setItemMeta(itemIm);
+		return item;
+	}
+	
+	public ItemStack item16D() {
+		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemMeta itemIm = item.getItemMeta();
+		itemIm.setDisplayName(ChatColor.AQUA + "워프마커 슬롯 확장권 3단계");
+		itemIm.setLocalizedName("10000");
+		ArrayList<String> itemLore = new ArrayList<>();
+		itemLore.add(ChatColor.RED + "WARNING: 이 문서를 구입 후 사용하지 않고 인격에");
+		itemLore.add(ChatColor.RED + "동화되면 소멸합니다. 구입 즉시 사용바랍니다.");
+		itemLore.add(ChatColor.RED + "워프마커 슬롯이 최대 3개인 플레이어만 사용할 수 있습니다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.GRAY + "사용하면 워프마커 슬롯이 하나 증가한다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.BLUE + "가격: 10000광기");
+		itemIm.setLore(itemLore);
+		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		item.setItemMeta(itemIm);
+		return item;
+	}
+	
+	public ItemStack item17() {
+		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemMeta itemIm = item.getItemMeta();
+		itemIm.setDisplayName(ChatColor.AQUA + "워프마커 슬롯 확장권 4단계");
+		ArrayList<String> itemLore = new ArrayList<>();
+		itemLore.add(ChatColor.RED + "WARNING: 이 문서를 구입 후 사용하지 않고 인격에");
+		itemLore.add(ChatColor.RED + "동화되면 소멸합니다. 구입 즉시 사용바랍니다.");
+		itemLore.add(ChatColor.RED + "워프마커 슬롯이 최대 4개인 플레이어만 사용할 수 있습니다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.GRAY + "사용하면 워프마커 슬롯이 하나 증가한다.");
+		itemIm.setLore(itemLore);
+		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		itemIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+		item.setItemMeta(itemIm);
+		return item;
+	}
+	
+	public ItemStack item17D() {
+		ItemStack item = new ItemStack(Material.MOJANG_BANNER_PATTERN);
+		ItemMeta itemIm = item.getItemMeta();
+		itemIm.setDisplayName(ChatColor.AQUA + "워프마커 슬롯 확장권 4단계");
+		itemIm.setLocalizedName("100000");
+		ArrayList<String> itemLore = new ArrayList<>();
+		itemLore.add(ChatColor.RED + "WARNING: 이 문서를 구입 후 사용하지 않고 인격에");
+		itemLore.add(ChatColor.RED + "동화되면 소멸합니다. 구입 즉시 사용바랍니다.");
+		itemLore.add(ChatColor.RED + "워프마커 슬롯이 최대 4개인 플레이어만 사용할 수 있습니다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.GRAY + "사용하면 워프마커 슬롯이 하나 증가한다.");
+		itemLore.add(ChatColor.GRAY + "");
+		itemLore.add(ChatColor.BLUE + "가격: 100000광기");
 		itemIm.setLore(itemLore);
 		itemIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);

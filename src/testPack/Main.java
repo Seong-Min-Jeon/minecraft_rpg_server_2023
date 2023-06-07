@@ -318,6 +318,18 @@ public class Main extends JavaPlugin implements Listener{
 						e.printStackTrace();
 					}
 				}
+				//워프마커
+				File file5 = new File(dir, "warp.dat");
+				if (!file5.exists()) {
+					try {
+						file5.createNewFile();
+						BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file5), "UTF-8"));
+						fw.write("미사용 슬롯");
+		                fw.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
 			}
 		} catch (Exception e) {
 			
@@ -6583,6 +6595,14 @@ public class Main extends JavaPlugin implements Listener{
 		        				player.getInventory().addItem(new Shop1().item12());
 		        			} else if(event.getSlot() == 12) {
 		        				player.getInventory().addItem(new Shop1().item13());
+		        			} else if(event.getSlot() == 13) {
+		        				player.getInventory().addItem(new Shop1().item14());
+		        			} else if(event.getSlot() == 14) {
+		        				player.getInventory().addItem(new Shop1().item15());
+		        			} else if(event.getSlot() == 15) {
+		        				player.getInventory().addItem(new Shop1().item16());
+		        			} else if(event.getSlot() == 16) {
+		        				player.getInventory().addItem(new Shop1().item17());
 		        			}
 		        			new Message().msg(player, "나오: 당신에게 도움이 되기를…");
 		        		} else {

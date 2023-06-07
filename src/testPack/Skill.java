@@ -350,6 +350,34 @@ public class Skill {
 							skill40(player);
 						}
 					}
+				} else if(name.equals("올가의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1500);
+						if (bool) {
+							sendPacket(player, "맹습");
+							skill41(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 10000);
+						if (bool) {
+							sendPacket(player, "과감한 판단");
+							skill42(player);
+						}
+					}
+				} else if(name.equals("츠바이 협회 6과 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1200);
+						if (bool) {
+							sendPacket(player, "맞서기");
+							skill43(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 500000);
+						if (bool) {
+							sendPacket(player, "치안수호");
+							skill44(player);
+						}
+					}
 				}
 				
 			}
@@ -1506,6 +1534,108 @@ public class Skill {
 		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 20, 0, true, false, true));
 		world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 	}
+	
+	public void skill41(Player player) {
+		
+		new BukkitRunnable() {
+			int time = 0;
+
+			@Override
+			public void run() {
+				
+				if(time == 0) {
+					new ParticleEffect(player).pS026();
+					
+					List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 1.2);
+						}
+					}
+				}
+
+				if(time == 10) {
+					new ParticleEffect(player).pS026();
+					
+					List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 1.2);
+						}
+					}
+				}
+				
+				if(time >= 20) {
+					new ParticleEffect(player).pS026();
+					
+					List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 1.2);
+						}
+					}
+					
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+	}
+	
+	public void skill42(Player player) {
+		new ParticleEffect(player).pS027();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.7, 0.6, 1, 0.6);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 5);
+			}
+		}
+	}
+	
+	public void skill43(Player player) {
+		new ParticleEffect(player).pS001();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 2.5);
+				nearMob.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.2,0,1.2).add(new Vector(0,0.2,0))));
+			}
+		}
+		
+		player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 0, true, false, true));
+	}
+	
+	public void skill44(Player player) {
+		int num = 0;
+		
+		List<Entity> entitylist = player.getNearbyEntities(10, 5, 10);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof Mob) {
+				String name = nearEntity.getCustomName();
+				if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐")) {
+					nearEntity.remove();
+					num++;
+				}
+			}
+		}
+		
+		if(num == 0) {
+			player.sendMessage(ChatColor.RED + "대상이 존재하지 않습니다.");
+		} else {
+			player.sendMessage(ChatColor.GREEN + "" + num + "마리의 쥐가 체포되었습니다.");
+		}
+		
+	}
+	
 	
 	
 	public void damage(Player player, LivingEntity mob, double dam) {

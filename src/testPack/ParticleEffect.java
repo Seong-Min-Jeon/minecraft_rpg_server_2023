@@ -790,7 +790,7 @@ public class ParticleEffect {
 		double var = 0;
 		
 		for(int i = 0 ; i < 8 ; i++) {
-			e1 = normal.clone().add(Math.cos(var+rot), 1.1, Math.sin(var+rot));
+			e1 = normal.clone().add(Math.cos(var+rot)*1.5, 1.1, Math.sin(var+rot)*1.5);
 			world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
 			
 			var += Math.PI / 8;
@@ -1571,6 +1571,75 @@ public class ParticleEffect {
 		
 		world.playSound(normal, Sound.ITEM_TRIDENT_THUNDER, 0.5f, 2.0f);
 		
+	}
+	
+	public void pS026() {
+
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+		
+		double rot = Math.toRadians(normal.getYaw());
+		double var = 0;
+		
+		for(int i = 0 ; i < 8 ; i++) {
+			e1 = normal.clone().add(Math.cos(var+rot)*1.5, 1.1, Math.sin(var+rot)*1.5);
+			world.spawnParticle(Particle.CRIT, e1, 0);
+			
+			var += Math.PI / 8;
+		}
+		
+		world.playSound(normal, Sound.ITEM_TRIDENT_THUNDER, 0.5f, 2.0f);
+	}
+	
+	public void pS027() {
+		Location normal = player.getEyeLocation().add(0, -0.2, 0);
+		World world = player.getWorld();
+		Location e1;
+
+		double var = 0;
+		
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		for(int i = 0 ; i < 8 ; i++) {
+			e1 = normal.clone().add(Math.cos(var)*1.5*dirX1, Math.sin(var)*1.5, Math.cos(var)*1.5*dirZ1);
+			world.spawnParticle(Particle.CRIT, e1, 0);
+			
+			var += Math.PI / 16;
+		}
+		
+		var = 0;
+		
+		double arrowAngle2 = 85;
+		double totalAngle2 = normal.getYaw() + arrowAngle2;
+		double dirX2 = Math.cos(Math.toRadians(totalAngle2));
+		double dirZ2 = Math.sin(Math.toRadians(totalAngle2));
+		
+		for(int i = 0 ; i < 8 ; i++) {
+			e1 = normal.clone().add(Math.cos(var)*1.5*dirX2, Math.sin(var)*1.5, Math.cos(var)*1.5*dirZ2);
+			world.spawnParticle(Particle.CRIT, e1, 0);
+			
+			var += Math.PI / 16;
+		}
+		
+		var = 0;
+		
+		double arrowAngle3 = 95;
+		double totalAngle3 = normal.getYaw() + arrowAngle3;
+		double dirX3 = Math.cos(Math.toRadians(totalAngle3));
+		double dirZ3 = Math.sin(Math.toRadians(totalAngle3));
+		
+		for(int i = 0 ; i < 8 ; i++) {
+			e1 = normal.clone().add(Math.cos(var)*1.5*dirX3, Math.sin(var)*1.5, Math.cos(var)*1.5*dirZ3);
+			world.spawnParticle(Particle.CRIT, e1, 0);
+			
+			var += Math.PI / 16;
+		}
+		
+		world.playSound(normal, Sound.ITEM_TRIDENT_THUNDER, 0.5f, 1.5f);
 	}
 	
 	
