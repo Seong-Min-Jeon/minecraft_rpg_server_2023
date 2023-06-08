@@ -640,6 +640,7 @@ public class AnotherScroll {
         	                fw.write(first);
         	                fw.write("\n");
         	                fw.write("미사용 슬롯");
+        	                fw.write("\n");
         	                fw.close();
 	    					
 	    					itemArg.setAmount(itemArg.getAmount()-1);
@@ -697,6 +698,7 @@ public class AnotherScroll {
         	                fw.write(second);
         	                fw.write("\n");
         	                fw.write("미사용 슬롯");
+        	                fw.write("\n");
         	                fw.close();
 	    					
 	    					itemArg.setAmount(itemArg.getAmount()-1);
@@ -757,6 +759,7 @@ public class AnotherScroll {
         	                fw.write(third);
         	                fw.write("\n");
         	                fw.write("미사용 슬롯");
+        	                fw.write("\n");
         	                fw.close();
 	    					
 	    					itemArg.setAmount(itemArg.getAmount()-1);
@@ -820,6 +823,7 @@ public class AnotherScroll {
         	                fw.write(fourth);
         	                fw.write("\n");
         	                fw.write("미사용 슬롯");
+        	                fw.write("\n");
         	                fw.close();
 	    					
 	    					itemArg.setAmount(itemArg.getAmount()-1);

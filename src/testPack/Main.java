@@ -168,6 +168,10 @@ public class Main extends JavaPlugin implements Listener{
 		getCommand("dropQuest").setExecutor(new Cmd32dropQuest());
 		getCommand("d").setExecutor(new Cmd32dropQuest());
 		getCommand("mob").setExecutor(new Cmd33mob());
+		getCommand("teleport").setExecutor(new Cmd34teleport(getDataFolder()));
+		getCommand("t").setExecutor(new Cmd34teleport(getDataFolder()));
+		getCommand("teleport").setTabCompleter(new Cmd34teleportCompleter());
+		getCommand("t").setTabCompleter(new Cmd34teleportCompleter());
 		
 		new RefreshServer();
 		new NPCManager();
@@ -325,6 +329,7 @@ public class Main extends JavaPlugin implements Listener{
 						file5.createNewFile();
 						BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file5), "UTF-8"));
 						fw.write("미사용 슬롯");
+						fw.write("\n");
 		                fw.close();
 					} catch (IOException e) {
 						e.printStackTrace();

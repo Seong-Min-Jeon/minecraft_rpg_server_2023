@@ -33,4 +33,10 @@ commands:
   mob:
    description: mob summon
    usage: /mob
+  teleport:
+   description: 워프마커 사용 커맨드
+   usage: /teleport
+  t:
+   description: 워프마커 사용 커맨드
+   usage: /t
 api-version: 1.19
