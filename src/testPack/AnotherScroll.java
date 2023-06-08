@@ -644,6 +644,7 @@ public class AnotherScroll {
         	                fw.close();
 	    					
 	    					itemArg.setAmount(itemArg.getAmount()-1);
+	    					player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "워프마커 슬롯이 개방되었습니다.");
 	    				} else {
 	    					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "워프마커 슬롯이 최대 1개인 플레이어만 사용할 수 있습니다.");
 	    				}
@@ -702,6 +703,7 @@ public class AnotherScroll {
         	                fw.close();
 	    					
 	    					itemArg.setAmount(itemArg.getAmount()-1);
+	    					player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "워프마커 슬롯이 개방되었습니다.");
 	    				} else {
 	    					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "워프마커 슬롯이 최대 2개인 플레이어만 사용할 수 있습니다.");
 	    				}
@@ -763,6 +765,7 @@ public class AnotherScroll {
         	                fw.close();
 	    					
 	    					itemArg.setAmount(itemArg.getAmount()-1);
+	    					player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "워프마커 슬롯이 개방되었습니다.");
 	    				} else {
 	    					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "워프마커 슬롯이 최대 3개인 플레이어만 사용할 수 있습니다.");
 	    				}
@@ -827,6 +830,7 @@ public class AnotherScroll {
         	                fw.close();
 	    					
 	    					itemArg.setAmount(itemArg.getAmount()-1);
+	    					player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "워프마커 슬롯이 개방되었습니다.");
 	    				} else {
 	    					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "워프마커 슬롯이 최대 4개인 플레이어만 사용할 수 있습니다.");
 	    				}
