@@ -326,6 +326,10 @@ public class Cmd34teleport implements CommandExecutor {
 							player.sendMessage(ChatColor.GREEN + "  teleport remove <number>");
 							player.sendMessage(ChatColor.GOLD + "=======================");
 							return true;
+						} else {
+							player.sendMessage(ChatColor.RED + "존재하지 않는 명령어입니다.");
+							player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 0.2f, 2.0f);
+							return true;
 						}
 					}
 					
