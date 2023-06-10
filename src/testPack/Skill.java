@@ -366,16 +366,44 @@ public class Skill {
 					}
 				} else if(name.equals("츠바이 협회 6과 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1200);
+						bool = reload(player, 1000);
 						if (bool) {
-							sendPacket(player, "맞서기");
+							sendPacket(player, "견제");
 							skill43(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 500000);
+						bool = reload2(player, 500000 - personality*20000);
 						if (bool) {
 							sendPacket(player, "치안수호");
 							skill44(player);
+						}
+					}
+				} else if(name.equals("츠바이 협회 5과 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1200);
+						if (bool) {
+							sendPacket(player, "맞서기");
+							skill45(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 500000 - personality*20000);
+						if (bool) {
+							sendPacket(player, "치안수호");
+							skill46(player);
+						}
+					}
+				} else if(name.equals("시 협회 5과 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1500);
+						if (bool) {
+							sendPacket(player, "비검");
+							skill47(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 400000 - personality*20000);
+						if (bool) {
+							sendPacket(player, "그런데 그때 시협회가 나타났다");
+							skill48(player);
 						}
 					}
 				}
@@ -1401,7 +1429,7 @@ public class Skill {
 						player.teleport(target);
 					} else {
 						player.sendMessage(ChatColor.RED + "대상이 존재하지 않습니다.");
-
+						timer2.remove(player);
 					}
 					this.cancel();
 				}
@@ -1602,7 +1630,7 @@ public class Skill {
 	public void skill43(Player player) {
 		new ParticleEffect(player).pS001();
 		
-		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.9, 1, 0.9);
 		for (Entity nearEntity : entitylist) {
 			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -1610,8 +1638,6 @@ public class Skill {
 				nearMob.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.2,0,1.2).add(new Vector(0,0.2,0))));
 			}
 		}
-		
-		player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 0, true, false, true));
 	}
 	
 	public void skill44(Player player) {
@@ -1634,6 +1660,68 @@ public class Skill {
 			player.sendMessage(ChatColor.GREEN + "" + num + "마리의 쥐가 체포되었습니다.");
 		}
 		
+	}
+	
+	public void skill45(Player player) {
+		new ParticleEffect(player).pS001();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 2.5);
+			}
+		}
+		
+		player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 0, true, false, true));
+	}
+	
+	public void skill46(Player player) {
+		int num = 0;
+		
+		List<Entity> entitylist = player.getNearbyEntities(10, 5, 10);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof Mob) {
+				String name = nearEntity.getCustomName();
+				if (name.equalsIgnoreCase(ChatColor.GREEN + "" + ChatColor.BOLD + "쥐") || name.equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
+					nearEntity.remove();
+					num++;
+				}
+			}
+		}
+		
+		if(num == 0) {
+			player.sendMessage(ChatColor.RED + "대상이 존재하지 않습니다.");
+		} else {
+			player.sendMessage(ChatColor.GREEN + "" + num + "마리의 쥐가 체포되었습니다.");
+		}
+	}
+	
+	public void skill47(Player player) {
+		List<Entity> entitylist = nearFrontEntities(player, 2, 0.5, 1, 0.5);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 3.5);
+			}
+		}
+	}
+	
+	public void skill48(Player player) {
+		QuestOwner qo = new QuestOwner();
+		if(qo.returnEntity(player) != null) {
+			Entity ent = qo.returnEntity(player);
+			if(ent.getLocation().distance(player.getLocation()) < 30) {
+				player.teleport(ent);
+			} else {
+				player.sendMessage(ChatColor.RED + "대상이 멀리 있습니다.");
+				timer2.remove(player);
+			}
+		} else {
+			player.sendMessage(ChatColor.RED + "대상이 존재하지 않습니다.");
+			timer2.remove(player);
+		}
+		player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 30, 0, true, false, true));
 	}
 	
 	
