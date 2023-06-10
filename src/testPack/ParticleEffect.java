@@ -25,6 +25,9 @@ import org.bukkit.entity.Mob;
 import org.bukkit.entity.Monster;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.SpectralArrow;
+import org.bukkit.inventory.EntityEquipment;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -1642,6 +1645,11 @@ public class ParticleEffect {
 		world.playSound(normal, Sound.ITEM_TRIDENT_THUNDER, 0.5f, 1.5f);
 	}
 	
+	public void pS028() {
+		summonEffectTracking(player, 0.2, 0, 2000, 2007, 1);
+		
+		player.getWorld().playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_HURT, 1.0f, 1.8f);
+	}
 	
 	
 	
@@ -2636,6 +2644,96 @@ public class ParticleEffect {
 			}
 		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 	}
+	
+	//===========================================================================
+	
+	public void summonEffect(Player player, double dist, int y, int sF, int eF, int speed) {
+		Location normal = player.getLocation();
+		Location e1;
+		
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*dist, y, dirZ1*dist);
+		
+		ArmorStand as = (ArmorStand) player.getWorld().spawnEntity(e1, EntityType.ARMOR_STAND);
+		as.setVisible(false);
+		as.setGravity(false);
+		as.setRemoveWhenFarAway(true);
+		new BukkitRunnable() {
+			int time = 0;
+			int cnt = eF - sF + 1;
+			int cur = 0;
+			
+			@Override
+			public void run() {
+				if(time >= speed*cnt+speed) {
+					as.remove();
+					this.cancel();
+				}
+				
+				if(time % speed == 0) {
+					EntityEquipment effect = as.getEquipment();
+					ItemStack effectItem = new ItemStack(Material.MUSIC_DISC_5);
+					ItemMeta effectmeta = effectItem.getItemMeta();
+					effectmeta.setCustomModelData(sF + cur);
+					effectItem.setItemMeta(effectmeta);
+					effect.setHelmet(effectItem);
+					
+					cur++;
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void summonEffectTracking(Player player, double dist, int y, int sF, int eF, int speed) {
+		Location normal = player.getLocation();
+		Location e1;
+		
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*dist, y, dirZ1*dist);
+		
+		ArmorStand as = (ArmorStand) player.getWorld().spawnEntity(e1, EntityType.ARMOR_STAND);
+		as.setVisible(false);
+		as.setGravity(false);
+		as.setRemoveWhenFarAway(true);
+		player.addPassenger(as);
+		new BukkitRunnable() {
+			int time = 0;
+			int cnt = eF - sF + 1;
+			int cur = 0;
+			
+			@Override
+			public void run() {
+				if(time >= speed*cnt+speed) {
+					as.remove();
+					this.cancel();
+				}
+				
+				if(time % speed == 0) {
+					EntityEquipment effect = as.getEquipment();
+					ItemStack effectItem = new ItemStack(Material.MUSIC_DISC_5);
+					ItemMeta effectmeta = effectItem.getItemMeta();
+					effectmeta.setCustomModelData(sF + cur);
+					effectItem.setItemMeta(effectmeta);
+					effect.setHelmet(effectItem);
+					
+					cur++;
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
 	
 	//===========================================================================
 	

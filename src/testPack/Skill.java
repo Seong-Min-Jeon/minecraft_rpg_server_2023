@@ -1698,7 +1698,9 @@ public class Skill {
 	}
 	
 	public void skill47(Player player) {
-		List<Entity> entitylist = nearFrontEntities(player, 2, 0.5, 1, 0.5);
+		new ParticleEffect(player).pS028();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.9, 0.7, 1, 0.7);
 		for (Entity nearEntity : entitylist) {
 			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 				LivingEntity nearMob = (LivingEntity) nearEntity;

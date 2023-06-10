@@ -76,6 +76,9 @@ public class PlayerHitGimmick {
 			laughB(mob);
 			mariachiB(mob);
 			kong(mob);
+			sword(mob);
+			kongB(mob);
+			swordB(mob);
 		}
 	}
 
@@ -2698,6 +2701,604 @@ public class PlayerHitGimmick {
 		}
 	}
 	
+	public void sword(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "검계 조직원")) {
+			int num = rnd.nextInt(5);
+			
+			//격세
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					
+				    @Override
+					public void run() {
+						
+						if (time == 0) {
+							mob.setGlowing(true);
+						}
+						
+						if (time >= 10) {
+							summonEffectTracking(mob, 0.8, 0, 1040, 1047, 1);
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 2, 2.5, 2.5, 2.5);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(80);
+									
+									int num = rnd.nextInt(1);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 1);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 1);
+											}
+										}
+									}
+								}
+							}
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+			
+			//이면찬자
+			if (num == 1) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					
+				    @Override
+					public void run() {
+						
+						if (time == 0) {
+							mob.setGlowing(true);
+						}
+						
+						if (time == 7) {
+							summonEffectTracking(mob, 0, -0.2, 1050, 1055, 2);
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 1.5, 2, 2, 2);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(40);
+									
+									int num = rnd.nextInt(5);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 1);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 1);
+											}
+										}
+									}
+									
+									player.setVelocity(mob.getFacing().getDirection().add(new Vector(0,0.2,0)).multiply(1.7f));
+								}
+							}
+							
+						}
+						
+						if (time >= 17) {
+							mob.setVelocity(mob.getFacing().getDirection().add(new Vector(0,0.2,0)).multiply(1.8f));
+							
+							summonEffectTracking(mob, 0, 0, 1060, 1071, 1);
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 2, 2.5, 2.5, 2.5);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(80);
+									
+									int num = rnd.nextInt(1);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 2);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 2);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 2);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 2);
+											}
+										}
+									}
+								}
+							}
+							
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
+	public void kongB(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "콩콩이파 간부")) {
+			int num = rnd.nextInt(4);
+			
+			//후비기
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					
+				    @Override
+					public void run() {
+						
+						if (time == 0) {
+							mob.setGlowing(true);
+						}
+						
+						if (time == 5) {
+							mob.setVelocity(mob.getFacing().getDirection().multiply(1.5f));
+						}
+						
+						if (time >= 15) {
+							summonEffectTracking(mob, 0.2, 0, 1000, 1005, 2);
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 2, 2, 1.5, 2);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(60);
+									
+									int num = rnd.nextInt(1);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 1);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 1);
+											}
+										}
+									}
+								}
+							}
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+			
+			//난도질
+			if (num == 1) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					
+				    @Override
+					public void run() {
+						
+						if (time == 0) {
+							mob.setGlowing(true);
+						}
+						
+						if (time == 20) {
+							summonEffectTracking(mob, 0, 0, 1010, 1033, 1);
+							if(mob instanceof Mob) {
+								((Mob) mob).addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2, false, false));
+							}
+						}
+						
+						if (time == 22) {
+							List<Entity> nearPlayer = mob.getNearbyEntities(2, 2, 2);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(40);
+									
+									int num = rnd.nextInt(1);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 2);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 2);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 2);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 2);
+											}
+										}
+									}
+								}
+							}
+						}
+						
+						if (time == 32) {
+							List<Entity> nearPlayer = mob.getNearbyEntities(2, 2, 2);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(40);
+									
+									int num = rnd.nextInt(1);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 2);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 2);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 2);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 2);
+											}
+										}
+									}
+								}
+							}
+						}
+						
+						if (time == 43) {
+							List<Entity> nearPlayer = mob.getNearbyEntities(2, 2, 2);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(40);
+									
+									int num = rnd.nextInt(1);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 2);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 2);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 2);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 2);
+											}
+										}
+									}
+								}
+							}
+						}
+						
+						if (time >= 45) {
+							if(mob instanceof Mob) {
+								((Mob) mob).removePotionEffect(PotionEffectType.SPEED);
+								((Mob) mob).addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false));
+							}
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
+	public void swordB(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "무명의 검계 삿갓")) {
+			int num = rnd.nextInt(4);
+			
+			//격세
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					
+				    @Override
+					public void run() {
+						
+						if (time == 0) {
+							mob.setGlowing(true);
+						}
+						
+						if (time >= 10) {
+							summonEffectTracking(mob, 0.8, 0, 1040, 1047, 1);
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 2, 2.5, 2.5, 2.5);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(80);
+									
+									int num = rnd.nextInt(1);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 1);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 1);
+											}
+										}
+									}
+								}
+							}
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+			
+			//이면찬자
+			if (num == 1) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					
+				    @Override
+					public void run() {
+						
+						if (time == 0) {
+							mob.setGlowing(true);
+						}
+						
+						if (time == 7) {
+							summonEffectTracking(mob, 0, -0.2, 1050, 1055, 2);
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 1.5, 2, 2, 2);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(40);
+									
+									int num = rnd.nextInt(5);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 1);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 1);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 1);
+											}
+										}
+									}
+									
+									player.setVelocity(mob.getFacing().getDirection().add(new Vector(0,0.2,0)).multiply(1.7f));
+								}
+							}
+							
+						}
+						
+						if (time >= 17) {
+							mob.setVelocity(mob.getFacing().getDirection().add(new Vector(0,0.2,0)).multiply(1.8f));
+							
+							summonEffectTracking(mob, 0, 0, 1060, 1071, 1);
+							
+							List<Entity> nearPlayer = nearFrontEntities(mob, 2, 2.5, 2.5, 2.5);
+							for(Entity e : nearPlayer) {
+								if(e instanceof Player) {
+									Player player = (Player) e;
+									player.damage(80);
+									
+									int num = rnd.nextInt(1);
+									if(num == 0) {
+										int item = 0;
+										if (player.getInventory().getHelmet() != null) {
+											if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V1")) {
+												item = 1;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V2")) {
+												item = 2;
+											} else if (player.getInventory().getHelmet().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "두뇌 자극 회로 V3")) {
+												item = 3;
+											}
+										}
+										
+										int num2 = rnd.nextInt(10);
+										if(item == 0) {
+											damageMaxHealth(player, 2);
+										} else if(item == 1) {
+											if(num2 >= 1) {
+												damageMaxHealth(player, 2);
+											}
+										} else if(item == 2) {
+											if(num2 >= 3) {
+												damageMaxHealth(player, 2);
+											}
+										} else if(item == 3) {
+											if(num2 >= 5) {
+												damageMaxHealth(player, 2);
+											}
+										}
+									}
+								}
+							}
+							
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
 	public List<Entity> nearFrontEntities(Entity mob, double dist, double x, double y, double z) {
 		Location normal = mob.getLocation();
 		Location e1;
@@ -2731,7 +3332,7 @@ public class PlayerHitGimmick {
 		return as.getNearbyEntities(x, y, z);
 	}
 	
-	public void summonEffect(Entity mob, double dist, int y, int sF, int eF, int speed) {
+	public void summonEffect(Entity mob, double dist, double y, int sF, int eF, int speed) {
 		Location normal = mob.getLocation();
 		Location e1;
 		
@@ -2774,7 +3375,7 @@ public class PlayerHitGimmick {
 		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 	}
 	
-	public void summonEffectTracking(Entity mob, double dist, int y, int sF, int eF, int speed) {
+	public void summonEffectTracking(Entity mob, double dist, double y, int sF, int eF, int speed) {
 		Location normal = mob.getLocation();
 		Location e1;
 		
