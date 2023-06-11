@@ -20248,6 +20248,10 @@ public class QuestBoard {
 				
 				try {
 					best = Integer.parseInt(list.get(0));
+					
+					if(best == 0) {
+						best = 1;
+					}
 				} catch(Exception e) {
 					player.sendMessage(ChatColor.RED + "플레이어 최고기록 파일에 문제 발생");
 					player.sendMessage(ChatColor.RED + "관리자에게 문의하세요.");
