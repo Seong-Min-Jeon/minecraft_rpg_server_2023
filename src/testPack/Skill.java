@@ -1713,7 +1713,7 @@ public class Skill {
 		QuestOwner qo = new QuestOwner();
 		if(qo.returnEntity(player) != null) {
 			Entity ent = qo.returnEntity(player);
-			if(ent.getLocation().distance(player.getLocation()) < 30) {
+			if(ent.getLocation().distance(player.getLocation()) < 150) {
 				player.teleport(ent);
 			} else {
 				player.sendMessage(ChatColor.RED + "대상이 멀리 있습니다.");

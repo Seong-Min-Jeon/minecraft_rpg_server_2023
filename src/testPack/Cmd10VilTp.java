@@ -59,77 +59,11 @@ public class Cmd10VilTp implements CommandExecutor {
 					if(args[0].equalsIgnoreCase("00")) {
 						player.teleport(tuto2);
 					}
-					if(args[0].equalsIgnoreCase("0")) {
-						player.teleport(tuto);
-					}
 					if(args[0].equalsIgnoreCase("1")) {
 						player.teleport(wargunil);
 					}
-					if(args[0].equalsIgnoreCase("2")) {
-						player.teleport(forgan);
-					}
-					if(args[0].equalsIgnoreCase("3")) {
-						player.teleport(tiru);
-					}
-					if(args[0].equalsIgnoreCase("4")) {
-						player.teleport(seedMine);
-					}
 					if(args[0].equalsIgnoreCase("5")) {
 						player.teleport(miyu);
-					}
-					if(args[0].equalsIgnoreCase("6")) {
-						player.teleport(kaiman);
-					}
-					if(args[0].equalsIgnoreCase("7")) {
-						player.teleport(hiosu);
-					}
-					if(args[0].equalsIgnoreCase("8")) {
-						player.teleport(konno);
-					}
-					if(args[0].equalsIgnoreCase("9")) {
-						player.teleport(fuhidmeh);
-					}
-					if(args[0].equalsIgnoreCase("10")) {
-						player.teleport(sitasaidi);
-					}
-					if(args[0].equalsIgnoreCase("11")) {
-						player.teleport(karce);
-					}
-					if(args[0].equalsIgnoreCase("12")) {
-						player.teleport(kuredratt);
-					}
-					if(args[0].equalsIgnoreCase("13")) {
-						player.teleport(beiag);
-					}
-					if(args[0].equalsIgnoreCase("14")) {
-						player.teleport(magicTower);
-					}
-					if(args[0].equalsIgnoreCase("15")) {
-						player.teleport(longue);
-					}
-					if(args[0].equalsIgnoreCase("16")) {
-						player.teleport(hamabe);
-					}
-					if(args[0].equalsIgnoreCase("17")) {
-						player.teleport(samak);
-					}
-					if(args[0].equalsIgnoreCase("18")) {
-						player.teleport(samakVil);
-					}
-					if(args[0].equalsIgnoreCase("19")) {
-						player.teleport(kekktas);
-					}
-					if(args[0].equalsIgnoreCase("20")) {
-						player.teleport(hardDun);
-					}
-					if(args[0].equalsIgnoreCase("21")) {
-						player.teleport(tiperari);
-					}
-					if(args[0].equalsIgnoreCase("22")) {
-						player.teleport(lidia);
-					}
-					if(args[0].equalsIgnoreCase("23")) {
-						player.teleport(furelioud);
 					}
 				} catch(Exception e) {
 					player.sendMessage(ChatColor.RED + "잘못된 입력입니다만?");

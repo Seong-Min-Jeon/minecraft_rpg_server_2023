@@ -2828,9 +2828,11 @@ public class PlayerHitGimmick {
 							
 						}
 						
-						if (time >= 17) {
-							mob.setVelocity(mob.getFacing().getDirection().add(new Vector(0,0.2,0)).multiply(1.8f));
-							
+						if (time == 12) {
+							mob.setVelocity(mob.getFacing().getDirection().add(new Vector(0,0.2,0)).multiply(1.9f));
+						}
+						
+						if (time >= 27) {
 							summonEffectTracking(mob, 0, 0, 1060, 1071, 1);
 							
 							List<Entity> nearPlayer = nearFrontEntities(mob, 2, 2.5, 2.5, 2.5);
@@ -3243,9 +3245,11 @@ public class PlayerHitGimmick {
 							
 						}
 						
-						if (time >= 17) {
-							mob.setVelocity(mob.getFacing().getDirection().add(new Vector(0,0.2,0)).multiply(1.8f));
-							
+						if (time == 12) {
+							mob.setVelocity(mob.getFacing().getDirection().add(new Vector(0,0.2,0)).multiply(1.9f));
+						}
+						
+						if (time >= 27) {
 							summonEffectTracking(mob, 0, 0, 1060, 1071, 1);
 							
 							List<Entity> nearPlayer = nearFrontEntities(mob, 2, 2.5, 2.5, 2.5);

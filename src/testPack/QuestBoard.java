@@ -8,8 +8,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
+import org.apache.logging.log4j.core.config.plugins.Plugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
@@ -17,6 +20,7 @@ import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.Statistic;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
@@ -20170,6 +20174,8 @@ public class QuestBoard {
 	
 	
 	public void giveExp(Player player, int num) {
+		boolean doubleExp = false;
+		
 		//인격
 		try {
 			double personality = 0;
@@ -20206,11 +20212,56 @@ public class QuestBoard {
 			
 			if(best < grade) {
 				num *= 2;
+				doubleExp = true;
 			}
-			
 		} catch(Exception e2) {
 			
 		}
+		
+		//전체 최고기록
+		try {
+			if(doubleExp == false) {
+				int grade = new PlayerGrade().returnGrade(player);
+				int best = 9;
+				
+				File file = new File(Bukkit.getPluginManager().getPlugin("MyPlugin").getDataFolder() + "/" + player.getUniqueId().toString(), "personality_best.dat");
+				if (!file.exists()) {
+					try {
+						file.createNewFile();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				FileReader filereader = new FileReader(file);
+				BufferedReader bufReader = new BufferedReader(filereader);
+				String grade0 = bufReader.readLine();
+				String grade1 = bufReader.readLine();
+				String grade2 = bufReader.readLine();
+				String grade3 = bufReader.readLine();
+				
+				ArrayList<String> list = new ArrayList<>();
+				list.addAll(Arrays.asList(grade0.split("/")));
+				list.addAll(Arrays.asList(grade1.split("/")));
+				list.addAll(Arrays.asList(grade2.split("/")));
+				list.addAll(Arrays.asList(grade3.split("/")));
+				list.sort(Comparator.naturalOrder());
+				
+				try {
+					best = Integer.parseInt(list.get(0));
+				} catch(Exception e) {
+					player.sendMessage(ChatColor.RED + "플레이어 최고기록 파일에 문제 발생");
+					player.sendMessage(ChatColor.RED + "관리자에게 문의하세요.");
+				}
+				
+				bufReader.close();
+				
+				if(best < grade) {
+					num *= 1.5;
+				}
+			}
+    	} catch(Exception e) {
+    		
+    	}
 		
 		try {
 			ItemStack item = player.getInventory().getItem(8);

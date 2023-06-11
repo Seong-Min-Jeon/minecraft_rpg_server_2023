@@ -156,7 +156,7 @@ public class PlayerHittenDebuff {
 	//쥐 두목
 	public void ratBoss(Player player, Entity mob) {
 		if (mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "쥐 두목")) {
-			int num = rnd.nextInt(8);
+			int num = rnd.nextInt(4);
 			if (num == 0) {
 				int item = 0;
 				if (player.getInventory().getHelmet() != null) {
