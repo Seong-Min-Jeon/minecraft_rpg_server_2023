@@ -15002,6 +15002,8 @@ public class QuestBoard {
 			
 			levelup(player, "8급", "35");
 			
+			giveLunacy(player, 20);
+			
 			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
 			if(office.equals("윤 사무소")) {
 				ItemStack recep1 = new ItemStack(Material.PAPER);
@@ -15147,6 +15149,8 @@ public class QuestBoard {
 			
 			levelup(player, "7급", "90");
 			
+			giveLunacy(player, 70);
+			
 			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
 			if(office.equals("무소속")) {
 				ItemStack recep1 = new ItemStack(Material.PAPER);
@@ -15254,6 +15258,8 @@ public class QuestBoard {
  			}
 			
 			levelup(player, "6급", "300");
+			
+			giveLunacy(player, 180);
 			
 			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
 			if(office.equals("어금니 사무소")) {
@@ -15844,6 +15850,8 @@ public class QuestBoard {
 			
 			levelup(player, "5급", "720");
 			
+			giveLunacy(player, 600);
+			
 			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
 			if(office.equals("새벽 사무소")) {
 				ItemStack recep6 = new ItemStack(Material.PAPER);
@@ -16144,6 +16152,8 @@ public class QuestBoard {
 			
 			levelup(player, "4급", "1730");
 			
+			giveLunacy(player, 1440);
+			
 			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
 			if(office.equals("츠바이 협회 5과")) {
 				ItemStack recep6 = new ItemStack(Material.PAPER);
@@ -16408,6 +16418,8 @@ public class QuestBoard {
  			}
 			
 			levelup(player, "3급", "4030");
+			
+			giveLunacy(player, 3460);
 			
 			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
 			if(office.equals("츠바이 협회 3과")) {
@@ -16779,6 +16791,8 @@ public class QuestBoard {
  			}
 			
 			levelup(player, "2급", "9220");
+			
+			giveLunacy(player, 8060);
 			
 			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
 			if(office.equals("츠바이 협회 3과")) {
@@ -17299,6 +17313,8 @@ public class QuestBoard {
 			
 			levelup(player, "1급", "20700");
 			
+			giveLunacy(player, 18440);
+			
 			String office = player.getInventory().getItem(8).getItemMeta().getLore().get(2).substring(6);
 			if(office.equals("츠바이 협회 2과")) {
 				ItemStack recep6 = new ItemStack(Material.PAPER);
@@ -17669,6 +17685,8 @@ public class QuestBoard {
  			}
 			
 			levelup(player, "특색", "0");
+			
+			giveLunacy(player, 30000);
 			
 			newPersonality(player, 0);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
@@ -20296,6 +20314,42 @@ public class QuestBoard {
 			itemIM.setLore(ary);
 			item.setItemMeta(itemIM);
 			player.getInventory().setItem(8, item);
+		} catch(Exception e) {
+			
+		}
+	}
+	
+	public void giveLunacy(Player player, int num) {
+		try {
+			File dir = new File(Bukkit.getPluginManager().getPlugin("MyPlugin").getDataFolder() + "/" + player.getUniqueId().toString());
+	    	if(!dir.exists()) {
+	    		try{
+	    		    dir.mkdir(); 
+	    		} catch(Exception e) {
+	    		    e.getStackTrace();
+	    		}
+	    	}
+			try {
+	    		File file = new File(dir, "lunacy.dat");
+				if (!file.exists()) {
+					try {
+						file.createNewFile();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				FileReader filereader = new FileReader(file);
+				BufferedReader bufReader = new BufferedReader(filereader);
+				int ori = Integer.parseInt(bufReader.readLine());
+				BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+				fw.write(Integer.toString(ori+num));
+				fw.close();
+				bufReader.close();
+				
+				player.sendMessage(ChatColor.GOLD + "[System] 최고기록 달성 초회보상으로 " + num + "광기가 지급됩니다.");
+	    	} catch(Exception e) {
+	    		
+	    	}
 		} catch(Exception e) {
 			
 		}
