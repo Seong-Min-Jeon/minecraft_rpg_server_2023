@@ -1651,6 +1651,15 @@ public class ParticleEffect {
 		player.getWorld().playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_HURT, 1.0f, 1.8f);
 	}
 	
+	public void pS029() {
+		Location normal = ent.getLocation().add(0,1.2,0);
+		World world = ent.getWorld();
+		world.spawnParticle(Particle.CRIT, normal, 5);
+		world.spawnParticle(Particle.FLAME, normal, 1);
+		
+		world.playSound(normal, Sound.ENTITY_PLAYER_HURT_ON_FIRE, 1.0f, 1.5f);
+	}
+	
 	
 	
 	//===========================================================================

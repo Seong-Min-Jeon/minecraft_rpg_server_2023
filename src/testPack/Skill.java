@@ -394,7 +394,7 @@ public class Skill {
 					}
 				} else if(name.equals("시 협회 5과 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1500);
+						bool = reload(player, 1300);
 						if (bool) {
 							sendPacket(player, "비검");
 							skill47(player);
@@ -404,6 +404,20 @@ public class Skill {
 						if (bool) {
 							sendPacket(player, "그런데 그때 시협회가 나타났다");
 							skill48(player);
+						}
+					}
+				} else if(name.equals("리우 협회 5과 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1500);
+						if (bool) {
+							sendPacket(player, "몰아치기");
+							skill49(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 8000);
+						if (bool) {
+							sendPacket(player, "정면돌파");
+							skill50(player);
 						}
 					}
 				}
@@ -1477,6 +1491,7 @@ public class Skill {
 			player.sendMessage(ChatColor.BOLD + "퀘스트가 처리되었습니다.");
 		} else {
 			player.sendMessage(ChatColor.RED + "퀘스트가 없습니다.");
+			timer2.remove(player);
 		}
 	}
 	
@@ -1656,6 +1671,7 @@ public class Skill {
 		
 		if(num == 0) {
 			player.sendMessage(ChatColor.RED + "대상이 존재하지 않습니다.");
+			timer2.remove(player);
 		} else {
 			player.sendMessage(ChatColor.GREEN + "" + num + "마리의 쥐가 체포되었습니다.");
 		}
@@ -1692,6 +1708,7 @@ public class Skill {
 		
 		if(num == 0) {
 			player.sendMessage(ChatColor.RED + "대상이 존재하지 않습니다.");
+			timer2.remove(player);
 		} else {
 			player.sendMessage(ChatColor.GREEN + "" + num + "마리의 쥐가 체포되었습니다.");
 		}
@@ -1724,6 +1741,69 @@ public class Skill {
 			timer2.remove(player);
 		}
 		player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 30, 0, true, false, true));
+	}
+	
+	public void skill49(Player player) {
+		new BukkitRunnable() {
+			int time = 0;
+			LivingEntity entity = null;
+
+			@Override
+			public void run() {
+				
+				if(time == 0) {
+					List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.7, 1, 0.7);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							entity = nearMob;
+							break;
+						}
+					}
+					if(entity != null) {
+						new ParticleEffect(entity).pS029();
+						damage(player, entity, 2);
+					}
+				}
+
+				if(time == 10) {
+					if(entity != null) {
+						new ParticleEffect(entity).pS029();
+						damage(player, entity, 2);
+					}
+				}
+				
+				if(time >= 20) {
+					if(entity != null) {
+						new ParticleEffect(entity).pS029();
+						damage(player, entity, 2);
+					}
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void skill50(Player player) {
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		if(player.isOnGround()) {
+			player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.6+(0.02*personality),1.4+(0.02*personality),1.6+(0.02*personality))));
+		} else {
+			timer2.remove(player);
+		}
 	}
 	
 	

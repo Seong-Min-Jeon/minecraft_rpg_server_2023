@@ -77,6 +77,7 @@ public class PlayerHitGimmick {
 			mariachiB(mob);
 			kong(mob);
 			sword(mob);
+			thumbCP(mob);
 			kongB(mob);
 			swordB(mob);
 		}
@@ -2876,6 +2877,104 @@ public class PlayerHitGimmick {
 							
 							mob.setGlowing(false);
 							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
+	public void thumbCP(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "엄지 카포")) {
+			int num = rnd.nextInt(5);
+			
+			//즉결심판
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					Arrow arrow;
+					World world;
+
+				    @Override
+					public void run() {
+				    	
+				    	if(time == 0) {
+				    		mob.setGlowing(true);
+				    		world = mob.getWorld();
+				    	}
+						
+						if (time == 15) {
+							arrow = ((Mob) mob).launchProjectile(Arrow.class);
+							arrow.setShooter(((Mob) mob));
+							arrow.setDamage(100);
+							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.9f));	
+							arrow.setGravity(false);
+							
+							world.playSound(mob.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.7f, 1.5f);
+							world.playSound(mob.getLocation(), Sound.ENTITY_ARMOR_STAND_HIT, 1.0f, 1.0f);
+						}
+						
+						if (time >= 15) {
+							world.spawnParticle(Particle.CRIT, arrow.getLocation(), 0);
+						}
+						
+						if (time >= 25) {
+							arrow.remove();
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+			
+			//화력집중
+			if (num == 1) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					Arrow arrow;
+					World world;
+					int repeat = 0;
+
+				    @Override
+					public void run() {
+				    	
+				    	if(time == 0) {
+				    		mob.setGlowing(true);
+				    		world = mob.getWorld();
+				    	}
+						
+						if (time == 30) {
+							arrow = ((Mob) mob).launchProjectile(Arrow.class);
+							arrow.setShooter(((Mob) mob));
+							arrow.setDamage(60);
+							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.9f));	
+							arrow.setGravity(false);
+							
+							world.playSound(mob.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.7f, 1.5f);
+							world.playSound(mob.getLocation(), Sound.ENTITY_ARMOR_STAND_HIT, 1.0f, 1.0f);
+						}
+						
+						if (time >= 30) {
+							world.spawnParticle(Particle.CRIT, arrow.getLocation(), 0);
+						}
+						
+						if (time >= 40 && repeat > 4) {
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						if (time >= 40) {
+							arrow.remove();
+							repeat++;
+							time = 25;
 						}
 						
 						time++;

@@ -584,6 +584,23 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("리우 협회 5과 해결사의 인격")) {
+			weapon = new ItemStack(Material.OAK_LEAVES);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "흑요석 글러브");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "강하게 부딪치면 불꽃이 일어오르는");
+			weaponLore.add(ChatColor.GRAY + "특이한 글러브");
+			weaponLore.add(ChatColor.GRAY + "진정한 리우의 불꽃은 장비로부터");
+			weaponLore.add(ChatColor.GRAY + "비롯되는 것은 아니지만, 아직");
+			weaponLore.add(ChatColor.GRAY + "능력이 부족한 해결사들은 글러브가");
+			weaponLore.add(ChatColor.GRAY + "없으면 불꽃을 일으킬 수 없다고 한다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
 		}
 		
 		if(weapon != null) {player.getInventory().setItem(0, weapon);}
