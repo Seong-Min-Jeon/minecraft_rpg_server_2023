@@ -10,6 +10,7 @@ import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Color;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -439,13 +440,27 @@ public class Skill {
 						bool = reload(player, 1000);
 						if (bool) {
 							sendPacket(player, "근접전은 싫어");
-							//skill53(player);
+							skill53(player);
 						}
 					} else if(rot.equals("R")) {
 						bool = reload2(player, 4000);
 						if (bool) {
 							sendPacket(player, "한 점만 노리겠어");
-							//skill54(player);
+							skill54(player);
+						}
+					}
+				} else if(name.equals("유나의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 700);
+						if (bool) {
+							sendPacket(player, "나비 베기");
+							skill55(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 1500);
+						if (bool) {
+							sendPacket(player, "사출");
+							skill56(player);
 						}
 					}
 				}
@@ -1880,6 +1895,206 @@ public class Skill {
 		}
 		
 		cs.put(player, 0);
+	}
+	
+	public void skill53(Player player) {
+		if(player.getLevel() < 2000) {
+			player.sendMessage(ChatColor.RED + "탄환값이 부족합니다.");
+			return;
+		} 
+		player.setLevel(player.getLevel() - 2000);
+		
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		new BukkitRunnable() {
+			
+			int time = 0;
+			Arrow arrow;
+			World world = player.getWorld();
+
+		    @Override
+			public void run() {
+				
+				if (time == 0) {
+					arrow = player.launchProjectile(Arrow.class);
+					arrow.setShooter(player);
+					arrow.setDamage(damageProj(player, 3));
+					arrow.setVelocity(player.getLocation().getDirection().multiply(0.9f));	
+					arrow.setGravity(false);
+					
+					world.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.6f, 1.5f);
+					world.playSound(player.getLocation(), Sound.ENTITY_ARMOR_STAND_HIT, 3.0f, 1.0f);
+				}
+				
+				if (time >= 1) {
+					world.spawnParticle(Particle.CRIT, arrow.getLocation(), 0);
+				}
+				
+				if (time >= 8) {
+					arrow.remove();
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+	}
+	
+	public void skill54(Player player) {
+		if(player.getLevel() < 5000) {
+			player.sendMessage(ChatColor.RED + "탄환값이 부족합니다.");
+			return;
+		} 
+		player.setLevel(player.getLevel() - 5000);
+		
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		new BukkitRunnable() {
+			
+			int time = 0;
+			Arrow arrow;
+			World world = player.getWorld();
+
+		    @Override
+			public void run() {
+				
+				if (time == 0) {
+					arrow = player.launchProjectile(Arrow.class);
+					arrow.setShooter(player);
+					arrow.setDamage(damageProj(player, 8));
+					arrow.setVelocity(player.getLocation().getDirection().multiply(0.9f));	
+					arrow.setGravity(false);
+					
+					world.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.6f, 1.5f);
+					world.playSound(player.getLocation(), Sound.ENTITY_ARMOR_STAND_HIT, 3.0f, 1.0f);
+					world.playSound(player.getLocation(), Sound.BLOCK_VINE_BREAK, 3.0f, 0.5f);
+				}
+				
+				if (time >= 1) {
+					world.spawnParticle(Particle.CRIT, arrow.getLocation(), 0);
+				}
+				
+				if (time >= 8) {
+					arrow.remove();
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+	}
+	
+	public void skill55(Player player) {
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		new ParticleEffect(player).pS032();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.6, 1, 1, 1);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 2);
+				
+				if(nearMob instanceof Mob || nearMob instanceof Player) {
+					new BukkitRunnable() {
+						int time = 0;
+
+					    @Override
+						public void run() {
+					    	
+					    	if(time == 1) {
+					    		nearMob.setFireTicks(100);
+					    		this.cancel();
+					    	}
+					    	
+							time++;
+						}
+					}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+					
+					new FireDamageList().putMap(nearMob, 1+(personality*0.1));
+				}
+			}
+		}
+	}
+	
+	public void skill56(Player player) {
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
+			
+			if(personality == 9) {
+				personality = 10;
+			}
+		} catch(Exception e2) {
+			
+		}
+		
+		new BukkitRunnable() {
+			
+			int time = 0;
+			Arrow arrow;
+			World world = player.getWorld();
+			Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(0, 0, 0), 1);
+
+		    @Override
+			public void run() {
+				
+				if (time == 0) {
+					arrow = player.launchProjectile(Arrow.class);
+					arrow.setShooter(player);
+					arrow.setDamage(damageProj(player, 5));
+					arrow.setVelocity(player.getLocation().getDirection().multiply(0.6f));	
+					arrow.setGravity(false);
+					
+					world.playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_HURT, 1.0f, 2.0f);
+				}
+				
+				if (time >= 1) {
+					world.spawnParticle(Particle.REDSTONE, arrow.getLocation(), 2, dustOptions1);
+				}
+				
+				if (time >= 7) {
+					arrow.remove();
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
 	}
 	
 	

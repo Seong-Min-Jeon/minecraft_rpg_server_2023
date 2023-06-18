@@ -1720,6 +1720,84 @@ public class ParticleEffect {
 		player.getWorld().playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 3.0f, 0.5f);
 	}
 	
+	public void pS032() {
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+		Location e1;
+        
+        Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(0, 0, 0), 1);
+        
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*1.5, 1.1, dirZ1*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle2 = 100;
+		double totalAngle2 = normal.getYaw() + arrowAngle2;
+		double dirX2 = Math.cos(Math.toRadians(totalAngle2));
+		double dirZ2 = Math.sin(Math.toRadians(totalAngle2));
+		
+		e1 = normal.clone().add(dirX2*1.5, 1.3, dirZ2*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		e1 = normal.clone().add(dirX2*1.5, 1.2, dirZ2*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		e1 = normal.clone().add(dirX2*1.5, 1.0, dirZ2*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		e1 = normal.clone().add(dirX2*1.5, 0.9, dirZ2*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle9 = 110;
+		double totalAngle9 = normal.getYaw() + arrowAngle9;
+		double dirX9 = Math.cos(Math.toRadians(totalAngle9));
+		double dirZ9 = Math.sin(Math.toRadians(totalAngle9));
+		
+		e1 = normal.clone().add(dirX9*1.5, 1.4, dirZ9*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		e1 = normal.clone().add(dirX9*1.5, 1.3, dirZ9*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		e1 = normal.clone().add(dirX9*1.5, 0.9, dirZ9*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		e1 = normal.clone().add(dirX9*1.5, 0.8, dirZ9*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle5 = 80;
+		double totalAngle5 = normal.getYaw() + arrowAngle5;
+		double dirX5 = Math.cos(Math.toRadians(totalAngle5));
+		double dirZ5 = Math.sin(Math.toRadians(totalAngle5));
+		
+		e1 = normal.clone().add(dirX5*1.5, 1.3, dirZ5*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		e1 = normal.clone().add(dirX5*1.5, 1.2, dirZ5*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		e1 = normal.clone().add(dirX5*1.5, 1.0, dirZ5*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		e1 = normal.clone().add(dirX5*1.5, 0.9, dirZ5*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		double arrowAngle8 = 70;
+		double totalAngle8 = normal.getYaw() + arrowAngle8;
+		double dirX8 = Math.cos(Math.toRadians(totalAngle8));
+		double dirZ8 = Math.sin(Math.toRadians(totalAngle8));
+		
+		e1 = normal.clone().add(dirX8*1.5, 1.4, dirZ8*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		e1 = normal.clone().add(dirX8*1.5, 1.3, dirZ8*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		e1 = normal.clone().add(dirX8*1.5, 0.9, dirZ8*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		e1 = normal.clone().add(dirX8*1.5, 0.8, dirZ8*1.5);
+		world.spawnParticle(Particle.REDSTONE, e1, 4, dustOptions1);
+		
+		world.playSound(normal, Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.5f);
+	}
+	
 	
 	
 	//===========================================================================
