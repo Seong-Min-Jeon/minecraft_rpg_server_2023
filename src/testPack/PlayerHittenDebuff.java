@@ -6647,10 +6647,12 @@ public class PlayerHittenDebuff {
 						player.setMaxHealth(1);
 						player.setHealth(0);
 					} else {
+						player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "[System] 최대체력이 감소합니다!");
 						player.setMaxHealth(player.getMaxHealth() - 2);
 					}
 					player.removePotionEffect(PotionEffectType.FAST_DIGGING);
 				} else {
+					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "[System] 출혈이 발생합니다!");
 					player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0, true, false, true));
 				}
 			} else {
@@ -6658,6 +6660,7 @@ public class PlayerHittenDebuff {
 					player.setMaxHealth(1);
 					player.setHealth(0);
 				} else {
+					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "[System] 최대체력이 감소합니다!");
 					player.setMaxHealth(player.getMaxHealth() - num);
 				}
 			}

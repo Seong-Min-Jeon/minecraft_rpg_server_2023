@@ -209,8 +209,8 @@ public class SpawnMob {
 				entity.setCustomNameVisible(true);
 				entity.setPersistent(true);
 				entity.setRemoveWhenFarAway(false);
-				entity.setMaxHealth(240);
-				entity.setHealth(240);
+				entity.setMaxHealth(120);
+				entity.setHealth(120);
 				return true;
 			} else if (entity.getType() == (EntityType) EntityType.CAVE_SPIDER) {
 				entity.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "날아오르는 다리");

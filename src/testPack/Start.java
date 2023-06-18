@@ -601,6 +601,52 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("세븐 협회 5과 해결사의 인격")) {
+			weapon = new ItemStack(Material.OAK_LEAVES);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "세븐 롱소드");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "세븐 협회에서 사용하는 롱소드");
+			weaponLore.add(ChatColor.GRAY + "빠른 속도와 높은 공격력으로");
+			weaponLore.add(ChatColor.GRAY + "적을 제압할 수 있다.");
+			weaponLore.add(ChatColor.GRAY + "사무일을 보고 있을 때는");
+			weaponLore.add(ChatColor.GRAY + "자리 뒤쪽의 진열장에 둔다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("스테판의 인격")) {
+			weapon = new ItemStack(Material.BRAIN_CORAL_BLOCK);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "스테판의 소중한 총");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "도시에서는 탄환에 매겨지는 세금도");
+			weaponLore.add(ChatColor.GRAY + "만만치 않지만 총도 비싸다.");
+			weaponLore.add(ChatColor.GRAY + "총이 허술하면 좋은 탄환을 사용해도");
+			weaponLore.add(ChatColor.GRAY + "상대에게 피해를 줄 수 없다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("유나의 인격")) {
+			weapon = new ItemStack(Material.OAK_PLANKS);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "첼로리스트");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "첼로 형태의 검집을 사용하는 검");
+			weaponLore.add(ChatColor.GRAY + "케이스에는 나비 무늬가 그려져 있다.");
+			weaponLore.add(ChatColor.GRAY + "나비가 빛으로 향하니 천사는");
+			weaponLore.add(ChatColor.GRAY + "슬픔과 함께 앞으로 나아간다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
 		}
 		
 		if(weapon != null) {player.getInventory().setItem(0, weapon);}

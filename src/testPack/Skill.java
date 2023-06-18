@@ -420,6 +420,34 @@ public class Skill {
 							skill50(player);
 						}
 					}
+				} else if(name.equals("세븐 협회 5과 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 800);
+						if (bool) {
+							sendPacket(player, "예측 분석");
+							skill51(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 800);
+						if (bool) {
+							sendPacket(player, "빈틈 간파");
+							skill52(player);
+						}
+					}
+				} else if(name.equals("스테판의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1000);
+						if (bool) {
+							sendPacket(player, "근접전은 싫어");
+							//skill53(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 4000);
+						if (bool) {
+							sendPacket(player, "한 점만 노리겠어");
+							//skill54(player);
+						}
+					}
 				}
 				
 			}
@@ -1805,6 +1833,56 @@ public class Skill {
 			timer2.remove(player);
 		}
 	}
+	
+	public void skill51(Player player) {
+		new ParticleEffect(player).pS030();
+		
+		int num = 0;
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 2.5);
+				num++;
+			}
+		}
+		
+		CharacterStack cs = new CharacterStack();
+		int stack;
+		if(num > 0) {
+			stack = cs.returnStack(player) + 1;
+			if(stack > 10) {
+				stack = 10;
+			}
+			cs.put(player, stack);
+		} else {
+			stack = cs.returnStack(player);
+		}
+		if(stack != 0) {
+			sendPacket(player, "예측 분석 (§a" + stack + "§f)");
+		}
+	}
+	
+	public void skill52(Player player) {
+		new ParticleEffect(player).pS031();
+		
+		CharacterStack cs = new CharacterStack();
+		int stack = cs.returnStack(player);
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 1 * stack);
+				nearMob.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.3,0,1.3).add(new Vector(0,0.2,0))));
+			}
+		}
+		
+		cs.put(player, 0);
+	}
+	
+	
 	
 	
 	

@@ -1,47 +1,28 @@
 package testPack;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
-import org.bukkit.Effect;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
-import org.bukkit.SoundCategory;
 import org.bukkit.World;
-import org.bukkit.Particle.DustOptions;
-import org.bukkit.block.Block;
-import org.bukkit.block.Chest;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Arrow;
-import org.bukkit.entity.CaveSpider;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Skeleton;
-import org.bukkit.entity.Slime;
-import org.bukkit.entity.SpectralArrow;
-import org.bukkit.entity.WitherSkeleton;
-import org.bukkit.entity.Zoglin;
-import org.bukkit.entity.Zombie;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.util.EulerAngle;
 import org.bukkit.util.Vector;
 
 public class PlayerHitGimmick {
@@ -80,6 +61,7 @@ public class PlayerHitGimmick {
 			thumbCP(mob);
 			kongB(mob);
 			swordB(mob);
+			thumbCPB(mob);
 		}
 	}
 
@@ -3402,6 +3384,104 @@ public class PlayerHitGimmick {
 		}
 	}
 	
+	public void thumbCPB(Entity mob) {
+		if (mob.getCustomName().equalsIgnoreCase(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "처형 집행자 엄지 카포")) {
+			int num = rnd.nextInt(5);
+			
+			//즉결심판
+			if (num == 0) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					Arrow arrow;
+					World world;
+
+				    @Override
+					public void run() {
+				    	
+				    	if(time == 0) {
+				    		mob.setGlowing(true);
+				    		world = mob.getWorld();
+				    	}
+						
+						if (time == 15) {
+							arrow = ((Mob) mob).launchProjectile(Arrow.class);
+							arrow.setShooter(((Mob) mob));
+							arrow.setDamage(100);
+							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.9f));	
+							arrow.setGravity(false);
+							
+							world.playSound(mob.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.7f, 1.5f);
+							world.playSound(mob.getLocation(), Sound.ENTITY_ARMOR_STAND_HIT, 1.0f, 1.0f);
+						}
+						
+						if (time >= 15) {
+							world.spawnParticle(Particle.CRIT, arrow.getLocation(), 0);
+						}
+						
+						if (time >= 25) {
+							arrow.remove();
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+			
+			//화력집중
+			if (num == 1) {
+				
+				new BukkitRunnable() {
+					int time = 0;
+					Arrow arrow;
+					World world;
+					int repeat = 0;
+
+				    @Override
+					public void run() {
+				    	
+				    	if(time == 0) {
+				    		mob.setGlowing(true);
+				    		world = mob.getWorld();
+				    	}
+						
+						if (time == 30) {
+							arrow = ((Mob) mob).launchProjectile(Arrow.class);
+							arrow.setShooter(((Mob) mob));
+							arrow.setDamage(60);
+							arrow.setVelocity(mob.getLocation().getDirection().multiply(0.9f));	
+							arrow.setGravity(false);
+							
+							world.playSound(mob.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.7f, 1.5f);
+							world.playSound(mob.getLocation(), Sound.ENTITY_ARMOR_STAND_HIT, 1.0f, 1.0f);
+						}
+						
+						if (time >= 30) {
+							world.spawnParticle(Particle.CRIT, arrow.getLocation(), 0);
+						}
+						
+						if (time >= 40 && repeat > 4) {
+							mob.setGlowing(false);
+							this.cancel();
+						}
+						
+						if (time >= 40) {
+							arrow.remove();
+							repeat++;
+							time = 25;
+						}
+						
+						time++;
+
+					}
+				}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			}
+		}
+	}
+	
 	public List<Entity> nearFrontEntities(Entity mob, double dist, double x, double y, double z) {
 		Location normal = mob.getLocation();
 		Location e1;
@@ -3530,10 +3610,12 @@ public class PlayerHitGimmick {
 						player.setMaxHealth(1);
 						player.setHealth(0);
 					} else {
+						player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "[System] 최대체력이 감소합니다!");
 						player.setMaxHealth(player.getMaxHealth() - 2);
 					}
 					player.removePotionEffect(PotionEffectType.FAST_DIGGING);
 				} else {
+					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "[System] 출혈이 발생합니다!");
 					player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0, true, false, true));
 				}
 			} else {
@@ -3541,6 +3623,7 @@ public class PlayerHitGimmick {
 					player.setMaxHealth(1);
 					player.setHealth(0);
 				} else {
+					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "[System] 최대체력이 감소합니다!");
 					player.setMaxHealth(player.getMaxHealth() - num);
 				}
 			}

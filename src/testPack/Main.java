@@ -976,21 +976,21 @@ public class Main extends JavaPlugin implements Listener{
 				} else if(new PlayerGrade().returnGrade(player) == 8) {
 					lunacy += 10 + exp;
 				} else if(new PlayerGrade().returnGrade(player) == 7) {
-					lunacy += 35 + exp;
+					lunacy += 45 + exp;
 				} else if(new PlayerGrade().returnGrade(player) == 6) {
-					lunacy += 90 + exp;
+					lunacy += 135 + exp;
 				} else if(new PlayerGrade().returnGrade(player) == 5) {
-					lunacy += 300 + exp;
+					lunacy += 435 + exp;
 				} else if(new PlayerGrade().returnGrade(player) == 4) {
-					lunacy += 720 + exp;
+					lunacy += 1155 + exp;
 				} else if(new PlayerGrade().returnGrade(player) == 3) {
-					lunacy += 1730 + exp;
+					lunacy += 2885 + exp;
 				} else if(new PlayerGrade().returnGrade(player) == 2) {
-					lunacy += 4030 + exp;
+					lunacy += 6915 + exp;
 				} else if(new PlayerGrade().returnGrade(player) == 1) {
-					lunacy += 9220 + exp;
+					lunacy += 16135 + exp;
 				} else if(new PlayerGrade().returnGrade(player) == 0) {
-					lunacy += 20700 + exp;
+					lunacy += 36835 + exp;
 				}
 			} catch(Exception e) {
 				
@@ -1085,8 +1085,16 @@ public class Main extends JavaPlugin implements Listener{
 			start.setItemMeta(startIm);	
 			player.getInventory().setItem(8, start); //시작버튼
 			
+			//모든 스킬 쿨 초기화
 			try {
 				new Skill().resetCoolTime(player);
+			} catch(Exception e) {
+				
+			}
+			
+			//스택 제거
+			try {
+				new CharacterStack().remove(player);
 			} catch(Exception e) {
 				
 			}
@@ -1556,10 +1564,10 @@ public class Main extends JavaPlugin implements Listener{
 								qb.uq7(player, qNum + 1, false);
 							} else if (getQuestName(player).equals("uq6")) {
 								int qNum = qb.getNum(player);
-								qb.uq8(player, qNum + 1, false);
+								qb.uq6(player, qNum + 1, false);
 							} else if (getQuestName(player).equals("uq5")) {
 								int qNum = qb.getNum(player);
-								qb.uq7(player, qNum + 1, false);
+								qb.uq5(player, qNum + 1, false);
 							} else if (getQuestName(player).equals("q0025")) {
 								int qNum = qb.getNum(player);
 								qb.q0025(player, qNum + 1, false);
@@ -1615,10 +1623,10 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq6")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq6(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq5")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq5(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
@@ -1673,10 +1681,10 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq6")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq6(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq5")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq5(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
@@ -1731,10 +1739,10 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq6")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq6(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq5")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq5(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
@@ -1789,16 +1797,16 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq6")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq6(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq5")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq5(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq4")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq4(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq3")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq3(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
@@ -1880,16 +1888,16 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq6")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq6(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq5")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq5(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq4")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq4(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq3")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq3(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
@@ -1971,16 +1979,16 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq6")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq6(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq5")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq5(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq4")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq4(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq3")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq3(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
@@ -2062,16 +2070,16 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq6")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq6(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq5")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq5(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq4")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq4(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq3")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq3(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
@@ -2153,16 +2161,16 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq6")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq6(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq5")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq5(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq4")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq4(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq3")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq3(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("q0025")) {
 							int qNum = qb.getNum(player);
 							qb.q0025(player, qNum + 1, false);
@@ -2244,16 +2252,16 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq6")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq6(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq5")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq5(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq4")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq4(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq3")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq3(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq2")) {
 							int qNum = qb.getNum(player);
 							qb.uq2(player, qNum + 1, false);
@@ -2380,16 +2388,16 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq6")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq6(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq5")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq5(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq4")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq4(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq3")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq3(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq2")) {
 							int qNum = qb.getNum(player);
 							qb.uq2(player, qNum + 1, false);
@@ -2516,16 +2524,16 @@ public class Main extends JavaPlugin implements Listener{
 							qb.uq7(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq6")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq6(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq5")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq5(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq4")) {
 							int qNum = qb.getNum(player);
-							qb.uq8(player, qNum + 1, false);
+							qb.uq4(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq3")) {
 							int qNum = qb.getNum(player);
-							qb.uq7(player, qNum + 1, false);
+							qb.uq3(player, qNum + 1, false);
 						} else if (getQuestName(player).equals("uq2")) {
 							int qNum = qb.getNum(player);
 							qb.uq2(player, qNum + 1, false);
@@ -3989,12 +3997,6 @@ public class Main extends JavaPlugin implements Listener{
 							} else if (getQuestName(player).equals("q0104")) {
 								int qNum = qb.getNum(player);
 								qb.q0104(player, qNum + 1, false);
-							}
-						} else if(mob.getCustomName().equalsIgnoreCase(ChatColor.YELLOW + "" + ChatColor.BOLD + "약쟁이 소녀")) {
-							new BGM(player, "전투");
-							
-							if(mob.getHealth() < 120) {
-								event.setDamage(999);
 							}
 						} else {
 							new BGM(player, "전투");

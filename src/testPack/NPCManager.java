@@ -127,7 +127,6 @@ public class NPCManager {
 		guard2();
 		guard3();
 		
-		yumehama();
 		why9196();
 	}
 	
