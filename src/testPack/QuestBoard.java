@@ -14999,6 +14999,7 @@ public class QuestBoard {
 			for(Player p : Bukkit.getOnlinePlayers()) {
 				if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 8급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
  			}
+			Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 8급 해결사가 되었습니다.");
 			
 			levelup(player, "8급", "35");
 			
@@ -15146,6 +15147,7 @@ public class QuestBoard {
 			for(Player p : Bukkit.getOnlinePlayers()) {
 				if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 7급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
  			}
+			Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 7급 해결사가 되었습니다.");
 			
 			levelup(player, "7급", "90");
 			
@@ -15256,6 +15258,7 @@ public class QuestBoard {
 			for(Player p : Bukkit.getOnlinePlayers()) {
 				if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 6급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
  			}
+			Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 6급 해결사가 되었습니다.");
 			
 			levelup(player, "6급", "300");
 			
@@ -15847,6 +15850,7 @@ public class QuestBoard {
 			for(Player p : Bukkit.getOnlinePlayers()) {
 				if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 5급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
  			}
+			Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 5급 해결사가 되었습니다.");
 			
 			levelup(player, "5급", "720");
 			
@@ -16149,6 +16153,7 @@ public class QuestBoard {
 			for(Player p : Bukkit.getOnlinePlayers()) {
 				if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 4급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
  			}
+			Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 4급 해결사가 되었습니다.");
 			
 			levelup(player, "4급", "1730");
 			
@@ -16416,6 +16421,7 @@ public class QuestBoard {
 			for(Player p : Bukkit.getOnlinePlayers()) {
 				if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 3급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
  			}
+			Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 3급 해결사가 되었습니다.");
 			
 			levelup(player, "3급", "4030");
 			
@@ -16789,6 +16795,7 @@ public class QuestBoard {
 			for(Player p : Bukkit.getOnlinePlayers()) {
 				if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 2급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
  			}
+			Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 2급 해결사가 되었습니다.");
 			
 			levelup(player, "2급", "9220");
 			
@@ -17310,6 +17317,7 @@ public class QuestBoard {
 			for(Player p : Bukkit.getOnlinePlayers()) {
 				if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 1급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
  			}
+			Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 1급 해결사가 되었습니다.");
 			
 			levelup(player, "1급", "20700");
 			
@@ -17683,10 +17691,9 @@ public class QuestBoard {
 			for(Player p : Bukkit.getOnlinePlayers()) {
 				if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 색을 부여받았습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
  			}
+			Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 특색 해결사가 되었습니다.");
 			
 			levelup(player, "특색", "0");
-			
-			giveLunacy(player, 30000);
 			
 			newPersonality(player, 0);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
@@ -17719,6 +17726,7 @@ public class QuestBoard {
 		for(Player p : Bukkit.getOnlinePlayers()) {
 			if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 8급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
 		}
+		Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 8급 해결사가 되었습니다.");
 		
 		levelup(player, "8급", "35");
 		
@@ -17840,6 +17848,7 @@ public class QuestBoard {
 		for(Player p : Bukkit.getOnlinePlayers()) {
 			if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 7급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
 		}
+		Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 7급 해결사가 되었습니다.");
 		
 		levelup(player, "7급", "90");
 		
@@ -17924,6 +17933,7 @@ public class QuestBoard {
 		for(Player p : Bukkit.getOnlinePlayers()) {
 			if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 6급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
 		}
+		Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 6급 해결사가 되었습니다.");
 		
 		levelup(player, "6급", "300");
 		
@@ -18489,6 +18499,7 @@ public class QuestBoard {
 		for(Player p : Bukkit.getOnlinePlayers()) {
 			if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 5급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
 		}
+		Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 5급 해결사가 되었습니다.");
 		
 		levelup(player, "5급", "720");
 		
@@ -18765,6 +18776,7 @@ public class QuestBoard {
 		for(Player p : Bukkit.getOnlinePlayers()) {
 			if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 4급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
 		}
+		Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 4급 해결사가 되었습니다.");
 		
 		levelup(player, "4급", "1730");
 		
@@ -19006,6 +19018,7 @@ public class QuestBoard {
 		for(Player p : Bukkit.getOnlinePlayers()) {
 			if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 3급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
 		}
+		Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 3급 해결사가 되었습니다.");
 		
 		levelup(player, "3급", "4030");
 		
@@ -19353,6 +19366,7 @@ public class QuestBoard {
 		for(Player p : Bukkit.getOnlinePlayers()) {
 			if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 2급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
 		}
+		Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 2급 해결사가 되었습니다.");
 		
 		levelup(player, "2급", "9220");
 		
@@ -19848,6 +19862,7 @@ public class QuestBoard {
 		for(Player p : Bukkit.getOnlinePlayers()) {
 			if(p != player) {p.sendMessage(ChatColor.GOLD + "[System] " + player.getDisplayName() + "님이 1급 해결사가 되었습니다. (" + new PlayerOffice().returnOffice(player) + ")");}
 		}
+		Bukkit.getLogger().info(ChatColor.GOLD + player.getDisplayName() + "[System] 1급 해결사가 되었습니다.");
 		
 		levelup(player, "1급", "20700");
 		

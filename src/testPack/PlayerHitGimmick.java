@@ -14,16 +14,21 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.ItemDisplay;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Display.Billboard;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Transformation;
 import org.bukkit.util.Vector;
+import org.joml.AxisAngle4f;
+import org.joml.Vector3f;
 
 public class PlayerHitGimmick {
 
@@ -3593,6 +3598,90 @@ public class PlayerHitGimmick {
 					effectmeta.setCustomModelData(sF + cur);
 					effectItem.setItemMeta(effectmeta);
 					effect.setHelmet(effectItem);
+					
+					cur++;
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void summonDisplayTracking(Entity mob, double dist, int y, int sF, int eF, int speed, String billboard, float scaleX, float scaleY, float scaleZ) {
+		Location normal = mob.getLocation();
+		Location e1;
+		
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*dist, y, dirZ1*dist);
+		
+		ItemDisplay id = (ItemDisplay) mob.getWorld().spawnEntity(e1, EntityType.ITEM_DISPLAY);
+		id.setBillboard(Billboard.valueOf(billboard)); // center 360  vertical(top,bottom X)  horizontal(vertical 반대)
+		id.setTransformation(new Transformation(new Vector3f(0,0,0), new AxisAngle4f(0,0,0,0), new Vector3f(scaleX, scaleY, scaleZ), new AxisAngle4f(0,0,0,0)));
+		mob.addPassenger(id);
+		new BukkitRunnable() {
+			int time = 0;
+			int cnt = eF - sF + 1;
+			int cur = 0;
+			
+			@Override
+			public void run() {
+				if(time >= speed*cnt+speed) {
+					id.remove();
+					this.cancel();
+				}
+				
+				if(time % speed == 0) {
+					ItemStack effect = new ItemStack(Material.MUSIC_DISC_5);
+					ItemMeta effectmeta = effect.getItemMeta();
+					effectmeta.setCustomModelData(sF + cur);
+					effect.setItemMeta(effectmeta);
+					id.setItemStack(effect);
+					
+					cur++;
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void summonDisplayTracking(Player player, double dist, int y, int sF, int eF, int speed, String billboard, float scaleX, float scaleY, float scaleZ) {
+		Location normal = player.getLocation();
+		Location e1;
+		
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*dist, y, dirZ1*dist);
+		
+		ItemDisplay id = (ItemDisplay) player.getWorld().spawnEntity(e1, EntityType.ITEM_DISPLAY);
+		id.setBillboard(Billboard.valueOf(billboard)); // center 360  vertical(top,bottom X)  horizontal(vertical 반대)
+		id.setTransformation(new Transformation(new Vector3f(0,0,0), new AxisAngle4f(0,0,0,0), new Vector3f(scaleX, scaleY, scaleZ), new AxisAngle4f(0,0,0,0)));
+		player.addPassenger(id);
+		new BukkitRunnable() {
+			int time = 0;
+			int cnt = eF - sF + 1;
+			int cur = 0;
+			
+			@Override
+			public void run() {
+				if(time >= speed*cnt+speed) {
+					id.remove();
+					this.cancel();
+				}
+				
+				if(time % speed == 0) {
+					ItemStack effect = new ItemStack(Material.MUSIC_DISC_5);
+					ItemMeta effectmeta = effect.getItemMeta();
+					effectmeta.setCustomModelData(sF + cur);
+					effect.setItemMeta(effectmeta);
+					id.setItemStack(effect);
 					
 					cur++;
 				}

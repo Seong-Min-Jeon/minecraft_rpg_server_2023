@@ -44,6 +44,15 @@ public class Cmd34teleport implements CommandExecutor {
 					player.sendMessage(ChatColor.GOLD + "=======================");
 					return true;
 				}
+				
+				//워프열차는 불가
+				Location loc2 = player.getLocation();
+				if (loc2.getX() <= 3746 && loc2.getY() <= 255 && loc2.getZ() <= 3805 
+						&& loc2.getX() >= 3689 && loc2.getY() >= 100 && loc2.getZ() >= 3760) {
+					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "[경고] 관측이 불가능한 위치입니다.");
+					return false;
+				}
+				
 				try { 
 					boolean num = false;
 					int arg0 = 0;
