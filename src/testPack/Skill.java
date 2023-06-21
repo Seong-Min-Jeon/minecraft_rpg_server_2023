@@ -463,6 +463,34 @@ public class Skill {
 							skill56(player);
 						}
 					}
+				} else if(name.equals("파멜리의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 2000);
+						if (bool) {
+							sendPacket(player, "창 휩쓸기");
+							skill57(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 5000);
+						if (bool) {
+							sendPacket(player, "섬광의 창");
+							skill58(player);
+						}
+					}
+				} else if(name.equals("달록의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1500);
+						if (bool) {
+							sendPacket(player, "파지지직");
+							skill59(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 30000 - personality*2000);
+						if (bool) {
+							sendPacket(player, "관측");
+							skill60(player);
+						}
+					}
 				}
 				
 			}
@@ -894,18 +922,6 @@ public class Skill {
 	}
 	
 	public void skill16(Player player) {
-		try {
-			ItemStack item = player.getInventory().getItem(7);
-			String name = item.getItemMeta().getDisplayName();
-			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
-			
-			if(personality == 9) {
-				personality = 10;
-			}
-		} catch(Exception e2) {
-			
-		}
-		
 		player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.6,0,1.6).add(new Vector(0,0.2,0))));
 		
 		new ParticleEffect(player).pS008();
@@ -2097,6 +2113,202 @@ public class Skill {
 		
 	}
 	
+	public void skill57(Player player) {
+		new ParticleEffect(player).pS033();
+		
+		List<Entity> entitylist = player.getNearbyEntities(3, 3, 3);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 3.5);
+			}
+		}
+	}
+	
+	public void skill58(Player player) {
+		player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.8,0,1.8).add(new Vector(0,0.2,0))));
+		
+		new ParticleEffect(player).pS008();
+		
+		new BukkitRunnable() {
+			int time = 0;
+
+		    @Override
+			public void run() {
+		    	
+		    	if(time == 5) {
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.7, 1, 0.7);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 1); 
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 10) {
+		    		new ParticleEffect(player).pS008_1();
+		    		
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.7, 1, 0.7);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 1); 
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 15) {
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.7, 1, 0.7);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 1); 
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time >= 20) {
+		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.7, 1, 0.7);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 1); 
+		    			}
+		    		}
+		    		this.cancel();
+		    	}
+		    	
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+		player.setNoDamageTicks(25);
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 25, 0, true, false, true));
+	}
+	
+	public void skill59(Player player) {
+		new BukkitRunnable() {
+			int time = 0;
+
+		    @Override
+			public void run() {
+		    	
+		    	if(time == 0) {
+		    		new ParticleEffect(player).pS034();
+		    		//new ParticleEffect(player).pS034_1();
+		    		//new ParticleEffect(player).pS034_2();
+		    	
+		    		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 1.2);
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 5) {
+		    		new ParticleEffect(player).pS035();
+		    		//new ParticleEffect(player).pS035_1();
+		    		//new ParticleEffect(player).pS035_2();
+		    	
+		    		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 1.2);
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 10) {
+		    		new ParticleEffect(player).pS034();
+		    		//new ParticleEffect(player).pS034_1();
+		    		//new ParticleEffect(player).pS034_2();
+			    	
+		    		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 1.2);
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time == 15) {
+		    		new ParticleEffect(player).pS035();
+		    		//new ParticleEffect(player).pS035_1();
+		    		//new ParticleEffect(player).pS035_2();
+			    	
+		    		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 1.2);
+		    			}
+		    		}
+		    	}
+		    	
+		    	if(time >= 20) {
+		    		new ParticleEffect(player).pS034();
+		    		//new ParticleEffect(player).pS034_1();
+		    		//new ParticleEffect(player).pS034_2();
+			    	
+		    		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		    		for (Entity nearEntity : entitylist) {
+		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+		    				LivingEntity nearMob = (LivingEntity) nearEntity;
+		    				damage(player, nearMob, 1.2);
+		    			}
+		    		}
+		    		this.cancel();
+		    	}
+		    	
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void skill60(Player player) {
+		Player target = null;
+		
+		List<Entity> entitylist = player.getNearbyEntities(20, 10, 20);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof Player && nearEntity != player) {
+				target = (Player) nearEntity;
+				if(target.getGameMode() == GameMode.SPECTATOR || target.getGameMode() == GameMode.CREATIVE) {
+					target = null;
+				} else {
+					break;
+				}
+			}
+		}
+		
+		if(target == null) {
+			player.sendMessage(ChatColor.RED + "대상이 존재하지 않습니다.");
+			timer2.remove(player);
+		} else {
+			String office = new PlayerOffice().returnOffice(target);
+			if(office.equals("")) {
+				office = "관측 오류";
+			}
+			
+			String grade = Integer.toString(new PlayerGrade().returnGrade(target));
+			if(grade.equals("0")) {
+				grade = "특색";
+			} else {
+				grade += "급";
+			}
+			
+			player.sendMessage(net.md_5.bungee.api.ChatColor.of("#ffb4ff") + "=======================");
+			player.sendMessage(net.md_5.bungee.api.ChatColor.of("#ffb4ff") + "이름: " + target.getDisplayName());
+			player.sendMessage(net.md_5.bungee.api.ChatColor.of("#ffb4ff") + "소속: " + office);
+			player.sendMessage(net.md_5.bungee.api.ChatColor.of("#ffb4ff") + "등급: " + grade);
+			player.sendMessage(net.md_5.bungee.api.ChatColor.of("#ffb4ff") + "재산: " + target.getLevel() + "안");
+			player.sendMessage(net.md_5.bungee.api.ChatColor.of("#ffb4ff") + "=======================");
+		}
+	}
 	
 	
 	

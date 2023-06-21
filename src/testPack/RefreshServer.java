@@ -289,7 +289,7 @@ public class RefreshServer {
 								entity.setMaxHealth(80);
 								entity.setHealth(80);
 								EntityEquipment weapon = entity.getEquipment();
-								ItemStack weaponItem = new ItemStack(Material.AIR);
+								ItemStack weaponItem = new ItemStack(Material.SNOWBALL);
 								weapon.setItemInMainHand(weaponItem);
 								EntityEquipment head = entity.getEquipment();
 								ItemStack headItem = chest.getInventory().getItem(4);
@@ -326,7 +326,7 @@ public class RefreshServer {
 								entity.setMaxHealth(60);
 								entity.setHealth(60);
 								EntityEquipment weapon = entity.getEquipment();
-								ItemStack weaponItem = new ItemStack(Material.AIR);
+								ItemStack weaponItem = new ItemStack(Material.SNOWBALL);
 								weapon.setItemInMainHand(weaponItem);
 								EntityEquipment head = entity.getEquipment();
 								ItemStack headItem = chest.getInventory().getItem(5);
@@ -470,7 +470,7 @@ public class RefreshServer {
 								entity.setMaxHealth(90);
 								entity.setHealth(90);
 								EntityEquipment weapon = entity.getEquipment();
-								ItemStack weaponItem = new ItemStack(Material.AIR);
+								ItemStack weaponItem = new ItemStack(Material.SNOWBALL);
 								weapon.setItemInMainHand(weaponItem);
 								EntityEquipment head = entity.getEquipment();
 								ItemStack headItem = chest.getInventory().getItem(14);
@@ -582,7 +582,7 @@ public class RefreshServer {
 								entity.setMaxHealth(100);
 								entity.setHealth(100);
 								EntityEquipment weapon = entity.getEquipment();
-								ItemStack weaponItem = new ItemStack(Material.AIR);
+								ItemStack weaponItem = new ItemStack(Material.SNOWBALL);
 								weapon.setItemInMainHand(weaponItem);
 								EntityEquipment head = entity.getEquipment();
 								ItemStack headItem = chest.getInventory().getItem(17);

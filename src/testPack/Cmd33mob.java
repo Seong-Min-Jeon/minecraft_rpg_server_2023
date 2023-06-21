@@ -201,7 +201,7 @@ public class Cmd33mob implements CommandExecutor {
 						entity.setMaxHealth(80);
 						entity.setHealth(80);
 						EntityEquipment weapon = entity.getEquipment();
-						ItemStack weaponItem = new ItemStack(Material.AIR);
+						ItemStack weaponItem = new ItemStack(Material.SNOWBALL);
 						weapon.setItemInMainHand(weaponItem);
 						EntityEquipment head = entity.getEquipment();
 						ItemStack headItem = chest.getInventory().getItem(4);
@@ -241,7 +241,7 @@ public class Cmd33mob implements CommandExecutor {
 						entity.setMaxHealth(60);
 						entity.setHealth(60);
 						EntityEquipment weapon = entity.getEquipment();
-						ItemStack weaponItem = new ItemStack(Material.AIR);
+						ItemStack weaponItem = new ItemStack(Material.SNOWBALL);
 						weapon.setItemInMainHand(weaponItem);
 						EntityEquipment head = entity.getEquipment();
 						ItemStack headItem = chest.getInventory().getItem(5);
@@ -397,7 +397,7 @@ public class Cmd33mob implements CommandExecutor {
 						entity.setMaxHealth(150);
 						entity.setHealth(150);
 						EntityEquipment weapon = entity.getEquipment();
-						ItemStack weaponItem = new ItemStack(Material.AIR);
+						ItemStack weaponItem = new ItemStack(Material.SNOWBALL);
 						weapon.setItemInMainHand(weaponItem);
 						EntityEquipment head = entity.getEquipment();
 						ItemStack headItem = chest.getInventory().getItem(9);
@@ -518,7 +518,7 @@ public class Cmd33mob implements CommandExecutor {
 						entity.setMaxHealth(180);
 						entity.setHealth(180);
 						EntityEquipment weapon = entity.getEquipment();
-						ItemStack weaponItem = new ItemStack(Material.AIR);
+						ItemStack weaponItem = new ItemStack(Material.SNOWBALL);
 						weapon.setItemInMainHand(weaponItem);
 						EntityEquipment head = entity.getEquipment();
 						ItemStack headItem = chest.getInventory().getItem(12);
@@ -597,7 +597,7 @@ public class Cmd33mob implements CommandExecutor {
 						entity.setMaxHealth(90);
 						entity.setHealth(90);
 						EntityEquipment weapon = entity.getEquipment();
-						ItemStack weaponItem = new ItemStack(Material.AIR);
+						ItemStack weaponItem = new ItemStack(Material.SNOWBALL);
 						weapon.setItemInMainHand(weaponItem);
 						EntityEquipment head = entity.getEquipment();
 						ItemStack headItem = chest.getInventory().getItem(14);
@@ -718,7 +718,7 @@ public class Cmd33mob implements CommandExecutor {
 						entity.setMaxHealth(100);
 						entity.setHealth(100);
 						EntityEquipment weapon = entity.getEquipment();
-						ItemStack weaponItem = new ItemStack(Material.AIR);
+						ItemStack weaponItem = new ItemStack(Material.SNOWBALL);
 						weapon.setItemInMainHand(weaponItem);
 						EntityEquipment head = entity.getEquipment();
 						ItemStack headItem = chest.getInventory().getItem(17);

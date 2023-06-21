@@ -130,7 +130,7 @@ public class TPMobSpawn {
 			Zombie zombie = (Zombie) mob1;
 			zombie.setBaby(false);
 			EntityEquipment weapon = mob1.getEquipment();
-			ItemStack weaponItem = new ItemStack(Material.AIR);
+			ItemStack weaponItem = new ItemStack(Material.SNOWBALL);
 			weapon.setItemInMainHand(weaponItem);
 			EntityEquipment head = mob1.getEquipment();
 			ItemStack headItem = chest.getInventory().getItem(9);

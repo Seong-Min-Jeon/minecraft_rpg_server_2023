@@ -647,6 +647,38 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("파멜리의 인격")) {
+			weapon = new ItemStack(Material.DARK_OAK_SLAB);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "첼로리스트");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "찌르기 위한 단단하고 날카로운 부분이");
+			weaponLore.add(ChatColor.GRAY + "있는 대형 창의 일종");
+			weaponLore.add(ChatColor.GRAY + "심장을 꿰뚫는 것을 노린 무기이다.");
+			weaponLore.add(ChatColor.GRAY + "때리는 듯한 관통 공격을 기본으로 하며");
+			weaponLore.add(ChatColor.GRAY + "긴 자루를 살린 가로 공격은 가드를 파고든다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("달록의 인격")) {
+			weapon = new ItemStack(Material.MUSIC_DISC_MELLOHI);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "일렉트로닉 미러");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "형체가 비추어보이는 도구");
+			weaponLore.add(ChatColor.GRAY + "전기가 통하여 동력만 있다면");
+			weaponLore.add(ChatColor.GRAY + "전기 공격을 할 수 있다.");
+			weaponLore.add(ChatColor.GRAY + "달록이 퍼스널 컬러인 핑크빛으로");
+			weaponLore.add(ChatColor.GRAY + "개조한 상태다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
 		}
 		
 		if(weapon != null) {player.getInventory().setItem(0, weapon);}
