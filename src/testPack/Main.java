@@ -78,6 +78,7 @@ import org.bukkit.event.entity.EntityRegainHealthEvent.RegainReason;
 import org.bukkit.event.entity.EntityTargetLivingEntityEvent;
 import org.bukkit.event.entity.EntityTransformEvent;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
@@ -2920,42 +2921,55 @@ public class Main extends JavaPlugin implements Listener{
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.MUSHROOM_STEW) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.RABBIT_STEW) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.BEETROOT_SOUP) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.SUSPICIOUS_STEW) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.HONEY_BOTTLE) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.ROTTEN_FLESH) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.GOLDEN_APPLE) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.PUMPKIN_PIE) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.COOKIE) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.POISONOUS_POTATO) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.DRIED_KELP) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.GLOW_BERRIES) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			} else if(player.getInventory().getItemInMainHand().getType() == Material.BEEF) {
+				player.setExhaustion(0);
 				event.setCancelled(true);
 				player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount()-1);
 			}
@@ -7803,6 +7817,43 @@ public class Main extends JavaPlugin implements Listener{
 		getLogger().info("§l" + "[" + player.getDisplayName() + "] " + ChatColor.WHITE +  ": " + event.getMessage());
 		event.setCancelled(true);
 		
+	}
+	
+	@EventHandler
+	public void foodlevelEvent(FoodLevelChangeEvent event) {
+		Entity entity = event.getEntity();
+		if(entity instanceof Player) {
+			Player player = (Player) entity;
+			try {
+				String name = player.getInventory().getItem(7).getItemMeta().getLocalizedName();
+				if(name.equals("시 협회 3과 해결사의 인격")) {
+					if(player.getHealth() > 1) {
+						player.setNoDamageTicks(1);
+						new BukkitRunnable() {
+							int time = 0;
+
+						    @Override
+							public void run() {
+						    	
+						    	if(time == 1) {
+						    		player.setHealth(player.getHealth() - 0.25);
+						    		this.cancel();
+						    	}
+						    	
+								time++;
+							}
+						}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+					} else {
+						player.setHealth(0);
+					}
+ 					player.setSaturation((float) 5.0);
+ 					player.setExhaustion(0);
+ 					event.setFoodLevel(player.getFoodLevel());
+				}
+			} catch(Exception e) {
+				
+			}
+		}
 	}
 	
 	@EventHandler

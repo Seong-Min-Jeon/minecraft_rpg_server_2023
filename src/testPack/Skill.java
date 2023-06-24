@@ -491,6 +491,34 @@ public class Skill {
 							skill60(player);
 						}
 					}
+				} else if(name.equals("츠바이 협회 3과 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1000);
+						if (bool) {
+							sendPacket(player, "제압");
+							skill61(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 30000 - personality*1000);
+						if (bool) {
+							sendPacket(player, "수호자");
+							skill62(player);
+						}
+					}
+				} else if(name.equals("시 협회 3과 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1200);
+						if (bool) {
+							sendPacket(player, "극검");
+							skill63(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 20000 - personality*1000);
+						if (bool) {
+							sendPacket(player, "과호흡/탈진");
+							skill64(player);
+						}
+					}
 				}
 				
 			}
@@ -2308,7 +2336,75 @@ public class Skill {
 			player.sendMessage(net.md_5.bungee.api.ChatColor.of("#ffb4ff") + "재산: " + target.getLevel() + "안");
 			player.sendMessage(net.md_5.bungee.api.ChatColor.of("#ffb4ff") + "=======================");
 		}
+		
+		player.playSound(player.getLocation(), Sound.BLOCK_BEACON_ACTIVATE, 1.0f, 1.5f);
 	}
+	
+	public void skill61(Player player) {
+		new ParticleEffect(player).pS036();
+
+		int num = 0;
+		
+		List<Entity> entitylist = nearFrontEntities(player, 2.0, 0.7, 1, 0.7);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 3.5);
+				num++;
+			}
+		}
+		
+		if(num > 0) {
+			double tmp = 0;
+			tmp = player.getHealth() + 0.1;
+			if(tmp > player.getMaxHealth()) {
+				player.setHealth(player.getMaxHealth());
+			} else {
+				player.setHealth(tmp);
+			}
+		}
+	}
+	
+	public void skill62(Player player) {
+		new ParticleEffect(player).pS037();
+		
+		List<Entity> entitylist = player.getNearbyEntities(4, 4, 4);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof Player && nearEntity != player) {
+				Player p = (Player) nearEntity;
+				p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 200, 0, true, false, true));
+				p.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "츠바이의 방패가 당신을 지킵니다. [보호 +1]");
+			}
+		}
+		player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 200, 0, true, false, true));
+		player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "든든한 방패가 당신을 지킵니다. [보호 +1]");
+	}
+	
+	public void skill63(Player player) {
+		new ParticleEffect(player).pS038();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.9, 0.7, 1, 0.7);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 4);
+			}
+		}
+	}
+	
+	public void skill64(Player player) {
+		if(player.getHealth() > 4) {
+			player.sendMessage(ChatColor.RED + "탈진 상태가 아닙니다.");
+			timer2.remove(player);
+		} else {
+			player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 200, 1, true, false, true));
+			player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "극한의 상황에서 힘을 얻습니다. [위력 +2]");
+			
+			world.playSound(player.getLocation(), Sound.BLOCK_CHAIN_BREAK, 7.0f, 1.0f);
+		}
+	}
+	
+	
 	
 	
 	
