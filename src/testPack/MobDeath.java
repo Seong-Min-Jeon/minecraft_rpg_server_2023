@@ -8,6 +8,8 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class MobDeath {
 	
@@ -143,6 +145,16 @@ public class MobDeath {
 				
 			} catch (Exception e) {
 
+			}
+			
+			try {
+				String name = lootPlayer.getInventory().getItem(7).getItemMeta().getLocalizedName();
+				if(name.equals("리우 협회 3과 해결사의 인격")) {
+					lootPlayer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 200, 0, true, false, true));
+					lootPlayer.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "전투로 몸이 달아오릅니다. [위력 +1]");
+				}
+			} catch(Exception e) {
+				
 			}
 		}
 	}

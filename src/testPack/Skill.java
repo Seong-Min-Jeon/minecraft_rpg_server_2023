@@ -519,6 +519,20 @@ public class Skill {
 							skill64(player);
 						}
 					}
+				} else if(name.equals("리우 협회 3과 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1200);
+						if (bool) {
+							sendPacket(player, "올려차기");
+							skill65(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 10000 - personality*500);
+						if (bool) {
+							sendPacket(player, "전면전");
+							skill66(player);
+						}
+					}
 				}
 				
 			}
@@ -2404,7 +2418,37 @@ public class Skill {
 		}
 	}
 	
+	public void skill65(Player player) {
+		new ParticleEffect(player).pS039();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				new ParticleEffect(nearMob).pS029();
+				damage(player, nearMob, 7);
+				nearMob.setVelocity(new Vector(0,1,0));
+				break;
+			}
+		}
+	}
 	
+	public void skill66(Player player) {
+		new ParticleEffect(player).pS040();
+		
+		List<Entity> entitylist = player.getNearbyEntities(3, 3, 3);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof Player && nearEntity != player) {
+				Player p = (Player) nearEntity;
+				p.setNoDamageTicks(20);
+				p.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 20, 0, true, false, true));
+				p.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "전면전이 시작됩니다. [무적 1초]");
+			}
+		}
+		player.setNoDamageTicks(20);
+		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 20, 0, true, false, true));
+		player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "전면전이 시작됩니다. [무적 1초]");
+	}
 	
 	
 	

@@ -2206,10 +2206,119 @@ public class ParticleEffect {
 	}
 	
 	public void pS038() {
-		summonEffectTracking(player, 0.2, 0, 2000, 2007, 1);
+		summonEffectTracking(player, 0.2, 0, 2020, 2027, 1);
 		
 		player.getWorld().playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_HURT, 1.0f, 1.8f);
 	}
+	
+	public void pS039() {
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+        
+        Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(255, 153, 51), 1);
+        Particle.DustOptions dustOptions2 = new Particle.DustOptions(Color.fromRGB(204, 102, 0), 1);
+        
+        new BukkitRunnable() {
+			int time = 0;
+			Location e1;
+
+			@Override
+			public void run() {
+				
+				double arrowAngle1 = 90;
+				double totalAngle1 = normal.getYaw() + arrowAngle1;
+				double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+				double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+				
+				e1 = normal.clone().add(dirX1*1.5, 0.5+(time*0.2), dirZ1*1.5);
+				world.spawnParticle(Particle.REDSTONE, e1, 1, dustOptions1);
+				
+				double arrowAngle2 = 95;
+				double totalAngle2 = normal.getYaw() + arrowAngle2;
+				double dirX2 = Math.cos(Math.toRadians(totalAngle2));
+				double dirZ2 = Math.sin(Math.toRadians(totalAngle2));
+				
+				e1 = normal.clone().add(dirX2*1.45, 0.5+(time*0.2), dirZ2*1.45);
+				world.spawnParticle(Particle.REDSTONE, e1, 1, dustOptions2);
+				
+				double arrowAngle5 = 85;
+				double totalAngle5 = normal.getYaw() + arrowAngle5;
+				double dirX5 = Math.cos(Math.toRadians(totalAngle5));
+				double dirZ5 = Math.sin(Math.toRadians(totalAngle5));
+				
+				e1 = normal.clone().add(dirX5*1.45, 0.5+(time*0.2), dirZ5*1.45);
+				world.spawnParticle(Particle.REDSTONE, e1, 1, dustOptions2);
+				
+				if(time >= 7) {
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+        
+		world.playSound(normal, Sound.ENTITY_BLAZE_SHOOT, 1.0f, 1.5f);
+	}
+	
+	public void pS040() {
+		
+		Location normal = player.getLocation();
+		World world = player.getWorld(); 
+        
+        Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(255, 153, 51), 1);
+        Particle.DustOptions dustOptions2 = new Particle.DustOptions(Color.fromRGB(204, 102, 0), 1);
+        
+		new BukkitRunnable() {
+			int time = 0;
+			int size = 0;
+			
+		    Location e1;
+
+			@Override
+			public void run() {
+				
+				if(time % 1 == 0) {
+					double var = 0;
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						if(size % 2 == 0) {
+							e1 = normal.clone().add(Math.cos(var)*size, 0.7, Math.sin(var)*size);
+						} else {
+							e1 = normal.clone().add(Math.cos(var)*size, 0.2, Math.sin(var)*size);
+						}
+						world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions2);
+						
+						var += Math.PI / 8;
+					}
+					
+					if(size == 2) {
+						size = -1;
+					}
+					size++;
+				}
+				
+				if(time % 3 == 0) {
+					double var = 0;
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var)*3, 0.2, Math.sin(var)*3);
+						world.spawnParticle(Particle.REDSTONE, e1, 2, dustOptions1);
+						
+						var += Math.PI / 8;
+					}
+				}
+
+				if(time >= 20) {
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		
+		world.playSound(normal, Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
+	}
+	
 	
 	
 	
