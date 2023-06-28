@@ -533,12 +533,42 @@ public class Skill {
 							skill66(player);
 						}
 					}
+				} else if(name.equals("세븐 협회 3과 해결사의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 650);
+						if (bool) {
+							sendPacket(player, "세븐 협회 스킬 1번");
+							skill67(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 10000);
+						if (bool) {
+							sendPacket(player, "리포스트");
+							skill68(player);
+						}
+					}
 				}
 				
 			}
 		} catch(Exception e) {
 			
 		}
+	}
+
+	public void effectThorn(Player player, int damage) {
+		world = player.getWorld();
+		
+		List<Entity> entitylist = player.getNearbyEntities(1.5, 1.5, 1.5);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, damage-10);
+				nearMob.setVelocity(nearMob.getLocation().getDirection().multiply(-1.4f));
+			}
+		}
+		
+		player.setNoDamageTicks(2);
+		world.playSound(player.getLocation(), Sound.ITEM_SHIELD_BREAK, 3.0f, 1.0f);
 	}
 	
 	public void skill1(Player player) {
@@ -2448,6 +2478,49 @@ public class Skill {
 		player.setNoDamageTicks(20);
 		player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 20, 0, true, false, true));
 		player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "전면전이 시작됩니다. [무적 1초]");
+	}
+	
+	public void skill67(Player player) {
+		CharacterStack cs = new CharacterStack();
+		int stack = cs.returnStack(player);
+		if(stack == 0) {
+			new ParticleEffect(player).pS001();
+			
+			List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
+			for (Entity nearEntity : entitylist) {
+				if (nearEntity instanceof LivingEntity && nearEntity != player) {
+					LivingEntity nearMob = (LivingEntity) nearEntity;
+					try {
+						if(nearMob.getCustomName().substring(0,2).equals("§a")) {
+							damage(player, nearMob, 3 * 1.3);
+						} else if(nearMob.getCustomName().substring(0,2).equals("§e")) {
+							damage(player, nearMob, 3 * 1.1);
+						} else if(nearMob.getCustomName().substring(0,2).equals("§c")) {
+							damage(player, nearMob, 3);
+						} else if(nearMob.getCustomName().substring(0,2).equals("§5")) {
+							damage(player, nearMob, 3 * 0.7);
+						} else {
+							damage(player, nearMob, 3);
+						}
+					} catch(Exception e) {
+						damage(player, nearMob, 3);
+					}
+				}
+			}
+			
+			sendPacket(player, "앙가즈망");
+			cs.put(player, 1);
+		} else {
+			player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 30, 0, true, false, true));
+			world.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+			sendPacket(player, "앙가드");
+			cs.put(player, 0);
+		}
+	}
+	
+	public void skill68(Player player) {
+		player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60, 12, true, false, true));
+		world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.5f);
 	}
 	
 	

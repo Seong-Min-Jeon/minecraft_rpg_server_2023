@@ -6640,7 +6640,8 @@ public class PlayerHittenDebuff {
 	}
 	
 	public void damageMaxHealth(Player player, int num) {
-		if(!player.hasPotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE) && player.getGameMode() != GameMode.SPECTATOR && player.getGameMode() != GameMode.CREATIVE) {
+		if(!player.hasPotionEffect(PotionEffectType.WATER_BREATHING) && !player.hasPotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE) &&
+				player.getGameMode() != GameMode.SPECTATOR && player.getGameMode() != GameMode.CREATIVE) {
 			if(num == 1) {
 				if(player.hasPotionEffect(PotionEffectType.FAST_DIGGING)) {
 					if(player.getMaxHealth() <= 2) {

@@ -3520,6 +3520,23 @@ public class Main extends JavaPlugin implements Listener{
 			}
 		}
 		
+		//반격 이벤트
+		if(event.getEntity() instanceof Player) {
+			if(event.getCause() == DamageCause.ENTITY_ATTACK || event.getCause() == DamageCause.CUSTOM) {
+				Player player = (Player) event.getEntity();
+				if(player.hasPotionEffect(PotionEffectType.WATER_BREATHING)) {
+					int amp = player.getPotionEffect(PotionEffectType.WATER_BREATHING).getAmplifier();
+					if(amp != 0) {
+						new Skill().effectThorn(player, amp);
+						event.setDamage(0);
+						event.setCancelled(true);
+						player.removePotionEffect(PotionEffectType.WATER_BREATHING);
+						return;
+					}
+				}
+			}
+		}
+		
 		//데미지 0이하면 패스
 		if(event.getDamage() <= 0) {
 			if(event.getEntity() instanceof Player) {
