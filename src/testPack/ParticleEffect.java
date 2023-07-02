@@ -2333,14 +2333,14 @@ public class ParticleEffect {
 
 		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(51, 255, 255), 1);
 
-		double var = 190;
+		double var = 150;
 		
 		double totalAngle1 = 90 + normal.getYaw(); //90 지우면 캐릭 기준 가로로 원
 		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
 		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
 		
 		for(int i = 0 ; i < 13 ; i++) {  //32면 완전한 원, 16은 반원
-			e1 = normal.clone().add(Math.cos(var)*1.8*dirX1, Math.sin(var)*1.8, Math.cos(var)*1.8*dirZ1);
+			e1 = normal.clone().add(Math.cos(var)*1.8*dirX1, Math.sin(var)*1.2, Math.cos(var)*1.8*dirZ1);
 			world.spawnParticle(Particle.REDSTONE, e1, 2, dustOptions1);
 			
 			var += Math.PI / 16;

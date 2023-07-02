@@ -2667,7 +2667,7 @@ public class Skill {
 			for (Entity nearEntity : entitylist) {
 				if (nearEntity instanceof LivingEntity && nearEntity != player) {
 					LivingEntity nearMob = (LivingEntity) nearEntity;
-					damage(player, nearMob, 10);
+					damage(player, nearMob, 12);
 				}
 			}
 			
