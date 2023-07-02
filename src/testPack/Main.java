@@ -135,6 +135,8 @@ import com.google.gson.JsonParser;
 import de.Herbystar.TTA.TTA_Methods;
 import dev.sergiferry.playernpc.api.NPC;
 import dev.sergiferry.playernpc.api.NPCLib;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 
 import java.util.Random;
 
@@ -3094,6 +3096,8 @@ public class Main extends JavaPlugin implements Listener{
 					} else {
 						event.setCancelled(true);
 					}
+				} else {
+					event.setCancelled(true);
 				}
 			}
 		} catch(Exception e) {
@@ -4094,6 +4098,27 @@ public class Main extends JavaPlugin implements Listener{
 				} catch (Exception e2) {
 					
 				}
+			}
+		}
+		
+		//기타 이벤트 발생
+		if(event.getEntity() instanceof Player) {
+			try {
+				Player player = (Player) event.getEntity();
+				String name = player.getInventory().getItem(7).getItemMeta().getLocalizedName();
+				if(name.equals("W사 정리요원의 인격")) {
+					CharacterStack cs = new CharacterStack();
+					int stack = cs.returnStack(player);
+					if(stack < 1) {
+						stack = 0;
+					} else {
+						stack -= 1;
+					}
+					cs.put(player, stack);
+					sendPacket(player, "방전 (§b" + stack + "§f)");
+				}
+			} catch (Exception e2) {
+				
 			}
 		}
 		
@@ -11021,6 +11046,15 @@ public class Main extends JavaPlugin implements Listener{
 					player.setMaxHealth(player.getMaxHealth() - num);
 				}
 			}
+		}
+	}
+	
+	public void sendPacket(Player player, String message) {
+		try {
+			TextComponent tc = new TextComponent(message);
+			player.spigot().sendMessage(ChatMessageType.ACTION_BAR, tc);
+		} catch (Exception e) {
+
 		}
 	}
 	

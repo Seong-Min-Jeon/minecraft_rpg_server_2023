@@ -429,13 +429,13 @@ public class Shop1 {
 	public ItemStack item11D() {
 		ItemStack item = new ItemStack(Material.GLOBE_BANNER_PATTERN);
 		ItemMeta itemIm = item.getItemMeta();
-		itemIm.setDisplayName(ChatColor.AQUA + "K사 진압요원 인격 개방서");
+		itemIm.setDisplayName(ChatColor.AQUA + "K사 적출직 직원 인격 개방서");
 		itemIm.setLocalizedName("2600");
 		ArrayList<String> itemLore = new ArrayList<>();
 		itemLore.add(ChatColor.RED + "WARNING: 이 문서를 구입 후 사용하지 않고 인격에");
 		itemLore.add(ChatColor.RED + "동화되면 소멸합니다. 구입 즉시 사용바랍니다.");
 		itemLore.add(ChatColor.GRAY + "");
-		itemLore.add(ChatColor.GRAY + "K사 진압요원 인격에 동화될 수 있게 해주는 문서");
+		itemLore.add(ChatColor.GRAY + "K사 적출직 직원 인격에 동화될 수 있게 해주는 문서");
 		itemLore.add(ChatColor.GRAY + "");
 		itemLore.add(ChatColor.BLUE + "가격: 2600광기");
 		itemIm.setLore(itemLore);

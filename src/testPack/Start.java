@@ -743,6 +743,22 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("W사 정리요원의 인격")) {
+			weapon = new ItemStack(Material.OAK_LEAVES);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "차원찢개");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "워프 열차를 정리하는 요원들의 무기");
+			weaponLore.add(ChatColor.GRAY + "공간을 찢어 관측할 수도 없는 영역에");
+			weaponLore.add(ChatColor.GRAY + "도달할 수 있다.");
+			weaponLore.add(ChatColor.GRAY + "찢어진 공간은 색이 황홀하여 돌아가는");
+			weaponLore.add(ChatColor.GRAY + "길을 잊게 만드는 낙원이다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
 		}
 		
 		if(weapon != null) {player.getInventory().setItem(0, weapon);}

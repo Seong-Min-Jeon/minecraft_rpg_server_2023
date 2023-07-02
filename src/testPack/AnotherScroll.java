@@ -566,7 +566,7 @@ public class AnotherScroll {
 			fixFile(player, 2, 19, folder);
 			itemArg.setAmount(itemArg.getAmount()-1);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);
-		} else if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "K사 진압요원 인격 개방서")) {
+		} else if (itemArg.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.AQUA + "K사 적출직 직원 인격 개방서")) {
 			fixFile(player, 2, 20, folder);
 			itemArg.setAmount(itemArg.getAmount()-1);
 			player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_HURT, 1.0f, 1.0f);

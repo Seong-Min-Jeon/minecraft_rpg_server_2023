@@ -547,6 +547,20 @@ public class Skill {
 							skill68(player);
 						}
 					}
+				} else if(name.equals("W사 정리요원의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 900);
+						if (bool) {
+							sendPacket(player, "에너지 순환");
+							skill69(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 5000);
+						if (bool) {
+							sendPacket(player, "W사 스킬 2번");
+							skill70(player);
+						}
+					}
 				}
 				
 			}
@@ -569,6 +583,24 @@ public class Skill {
 		
 		player.setNoDamageTicks(2);
 		world.playSound(player.getLocation(), Sound.ITEM_SHIELD_BREAK, 3.0f, 1.0f);
+		
+		
+		try {
+			ItemStack item = player.getInventory().getItem(7);
+			String name = item.getItemMeta().getDisplayName();
+			
+			if(name.equals("W사 정리요원의 인격")) {
+				CharacterStack cs = new CharacterStack();
+				int stack = cs.returnStack(player);
+				if(stack < 10) {
+					stack++;
+					cs.put(player, stack);
+				}
+				sendPacket(player, "되돌리기 (§b" + stack + "§f)");
+			}
+		} catch(Exception e2) {
+			
+		}
 	}
 	
 	public void skill1(Player player) {
@@ -1004,8 +1036,8 @@ public class Skill {
 		    @Override
 			public void run() {
 		    	
-		    	if(time == 5) {
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
+		    	if(time == 2) {
+		    		List<Entity> entitylist = player.getNearbyEntities(0.6, 0.6, 0.6);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -1014,10 +1046,10 @@ public class Skill {
 		    		}
 		    	}
 		    	
-		    	if(time == 10) {
+		    	if(time == 5) {
 		    		new ParticleEffect(player).pS008_1();
 		    		
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
+		    		List<Entity> entitylist = player.getNearbyEntities(0.6, 0.6, 0.6);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -1026,8 +1058,8 @@ public class Skill {
 		    		}
 		    	}
 		    	
-		    	if(time == 15) {
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
+		    	if(time == 8) {
+		    		List<Entity> entitylist = player.getNearbyEntities(0.6, 0.6, 0.6);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -1036,8 +1068,8 @@ public class Skill {
 		    		}
 		    	}
 		    	
-		    	if(time >= 20) {
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.6, 1, 0.6);
+		    	if(time >= 11) {
+		    		List<Entity> entitylist = player.getNearbyEntities(0.6, 0.6, 0.6);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -2208,8 +2240,8 @@ public class Skill {
 		    @Override
 			public void run() {
 		    	
-		    	if(time == 5) {
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.7, 1, 0.7);
+		    	if(time == 2) {
+		    		List<Entity> entitylist = player.getNearbyEntities(0.7, 0.7, 0.7);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -2218,10 +2250,10 @@ public class Skill {
 		    		}
 		    	}
 		    	
-		    	if(time == 10) {
+		    	if(time == 5) {
 		    		new ParticleEffect(player).pS008_1();
 		    		
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.7, 1, 0.7);
+		    		List<Entity> entitylist = player.getNearbyEntities(0.7, 0.7, 0.7);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -2230,8 +2262,8 @@ public class Skill {
 		    		}
 		    	}
 		    	
-		    	if(time == 15) {
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.7, 1, 0.7);
+		    	if(time == 8) {
+		    		List<Entity> entitylist = player.getNearbyEntities(0.7, 0.7, 0.7);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -2240,8 +2272,8 @@ public class Skill {
 		    		}
 		    	}
 		    	
-		    	if(time >= 20) {
-		    		List<Entity> entitylist = nearFrontEntities(player, 0, 0.7, 1, 0.7);
+		    	if(time >= 11) {
+		    		List<Entity> entitylist = player.getNearbyEntities(0.7, 0.7, 0.7);
 		    		for (Entity nearEntity : entitylist) {
 		    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
 		    				LivingEntity nearMob = (LivingEntity) nearEntity;
@@ -2484,7 +2516,7 @@ public class Skill {
 		CharacterStack cs = new CharacterStack();
 		int stack = cs.returnStack(player);
 		if(stack == 0) {
-			new ParticleEffect(player).pS001();
+			new ParticleEffect(player).pS041();
 			
 			List<Entity> entitylist = nearFrontEntities(player, 1.8, 0.8, 1, 0.8);
 			for (Entity nearEntity : entitylist) {
@@ -2522,6 +2554,132 @@ public class Skill {
 		player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60, 12, true, false, true));
 		world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.5f);
 	}
+	
+	public void skill69(Player player) {
+		new ParticleEffect(player).pS042();
+		
+		int num = 0;
+		
+		List<Entity> entitylist = nearFrontEntities(player, 2.0, 0.7, 1, 0.7);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 3);
+				num++;
+			}
+		}
+		
+		CharacterStack cs = new CharacterStack();
+		int stack;
+		if(num > 0) {
+			stack = cs.returnStack(player) + 1;
+			if(stack > 10) {
+				stack = 10;
+			}
+			cs.put(player, stack);
+		} else {
+			stack = cs.returnStack(player);
+		}
+		if(stack != 0) {
+			sendPacket(player, "에너지 순환 (§b" + stack + "§f)");
+		}
+	}
+	
+	public void skill70(Player player) {
+		CharacterStack cs = new CharacterStack();
+		int stack = cs.returnStack(player);
+		if(stack < 3) {
+			player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 40, 12, true, false, true));
+			world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.5f);
+			sendPacket(player, "되돌리기");
+		} else if(stack < 10) {
+			player.setVelocity(player.getLocation().getDirection().multiply(new Vector(1.6,0,1.6).add(new Vector(0,0.2,0))));
+			
+			new BukkitRunnable() {
+				int time = 0;
+
+			    @Override
+				public void run() {
+			    	
+			    	new ParticleEffect(player).pS043();
+			    	
+			    	if(time == 2) {
+			    		List<Entity> entitylist = player.getNearbyEntities(0.7, 0.7, 0.7);
+			    		for (Entity nearEntity : entitylist) {
+			    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+			    				LivingEntity nearMob = (LivingEntity) nearEntity;
+			    				damage(player, nearMob, 1.2); 
+			    			}
+			    		}
+			    	}
+			    	
+			    	if(time == 5) {
+			    		List<Entity> entitylist = player.getNearbyEntities(0.7, 0.7, 0.7);
+			    		for (Entity nearEntity : entitylist) {
+			    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+			    				LivingEntity nearMob = (LivingEntity) nearEntity;
+			    				damage(player, nearMob, 1.2); 
+			    			}
+			    		}
+			    	}
+			    	
+			    	if(time == 8) {
+			    		List<Entity> entitylist = player.getNearbyEntities(0.7, 0.7, 0.7);
+			    		for (Entity nearEntity : entitylist) {
+			    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+			    				LivingEntity nearMob = (LivingEntity) nearEntity;
+			    				damage(player, nearMob, 1.2); 
+			    			}
+			    		}
+			    	}
+			    	
+			    	if(time >= 11) {
+			    		List<Entity> entitylist = player.getNearbyEntities(0.7, 0.7, 0.7);
+			    		for (Entity nearEntity : entitylist) {
+			    			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+			    				LivingEntity nearMob = (LivingEntity) nearEntity;
+			    				damage(player, nearMob, 1.2); 
+			    			}
+			    		}
+			    		this.cancel();
+			    	}
+			    	
+					time++;
+				}
+			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+			
+			world.playSound(player.getLocation(), Sound.ENTITY_WARDEN_SONIC_BOOM, 1.5f, 2.0f);
+			
+			player.setNoDamageTicks(20);
+			player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 20, 0, true, false, true));
+			
+			if(stack < 3) {
+				stack = 0;
+			} else {
+				stack -= 3;
+			}
+			cs.put(player, stack);
+			sendPacket(player, "도약 (§b" + stack + "§f)");
+		} else if(stack >= 10) {
+			new ParticleEffect(player).pS044();
+			
+			List<Entity> entitylist = nearFrontEntities(player, 1.9, 0.9, 1, 0.9);
+			for (Entity nearEntity : entitylist) {
+				if (nearEntity instanceof LivingEntity && nearEntity != player) {
+					LivingEntity nearMob = (LivingEntity) nearEntity;
+					damage(player, nearMob, 10);
+				}
+			}
+			
+			cs.put(player, 0);
+			sendPacket(player, "공간 절단");
+		} else {
+			cs.put(player, 0);
+			sendPacket(player, "충전 스택 오류");
+		}
+	}
+	
+	
 	
 	
 	
@@ -2620,7 +2778,7 @@ public class Skill {
 		if(num < crit) {
 			mob.damage(finalDamage * 2);
 			
-			if(mob instanceof Mob) {
+			if(mob instanceof Mob || mob instanceof Player) {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
 				damageSign.setVisible(false);
 				damageSign.setSmall(true);
@@ -2647,7 +2805,7 @@ public class Skill {
 		} else {
 			mob.damage(finalDamage);
 			
-			if(mob instanceof Mob) {
+			if(mob instanceof Mob || mob instanceof Player) {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
 				damageSign.setVisible(false);
 				damageSign.setSmall(true);
@@ -2775,7 +2933,7 @@ public class Skill {
 				}
 			}
 			
-			if(mob instanceof Mob) {
+			if(mob instanceof Mob || mob instanceof Player) {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
 				damageSign.setVisible(false);
 				damageSign.setSmall(true);
@@ -2809,7 +2967,7 @@ public class Skill {
 				}
 			}
 			
-			if(mob instanceof Mob) {
+			if(mob instanceof Mob || mob instanceof Player) {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
 				damageSign.setVisible(false);
 				damageSign.setSmall(true);
@@ -2929,7 +3087,7 @@ public class Skill {
 		if(num < crit) {
 			mob.damage(finalDamage * 2);
 			
-			if(mob instanceof Mob) {
+			if(mob instanceof Mob || mob instanceof Player) {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
 				damageSign.setVisible(false);
 				damageSign.setSmall(true);
@@ -2957,7 +3115,7 @@ public class Skill {
 		} else {
 			mob.damage(finalDamage);
 			
-			if(mob instanceof Mob) {
+			if(mob instanceof Mob || mob instanceof Player) {
 				ArmorStand damageSign = (ArmorStand) world.spawnEntity(mob.getLocation().add(0,0.8,0), EntityType.ARMOR_STAND);
 				damageSign.setVisible(false);
 				damageSign.setSmall(true);

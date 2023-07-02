@@ -2319,6 +2319,57 @@ public class ParticleEffect {
 		world.playSound(normal, Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
 	}
 	
+	public void pS041() {
+		summonEffectTracking(player, 0.1, 0, 2030, 2035, 1);
+		
+		player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 0.7f);
+	}
+	
+	public void pS042() {
+
+		Location normal = player.getEyeLocation();
+		World world = player.getWorld();
+		Location e1;
+
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(51, 255, 255), 1);
+
+		double var = 190;
+		
+		double totalAngle1 = 90 + normal.getYaw(); //90 지우면 캐릭 기준 가로로 원
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		for(int i = 0 ; i < 13 ; i++) {  //32면 완전한 원, 16은 반원
+			e1 = normal.clone().add(Math.cos(var)*1.8*dirX1, Math.sin(var)*1.8, Math.cos(var)*1.8*dirZ1);
+			world.spawnParticle(Particle.REDSTONE, e1, 2, dustOptions1);
+			
+			var += Math.PI / 16;
+		}
+		
+		world.playSound(normal, Sound.ENTITY_ZOMBIE_HURT, 1.0f, 1.5f);
+	}
+	
+	public void pS043() {
+		Location normal = player.getEyeLocation();
+		World world = player.getWorld(); 
+		Location e1;
+		
+		Particle.DustOptions dustOptions1 = new Particle.DustOptions(Color.fromRGB(51, 255, 255), 1);
+		
+		e1 = normal.clone().add(0,-0.1,0);
+		world.spawnParticle(Particle.REDSTONE, e1, 0, dustOptions1);
+	}
+	
+	public void pS044() {
+		summonEffectTracking(player, 0.1, 0, 2040, 2048, 1);
+		
+		player.getWorld().playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 3.0f, 0.5f);
+		player.getWorld().playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 3.0f, 0.5f);
+		player.getWorld().playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 3.0f, 0.5f);
+	}
+	
+	
+	
 	
 	
 	
