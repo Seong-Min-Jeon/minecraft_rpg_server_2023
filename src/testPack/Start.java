@@ -744,8 +744,9 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
 		} else if(name.equals("W사 정리요원의 인격")) {
-			weapon = new ItemStack(Material.OAK_LEAVES);
+			weapon = new ItemStack(Material.MUSIC_DISC_13);
 			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setCustomModelData(1);
 			weaponIm.setDisplayName(ChatColor.BOLD + "차원찢개");
 			ArrayList<String> weaponLore = new ArrayList<>();
 			weaponLore.add(ChatColor.GRAY + "워프 열차를 정리하는 요원들의 무기");
@@ -753,6 +754,23 @@ public class Start {
 			weaponLore.add(ChatColor.GRAY + "도달할 수 있다.");
 			weaponLore.add(ChatColor.GRAY + "찢어진 공간은 색이 황홀하여 돌아가는");
 			weaponLore.add(ChatColor.GRAY + "길을 잊게 만드는 낙원이다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weaponIm.addItemFlags(ItemFlag.HIDE_DYE);
+			weaponIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("K사 적출직 직원의 인격")) {
+			weapon = new ItemStack(Material.SMOOTH_SANDSTONE);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "붕괴 칼날");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "K사의 적출직 직원용 무기");
+			weaponLore.add(ChatColor.GRAY + "그들의 시간은 항상 유리관 안에서 흘러간다.");
+			weaponLore.add(ChatColor.GRAY + "가장 안정된 상태를 항상 유지하기 위해서…");
+			weaponLore.add(ChatColor.GRAY + "밖에서 그들을 깨워주기 전까지는 말이지.");
 			weaponIm.setLore(weaponLore);
 			weaponIm.setUnbreakable(true);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);

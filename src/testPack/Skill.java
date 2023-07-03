@@ -28,6 +28,7 @@ import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Pose;
 import org.bukkit.entity.Snowball;
+import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
@@ -561,6 +562,20 @@ public class Skill {
 							skill70(player);
 						}
 					}
+				} else if(name.equals("K사 적출직 직원의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 1200);
+						if (bool) {
+							sendPacket(player, "침입자 차단");
+							skill71(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 2000);
+						if (bool) {
+							sendPacket(player, "대상 적출");
+							skill72(player);
+						}
+					}
 				}
 				
 			}
@@ -816,18 +831,6 @@ public class Skill {
 		} 
 		player.setLevel(player.getLevel() - 1000);
 		
-		try {
-			ItemStack item = player.getInventory().getItem(7);
-			String name = item.getItemMeta().getDisplayName();
-			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
-			
-			if(personality == 9) {
-				personality = 10;
-			}
-		} catch(Exception e2) {
-			
-		}
-		
 		new BukkitRunnable() {
 			
 			int time = 0;
@@ -869,18 +872,6 @@ public class Skill {
 			return;
 		} 
 		player.setLevel(player.getLevel() - 5000);
-		
-		try {
-			ItemStack item = player.getInventory().getItem(7);
-			String name = item.getItemMeta().getDisplayName();
-			personality = Integer.parseInt(name.substring(name.length()-1, name.length()));
-			
-			if(personality == 9) {
-				personality = 10;
-			}
-		} catch(Exception e2) {
-			
-		}
 		
 		new BukkitRunnable() {
 			
@@ -2677,6 +2668,76 @@ public class Skill {
 			cs.put(player, 0);
 			sendPacket(player, "충전 스택 오류");
 		}
+	}
+	
+	public void skill71(Player player) {
+		new ParticleEffect(player).pS001();
+		
+		List<Entity> entitylist = nearFrontEntities(player, 1.8, 1.0, 1, 1.0);
+		for (Entity nearEntity : entitylist) {
+			if (nearEntity instanceof LivingEntity && nearEntity != player) {
+				LivingEntity nearMob = (LivingEntity) nearEntity;
+				damage(player, nearMob, 3);
+			}
+		}
+	}
+	
+	public void skill72(Player player) {
+		Location normal = player.getLocation();
+		Location e1;
+		
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*0.5, 0, dirZ1*0.5);
+		
+		ArmorStand as = (ArmorStand) player.getWorld().spawnEntity(e1, EntityType.ARMOR_STAND);
+		
+		EntityEquipment effect = as.getEquipment();
+		ItemStack effectItem = new ItemStack(Material.MUSIC_DISC_5);
+		ItemMeta effectmeta = effectItem.getItemMeta();
+		effectmeta.setCustomModelData(2050);
+		effectItem.setItemMeta(effectmeta);
+		effect.setHelmet(effectItem);
+		
+		as.setVisible(false);
+		as.setGravity(false);
+		as.setRemoveWhenFarAway(true);
+		
+		new BukkitRunnable() {
+			int time = 0;
+			Location loc;
+			
+			@Override
+			public void run() {
+				
+				loc = as.getLocation().clone();
+				loc.setYaw(loc.getYaw() + 40);
+				loc.add(dirX1*time*0.05, normal.getPitch()*(-0.01), dirZ1*time*0.05);
+				as.teleport(loc);
+				
+				if(time % 4 == 0) {
+					List<Entity> entitylist = as.getNearbyEntities(1.2, 1.2, 1.2);
+					for (Entity nearEntity : entitylist) {
+						if (nearEntity instanceof LivingEntity && nearEntity != player) {
+							LivingEntity nearMob = (LivingEntity) nearEntity;
+							damage(player, nearMob, 2.5);
+						}
+					}
+					
+					world.playSound(player.getLocation(), Sound.ENTITY_LINGERING_POTION_THROW, 10.0f, 0.5f);
+				}
+				
+				if(time >= 20) {
+					as.remove();
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 	}
 	
 	
