@@ -134,7 +134,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), "bgm.battle", SoundCategory.RECORDS, 0.7f, 1.0f);
+				    		player.playSound(player.getLocation(), "bgm.battle", SoundCategory.RECORDS, 0.5f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -171,7 +171,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), "bgm.ravager", SoundCategory.RECORDS, 1.0f, 1.0f);
+				    		player.playSound(player.getLocation(), "bgm.ravager", SoundCategory.RECORDS, 0.5f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -208,7 +208,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), "bgm.ghast", SoundCategory.RECORDS, 1.0f, 1.0f);
+				    		player.playSound(player.getLocation(), "bgm.ghast", SoundCategory.RECORDS, 0.5f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -245,7 +245,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), "bgm.warden", SoundCategory.RECORDS, 1.0f, 1.0f);
+				    		player.playSound(player.getLocation(), "bgm.warden", SoundCategory.RECORDS, 0.5f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {

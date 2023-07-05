@@ -2729,7 +2729,7 @@ public class Skill {
 						}
 					}
 					
-					world.playSound(player.getLocation(), Sound.ENTITY_LINGERING_POTION_THROW, 10.0f, 0.5f);
+					world.playSound(player.getLocation(), Sound.ENTITY_LINGERING_POTION_THROW, 2.0f, 0.5f);
 				}
 				
 				if(time >= 20) {

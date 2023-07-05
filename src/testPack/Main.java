@@ -4116,6 +4116,25 @@ public class Main extends JavaPlugin implements Listener{
 					}
 					cs.put(player, stack);
 					sendPacket(player, "방전 (§b" + stack + "§f)");
+				} else if(name.equals("K사 적출직 직원의 인격")) {
+					if(event.getDamage() >= player.getHealth()) {
+						try {
+							if(player.getMaxHealth() > 4) {
+								player.setMaxHealth(player.getMaxHealth() - 4);
+								player.setHealth(player.getMaxHealth());
+								
+								player.setNoDamageTicks(20);
+								player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 20, 0, true, false, true));
+								world.playSound(player.getLocation(), Sound.ENTITY_WITHER_BREAK_BLOCK, 1.0f, 1.0f);
+								
+			 					event.setDamage(0);
+								event.setCancelled(true);
+								return;
+							}
+						} catch (Exception e2) {
+							
+						}
+					}
 				}
 			} catch (Exception e2) {
 				
