@@ -21,11 +21,11 @@ public class BGM {
 
 	static HashMap<Player, Integer> battle = new HashMap<>();
 	
-	static ArrayList<String> bgm = new ArrayList<>(Arrays.asList("ENTITY_SKELETON_HORSE_AMBIENT", "ENTITY_PARROT_DEATH", "ENTITY_PARROT_EAT", "ENTITY_PARROT_FLY",
-															"ENTITY_PARROT_HURT", "ENTITY_PARROT_AMBIENT", "ENTITY_PARROT_STEP", "ENTITY_CAMEL_AMBIENT",
-															"ENTITY_CAMEL_DASH", "ENTITY_CAMEL_DASH_READY", "ENTITY_CAMEL_DEATH", "ENTITY_CAMEL_SIT",
-															"ENTITY_CAMEL_HURT", "ENTITY_SNIFFER_HURT" , "ENTITY_SNIFFER_DEATH", "ENTITY_SNIFFER_DIGGING_STOP",
-															"ENTITY_SNIFFER_EAT", "ENTITY_SNIFFER_HAPPY"));
+	static ArrayList<String> bgm = new ArrayList<>(Arrays.asList("bgm.lobby", "bgm.main", "bgm.battle", "bgm.warp",
+																"bgm.dungeon1", "bgm.dungeon.boss1", "bgm.dungeon2", "bgm.dungeon.boss2",
+																"bgm.dungeon3", "bgm.dungeon.boss3", "bgm.dungeon4", "bgm.dungeon.boss4",
+																"bgm.dungeon5", "bgm.dungeon6" , "bgm.dungeon7", "bgm.ravager",
+																"bgm.ghast", "bgm.warden"));
 	
 	static HashMap<Player, String> now = new HashMap<>();
 	
@@ -43,7 +43,7 @@ public class BGM {
 
 					if (time == 10) {
 						for(int i = 0 ; i < bgm.size() ; i++) {
-							player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+							player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 							player.stopSound(SoundCategory.RECORDS);
 						}
 					}
@@ -66,7 +66,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 10) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_AMBIENT, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.lobby", SoundCategory.RECORDS, 0.6f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -83,7 +83,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -101,7 +101,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DASH, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.main", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -116,7 +116,7 @@ public class BGM {
 		} else if(b.equals("전투")) {
 			if(!battle.containsKey(player)) {
 				for(int i = 0 ; i < bgm.size() ; i++) {
-					player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+					player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 					player.stopSound(SoundCategory.RECORDS);
 				}
 				
@@ -134,7 +134,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DASH_READY, SoundCategory.RECORDS, 1.0f, 1.0f);
+				    		player.playSound(player.getLocation(), "bgm.battle", SoundCategory.RECORDS, 0.7f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -153,7 +153,7 @@ public class BGM {
 		} else if(b.equals("폭주하는 황소")) {
 			if(!battle.containsKey(player) || battle.get(player) < 10) {
 				for(int i = 0 ; i < bgm.size() ; i++) {
-					player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+					player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 					player.stopSound(SoundCategory.RECORDS);
 				}
 				
@@ -171,7 +171,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_FLY, SoundCategory.RECORDS, 1.0f, 1.0f);
+				    		player.playSound(player.getLocation(), "bgm.ravager", SoundCategory.RECORDS, 1.0f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -190,7 +190,7 @@ public class BGM {
 		} else if(b.equals("우는 영혼들의 산")) {
 			if(!battle.containsKey(player) || battle.get(player) < 10) {
 				for(int i = 0 ; i < bgm.size() ; i++) {
-					player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+					player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 					player.stopSound(SoundCategory.RECORDS);
 				}
 				
@@ -208,7 +208,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_DEATH, SoundCategory.RECORDS, 1.0f, 1.0f);
+				    		player.playSound(player.getLocation(), "bgm.ghast", SoundCategory.RECORDS, 1.0f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -227,7 +227,7 @@ public class BGM {
 		} else if(b.equals("도망쳐")) {
 			if(!battle.containsKey(player) || battle.get(player) < 11) {
 				for(int i = 0 ; i < bgm.size() ; i++) {
-					player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+					player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 					player.stopSound(SoundCategory.RECORDS);
 				}
 				
@@ -245,7 +245,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_SIT, SoundCategory.RECORDS, 1.2f, 1.0f);
+				    		player.playSound(player.getLocation(), "bgm.warden", SoundCategory.RECORDS, 1.0f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {
@@ -265,7 +265,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -283,7 +283,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SKELETON_HORSE_AMBIENT, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.dungeon1", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -299,7 +299,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -317,7 +317,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_EAT, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.dungeon2", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -333,7 +333,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -351,7 +351,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_CAMEL_HURT, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.dungeon3", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -367,7 +367,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -385,7 +385,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_DEATH, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.dungeon4", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -401,7 +401,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -419,7 +419,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_HURT, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.dungeon5", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -435,7 +435,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -453,7 +453,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_STEP, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.dungeon6", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -469,7 +469,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -487,7 +487,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_PARROT_AMBIENT, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.dungeon7", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -503,7 +503,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -517,7 +517,7 @@ public class BGM {
 				public void run() {
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HURT, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.warp", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -533,7 +533,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -551,7 +551,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_DEATH, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.dungeon.boss1", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -567,7 +567,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -585,7 +585,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_DIGGING_STOP, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.dungeon.boss2", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -601,7 +601,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -619,7 +619,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_EAT, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.dungeon.boss3", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {
@@ -635,7 +635,7 @@ public class BGM {
 			battle.remove(player);
 			
 			for(int i = 0 ; i < bgm.size() ; i++) {
-				player.stopSound(Sound.valueOf(bgm.get(i)), SoundCategory.RECORDS);
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
 				player.stopSound(SoundCategory.RECORDS);
 			}
 			
@@ -653,7 +653,7 @@ public class BGM {
 			    	}
 			    	
 			    	if(time == 0) {
-			    		player.playSound(player.getLocation(), Sound.ENTITY_SNIFFER_HAPPY, SoundCategory.RECORDS, 1.0f, 1.0f);
+			    		player.playSound(player.getLocation(), "bgm.dungeon.boss4", SoundCategory.RECORDS, 1.0f, 1.0f);
 			    	}
 			    	
 			    	if(time % 200 == 0) {

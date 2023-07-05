@@ -2713,10 +2713,12 @@ public class Skill {
 			@Override
 			public void run() {
 				
-				loc = as.getLocation().clone();
-				loc.setYaw(loc.getYaw() + 40);
-				loc.add(dirX1*time*0.05, normal.getPitch()*(-0.01), dirZ1*time*0.05);
-				as.teleport(loc);
+				if(time % 2 == 0) {
+					loc = as.getLocation().clone();
+					loc.setYaw(loc.getYaw() + 70);
+					loc.add(dirX1*time*0.1, normal.getPitch()*(-0.01), dirZ1*time*0.1);
+					as.teleport(loc);
+				}
 				
 				if(time % 4 == 0) {
 					List<Entity> entitylist = as.getNearbyEntities(1.2, 1.2, 1.2);
