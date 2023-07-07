@@ -134,7 +134,7 @@ public class BGM {
 				    	}
 				    	
 				    	if(time == 0) {
-				    		player.playSound(player.getLocation(), "bgm.battle", SoundCategory.RECORDS, 0.5f, 1.0f);
+				    		player.playSound(player.getLocation(), "bgm.battle", SoundCategory.RECORDS, 0.4f, 1.0f);
 				    	}
 				    	
 				    	if(time % 200 == 0) {

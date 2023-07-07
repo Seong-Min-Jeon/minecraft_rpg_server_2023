@@ -3139,6 +3139,26 @@ public class Main extends JavaPlugin implements Listener{
 			if(event.getDamager() instanceof Arrow) {
 				Arrow arrow = ((Arrow) event.getDamager());
 				if(arrow.getShooter() instanceof Player) {
+					
+					if(event.getEntity() instanceof Mob || event.getEntity() instanceof Player) {
+						try {
+							if(arrow.getCustomName().equals("사슬1")) {
+								new PairingMob().putMap((Player) arrow.getShooter(), event.getEntity());
+								new ParticleEffect(event.getEntity()).mobS100();
+							} else if(arrow.getCustomName().equals("사슬2")) {
+								Player player = (Player) arrow.getShooter();
+								Entity entity = new PairingMob().getMap(player);
+								if(entity != null && entity != event.getEntity()) {
+									entity.teleport(event.getEntity());
+									new PairingMob().removeMap(player);
+									new Skill().effectChain(player, (LivingEntity) entity, (LivingEntity) event.getEntity());
+								}
+							}
+						} catch(Exception e) {
+							
+						}
+					}
+					
 					if(event.getEntity() instanceof Player) {
 						event.setCancelled(true);
 						((Player) (event.getEntity())).damage(arrow.getDamage());

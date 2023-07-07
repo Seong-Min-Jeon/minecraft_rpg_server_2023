@@ -576,6 +576,20 @@ public class Skill {
 							skill72(player);
 						}
 					}
+				} else if(name.equals("녹슨 사슬파 조직원의 인격")) {
+					if(rot.equals("L")) {
+						bool = reload(player, 3000);
+						if (bool) {
+							sendPacket(player, "사슬 맛 좀 볼래?");
+							skill73(player);
+						}
+					} else if(rot.equals("R")) {
+						bool = reload2(player, 5000);
+						if (bool) {
+							sendPacket(player, "지금이 기회야");
+							skill74(player);
+						}
+					}
 				}
 				
 			}
@@ -616,6 +630,40 @@ public class Skill {
 		} catch(Exception e2) {
 			
 		}
+	}
+	
+	public void effectChain(Player player, LivingEntity ent1, LivingEntity ent2) {
+		world = player.getWorld();
+		
+		new ParticleEffect(ent2).mobS101();
+		world.playSound(player.getLocation(), "skill.chain2", 1.2f, 0.9f);
+		
+		ent1.setAI(false);
+		ent2.setAI(false);
+		
+		new BukkitRunnable() {
+			int time = 0;
+
+			@Override
+			public void run() {
+				
+				if(time == 30) {
+					new ParticleEffect(ent2).mobS102();
+					if(ent1.isValid()) {
+						damage(player, ent1, 10);
+					}
+					if(ent2.isValid()) {
+						damage(player, ent2, 10);
+					}
+					
+					ent1.setAI(true);
+					ent2.setAI(true);
+					this.cancel();
+				}
+
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 	}
 	
 	public void skill1(Player player) {
@@ -2734,6 +2782,76 @@ public class Skill {
 				
 				if(time >= 20) {
 					as.remove();
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void skill73(Player player) {
+		new BukkitRunnable() {
+			
+			int time = 0;
+			Arrow arrow;
+			World world = player.getWorld();
+
+		    @Override
+			public void run() {
+				
+				if (time == 0) {
+					arrow = player.launchProjectile(Arrow.class);
+					arrow.setShooter(player);
+					arrow.setCustomName("사슬1");
+					arrow.setDamage(damageProj(player, 1));
+					arrow.setVelocity(player.getLocation().getDirection().multiply(0.6f));	
+					arrow.setGravity(false);
+					
+					world.playSound(player.getLocation(), "skill.chain1", 1.0f, 1.0f);
+				}
+				
+				if (time >= 1) {
+					world.spawnParticle(Particle.CRIT_MAGIC, arrow.getLocation(), 0);
+				}
+				
+				if (time >= 7) {
+					arrow.remove();
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void skill74(Player player) {
+		new BukkitRunnable() {
+			
+			int time = 0;
+			Arrow arrow;
+			World world = player.getWorld();
+
+		    @Override
+			public void run() {
+				
+				if (time == 0) {
+					arrow = player.launchProjectile(Arrow.class);
+					arrow.setShooter(player);
+					arrow.setCustomName("사슬2");
+					arrow.setDamage(damageProj(player, 1));
+					arrow.setVelocity(player.getLocation().getDirection().multiply(0.6f));	
+					arrow.setGravity(false);
+					
+					world.playSound(player.getLocation(), "skill.chain1", 1.0f, 1.0f);
+				}
+				
+				if (time >= 1) {
+					world.spawnParticle(Particle.CRIT_MAGIC, arrow.getLocation(), 0);
+				}
+				
+				if (time >= 7) {
+					arrow.remove();
 					this.cancel();
 				}
 				

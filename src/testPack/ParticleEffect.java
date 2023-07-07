@@ -3362,6 +3362,186 @@ public class ParticleEffect {
 		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 	}
 	
+	public void mobS100() {
+		World world = ent.getWorld(); 
+		((LivingEntity) ent).addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 60, 0, true, false, true));
+        
+		new BukkitRunnable() {
+			int time = 0;
+			
+		    Location e1;
+
+			@Override
+			public void run() {
+				
+				if(time % 3 == 0) {
+					Location normal = ent.getLocation();
+					
+					double var = 0;
+					
+					for(int i = 0 ; i < 6 ; i++) {
+						e1 = normal.clone().add(Math.cos(var)*0.8, 0.4, Math.sin(var)*0.8);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*0.8, 0.9, Math.sin(var)*0.8);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*0.8, 1.4, Math.sin(var)*0.8);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						
+						var += Math.PI / 3;
+					}
+				}
+
+				if(time >= 60) {
+					new PairingMob().removeMapFromValue(ent);
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void mobS101() {
+		
+		Location normal = ent.getLocation();
+		World world = ent.getWorld(); 
+        
+		new BukkitRunnable() {
+			int time = 0;
+			
+		    Location e1;
+
+			@Override
+			public void run() {
+				
+				if(time % 2 == 0) {
+					double var = 0;
+					
+					for(int i = 0 ; i < 16 ; i++) {
+						e1 = normal.clone().add(Math.cos(var)*1.2, 0.2, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						
+						var += Math.PI / 8;
+					}
+				}
+
+				if(time >= 30) {
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void mobS102() {
+		
+		Location normal = ent.getLocation();
+		World world = ent.getWorld(); 
+        
+		new BukkitRunnable() {
+			int time = 0;
+			
+		    Location e1;
+
+			@Override
+			public void run() {
+				
+				if(time == 2) {
+					double var = 0;
+					
+					for(int i = 0 ; i < 5 ; i++) {
+						e1 = normal.clone().add(Math.cos(var)*1.2, 0.3, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 0.7, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 1.1, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 1.5, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 1.9, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						
+						var += Math.PI / 2.5;
+					}
+				}
+				
+				if(time == 4) {
+					double var = 0;
+					
+					for(int i = 0 ; i < 5 ; i++) {
+						e1 = normal.clone().add(Math.cos(var)*1.2, 0.3, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 0.7, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 1.1, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 1.5, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 1.9, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 2.3, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 2.7, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 3.1, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 3.5, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 3.9, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						
+						var += Math.PI / 2.5;
+					}
+				}
+				
+				if(time == 6) {
+					double var = 0;
+					
+					for(int i = 0 ; i < 5 ; i++) {
+						e1 = normal.clone().add(Math.cos(var)*1.2, 0.3, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 0.7, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 1.1, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 1.5, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 1.9, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 2.3, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 2.7, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 3.1, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 3.5, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 3.9, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 4.3, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 4.7, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 5.1, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 5.5, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						e1 = normal.clone().add(Math.cos(var)*1.2, 5.9, Math.sin(var)*1.2);
+						world.spawnParticle(Particle.CRIT_MAGIC, e1, 0);
+						
+						var += Math.PI / 2.5;
+					}
+					
+					this.cancel();
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	
 	//===========================================================================
 	
 	public void summonEffect(Player player, double dist, int y, int sF, int eF, int speed) {

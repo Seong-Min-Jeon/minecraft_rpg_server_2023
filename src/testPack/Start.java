@@ -157,9 +157,9 @@ public class Start {
 		} else if(name.equals("하바네로파 조직원의 인격")) {
 			player.setMaxHealth(18);
 		} else if(name.equals("엄지 솔다토의 인격")) {
-			player.setMaxHealth(20);
+			player.setMaxHealth(26);
 		} else if(name.equals("검지 수행자의 인격")) {
-			player.setMaxHealth(18);
+			player.setMaxHealth(24);
 		}
 		
 		player.setHealth(player.getMaxHealth());
@@ -776,6 +776,23 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weapon.setItemMeta(weaponIm);
+		} else if(name.equals("녹슨 사슬파 조직원의 인격")) {
+			weapon = new ItemStack(Material.MUSIC_DISC_CAT);
+			ItemMeta weaponIm = weapon.getItemMeta();
+			weaponIm.setDisplayName(ChatColor.BOLD + "죽음과 부패");
+			ArrayList<String> weaponLore = new ArrayList<>();
+			weaponLore.add(ChatColor.GRAY + "차디찬 어둠의 지배자가 사용했다는 컨셉의 지팡이");
+			weaponLore.add(ChatColor.GRAY + "지팡이 자체는 그저 잘만들어진 모형이다.");
+			weaponLore.add(ChatColor.GRAY + "녹슨 사슬파에서 이 지팡이를 왜 신성시하는지는");
+			weaponLore.add(ChatColor.GRAY + "아무도 알지 못할 것이다.");
+			weaponIm.setLore(weaponLore);
+			weaponIm.setUnbreakable(true);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			weaponIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			weaponIm.addItemFlags(ItemFlag.HIDE_DYE);
+			weaponIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
 			weapon.setItemMeta(weaponIm);
 		}
 		
