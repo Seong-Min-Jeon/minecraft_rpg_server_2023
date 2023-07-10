@@ -53,6 +53,12 @@ public class Cmd34teleport implements CommandExecutor {
 					return false;
 				}
 				
+				//결투장은 불가
+				if(player.getFlySpeed() == 0.05f) {
+					player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "[경고] #@!$*(!%!");
+					return false;
+				}
+				
 				try { 
 					boolean num = false;
 					int arg0 = 0;

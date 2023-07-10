@@ -72,15 +72,20 @@ public class Skill {
 				String name = player.getInventory().getItem(7).getItemMeta().getLocalizedName();
 				world = player.getWorld();
 				
+				int delay = 1;
+				if(player.getFlySpeed() == 0.05f) {
+					delay = 2;
+				}
+				
 				if(name.equals("평범한 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 500);
+						bool = reload(player, 500*delay);
 						if (bool) {
 							sendPacket(player, "가벼운 공격");
 							skill1(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 2000);
+						bool = reload2(player, 2000*delay);
 						if (bool) {
 							sendPacket(player, "가벼운 방어");
 							skill2(player);
@@ -88,13 +93,13 @@ public class Skill {
 					}
 				} else if(name.equals("윤 사무소 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 800);
+						bool = reload(player, 800*delay);
 						if (bool) {
 							sendPacket(player, "회피 공격");
 							skill3(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 1500);
+						bool = reload2(player, 1500*delay);
 						if (bool) {
 							sendPacket(player, "재빠름");
 							skill4(player);
@@ -102,13 +107,13 @@ public class Skill {
 					}
 				} else if(name.equals("갈고리 사무소 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 800);
+						bool = reload(player, 800*delay);
 						if (bool) {
 							sendPacket(player, "압도");
 							skill5(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 5000);
+						bool = reload2(player, 5000*delay);
 						if (bool) {
 							sendPacket(player, "받아내보시지");
 							skill6(player);
@@ -116,13 +121,13 @@ public class Skill {
 					}
 				} else if(name.equals("가로등 사무소 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1000);
+						bool = reload(player, 1000*delay);
 						if (bool) {
 							sendPacket(player, "쳐내기");
 							skill7(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 6000);
+						bool = reload2(player, 6000*delay);
 						if (bool) {
 							sendPacket(player, "연속 방어");
 							skill8(player);
@@ -130,13 +135,13 @@ public class Skill {
 					}
 				} else if(name.equals("어금니 사무소 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 600);
+						bool = reload(player, 600*delay);
 						if (bool) {
 							sendPacket(player, "도박수");
 							skill9(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 20000);
+						bool = reload2(player, 20000*delay);
 						if (bool) {
 							sendPacket(player, "신속보법");
 							skill10(player);
@@ -144,13 +149,13 @@ public class Skill {
 					}
 				} else if(name.equals("마침표 사무소 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1000);
+						bool = reload(player, 1000*delay);
 						if (bool) {
 							sendPacket(player, "발사");
 							skill11(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 2000);
+						bool = reload2(player, 2000*delay);
 						if (bool) {
 							sendPacket(player, "무차별 사격");
 							skill12(player);
@@ -158,13 +163,13 @@ public class Skill {
 					}
 				} else if(name.equals("새벽 사무소 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 800);
+						bool = reload(player, 800*delay);
 						if (bool) {
 							sendPacket(player, "노을빛 검");
 							skill13(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 20000);
+						bool = reload2(player, 20000*delay);
 						if (bool) {
 							sendPacket(player, "쌍화차 보충");
 							skill14(player);
@@ -172,13 +177,13 @@ public class Skill {
 					}
 				} else if(name.equals("쐐기 사무소 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1000);
+						bool = reload(player, 1000*delay);
 						if (bool) {
 							sendPacket(player, "쾌속 찌르기");
 							skill15(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 5000);
+						bool = reload2(player, 5000*delay);
 						if (bool) {
 							sendPacket(player, "섬광의 창");
 							skill16(player);
@@ -186,13 +191,13 @@ public class Skill {
 					}
 				} else if(name.equals("시선 사무소 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 800);
+						bool = reload(player, 800*delay);
 						if (bool) {
 							sendPacket(player, "전기 충격");
 							skill17(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 1600);
+						bool = reload2(player, 1600*delay);
 						if (bool) {
 							sendPacket(player, "피할 수 없는 시선");
 							skill18(player);
@@ -200,13 +205,13 @@ public class Skill {
 					}
 				} else if(name.equals("쥐의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1000);
+						bool = reload(player, 1000*delay);
 						if (bool) {
 							sendPacket(player, "쥐의 생존법");
 							skill19(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 1000);
+						bool = reload2(player, 1000*delay);
 						if (bool) {
 							sendPacket(player, "내장담기");
 							skill20(player);
@@ -214,13 +219,13 @@ public class Skill {
 					}
 				} else if(name.equals("철의 형제의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 900);
+						bool = reload(player, 900*delay);
 						if (bool) {
 							sendPacket(player, "저절단");
 							skill21(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 2000);
+						bool = reload2(player, 2000*delay);
 						if (bool) {
 							sendPacket(player, "이인생 한방");
 							skill22(player);
@@ -228,13 +233,13 @@ public class Skill {
 					}
 				} else if(name.equals("버림받은 개의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1500);
+						bool = reload(player, 1500*delay);
 						if (bool) {
 							sendPacket(player, "충격 강타");
 							skill23(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 2700);
+						bool = reload2(player, 2700*delay);
 						if (bool) {
 							sendPacket(player, "됐고!");
 							skill24(player);
@@ -242,13 +247,13 @@ public class Skill {
 					}
 				} else if(name.equals("꿀꿀이네 조직원의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 800);
+						bool = reload(player, 800*delay);
 						if (bool) {
 							sendPacket(player, "재료 사냥");
 							skill25(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 10000 - personality*400);
+						bool = reload2(player, (10000 - personality*400)*delay);
 						if (bool) {
 							sendPacket(player, "요리 준비");
 							skill26(player);
@@ -256,13 +261,13 @@ public class Skill {
 					}
 				} else if(name.equals("도끼파 조직원의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1000);
+						bool = reload(player, 1000*delay);
 						if (bool) {
 							sendPacket(player, "으깨기");
 							skill27(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 5000);
+						bool = reload2(player, 5000*delay);
 						if (bool) {
 							sendPacket(player, "땅 흔들기");
 							skill28(player);
@@ -270,13 +275,13 @@ public class Skill {
 					}
 				} else if(name.equals("정육점파 조직원의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1100);
+						bool = reload(player, 1100*delay);
 						if (bool) {
 							sendPacket(player, "잔혹함");
 							skill29(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 3000);
+						bool = reload2(player, 3000*delay);
 						if (bool) {
 							sendPacket(player, "무엇이든 도축할 수 있지");
 							skill30(player);
@@ -284,13 +289,13 @@ public class Skill {
 					}
 				} else if(name.equals("윤의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 800);
+						bool = reload(player, 800*delay);
 						if (bool) {
 							sendPacket(player, "느려");
 							skill31(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 10000 - personality*400);
+						bool = reload2(player, (10000 - personality*400)*delay);
 						if (bool) {
 							sendPacket(player, "진두지휘");
 							skill32(player);
@@ -298,13 +303,13 @@ public class Skill {
 					}
 				} else if(name.equals("맥컬린의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1000);
+						bool = reload(player, 1000*delay);
 						if (bool) {
 							sendPacket(player, "광란");
 							skill33(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 300000 - personality*20000);
+						bool = reload2(player, (300000 - personality*20000)*delay);
 						if (bool) {
 							sendPacket(player, "추적");
 							skill34(player);
@@ -312,13 +317,13 @@ public class Skill {
 					}
 				} else if(name.equals("산의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 400);
+						bool = reload(player, 400*delay);
 						if (bool) {
 							sendPacket(player, "속공");
 							skill35(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 1000000 - personality*50000);
+						bool = reload2(player, (1000000 - personality*50000)*delay);
 						if (bool) {
 							sendPacket(player, "업무처리");
 							skill36(player);
@@ -326,13 +331,13 @@ public class Skill {
 					}
 				} else if(name.equals("태인의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 5500);
+						bool = reload(player, 5500*delay);
 						if (bool) {
 							sendPacket(player, "받아내보시지");
 							skill37(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 3000 - personality*150);
+						bool = reload2(player, (3000 - personality*150)*delay);
 						if (bool) {
 							sendPacket(player, "먼저간다");
 							skill38(player);
@@ -340,13 +345,13 @@ public class Skill {
 					}
 				} else if(name.equals("레인의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 800);
+						bool = reload(player, 800*delay);
 						if (bool) {
 							sendPacket(player, "도박수");
 							skill39(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 10000 - personality*200);
+						bool = reload2(player, (10000 - personality*200)*delay);
 						if (bool) {
 							sendPacket(player, "침착하게");
 							skill40(player);
@@ -354,13 +359,13 @@ public class Skill {
 					}
 				} else if(name.equals("올가의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1500);
+						bool = reload(player, 1500*delay);
 						if (bool) {
 							sendPacket(player, "맹습");
 							skill41(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 10000);
+						bool = reload2(player, 10000*delay);
 						if (bool) {
 							sendPacket(player, "과감한 판단");
 							skill42(player);
@@ -368,13 +373,13 @@ public class Skill {
 					}
 				} else if(name.equals("츠바이 협회 6과 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1000);
+						bool = reload(player, 1000*delay);
 						if (bool) {
 							sendPacket(player, "견제");
 							skill43(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 500000 - personality*20000);
+						bool = reload2(player, (500000 - personality*20000)*delay);
 						if (bool) {
 							sendPacket(player, "치안수호");
 							skill44(player);
@@ -382,13 +387,13 @@ public class Skill {
 					}
 				} else if(name.equals("츠바이 협회 5과 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1200);
+						bool = reload(player, 1200*delay);
 						if (bool) {
 							sendPacket(player, "맞서기");
 							skill45(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 500000 - personality*20000);
+						bool = reload2(player, (500000 - personality*20000)*delay);
 						if (bool) {
 							sendPacket(player, "치안수호");
 							skill46(player);
@@ -396,13 +401,13 @@ public class Skill {
 					}
 				} else if(name.equals("시 협회 5과 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1300);
+						bool = reload(player, 1300*delay);
 						if (bool) {
 							sendPacket(player, "비검");
 							skill47(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 400000 - personality*20000);
+						bool = reload2(player, (400000 - personality*20000)*delay);
 						if (bool) {
 							sendPacket(player, "그런데 그때 시협회가 나타났다");
 							skill48(player);
@@ -410,13 +415,13 @@ public class Skill {
 					}
 				} else if(name.equals("리우 협회 5과 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1500);
+						bool = reload(player, 1500*delay);
 						if (bool) {
 							sendPacket(player, "몰아치기");
 							skill49(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 8000);
+						bool = reload2(player, 8000*delay);
 						if (bool) {
 							sendPacket(player, "정면돌파");
 							skill50(player);
@@ -424,13 +429,13 @@ public class Skill {
 					}
 				} else if(name.equals("세븐 협회 5과 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 800);
+						bool = reload(player, 800*delay);
 						if (bool) {
 							sendPacket(player, "예측 분석");
 							skill51(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 800);
+						bool = reload2(player, 800*delay);
 						if (bool) {
 							sendPacket(player, "빈틈 간파");
 							skill52(player);
@@ -438,13 +443,13 @@ public class Skill {
 					}
 				} else if(name.equals("스테판의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1000);
+						bool = reload(player, 1000*delay);
 						if (bool) {
 							sendPacket(player, "근접전은 싫어");
 							skill53(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 4000);
+						bool = reload2(player, 4000*delay);
 						if (bool) {
 							sendPacket(player, "한 점만 노리겠어");
 							skill54(player);
@@ -452,13 +457,13 @@ public class Skill {
 					}
 				} else if(name.equals("유나의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 700);
+						bool = reload(player, 700*delay);
 						if (bool) {
 							sendPacket(player, "나비 베기");
 							skill55(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 1500);
+						bool = reload2(player, 1500*delay);
 						if (bool) {
 							sendPacket(player, "사출");
 							skill56(player);
@@ -466,13 +471,13 @@ public class Skill {
 					}
 				} else if(name.equals("파멜리의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 2000);
+						bool = reload(player, 2000*delay);
 						if (bool) {
 							sendPacket(player, "창 휩쓸기");
 							skill57(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 5000);
+						bool = reload2(player, 5000*delay);
 						if (bool) {
 							sendPacket(player, "섬광의 창");
 							skill58(player);
@@ -480,13 +485,13 @@ public class Skill {
 					}
 				} else if(name.equals("달록의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1500);
+						bool = reload(player, 1500*delay);
 						if (bool) {
 							sendPacket(player, "파지지직");
 							skill59(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 30000 - personality*2000);
+						bool = reload2(player, (30000 - personality*2000)*delay);
 						if (bool) {
 							sendPacket(player, "관측");
 							skill60(player);
@@ -494,13 +499,13 @@ public class Skill {
 					}
 				} else if(name.equals("츠바이 협회 3과 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1000);
+						bool = reload(player, 1000*delay);
 						if (bool) {
 							sendPacket(player, "제압");
 							skill61(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 30000 - personality*1000);
+						bool = reload2(player, (30000 - personality*1000)*delay);
 						if (bool) {
 							sendPacket(player, "수호자");
 							skill62(player);
@@ -508,13 +513,13 @@ public class Skill {
 					}
 				} else if(name.equals("시 협회 3과 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1200);
+						bool = reload(player, 1200*delay);
 						if (bool) {
 							sendPacket(player, "극검");
 							skill63(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 20000 - personality*1000);
+						bool = reload2(player, (20000 - personality*1000)*delay);
 						if (bool) {
 							sendPacket(player, "과호흡/탈진");
 							skill64(player);
@@ -522,13 +527,13 @@ public class Skill {
 					}
 				} else if(name.equals("리우 협회 3과 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1200);
+						bool = reload(player, 1200*delay);
 						if (bool) {
 							sendPacket(player, "올려차기");
 							skill65(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 10000 - personality*500);
+						bool = reload2(player, (10000 - personality*500)*delay);
 						if (bool) {
 							sendPacket(player, "전면전");
 							skill66(player);
@@ -536,13 +541,13 @@ public class Skill {
 					}
 				} else if(name.equals("세븐 협회 3과 해결사의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 650);
+						bool = reload(player, 650*delay);
 						if (bool) {
 							sendPacket(player, "세븐 협회 스킬 1번");
 							skill67(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 10000);
+						bool = reload2(player, 10000*delay);
 						if (bool) {
 							sendPacket(player, "리포스트");
 							skill68(player);
@@ -550,13 +555,13 @@ public class Skill {
 					}
 				} else if(name.equals("W사 정리요원의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 900);
+						bool = reload(player, 900*delay);
 						if (bool) {
 							sendPacket(player, "에너지 순환");
 							skill69(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 5000);
+						bool = reload2(player, 5000*delay);
 						if (bool) {
 							sendPacket(player, "W사 스킬 2번");
 							skill70(player);
@@ -564,13 +569,13 @@ public class Skill {
 					}
 				} else if(name.equals("K사 적출직 직원의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 1200);
+						bool = reload(player, 1200*delay);
 						if (bool) {
 							sendPacket(player, "침입자 차단");
 							skill71(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 2000);
+						bool = reload2(player, 2000*delay);
 						if (bool) {
 							sendPacket(player, "대상 적출");
 							skill72(player);
@@ -578,13 +583,13 @@ public class Skill {
 					}
 				} else if(name.equals("녹슨 사슬파 조직원의 인격")) {
 					if(rot.equals("L")) {
-						bool = reload(player, 3000);
+						bool = reload(player, 3000*delay);
 						if (bool) {
 							sendPacket(player, "사슬 맛 좀 볼래?");
 							skill73(player);
 						}
 					} else if(rot.equals("R")) {
-						bool = reload2(player, 5000);
+						bool = reload2(player, 5000*delay);
 						if (bool) {
 							sendPacket(player, "지금이 기회야");
 							skill74(player);

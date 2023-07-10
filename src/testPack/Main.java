@@ -380,11 +380,27 @@ public class Main extends JavaPlugin implements Listener{
 			
 			player.getInventory().setItem(12, scroll); //예술
 			
+			ItemStack battle = new ItemStack(Material.MAGMA_CREAM);
+			ItemMeta battleIm = battle.getItemMeta();
+			battleIm.setDisplayName(ChatColor.RED + "GAME START");
+			ArrayList<String> battleLore = new ArrayList<>();
+			battleLore.add(ChatColor.GRAY + "선택한 인격으로 시작합니다.");
+			battleLore.add(ChatColor.GRAY + "결투장으로 이동합니다.");
+			battleIm.setLore(battleLore);
+			battleIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			battleIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			battleIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			battleIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+			battleIm.setUnbreakable(true);
+			battle.setItemMeta(battleIm);	
+			player.getInventory().setItem(7, battle); //결투장버튼
+			
 			ItemStack start = new ItemStack(Material.SLIME_BALL);
 			ItemMeta startIm = start.getItemMeta();
 			startIm.setDisplayName(ChatColor.GREEN + "GAME START");
 			ArrayList<String> startLore = new ArrayList<>();
 			startLore.add(ChatColor.GRAY + "선택한 인격으로 시작합니다.");
+			startLore.add(ChatColor.GRAY + "도시의 뒷골목으로 이동합니다.");
 			startIm.setLore(startLore);
 			startIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 			startIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
@@ -942,7 +958,11 @@ public class Main extends JavaPlugin implements Listener{
 			if(player.getLocation().getX() > 500) {
 				player.teleport(new Location(world, -1145, 81, 1341));
 			} else {
-				new BGM(player, "메인"); //메인 브금 재생
+				if(player.getFlySpeed() == 0.1f) {
+					new BGM(player, "메인"); //메인 브금 재생
+				} else if(player.getFlySpeed() == 0.05f) {
+					new BGM(player, "결투장"); //결투장 브금 재생
+				}
 			}
 			
 		}
@@ -958,6 +978,7 @@ public class Main extends JavaPlugin implements Listener{
 			
 			player.setLevel(0); //그냥 초기화
 			player.setMaxHealth(20); //최대체력 디폴트로
+			player.setFlySpeed(0.1f); //결투장 아니도록 디폴트로
 			
 			player.getEnderChest().remove(Material.PAPER); //초대장 삭제
 			
@@ -1038,6 +1059,51 @@ public class Main extends JavaPlugin implements Listener{
 			ItemStack che = player.getInventory().getChestplate();
 			ItemStack leg = player.getInventory().getLeggings();
 			ItemStack bo = player.getInventory().getBoots();
+			
+			try {
+				String name = hel.getItemMeta().getDisplayName();
+				if(name.subSequence(name.length()-6, name.length()).equals(" (적용X)")) {
+					ItemMeta im = hel.getItemMeta();
+					im.setDisplayName(name.substring(0, name.length()-6));
+					hel.setItemMeta(im);
+				}
+			} catch(Exception e) {
+				
+			}
+			
+			try {
+				String name = che.getItemMeta().getDisplayName();
+				if(name.subSequence(name.length()-6, name.length()).equals(" (적용X)")) {
+					ItemMeta im = che.getItemMeta();
+					im.setDisplayName(name.substring(0, name.length()-6));
+					che.setItemMeta(im);
+				}
+			} catch(Exception e) {
+				
+			}
+			
+			try {
+				String name = leg.getItemMeta().getDisplayName();
+				if(name.subSequence(name.length()-6, name.length()).equals(" (적용X)")) {
+					ItemMeta im = leg.getItemMeta();
+					im.setDisplayName(name.substring(0, name.length()-6));
+					leg.setItemMeta(im);
+				}
+			} catch(Exception e) {
+				
+			}
+			
+			try {
+				String name = bo.getItemMeta().getDisplayName();
+				if(name.subSequence(name.length()-6, name.length()).equals(" (적용X)")) {
+					ItemMeta im = bo.getItemMeta();
+					im.setDisplayName(name.substring(0, name.length()-6));
+					bo.setItemMeta(im);
+				}
+			} catch(Exception e) {
+				
+			}
+			
 			player.getInventory().clear(); //인벤 초기화
 			player.getInventory().setHelmet(hel);
 			player.getInventory().setChestplate(che);
@@ -1073,6 +1139,21 @@ public class Main extends JavaPlugin implements Listener{
 			scroll.setItemMeta(scrollIm);
 			
 			player.getInventory().setItem(12, scroll); //예술
+			
+			ItemStack battle = new ItemStack(Material.MAGMA_CREAM);
+			ItemMeta battleIm = battle.getItemMeta();
+			battleIm.setDisplayName(ChatColor.RED + "GAME START");
+			ArrayList<String> battleLore = new ArrayList<>();
+			battleLore.add(ChatColor.GRAY + "선택한 인격으로 시작합니다.");
+			battleLore.add(ChatColor.GRAY + "결투장으로 이동합니다.");
+			battleIm.setLore(battleLore);
+			battleIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+			battleIm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+			battleIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			battleIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+			battleIm.setUnbreakable(true);
+			battle.setItemMeta(battleIm);	
+			player.getInventory().setItem(7, battle); //결투장버튼
 			
 			ItemStack start = new ItemStack(Material.SLIME_BALL);
 			ItemMeta startIm = start.getItemMeta();
@@ -1270,6 +1351,10 @@ public class Main extends JavaPlugin implements Listener{
 				if(ent != null) {
 					name = ((Player) ent).getDisplayName();
 					event.setDeathMessage(ChatColor.RED + "" + playerName + "이 " + name + "에 의해 살해당했습니다.");
+					
+					if(player.getFlySpeed() == 0.05f) {
+						event.setDeathMessage(ChatColor.RED + "" + playerName + "이 " + name + "에게 패배하였습니다.");
+					}
 				}
 			} else {
 				event.setDeathMessage(ChatColor.RED + "" + playerName + "이 알 수 없는 이유로 사망했습니다.");
@@ -4177,11 +4262,17 @@ public class Main extends JavaPlugin implements Listener{
 							|| (type == Material.MOJANG_BANNER_PATTERN) || (type == Material.PIGLIN_BANNER_PATTERN) || (type == Material.SKULL_BANNER_PATTERN)
 							|| (type == Material.MAP)) {
 						new ScrollUseEvent(player, item, getDataFolder());
-					} else if(type == Material.SLIME_BALL) {
+					} else if(type == Material.SLIME_BALL || type == Material.MAGMA_CREAM) {
 						if(item.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "GAME START")) {
 							if(player.getInventory().getItem(0) != null) {
-			        			if(player.getInventory().getItem(0).getItemMeta() != null) {
-			        				new Start(player, getDataFolder());
+			        			if(player.getInventory().getItem(0).getItemMeta() != null && player.getInventory().getItem(0).getType() == Material.NETHER_STAR) {
+			        				new Start(player, getDataFolder(), false);
+				        		}
+			        		}
+						} else if(item.getItemMeta().getDisplayName().equals(ChatColor.RED + "GAME START")) {
+							if(player.getInventory().getItem(0) != null) {
+			        			if(player.getInventory().getItem(0).getItemMeta() != null && player.getInventory().getItem(0).getType() == Material.NETHER_STAR) {
+			        				new Start(player, getDataFolder(), true);
 				        		}
 			        		}
 						}
@@ -7069,11 +7160,17 @@ public class Main extends JavaPlugin implements Listener{
 		            event.setCancelled(true);
 		            return;
 		        }  
-		        if(clicked != null && clicked.getType() == Material.SLIME_BALL) {
+		        if(clicked != null && (clicked.getType() == Material.SLIME_BALL || clicked.getType() == Material.MAGMA_CREAM)) {
 		        	if(clicked.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "GAME START")) {
 		        		if(player.getInventory().getItem(0) != null) {
-		        			if(player.getInventory().getItem(0).getItemMeta() != null) {
-		        				new Start(player, getDataFolder());
+		        			if(player.getInventory().getItem(0).getItemMeta() != null && player.getInventory().getItem(0).getType() == Material.NETHER_STAR) {
+		        				new Start(player, getDataFolder(), false);
+			        		}
+		        		}
+		        	} else if(clicked.getItemMeta().getDisplayName().equals(ChatColor.RED + "GAME START")) {
+		        		if(player.getInventory().getItem(0) != null) {
+		        			if(player.getInventory().getItem(0).getItemMeta() != null && player.getInventory().getItem(0).getType() == Material.NETHER_STAR) {
+		        				new Start(player, getDataFolder(), true);
 			        		}
 		        		}
 		        	}

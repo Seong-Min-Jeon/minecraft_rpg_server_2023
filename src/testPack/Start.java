@@ -28,7 +28,7 @@ public class Start {
 	private int sleep = 0;
 	Random rnd = new Random();
 	
-	public Start(Player player, File folder) {
+	public Start(Player player, File folder, boolean battle) {
 		
 		try {
 			File dataFolder = folder;
@@ -58,18 +58,92 @@ public class Start {
 			
 		}
 		
+		//입장 메세지
+		if(battle == true) {
+			for(Player p : Bukkit.getOnlinePlayers()) {
+				p.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "[System] " + player.getDisplayName() + "님이 결투장에 입장하였습니다.");
+			}
+		}
+		
 		//인벤 관리
-		ItemStack item = player.getInventory().getItem(0);
-		ItemStack hel = player.getInventory().getHelmet();
-		ItemStack che = player.getInventory().getChestplate();
-		ItemStack leg = player.getInventory().getLeggings();
-		ItemStack bo = player.getInventory().getBoots();
-		player.getInventory().clear();
-		player.getInventory().setHelmet(hel);
-		player.getInventory().setChestplate(che);
-		player.getInventory().setLeggings(leg);
-		player.getInventory().setBoots(bo);
-		player.getInventory().setItem(7, item); //인격 7번칸에 두기
+		if(battle == false) { //일반 게임
+			ItemStack item = player.getInventory().getItem(0);
+			ItemStack hel = player.getInventory().getHelmet();
+			ItemStack che = player.getInventory().getChestplate();
+			ItemStack leg = player.getInventory().getLeggings();
+			ItemStack bo = player.getInventory().getBoots();
+			player.getInventory().clear();
+			player.getInventory().setHelmet(hel);
+			player.getInventory().setChestplate(che);
+			player.getInventory().setLeggings(leg);
+			player.getInventory().setBoots(bo);
+			player.getInventory().setItem(7, item); //인격 7번칸에 두기
+		} else { //결투장
+			ItemStack item = player.getInventory().getItem(0);
+			ItemStack hel = player.getInventory().getHelmet();
+			ItemStack che = player.getInventory().getChestplate();
+			ItemStack leg = player.getInventory().getLeggings();
+			ItemStack bo = player.getInventory().getBoots();
+			
+			try {
+				String name = item.getItemMeta().getDisplayName();
+				Integer.parseInt(name.substring(name.length()-1, name.length()));
+				name = name.substring(0, name.length()-3);
+				ItemMeta im = item.getItemMeta();
+				im.setDisplayName(name);
+				item.setItemMeta(im);
+			} catch(Exception e) {
+				
+			}
+			
+			try {
+				String name = hel.getItemMeta().getDisplayName();
+				name = name + " (적용X)";
+				ItemMeta im = hel.getItemMeta();
+				im.setDisplayName(name);
+				hel.setItemMeta(im);
+			} catch(Exception e) {
+				
+			}
+			
+			try {
+				String name = che.getItemMeta().getDisplayName();
+				name = name + " (적용X)";
+				ItemMeta im = che.getItemMeta();
+				im.setDisplayName(name);
+				che.setItemMeta(im);
+			} catch(Exception e) {
+				
+			}
+			
+			try {
+				String name = leg.getItemMeta().getDisplayName();
+				name = name + " (적용X)";
+				ItemMeta im = leg.getItemMeta();
+				im.setDisplayName(name);
+				leg.setItemMeta(im);
+			} catch(Exception e) {
+				
+			}
+			
+			try {
+				String name = bo.getItemMeta().getDisplayName();
+				name = name + " (적용X)";
+				ItemMeta im = bo.getItemMeta();
+				im.setDisplayName(name);
+				bo.setItemMeta(im);
+			} catch(Exception e) {
+				
+			}
+			
+			player.getInventory().clear();
+			player.getInventory().setHelmet(hel);
+			player.getInventory().setChestplate(che);
+			player.getInventory().setLeggings(leg);
+			player.getInventory().setBoots(bo);
+			player.getInventory().setItem(7, item); //인격 7번칸에 두기
+		}
+		
 		player.setLevel(0);
 		
 		//최대체력 설정
@@ -183,44 +257,62 @@ public class Start {
 		//======================================
 		//이동
 		
-		new BGM(player, "메인");
-		
-		int num = rnd.nextInt(5);
-		if(num == 0) {
-			player.teleport(new Location(player.getWorld(),-1143,62,1138));
-		} else if(num == 1) {
-			player.teleport(new Location(player.getWorld(),-1218,62,1280));
-		} else if(num == 2) {
-			player.teleport(new Location(player.getWorld(),-1256,62,1386));
-		} else if(num == 3) {
-			player.teleport(new Location(player.getWorld(),-1052,62,1114));
-		} else if(num == 4) {
-			player.teleport(new Location(player.getWorld(),-995,62,1275));
-		}
-		
-		TTA_Methods.sendTitle(player, null, 20, 40, 20, "정신을 차려보니 어딘가의 뒷골목이다..", 20, 40, 20);
-		
-		ThreadActionBar t = new ThreadActionBar(player.getUniqueId());
-		sleep = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
-			int time = 0;
-			@Override
-			public void run() {
-				if (!t.hasID()) {t.setID(sleep);}
+		if(battle == false) {
+			new BGM(player, "메인");
 			
-				if(time>=60) {
-					TTA_Methods.sendTitle(player, null, 20, 40, 20, "가방안에 무언가가 들어있는 것 같다.", 20, 40, 20);
-					t.endTask(); 
-					t.removeID();
-				} 
-				time++;
-			}						
-		}, 0, 1);
-		
-		
-		
-		equip(player, name);
-		startReception(player);
-		
+			int num = rnd.nextInt(5);
+			if(num == 0) {
+				player.teleport(new Location(player.getWorld(),-1143,62,1138));
+			} else if(num == 1) {
+				player.teleport(new Location(player.getWorld(),-1218,62,1280));
+			} else if(num == 2) {
+				player.teleport(new Location(player.getWorld(),-1256,62,1386));
+			} else if(num == 3) {
+				player.teleport(new Location(player.getWorld(),-1052,62,1114));
+			} else if(num == 4) {
+				player.teleport(new Location(player.getWorld(),-995,62,1275));
+			}
+			
+			TTA_Methods.sendTitle(player, null, 20, 40, 20, "정신을 차려보니 어딘가의 뒷골목이다..", 20, 40, 20);
+			
+			ThreadActionBar t = new ThreadActionBar(player.getUniqueId());
+			sleep = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
+				int time = 0;
+				@Override
+				public void run() {
+					if (!t.hasID()) {t.setID(sleep);}
+				
+					if(time>=60) {
+						TTA_Methods.sendTitle(player, null, 20, 40, 20, "가방안에 무언가가 들어있는 것 같다.", 20, 40, 20);
+						t.endTask(); 
+						t.removeID();
+					} 
+					time++;
+				}						
+			}, 0, 1);
+			
+			equip(player, name);
+			startReception(player);
+		} else {
+			new BGM(player, "결투장");
+			
+			int num = rnd.nextInt(5);
+			if(num == 0) {
+				player.teleport(new Location(player.getWorld(),-1054.5,67,1290.5));
+			} else if(num == 1) {
+				player.teleport(new Location(player.getWorld(),-1054.5,67,1273.5));
+			} else if(num == 2) {
+				player.teleport(new Location(player.getWorld(),-1071.5,67,1273.5));
+			} else if(num == 3) {
+				player.teleport(new Location(player.getWorld(),-1071.5,67,1290.5));
+			} else if(num == 4) {
+				player.teleport(new Location(player.getWorld(),-1063.5,69,1283.5));
+			}
+			
+			equip(player, name);
+			
+			player.setFlySpeed(0.05f);
+		}
 		
 	}
 	
