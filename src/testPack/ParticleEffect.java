@@ -2368,6 +2368,12 @@ public class ParticleEffect {
 		player.getWorld().playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 3.0f, 0.5f);
 	}
 	
+	public void pS045() {
+		summonEffectTracking(player, 0.1, 0, 2050, 2050, 1);
+		
+		player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
+	}
+	
 	
 	
 	//===========================================================================

@@ -2719,7 +2719,7 @@ public class Skill {
 	}
 	
 	public void skill71(Player player) {
-		new ParticleEffect(player).pS001();
+		new ParticleEffect(player).pS045();
 		
 		List<Entity> entitylist = nearFrontEntities(player, 1.8, 1.0, 1, 1.0);
 		for (Entity nearEntity : entitylist) {
