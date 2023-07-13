@@ -113,6 +113,40 @@ public class BGM {
 					time++;
 				}
 			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+		} else if(b.equals("결투장")) {
+			battle.remove(player);
+			
+			for(int i = 0 ; i < bgm.size() ; i++) {
+				player.stopSound(bgm.get(i), SoundCategory.RECORDS);
+				player.stopSound(SoundCategory.RECORDS);
+			}
+			
+			if(now.containsKey(player)) {now.remove(player);}
+			now.put(player, "결투장");
+			
+			new BukkitRunnable() {
+				int time = 0;
+
+			    @Override
+				public void run() {
+			    	
+			    	if(time == 3620) {
+			    		time = 0;
+			    	}
+			    	
+			    	if(time == 0) {
+			    		player.playSound(player.getLocation(), "bgm.arena", SoundCategory.RECORDS, 1.0f, 1.0f);
+			    	}
+			    	
+			    	if(time % 200 == 0) {
+			    		if(!now.get(player).equals("결투장")) {
+			    			this.cancel();
+			    		}
+			    	}
+			    	
+					time++;
+				}
+			}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 		} else if(b.equals("전투")) {
 			if(!battle.containsKey(player)) {
 				for(int i = 0 ; i < bgm.size() ; i++) {

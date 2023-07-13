@@ -958,7 +958,7 @@ public class Main extends JavaPlugin implements Listener{
 			if(player.getLocation().getX() > 500) {
 				player.teleport(new Location(world, -1145, 81, 1341));
 			} else {
-				if(player.getFlySpeed() == 0.1f) {
+				if(player.getFlySpeed() >= 0.1f) {
 					new BGM(player, "메인"); //메인 브금 재생
 				} else if(player.getFlySpeed() == 0.05f) {
 					new BGM(player, "결투장"); //결투장 브금 재생
@@ -3067,6 +3067,18 @@ public class Main extends JavaPlugin implements Listener{
 	
 	@EventHandler
 	public void spawnEntity(CreatureSpawnEvent event) {
+		try {
+			Location loc = event.getLocation();
+			if (loc.getX() <= -1044 && loc.getY() <= 83 && loc.getZ() <= 1301 && 
+					loc.getX() >= -1080 && loc.getY() >= 65 && loc.getZ() >= 1265) {
+				if(event.getEntity() instanceof Skeleton || event.getEntity() instanceof IronGolem) {
+					event.setCancelled(true);
+				}
+			}
+		} catch(Exception e) {
+			
+		}
+		
 		try {
 			Entity entity = event.getEntity();
 			if(entity instanceof Drowned) {

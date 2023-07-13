@@ -214,7 +214,7 @@ public class RefreshServer {
 					}
 					
 					for(Player player : Bukkit.getOnlinePlayers()) {
-						if(player.getTicksLived() > 600 && new BGM().inBattle(player) && player.getFlySpeed() == 0.1f) {
+						if(player.getTicksLived() > 600 && new BGM().inBattle(player) && player.getFlySpeed() >= 0.1f) {
 							new BGM(player, "메인");
 						} else if(player.getTicksLived() > 600 && new BGM().inBattle(player) && player.getFlySpeed() == 0.05f) {
 							new BGM(player, "결투장");

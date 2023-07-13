@@ -50,7 +50,7 @@ public class SpawnMob {
 		}
 		return false;
 	}
-
+	
 	public boolean rat(LivingEntity entity, Location loc) {
 		// 뒷골목 -1309 79 1599  -884 0 1074
 		if (loc.getX() <= -884 && loc.getY() <= 79 && loc.getZ() <= 1599 && 
