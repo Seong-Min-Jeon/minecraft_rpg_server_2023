@@ -2369,7 +2369,7 @@ public class ParticleEffect {
 	}
 	
 	public void pS045() {
-		summonEffectTracking(player, 0.1, 0, 1080, 1086, 1);
+		summonDisplayTracking(player, 2, 0, 0, 1080, 1086, 1, Billboard.CENTER, 3, 3, 3);
 		
 		player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
 	}
@@ -3637,7 +3637,7 @@ public class ParticleEffect {
 		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 	}
 	
-	public void summonDisplayTracking(Player player, double dist, int y, int sF, int eF, int speed, String billboard, float scaleX, float scaleY, float scaleZ) {
+	public void summonDisplay(Player player, double angle, double dist, int y, int sF, int eF, int speed, Billboard billboard, float scaleX, float scaleY, float scaleZ) {
 		Location normal = player.getLocation();
 		Location e1;
 		
@@ -3649,8 +3649,82 @@ public class ParticleEffect {
 		e1 = normal.clone().add(dirX1*dist, y, dirZ1*dist);
 		
 		ItemDisplay id = (ItemDisplay) player.getWorld().spawnEntity(e1, EntityType.ITEM_DISPLAY);
-		id.setBillboard(Billboard.valueOf(billboard)); // center 360  vertical(top,bottom X)  horizontal(vertical 반대)
+		id.setBillboard(billboard); // center 360  vertical(top,bottom X)  horizontal(vertical 반대)
 		id.setTransformation(new Transformation(new Vector3f(0,0,0), new AxisAngle4f(0,0,0,0), new Vector3f(scaleX, scaleY, scaleZ), new AxisAngle4f(0,0,0,0)));
+		new BukkitRunnable() {
+			int time = 0;
+			int cnt = eF - sF + 1;
+			int cur = 0;
+			
+			@Override
+			public void run() {
+				if(time >= speed*cnt+speed) {
+					id.remove();
+					this.cancel();
+				}
+				
+				if(time % speed == 0) {
+					ItemStack effect = new ItemStack(Material.MUSIC_DISC_5);
+					ItemMeta effectmeta = effect.getItemMeta();
+					effectmeta.setCustomModelData(sF + cur);
+					effect.setItemMeta(effectmeta);
+					id.setItemStack(effect);
+					
+					cur++;
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void summonDisplay(Entity mob, double angle, double dist, int y, int sF, int eF, int speed, Billboard billboard, float scaleX, float scaleY, float scaleZ) {
+		Location normal = mob.getLocation();
+		Location e1;
+		
+		double arrowAngle1 = 90;
+		double totalAngle1 = normal.getYaw() + arrowAngle1;
+		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
+		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
+		
+		e1 = normal.clone().add(dirX1*dist, y, dirZ1*dist);
+		
+		ItemDisplay id = (ItemDisplay) mob.getWorld().spawnEntity(e1, EntityType.ITEM_DISPLAY);
+		id.setBillboard(billboard); // center 360  vertical(top,bottom X)  horizontal(vertical 반대)
+		id.setTransformation(new Transformation(new Vector3f(0,0,0), new AxisAngle4f(0,0,0,0), new Vector3f(scaleX, scaleY, scaleZ), new AxisAngle4f(0,0,0,0)));
+		new BukkitRunnable() {
+			int time = 0;
+			int cnt = eF - sF + 1;
+			int cur = 0;
+			
+			@Override
+			public void run() {
+				if(time >= speed*cnt+speed) {
+					id.remove();
+					this.cancel();
+				}
+				
+				if(time % speed == 0) {
+					ItemStack effect = new ItemStack(Material.MUSIC_DISC_5);
+					ItemMeta effectmeta = effect.getItemMeta();
+					effectmeta.setCustomModelData(sF + cur);
+					effect.setItemMeta(effectmeta);
+					id.setItemStack(effect);
+					
+					cur++;
+				}
+				
+				time++;
+			}
+		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
+	}
+	
+	public void summonDisplayTracking(Player player, float front, float height, float right, int sF, int eF, int speed, Billboard billboard, float scaleX, float scaleY, float scaleZ) {
+		Location normal = player.getLocation();
+		
+		ItemDisplay id = (ItemDisplay) player.getWorld().spawnEntity(normal, EntityType.ITEM_DISPLAY);
+		id.setBillboard(billboard); // center 360  vertical(top,bottom X)  horizontal(vertical 반대)
+		id.setTransformation(new Transformation(new Vector3f(right,height,-front), new AxisAngle4f(0,0,0,0), new Vector3f(scaleX, scaleY, scaleZ), new AxisAngle4f(0,0,0,0)));
 		player.addPassenger(id);
 		new BukkitRunnable() {
 			int time = 0;
@@ -3679,20 +3753,12 @@ public class ParticleEffect {
 		}.runTaskTimer(Main.getPlugin(Main.class), 0, 1);
 	}
 	
-	public void summonDisplayTracking(Entity mob, double dist, int y, int sF, int eF, int speed, String billboard, float scaleX, float scaleY, float scaleZ) {
+	public void summonDisplayTracking(Entity mob, float front, float height, float right, int sF, int eF, int speed, Billboard billboard, float scaleX, float scaleY, float scaleZ) {
 		Location normal = mob.getLocation();
-		Location e1;
 		
-		double arrowAngle1 = 90;
-		double totalAngle1 = normal.getYaw() + arrowAngle1;
-		double dirX1 = Math.cos(Math.toRadians(totalAngle1));
-		double dirZ1 = Math.sin(Math.toRadians(totalAngle1));
-		
-		e1 = normal.clone().add(dirX1*dist, y, dirZ1*dist);
-		
-		ItemDisplay id = (ItemDisplay) mob.getWorld().spawnEntity(e1, EntityType.ITEM_DISPLAY);
-		id.setBillboard(Billboard.valueOf(billboard)); // center 360  vertical(top,bottom X)  horizontal(vertical 반대)
-		id.setTransformation(new Transformation(new Vector3f(0,0,0), new AxisAngle4f(0,0,0,0), new Vector3f(scaleX, scaleY, scaleZ), new AxisAngle4f(0,0,0,0)));
+		ItemDisplay id = (ItemDisplay) mob.getWorld().spawnEntity(normal, EntityType.ITEM_DISPLAY);
+		id.setBillboard(billboard); // center 360  vertical(top,bottom X)  horizontal(vertical 반대)
+		id.setTransformation(new Transformation(new Vector3f(right,height,front), new AxisAngle4f(0,0,0,0), new Vector3f(scaleX, scaleY, scaleZ), new AxisAngle4f(0,0,0,0)));
 		mob.addPassenger(id);
 		new BukkitRunnable() {
 			int time = 0;

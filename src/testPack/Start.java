@@ -218,7 +218,7 @@ public class Start {
 			player.setMaxHealth(18);
 		} else if(name.equals("W사 정리요원의 인격")) {
 			player.setMaxHealth(20);
-		} else if(name.equals("K사 진압요원의 인격")) {
+		} else if(name.equals("K사 적출직 직원의 인격")) {
 			player.setMaxHealth(24);
 		} else if(name.equals("녹슨 사슬파 조직원의 인격")) {
 			player.setMaxHealth(18);
@@ -585,7 +585,7 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
 		} else if(name.equals("태인의 인격")) {
-			weapon = new ItemStack(Material.OAK_LEAVES);
+			weapon = new ItemStack(Material.RED_SANDSTONE);
 			ItemMeta weaponIm = weapon.getItemMeta();
 			weaponIm.setDisplayName(ChatColor.BOLD + "태인의 의수도");
 			ArrayList<String> weaponLore = new ArrayList<>();
@@ -632,14 +632,14 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
 		} else if(name.equals("츠바이 협회 6과 해결사의 인격")) {
-			weapon = new ItemStack(Material.OAK_LEAVES);
+			weapon = new ItemStack(Material.RED_SANDSTONE_SLAB);
 			ItemMeta weaponIm = weapon.getItemMeta();
-			weaponIm.setDisplayName(ChatColor.BOLD + "츠바이핸더");
+			weaponIm.setDisplayName(ChatColor.BOLD + "진압봉");
 			ArrayList<String> weaponLore = new ArrayList<>();
 			weaponLore.add(ChatColor.GRAY + "츠바이 협회 입사 기념으로 주어지는");
-			weaponLore.add(ChatColor.GRAY + "철로 만든 츠바이핸더");
-			weaponLore.add(ChatColor.GRAY + "지키기 위한 검이기 때문에 강직도를");
-			weaponLore.add(ChatColor.GRAY + "높이는데 집중되었다.");
+			weaponLore.add(ChatColor.GRAY + "긴 진압봉");
+			weaponLore.add(ChatColor.GRAY + "용의자를 때려서 무력화하는데에");
+			weaponLore.add(ChatColor.GRAY + "성능이 치중되어 있어 살상용은 아니다.");
 			weaponIm.setLore(weaponLore);
 			weaponIm.setUnbreakable(true);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -647,7 +647,7 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 			weapon.setItemMeta(weaponIm);
 		} else if(name.equals("츠바이 협회 5과 해결사의 인격")) {
-			weapon = new ItemStack(Material.OAK_LEAVES);
+			weapon = new ItemStack(Material.RED_SANDSTONE_STAIRS);
 			ItemMeta weaponIm = weapon.getItemMeta();
 			weaponIm.setDisplayName(ChatColor.BOLD + "츠바이핸더");
 			ArrayList<String> weaponLore = new ArrayList<>();
@@ -774,13 +774,14 @@ public class Start {
 			weaponIm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
 			weapon.setItemMeta(weaponIm);
 		} else if(name.equals("츠바이 협회 3과 해결사의 인격")) {
-			weapon = new ItemStack(Material.OAK_LEAVES);
+			weapon = new ItemStack(Material.RED_SANDSTONE_STAIRS);
 			ItemMeta weaponIm = weapon.getItemMeta();
-			weaponIm.setDisplayName(ChatColor.BOLD + "진압봉");
+			weaponIm.setDisplayName(ChatColor.BOLD + "츠바이핸더");
 			ArrayList<String> weaponLore = new ArrayList<>();
 			weaponLore.add(ChatColor.GRAY + "츠바이 협회 입사 기념으로 주어지는");
-			weaponLore.add(ChatColor.GRAY + "단단하고 긴 막대");
-			weaponLore.add(ChatColor.GRAY + "맞으면 많이 아플 것 같다.");
+			weaponLore.add(ChatColor.GRAY + "철로 만든 츠바이핸더");
+			weaponLore.add(ChatColor.GRAY + "지키기 위한 검이기 때문에 강직도를");
+			weaponLore.add(ChatColor.GRAY + "높이는데 집중되었다.");
 			weaponIm.setLore(weaponLore);
 			weaponIm.setUnbreakable(true);
 			weaponIm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
